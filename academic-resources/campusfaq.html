@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus FAQs &amp; Student Helpdesk — VenkySpace</title>
+    <meta name="description" content="Official student FAQs, attendance regulations, internal assessment matrices, and campus procedures - Sri Venkateswara College.">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page:        #F7FAF8;
+            --bg-card:        #FFFFFF;
+            --bg-card-subtle: #F0F5F2;
+            --text-heading:   #0C1914;
+            --text-body:      #2D3F37;
+            --text-muted:     #5E7369;
+            --border-color:   #DFE8E2;
+            --border-subtle:  rgba(12, 25, 20, 0.06);
+
+            /* Aesthetic Nordic Forest Emerald */
+            --accent:         #0D7A5F;
+            --accent-hover:   #095C47;
+            --accent-subtle:  rgba(13, 122, 95, 0.08);
+
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body:    'Inter', sans-serif;
+
+            --radius-lg: 14px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --shadow-card: 0 1px 3px rgba(12, 25, 20, 0.04), 0 4px 12px rgba(12, 25, 20, 0.03);
+            --shadow-hover: 0 4px 16px rgba(13, 122, 95, 0.14);
+        }
+
+        [data-theme="dark"] {
+            --bg-page:        #080D0B;
+            --bg-card:        #101714;
+            --bg-card-subtle: #15201C;
+            --text-heading:   #F3FAF6;
+            --text-body:      #C8D7CE;
+            --text-muted:     #7E958A;
+            --border-color:   #1D2B24;
+            --border-subtle:  rgba(255, 255, 255, 0.06);
+
+            /* Aesthetic Mint Jade */
+            --accent:         #34D399;
+            --accent-hover:   #6EE7B7;
+            --accent-subtle:  rgba(52, 211, 153, 0.12);
+
+            --shadow-card:    0 4px 20px rgba(0, 0, 0, 0.45);
+            --shadow-hover:   0 6px 24px rgba(52, 211, 153, 0.18);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Top Header Strip */
+        .vault-topbar {
+            width: 100%;
+            height: 68px;
+            background: linear-gradient(180deg, #05120E 0%, #0A1C16 100%);
+            border-bottom: 2px solid var(--accent);
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .topbar-brand {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-name span { color: var(--accent); }
+
+        .brand-sub {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        [data-theme="dark"] .brand-sub {
+            color: #6EE7B7;
+        }
+
+        /* Minimalist Pill Switch Theme Toggle */
+        .theme-switch-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 2px;
+            display: inline-flex;
+            align-items: center;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .switch-track {
+            width: 58px;
+            height: 32px;
+            background: #111E19;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 9999px;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .theme-switch-btn:hover .switch-track,
+        .theme-switch-btn:focus-visible .switch-track {
+            border-color: var(--accent);
+        }
+
+        .switch-thumb {
+            width: 24px;
+            height: 24px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111827;
+            transform: translateX(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .switch-icon {
+            width: 14px;
+            height: 14px;
+            display: block;
+            stroke-width: 2.2;
+        }
+
+        .switch-icon.moon {
+            display: none;
+        }
+
+        [data-theme="dark"] .switch-thumb {
+            transform: translateX(26px);
+            background: #FFFFFF;
+            color: #0F172A;
+        }
+
+        [data-theme="dark"] .switch-icon.sun {
+            display: none;
+        }
+
+        [data-theme="dark"] .switch-icon.moon {
+            display: block;
+        }
+
+        /* Container Layout */
+        .faq-master-container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 32px 24px 72px;
+        }
+
+        /* Top Nav Routing */
+        .faq-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .back-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .back-nav-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateX(-2px);
+        }
+
+        .faq-verified-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            letter-spacing: 0.04em;
+        }
+
+        .faq-verified-pill svg {
+            width: 13px;
+            height: 13px;
+            stroke-width: 2.2;
+        }
+
+        /* Header */
+        .vault-header {
+            margin-bottom: 28px;
+        }
+
+        .college-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .vault-header h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+            font-weight: 800;
+            color: var(--text-heading);
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        .vault-header p {
+            font-size: 0.94rem;
+            color: var(--text-muted);
+            max-width: 680px;
+        }
+
+        /* Smart Search & Filter Toolbar */
+        .faq-controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .search-box-wrap {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+            min-width: 260px;
+        }
+
+        .search-box-wrap input {
+            width: 100%;
+            padding: 10px 38px 10px 38px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-heading);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-box-wrap input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-subtle);
+        }
+
+        .search-icon-svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            padding: 4px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.15s ease;
+        }
+
+        .search-clear-btn:hover {
+            color: var(--accent);
+            background: var(--accent-subtle);
+        }
+
+        .search-clear-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .category-filter-chips {
+            display: flex;
+            background: var(--bg-card-subtle);
+            padding: 3px;
+            border-radius: var(--radius-sm);
+            gap: 2px;
+            border: 1px solid var(--border-subtle);
+            overflow-x: auto;
+        }
+
+        .category-chip {
+            background: transparent;
+            border: none;
+            padding: 6px 14px;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .category-chip.active {
+            background: var(--bg-card);
+            color: var(--text-heading);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        [data-theme="dark"] .category-chip.active {
+            background: #1D2B24;
+            color: #FFFFFF;
+        }
+
+        /* Smart Search Status Line */
+        .search-feedback-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            min-height: 20px;
+        }
+
+        .search-feedback-bar strong {
+            color: var(--accent);
+        }
+
+        /* FAQ Accordion Stack */
+        .faq-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .faq-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .faq-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .faq-card.open {
+            border-color: var(--accent);
+        }
+
+        .faq-trigger-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            outline: none;
+            gap: 16px;
+            color: inherit;
+        }
+
+        .faq-question-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .faq-category-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .faq-category-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2;
+        }
+
+        .faq-text-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .faq-category-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .faq-text-meta h3 {
+            margin: 0;
+            font-family: var(--font-heading);
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            line-height: 1.4;
+        }
+
+        /* Keyword Highlight styling */
+        mark.faq-highlight {
+            background: var(--accent-subtle);
+            color: var(--accent);
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-weight: 700;
+        }
+
+        .faq-chevron {
+            width: 18px;
+            height: 18px;
+            color: var(--text-muted);
+            transition: transform 0.25s ease, color 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-card.open .faq-chevron {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+
+        /* Accordion Body */
+        .faq-answer-collapse {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.25s ease;
+            background: var(--bg-card-subtle);
+            border-top: 1px solid transparent;
+        }
+
+        .faq-card.open .faq-answer-collapse {
+            grid-template-rows: 1fr;
+            border-top-color: var(--border-color);
+        }
+
+        .faq-answer-inner {
+            overflow: hidden;
+            padding: 0 20px;
+            transition: padding 0.25s ease;
+        }
+
+        .faq-card.open .faq-answer-inner {
+            padding: 18px 20px 20px;
+        }
+
+        .faq-answer-text {
+            color: var(--text-body);
+            font-size: 0.9rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .faq-answer-text strong {
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        /* Pro-Tip Box */
+        .faq-tip-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            margin-top: 14px;
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .faq-tip-icon {
+            width: 15px;
+            height: 15px;
+            color: var(--accent);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .faq-tip-box strong {
+            color: var(--text-heading);
+        }
+
+        /* Smart Empty Results Box */
+        .faq-empty-state {
+            padding: 44px 24px;
+            text-align: center;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            display: none;
+        }
+
+        .faq-empty-state svg {
+            width: 36px;
+            height: 36px;
+            stroke-width: 1.5;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .smart-suggestion-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .suggestion-pill {
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border-color);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .suggestion-pill:hover {
+            border-color: var(--accent);
+            background: var(--accent-subtle);
+        }
+
+        @media (max-width: 768px) {
+            .faq-master-container {
+                padding: 20px 14px 48px;
+            }
+
+            .faq-controls-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box-wrap {
+                max-width: 100%;
+            }
+
+            .faq-trigger-btn {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Minimalist Top Navigation -->
+    <header class="vault-topbar">
+        <a href="../index.html" class="topbar-brand">
+            <span class="brand-name">VenkySpace<span>.</span></span>
+            <span class="brand-sub">Campus FAQs Hub</span>
+        </a>
+
+        <div class="topbar-right">
+            <!-- Minimalist Pill Theme Toggle Switch -->
+            <button class="theme-switch-btn" id="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle Theme" title="Toggle Light / Dark Mode">
+                <span class="switch-track">
+                    <span class="switch-thumb">
+                        <!-- Sun Icon for Light Mode -->
+                        <svg class="switch-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4.5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <!-- Moon Icon for Dark Mode -->
+                        <svg class="switch-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <div class="faq-master-container">
+
+        <!-- Top Navigation Bar -->
+        <div class="faq-nav-header">
+            <a href="../index.html" class="back-nav-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span>Back to Dashboard</span>
+            </a>
+            <span class="faq-verified-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                VERIFIED SENIOR DIRECTORY
+            </span>
+        </div>
+
+        <!-- Hero Header -->
+        <header class="vault-header">
+            <span class="college-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                Sri Venkateswara College • Student Desk
+            </span>
+            <h1>Campus FAQs &amp; Clarifications</h1>
+            <p>Clear, verified resolutions for recurring academic regulations, examination notices, and administrative procedures.</p>
+        </header>
+
+        <!-- Search and Filter Toolbar -->
+        <div class="faq-controls-bar">
+            <div class="search-box-wrap">
+                <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="faq-search-input" placeholder="Search anything (e.g. wifiso, admit card, 75%)..." autocomplete="off">
+                <button type="button" class="search-clear-btn" id="faq-clear-btn" title="Clear Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+
+            <div class="category-filter-chips">
+                <button class="category-chip active" data-category="all">All Questions</button>
+                <button class="category-chip" data-category="Academics">Academics</button>
+                <button class="category-chip" data-category="Exams">Exams &amp; Marks</button>
+                <button class="category-chip" data-category="Admin">Administration</button>
+                <button class="category-chip" data-category="Campus">Campus Life</button>
+            </div>
+        </div>
+
+        <!-- Dynamic Feedback Text when searching -->
+        <div class="search-feedback-bar" id="search-feedback"></div>
+
+        <!-- Master FAQ Stack List (Populated via JS) -->
+        <div class="faq-stack" id="faq-container"></div>
+
+        <!-- Smart Empty Results Message with suggestions -->
+        <div class="faq-empty-state" id="faq-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <p id="empty-query-msg">No exact questions found.</p>
+            <div class="smart-suggestion-row">
+                <span style="font-size: 0.8rem;">Try quick topics:</span>
+                <button class="suggestion-pill" data-query="wifi">Wi-Fi &amp; Eduroam</button>
+                <button class="suggestion-pill" data-query="attendance">75% Attendance</button>
+                <button class="suggestion-pill" data-query="admit card">Admit Card</button>
+                <button class="suggestion-pill" data-query="internal">Internal Assessment</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- =========================================================================
+         ⭐ NON-CODER FRIENDLY FAQ DATA ENGINE WITH SMART SEARCH ⭐
+         ========================================================================= -->
+    <script>
+        /*
+          TO ADD OR EDIT FAQs:
+          Just copy-paste a block below.
+          - category: "Academics", "Exams", "Admin", or "Campus"
+          - question: The question title
+          - answer: Detailed explanation (supports **bold text**)
+          - tip: A senior pro-tip (or leave as "" if none)
+          - keywords: (Optional) extra words people might type (e.g. "wifiso internet")
+        */
+        const faqData = [
+            {
+                category: "Admin",
+                question: "How can I access the College Wi-Fi on campus?",
+                answer: "Students can register their devices for high-speed campus Wi-Fi by visiting the **Computer Centre (ICT Lab)** with their college ID card. The IT staff will provision your Eduroam login credentials, which also grant you roaming internet access across other universities worldwide.",
+                tip: "Ensure your mobile operating system is updated before heading to the IT counter for configuration.",
+                keywords: "wifi wifiso wi-fi internet eduroam net network computer lab password login ict hotspot connect connection"
+            },
+            {
+                category: "Academics",
+                question: "Is the 75% attendance rule strictly enforced at Venky?",
+                answer: "Yes, as per University of Delhi guidelines, **75% attendance is mandatory** to appear in semester examinations without administrative friction. If your attendance falls marginally short (60%–74%), you will be required to submit medical documentation or an official college undertaking before the semester cut-off.",
+                tip: "If you participate actively in college societies (Verve, Nexus, Expressions, etc.), ensure your society Teacher-in-Charge submits your official ECA attendance waivers on time.",
+                keywords: "attendance attendence attend shortage detained detain 75% percent medical undertaking leave absent society waiver duty slip"
+            },
+            {
+                category: "Exams",
+                question: "What happens if I miss my Internal Assessment (IA) exams or assignments?",
+                answer: "Internal assessments carry critical weight in your final semester CGPA under the NEP-UGCF structure. If you missed an assessment due to a genuine emergency or medical reason, **immediately approach your paper professor** to request a compensatory re-test or alternate assignment before the internal portal closes.",
+                tip: "Always retain a digital copy or timestamped email of your assignment submissions for proof.",
+                keywords: "internal assessment ia ca test marks assignment presentation exam missed retest fail score re-exam"
+            },
+            {
+                category: "Admin",
+                question: "Where and when do we collect physical Admit Cards before examinations?",
+                answer: "Physical admit cards are typically disbursed **3 to 5 days prior to the commencement of theory exams**. The administration releases a window schedule on the college notice boards. You must verify any pending fee or library dues to receive your stamped admit card from the respective department counter in the Admin Block.",
+                tip: "Keep your student ID card or college fee receipt handy when standing in the counter queue.",
+                keywords: "admit card hall ticket hallticket entry card exam slip verification counter admin block stamped collection dates"
+            },
+            {
+                category: "Academics",
+                question: "How do General Elective (GE) and Skill Enhancement (SEC) allocations work?",
+                answer: "Allocations are processed at the start of each semester via the official college portal. Seats are allocated based on **merit/CGPA rankings and student preference order**. You cannot choose a GE paper that is offered by your own parent department.",
+                tip: "Submit your preference forms on the first day the portal opens, as popular lab-based SEC and VAC courses fill up quickly.",
+                keywords: "ge sec vac elective subject paper allocation preference ranking form optional course"
+            },
+            {
+                category: "Campus",
+                question: "How do I issue books and access digital research papers from the SVC Library?",
+                answer: "Your physical **College ID Card functions as your library barcode card**. You can issue up to 4 books simultaneously from the central library stack. To access research papers (JSTOR, DELNET, N-LIST), request the remote institutional access credentials from the digital section on the first floor.",
+                tip: "Return dates are strictly monitored. Renew your books online or at the circulation counter to avoid daily late charges.",
+                keywords: "library books issue return fine reading room jstor research paper barcode id card renewal"
+            },
+            {
+                category: "Admin",
+                question: "How can I apply for a DTC Student Bus Pass or Railway Concession?",
+                answer: "Collect the official **DTC Concession form** from the designated window in the Admin Block, fill in your residential route, and get it stamped by the college authority. For railway concessions during semester breaks, submit your application at the admin counter along with your journey details.",
+                tip: "Apply at least one week prior to your planned travel dates to avoid delays during semester exam rush.",
+                keywords: "bus pass dtc railway concession train travel travel discount metro commute route transport"
+            },
+            {
+                category: "Campus",
+                question: "What are the most popular spots and food options on campus and in Satya Niketan?",
+                answer: "On campus, the **South Indian Canteen** (famous for crispy dosas and filter coffee), the Nescafe kiosk, the Rock Garden, and the Foyer are primary student hubs. Just across the road in **Satya Niketan**, you will find numerous budget-friendly cafes, roll stalls, and photocopy shops.",
+                tip: "The canteen morning slot (around 10:30 AM) is the best time for freshly brewed filter coffee before queues build up.",
+                keywords: "canteen food dosa coffee nescafe lunch satya niketan hangout spots rock garden foyer cafes"
+            }
+        ];
+
+        /* =========================================================================
+           SMART FUZZY SEARCH ENGINE (TOLERATES TYPOS, MISSING SPACES & SYNONYMS)
+           ========================================================================= */
+
+        // Built-in College Synonyms Dictionary
+        const synonymDictionary = {
+            "wifi": ["wifiso", "wi-fi", "wi fi", "internet", "eduroam", "net", "network", "ict", "hotspot", "online"],
+            "wifiso": ["wifi", "eduroam", "internet"],
+            "internet": ["wifi", "eduroam", "net", "network"],
+            "eduroam": ["wifi", "internet", "login"],
+            "admit": ["hall ticket", "hallticket", "admitcard", "exam card", "roll number", "entry card"],
+            "hallticket": ["admit card", "hall ticket"],
+            "attendance": ["attendence", "shortage", "detained", "detain", "75%", "medical", "undertaking", "short"],
+            "attendence": ["attendance", "75%"],
+            "internal": ["ia", "assignment", "ca", "retest", "test", "marks"],
+            "marks": ["score", "grade", "cgpa", "sgpa", "internal", "result", "ia"],
+            "canteen": ["food", "dosa", "coffee", "lunch", "meals", "nescafe"],
+            "library": ["books", "reading room", "issue", "jstor"],
+            "travel": ["bus pass", "dtc", "metro", "railway concession"]
+        };
+
+        // Utility: Normalize text (removes special chars and extra spaces)
+        function cleanString(str) {
+            return (str || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+        }
+
+        // Levenshtein Distance for typo detection (e.g. "attendence" -> "attendance")
+        function getLevenshteinDistance(a, b) {
+            if (a.length === 0) return b.length;
+            if (b.length === 0) return a.length;
+            const matrix = [];
+            for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+            for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+            for (let i = 1; i <= b.length; i++) {
+                for (let j = 1; j <= a.length; j++) {
+                    if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(
+                            matrix[i - 1][j - 1] + 1, // substitution
+                            matrix[i][j - 1] + 1,     // insertion
+                            matrix[i - 1][j] + 1      // deletion
+                        );
+                    }
+                }
+            }
+            return matrix[b.length][a.length];
+        }
+
+        // Check if query word fuzzy-matches a target word
+        function isFuzzyMatchWord(queryWord, targetWord) {
+            const q = cleanString(queryWord);
+            const t = cleanString(targetWord);
+            if (!q || !t) return false;
+
+            // Direct substring or inclusion
+            if (t.includes(q) || q.includes(t)) return true;
+
+            // For words 4+ chars long, allow 1-2 character edits
+            const maxEdits = q.length > 5 ? 2 : 1;
+            if (Math.abs(q.length - t.length) <= maxEdits) {
+                if (getLevenshteinDistance(q, t) <= maxEdits) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Smart scoring calculator
+        function calculateRelevanceScore(faq, query) {
+            const rawQuery = query.toLowerCase().trim();
+            const cleanQuery = cleanString(rawQuery);
+            if (!cleanQuery) return 0;
+
+            const searchableContent = [
+                faq.question,
+                faq.answer,
+                faq.tip || "",
+                faq.keywords || "",
+                faq.category
+            ].join(" ").toLowerCase();
+
+            const normalizedContent = cleanString(searchableContent);
+
+            let score = 0;
+
+            // 1. Direct normalized match (catches "wifiso" inside keywords or "wifi" inside "wi-fi")
+            if (normalizedContent.includes(cleanQuery)) {
+                score += 80;
+            }
+
+            // 2. Exact word search in question gives top priority
+            if (faq.question.toLowerCase().includes(rawQuery)) {
+                score += 100;
+            }
+
+            // 3. Synonym matching from our college dictionary
+            for (const [key, synonyms] of Object.entries(synonymDictionary)) {
+                const cleanKey = cleanString(key);
+                if (cleanQuery.includes(cleanKey) || cleanKey.includes(cleanQuery)) {
+                    // Check if this FAQ relates to this concept
+                    if (normalizedContent.includes(cleanKey)) {
+                        score += 60;
+                    }
+                    synonyms.forEach(syn => {
+                        if (normalizedContent.includes(cleanString(syn))) {
+                            score += 45;
+                        }
+                    });
+                }
+            }
+
+            // 4. Token-by-token fuzzy matching for multi-word queries or typos
+            const queryWords = rawQuery.split(/\s+/).filter(w => w.length > 1);
+            const contentWords = searchableContent.split(/[\s,.\-()?!:]+/).filter(w => w.length > 1);
+
+            let matchedTokens = 0;
+            queryWords.forEach(qWord => {
+                const found = contentWords.some(cWord => isFuzzyMatchWord(qWord, cWord));
+                if (found) {
+                    matchedTokens++;
+                    score += 35;
+                }
+            });
+
+            return score;
+        }
+
+        // Format **bold** markdown to HTML
+        function formatMarkdown(text) {
+            if (!text) return "";
+            return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        }
+
+        // Highlight matching text cleanly in the title
+        function highlightMatch(text, query) {
+            if (!query || query.trim() === "") return text;
+            const words = query.trim().split(/\s+/).filter(w => w.length > 1);
+            if (!words.length) return text;
+
+            let result = text;
+            words.forEach(word => {
+                // If direct substring exists, highlight it
+                const regex = new RegExp(`(${word.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+                result = result.replace(regex, '<mark class="faq-highlight">$1</mark>');
+            });
+            return result;
+        }
+
+        // Minimalist SVG Icons for Categories
+        const categorySvgs = {
+            Academics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"></path></svg>`,
+            Exams: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`,
+            Admin: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="2" y1="20" x2="22" y2="20"></line><line x1="5" y1="20" x2="5" y2="10"></line><line x1="10" y1="20" x2="10" y2="10"></line><line x1="14" y1="20" x2="14" y2="10"></line><line x1="19" y1="20" x2="19" y2="10"></line><path d="M2 10L12 3l10 7"></path></svg>`,
+            Campus: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>`
+        };
+
+        const tipSvg = `<svg class="faq-tip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"></path></svg>`;
+
+        // DOM Handles
+        const faqContainer = document.getElementById('faq-container');
+        const emptyState = document.getElementById('faq-empty');
+        const emptyMsg = document.getElementById('empty-query-msg');
+        const searchInput = document.getElementById('faq-search-input');
+        const clearBtn = document.getElementById('faq-clear-btn');
+        const feedbackBar = document.getElementById('search-feedback');
+        const categoryChips = document.querySelectorAll('.category-chip');
+
+        let currentFilter = 'all';
+
+        function renderFAQs(items, activeQuery = "") {
+            faqContainer.innerHTML = '';
+
+            if (items.length === 0) {
+                emptyState.style.display = 'block';
+                emptyMsg.textContent = activeQuery 
+                    ? `No matching questions found for "${activeQuery}".` 
+                    : `No questions found in this category.`;
+                return;
+            }
+            emptyState.style.display = 'none';
+
+            items.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = 'faq-card';
+
+                const icon = categorySvgs[item.category] || categorySvgs.Academics;
+                const tipHtml = item.tip ? `
+                    <div class="faq-tip-box">
+                        ${tipSvg}
+                        <div><strong>Senior Pro-Tip:</strong> ${formatMarkdown(item.tip)}</div>
+                    </div>
+                ` : '';
+
+                const highlightedQuestion = highlightMatch(item.question, activeQuery);
+
+                card.innerHTML = `
+                    <button class="faq-trigger-btn" aria-expanded="false">
+                        <div class="faq-question-group">
+                            <span class="faq-category-icon">${icon}</span>
+                            <div class="faq-text-meta">
+                                <span class="faq-category-label">${item.category}</span>
+                                <h3>${highlightedQuestion}</h3>
+                            </div>
+                        </div>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer-collapse">
+                        <div class="faq-answer-inner">
+                            <p class="faq-answer-text">${formatMarkdown(item.answer)}</p>
+                            ${tipHtml}
+                        </div>
+                    </div>
+                `;
+
+                // Accordion click listener
+                const triggerBtn = card.querySelector('.faq-trigger-btn');
+                triggerBtn.addEventListener('click', () => {
+                    const isOpen = card.classList.contains('open');
+                    
+                    // Close other cards for a neat single-open view
+                    document.querySelectorAll('.faq-card.open').forEach(c => {
+                        if (c !== card) {
+                            c.classList.remove('open');
+                            c.querySelector('.faq-trigger-btn').setAttribute('aria-expanded', 'false');
+                        }
+                    });
+
+                    card.classList.toggle('open', !isOpen);
+                    triggerBtn.setAttribute('aria-expanded', !isOpen);
+                });
+
+                faqContainer.appendChild(card);
+            });
+        }
+
+        // Smart Search and Filtering Controller
+        function executeSmartSearch() {
+            const query = searchInput.value.trim();
+
+            // Toggle clear button
+            clearBtn.style.display = query.length > 0 ? 'inline-flex' : 'none';
+
+            // 1. Filter by category first
+            let baseList = faqData;
+            if (currentFilter !== 'all') {
+                baseList = faqData.filter(item => item.category === currentFilter);
+            }
+
+            // 2. If no search query, show the base list
+            if (!query) {
+                feedbackBar.textContent = `Showing all ${baseList.length} verified resolutions`;
+                renderFAQs(baseList, "");
+                return;
+            }
+
+            // 3. Rank items by smart score
+            const scoredItems = baseList.map(item => ({
+                item: item,
+                score: calculateRelevanceScore(item, query)
+            }))
+            .filter(entry => entry.score > 0)
+            .sort((a, b) => b.score - a.score);
+
+            const results = scoredItems.map(entry => entry.item);
+
+            feedbackBar.innerHTML = `Found <strong>${results.length}</strong> smart match${results.length === 1 ? '' : 'es'} for "<em>${query}</em>"`;
+            renderFAQs(results, query);
+        }
+
+        // Listeners
+        if (searchInput) {
+            searchInput.addEventListener('input', executeSmartSearch);
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                searchInput.focus();
+                executeSmartSearch();
+            });
+        }
+
+        // Category Chips
+        categoryChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                categoryChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                currentFilter = chip.getAttribute('data-category');
+                executeSmartSearch();
+            });
+        });
+
+        // Quick Suggestion Pills inside empty box
+        document.querySelectorAll('.suggestion-pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                const q = pill.getAttribute('data-query');
+                searchInput.value = q;
+                executeSmartSearch();
+            });
+        });
+
+        // Theme Toggle Controller
+        const themeBtn = document.getElementById('theme-toggle');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('venky-theme', theme);
+            if (themeBtn) {
+                themeBtn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('venky-theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            setTheme(savedTheme);
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                setTheme(current === 'dark' ? 'light' : 'dark');
+            });
+        }
+
+        // Boot
+        initTheme();
+        executeSmartSearch();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Time Table &amp; Schedules — VenkySpace</title>
+    <meta name="description" content="Official Departmental Timetable Rosters &amp; Venue Allocation Matrix - Sri Venkateswara College.">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+
+    <!-- Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page:        #F8FAFC;
+            --bg-card:        #FFFFFF;
+            --bg-card-subtle: #F1F5F9;
+            --text-heading:   #0F172A;
+            --text-body:      #334155;
+            --text-muted:     #64748B;
+            --border-color:   #E2E8F0;
+            --border-subtle:  rgba(15, 23, 42, 0.06);
+
+            /* Oxford Collegiate Blue */
+            --accent:         #1E5AA8;
+            --accent-hover:   #154583;
+            --accent-subtle:  rgba(30, 90, 168, 0.08);
+
+            /* Stream Colors */
+            --stream-science: #0D9488;
+            --stream-science-bg: rgba(13, 148, 136, 0.08);
+            --stream-commerce: #2563EB;
+            --stream-commerce-bg: rgba(37, 99, 235, 0.08);
+            --stream-arts: #D97706;
+            --stream-arts-bg: rgba(217, 119, 6, 0.08);
+
+            /* Term Status Colors */
+            --term-active: #059669;
+            --term-active-bg: rgba(5, 150, 105, 0.1);
+            --term-upcoming: #475569;
+            --term-upcoming-bg: rgba(71, 85, 105, 0.1);
+
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body:    'Inter', sans-serif;
+
+            --radius-lg: 14px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03);
+            --shadow-hover: 0 4px 16px rgba(30, 90, 168, 0.12);
+        }
+
+        [data-theme="dark"] {
+            --bg-page:        #090D16;
+            --bg-card:        #111726;
+            --bg-card-subtle: #161F33;
+            --text-heading:   #F8FAFC;
+            --text-body:      #CBD5E1;
+            --text-muted:     #8193AC;
+            --border-color:   #1E293B;
+            --border-subtle:  rgba(255, 255, 255, 0.06);
+
+            --accent:         #60A5FA;
+            --accent-hover:   #93C5FD;
+            --accent-subtle:  rgba(96, 165, 250, 0.12);
+
+            --stream-science-bg: rgba(13, 148, 136, 0.15);
+            --stream-commerce-bg: rgba(37, 99, 235, 0.15);
+            --stream-arts-bg: rgba(217, 119, 6, 0.15);
+
+            --term-active: #34D399;
+            --term-active-bg: rgba(52, 211, 153, 0.15);
+            --term-upcoming: #94A3B8;
+            --term-upcoming-bg: rgba(148, 163, 184, 0.15);
+
+            --shadow-card:    0 4px 20px rgba(0, 0, 0, 0.45);
+            --shadow-hover:   0 6px 24px rgba(96, 165, 250, 0.18);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            line-height: 1.5;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Top Header Strip */
+        .vault-topbar {
+            width: 100%;
+            height: 68px;
+            background: linear-gradient(180deg, #070E18 0%, #0B1626 100%);
+            border-bottom: 2px solid var(--accent);
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .topbar-brand {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-name span { color: var(--accent); }
+
+        .brand-sub {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        [data-theme="dark"] .brand-sub {
+            color: #93C5FD;
+        }
+
+        /* Minimalist Pill Theme Toggle */
+        .theme-switch-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 2px;
+            display: inline-flex;
+            align-items: center;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .switch-track {
+            width: 58px;
+            height: 32px;
+            background: #182232;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 9999px;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .theme-switch-btn:hover .switch-track,
+        .theme-switch-btn:focus-visible .switch-track {
+            border-color: var(--accent);
+        }
+
+        .switch-thumb {
+            width: 24px;
+            height: 24px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111827;
+            transform: translateX(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .switch-icon {
+            width: 14px;
+            height: 14px;
+            display: block;
+            stroke-width: 2.2;
+        }
+
+        .switch-icon.moon { display: none; }
+
+        [data-theme="dark"] .switch-thumb {
+            transform: translateX(26px);
+            background: #FFFFFF;
+            color: #0F172A;
+        }
+
+        [data-theme="dark"] .switch-icon.sun { display: none; }
+        [data-theme="dark"] .switch-icon.moon { display: block; }
+
+        /* Container */
+        .vault-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 28px 24px 64px;
+        }
+
+        /* Breadcrumb / Stepper Bar */
+        .nav-controls-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .back-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .back-nav-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateX(-2px);
+        }
+
+        .breadcrumb-trail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-step {
+            cursor: pointer;
+            transition: color 0.15s ease;
+        }
+
+        .breadcrumb-step:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb-step.active {
+            color: var(--text-heading);
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .breadcrumb-separator {
+            display: inline-flex;
+            align-items: center;
+            opacity: 0.4;
+        }
+
+        /* Header */
+        .vault-header {
+            margin-bottom: 26px;
+        }
+
+        .college-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .vault-header h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+            font-weight: 800;
+            color: var(--text-heading);
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        .vault-header p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            max-width: 720px;
+        }
+
+        /* Search & Filters */
+        .filter-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .search-box-wrap {
+            position: relative;
+            flex: 1;
+            max-width: 360px;
+            min-width: 240px;
+        }
+
+        .search-box-wrap input {
+            width: 100%;
+            padding: 9px 14px 9px 36px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-heading);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-box-wrap input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-subtle);
+        }
+
+        .search-icon-svg {
+            position: absolute;
+            left: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            stroke: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .category-filter-chips {
+            display: flex;
+            background: var(--bg-card-subtle);
+            padding: 3px;
+            border-radius: var(--radius-sm);
+            gap: 2px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .category-chip {
+            background: transparent;
+            border: none;
+            padding: 6px 14px;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .category-chip.active {
+            background: var(--bg-card);
+            color: var(--text-heading);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        [data-theme="dark"] .category-chip.active {
+            background: #1E293B;
+            color: #FFFFFF;
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            outline: none;
+        }
+
+        .bento-card:hover, .bento-card:focus-visible {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .card-icon-wrap {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon-wrap svg {
+            width: 19px;
+            height: 19px;
+            stroke-width: 1.85;
+        }
+
+        .card-stream-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+        }
+
+        .card-stream-tag.science { background: var(--stream-science-bg); color: var(--stream-science); }
+        .card-stream-tag.commerce { background: var(--stream-commerce-bg); color: var(--stream-commerce); }
+        .card-stream-tag.arts { background: var(--stream-arts-bg); color: var(--stream-arts); }
+
+        .card-stream-tag.term-active { background: var(--term-active-bg); color: var(--term-active); }
+        .card-stream-tag.term-upcoming { background: var(--term-upcoming-bg); color: var(--term-upcoming); }
+
+        .card-info h3 {
+            font-family: var(--font-heading);
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 3px;
+        }
+
+        .card-info p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .card-footer-row {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .card-arrow-svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--text-muted);
+            transition: transform 0.2s ease, stroke 0.2s ease;
+        }
+
+        .bento-card:hover .card-arrow-svg {
+            stroke: var(--accent);
+            transform: translateX(3px);
+        }
+
+        /* Timetable Viewer */
+        .timetable-fullscreen-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .timetable-fullscreen-wrapper.is-fullscreen {
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 99999 !important;
+            border-radius: 0 !important;
+            border: none !important;
+        }
+
+        .timetable-fullscreen-wrapper.is-fullscreen .viewer-frame-body {
+            height: calc(100vh - 60px) !important;
+            max-height: none !important;
+        }
+
+        .viewer-top-toolbar {
+            padding: 12px 18px;
+            background: var(--bg-card-subtle);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .viewer-meta-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .viewer-doc-title {
+            font-family: var(--font-heading);
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-verified {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .viewer-btn-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-viewer-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+
+        .btn-viewer-action svg {
+            width: 14px;
+            height: 14px;
+            stroke-width: 2;
+        }
+
+        .btn-viewer-action.primary {
+            background: var(--accent);
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .btn-viewer-action.primary:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-viewer-action.secondary {
+            background: var(--bg-card);
+            color: var(--text-heading);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-viewer-action.secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .viewer-frame-body {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            min-height: 520px;
+            max-height: 850px;
+            background: #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .viewer-frame-body {
+            background: #090E16;
+        }
+
+        .timetable-pdf-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+            background: #FFFFFF;
+        }
+
+        /* Minimalist Status Box (Zero Emojis) */
+        .timetable-pending-box {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 36px 24px;
+            text-align: center;
+            background: var(--bg-card);
+        }
+
+        .pending-icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .pending-icon-circle svg {
+            width: 28px;
+            height: 28px;
+            stroke-width: 1.8;
+        }
+
+        .pending-category-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .pending-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+        }
+
+        .pending-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .pending-chips {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pending-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .pending-chip svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .no-results-msg {
+            grid-column: 1 / -1;
+            padding: 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius-md);
+        }
+
+        @media (max-width: 768px) {
+            .vault-container {
+                padding: 20px 14px 44px;
+            }
+            .viewer-frame-body {
+                height: 60vh;
+                min-height: 420px;
+            }
+            .filter-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-box-wrap {
+                max-width: 100%;
+            }
+            .category-filter-chips {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .viewer-top-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .viewer-btn-group {
+                justify-content: stretch;
+            }
+            .btn-viewer-action {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="vault-topbar">
+        <a href="../index.html" class="topbar-brand">
+            <span class="brand-name">VenkySpace<span>.</span></span>
+            <span class="brand-sub">Time Table Hub</span>
+        </a>
+
+        <div class="topbar-right">
+            <button class="theme-switch-btn" id="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle Theme" title="Toggle Light / Dark Mode">
+                <span class="switch-track">
+                    <span class="switch-thumb">
+                        <svg class="switch-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4.5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="switch-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <div class="vault-container">
+
+        <!-- Stepper / Breadcrumbs -->
+        <div class="nav-controls-row">
+            <button class="back-nav-btn" id="nav-back-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span>Dashboard</span>
+            </button>
+
+            <nav class="breadcrumb-trail" aria-label="Breadcrumb Trail">
+                <span class="breadcrumb-step" id="crumb-courses">Department</span>
+                <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                <span class="breadcrumb-step" id="crumb-semesters">Semester</span>
+                <span class="breadcrumb-separator" id="sep-sections" style="display: none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                <span class="breadcrumb-step" id="crumb-sections" style="display: none;">Section</span>
+                <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                <span class="breadcrumb-step" id="crumb-viewer">Timetable</span>
+            </nav>
+        </div>
+
+        <header class="vault-header">
+            <span class="college-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                Sri Venkateswara College • Department Schedules
+            </span>
+            <h1 id="view-title">Select Your Department</h1>
+            <p id="view-subtitle">Access verified departmental master timetables, laboratory matrices, and room allotments across all undergraduate programs.</p>
+        </header>
+
+        <!-- SCREEN 1: COURSES -->
+        <div id="screen-courses">
+            <div class="filter-toolbar">
+                <div class="search-box-wrap">
+                    <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="course-search-input" placeholder="Search department (e.g. Mathematics, Commerce, Economics)..." autocomplete="off">
+                </div>
+
+                <div class="category-filter-chips">
+                    <button class="category-chip active" data-stream="all">All Departments (20)</button>
+                    <button class="category-chip" data-stream="Science">Science</button>
+                    <button class="category-chip" data-stream="Commerce">Commerce</button>
+                    <button class="category-chip" data-stream="Arts">Arts</button>
+                </div>
+            </div>
+
+            <div class="bento-grid" id="courses-grid"></div>
+        </div>
+
+        <!-- SCREEN 2: SEMESTERS -->
+        <div id="screen-semesters" style="display: none;">
+            <div class="bento-grid" id="semesters-grid"></div>
+        </div>
+
+        <!-- SCREEN 2.5: SECTION SELECTION (SECTION A / SECTION B) -->
+        <div id="screen-sections" style="display: none;">
+            <div class="bento-grid" id="sections-grid"></div>
+        </div>
+
+        <!-- SCREEN 3: TIMETABLE VIEWER -->
+        <div id="screen-viewer" style="display: none;">
+            <div class="timetable-fullscreen-wrapper" id="timetable-wrapper">
+                
+                <div class="viewer-top-toolbar">
+                    <div class="viewer-meta-left">
+                        <span class="viewer-doc-title" id="viewer-doc-title">
+                            Master Timetable Schedule
+                        </span>
+                        <span class="badge-verified">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                            Verified SVC Matrix
+                        </span>
+                    </div>
+
+                    <div class="viewer-btn-group">
+                        <button type="button" id="viewer-fullscreen-btn" class="btn-viewer-action secondary" title="Toggle Fullscreen">
+                            <svg id="fs-expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                            <svg id="fs-collapse-icon" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
+                            <span id="fs-btn-label">Fullscreen</span>
+                        </button>
+
+                        <a href="#" target="_blank" id="viewer-external-link" class="btn-viewer-action secondary" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <span>Open Tab</span>
+                        </a>
+
+                        <a href="#" id="viewer-download-link" class="btn-viewer-action primary" download style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <span>Download</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="viewer-frame-body" id="viewer-frame-container">
+                    
+                    <!-- Official Notice Box -->
+                    <div class="timetable-pending-box" id="viewer-pending-box">
+                        <div class="pending-icon-circle" id="pending-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        </div>
+                        <span class="pending-category-tag" id="pending-category-tag">Official Notice</span>
+                        <h3 class="pending-title" id="pending-title-text">Academic Session Notice</h3>
+                        <p class="pending-desc" id="pending-desc-text">
+                            Notice details will appear here.
+                        </p>
+                        <div class="pending-chips" id="pending-chips-wrap">
+                            <span class="pending-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                                Sri Venkateswara College
+                            </span>
+                            <span class="pending-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                                DU NEP-UGCF Scheme
+                            </span>
+                            <span class="pending-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                Active Semester Matrix
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Embed Iframe for Google Drive / PDFs -->
+                    <iframe id="pdf-viewer-frame" class="timetable-pdf-frame" title="Timetable Viewer" allow="autoplay; fullscreen"></iframe>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        /* ==========================================================================
+           TIMETABLE MASTER CONFIGURATION (WITH SECTION A & SECTION B SLOTS)
+           --------------------------------------------------------------------------
+           INSTRUCTIONS:
+           - For semesters with Section A & B, simply paste inside { A: "...", B: "..." }.
+           - For regular single semesters, paste directly inside quotes "".
+           ========================================================================== */
+
+        const TIMETABLE_LINKS = {
+
+            /* ------------------ COMMERCE ------------------ */
+
+            // Split into Section A & B for Sem 1, 3, 5
+            "Commerce (Honours)": {
+                1: {
+                    A: "https://drive.google.com/file/d/1K_HzuchMSE74kyHpxYlcFbso52WHIxOh/view?usp=drive_link", // Paste Commerce (H) Sem 1 Section A link here
+                    B: "https://drive.google.com/file/d/13XE23RnjRix63ncJUsuJQmiz_nEWH5n3/view?usp=drive_link"  // Paste Commerce (H) Sem 1 Section B link here
+                },
+                3: {
+                    A: "https://drive.google.com/file/d/1AWGTyhK7NYmbRL6FADO0DwQqmeQTbbGa/view?usp=drive_link", // Paste Commerce (H) Sem 3 Section A link here
+                    B: "https://drive.google.com/file/d/1XE3bOdxeOOXTHTd-OMTsxMESuqOgyVGf/view?usp=drive_link"  // Paste Commerce (H) Sem 3 Section B link here
+                },
+                5: {
+                    A: "https://drive.google.com/file/d/1WdM4GxH69_rfAkRwAGG93nhKSu5n3gyj/view?usp=drive_link", // Paste Commerce (H) Sem 5 Section A link here
+                    B: "https://drive.google.com/file/d/1PeePieolBru9_NfPV7gWlHvtLO_dRhUs/view?usp=drive_link"  // Paste Commerce (H) Sem 5 Section B link here
+                },
+                7: "https://drive.google.com/file/d/1MTzsdfgQwyxNqOrk2goE-0eji4N1hUCz/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            // Split into Section A & B for Sem 1, 3, 5, 7
+            "Commerce (Programme)": {
+                1: {
+                    A: "https://drive.google.com/file/d/1utdd49gEkqSq1EI2ARa4-cbZQhEaYGNL/view?usp=drive_link", // Paste Commerce (P) Sem 1 Section A link here
+                    B: "https://drive.google.com/file/d/1JSoBFmZOOxc03cJg3xAXQK0z6fhRyqZK/view?usp=drive_link"  // Paste Commerce (P) Sem 1 Section B link here
+                },
+                3: {
+                    A: "https://drive.google.com/file/d/1ahW-Ebm2u_w3spx_Zch4SI6433ZvH74W/view?usp=drive_link", // Paste Commerce (P) Sem 3 Section A link here
+                    B: "https://drive.google.com/file/d/1XslSx9o-FklM4feok6gOZ3o-LB_vAm0A/view?usp=drive_link"  // Paste Commerce (P) Sem 3 Section B link here
+                },
+                5: {
+                    A: "https://drive.google.com/file/d/1unBGUR0wKqWmub_iEnsWjqhrRyb1NbOB/view?usp=drive_link", // Paste Commerce (P) Sem 5 Section A link here
+                    B: "https://drive.google.com/file/d/1wJgODyLl7_LYCW-OkqOp7MK-Jcqp6Pch/view?usp=drive_link"  // Paste Commerce (P) Sem 5 Section B link here
+                },
+                2: "", 4: "", 6: "",
+            },
+
+            /* ------------------ SCIENCES & MATHEMATICS ------------------ */
+
+            // Split into Section A & B for Sem 1, 3, 5, 7
+            "Mathematics": {
+                1: {
+                    A: "https://drive.google.com/file/d/1BN9muBz_NaRDM9Uczi64trhummDJKthR/view?usp=drive_link", // Paste Mathematics Sem 1 Section A link here
+                    B: "https://drive.google.com/file/d/1ZWAaDrE3jOljxIrpPKotXi77F-nc0Nay/view?usp=drive_link"  // Paste Mathematics Sem 1 Section B link here
+                },
+                3: {
+                    A: "https://drive.google.com/file/d/1HBWJaZPl2FJ0IAb6Ee1NjaqezL6oFm5b/view?usp=drive_link", // Paste Mathematics Sem 3 Section A link here
+                    B: "https://drive.google.com/file/d/1f4fjCKyHFP4G58zxZO3IJt87lPHMWa0M/view?usp=drive_link"  // Paste Mathematics Sem 3 Section B link here
+                },
+                5: {
+                    A: "https://drive.google.com/file/d/1ebVBx5qLpZuRq3Iz18xPsWPwOnQDQ-00/view?usp=drive_link", // Paste Mathematics Sem 5 Section A link here
+                    B: "https://drive.google.com/file/d/1zFMVyoHeg_EfOOj0jL1TV-bKw_Sd3ypN/view?usp=drive_link"  // Paste Mathematics Sem 5 Section B link here
+                },
+                7: {
+                    A: "https://drive.google.com/file/d/1A4dOq7Eo_0m5Dbo26BstDmKyrWsSh1Ps/view?usp=drive_link", // Paste Mathematics Sem 7 Section A link here
+                },
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            // Split into Section A & B for Sem 1 only
+            "Chemistry": {
+                1: {
+                    A: "https://drive.google.com/file/d/1VVuL4S7bzt4IHf1RhWfVzvoJyM2J6A73/view?usp=drive_link", // Paste Chemistry Sem 1 Section A link here
+                    B: "https://drive.google.com/file/d/1JJ5EdIHc9lBJIi98dSJjR3i21AIrgTFN/view?usp=drive_link"  // Paste Chemistry Sem 1 Section B link here
+                },
+                3: "https://drive.google.com/file/d/1Vhe0U4J2chnWlLoKsZFy0X8EpeIyZWFa/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1oGH-VSq9LDmfaLaZR48-9vQ7g97_ZTIn/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1CrQYH4Xtsl6fFFZNtjcSPssDyrmW9n-5/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            // Split into Section A & B for Sem 1, 3, 5
+            "Life Sciences": {
+                1: {
+                    A: "https://drive.google.com/file/d/13EYLLvVVvVZeho5cQd3zUxaGIetPIUQ3/view?usp=drive_link", // Paste Life Sciences Sem 1 Section A link here
+                    B: "https://drive.google.com/file/d/1ZUVzkjawO8X29r5lMWAhIjNa55Lc9dDy/view?usp=drive_link"  // Paste Life Sciences Sem 1 Section B link here
+                },
+                3: {
+                    A: "https://drive.google.com/file/d/1bGtQJhWEaJcflW838N6zTfIi9C5OXdEM/view?usp=drive_link", // Paste Life Sciences Sem 3 Section A link here
+                    B: "https://drive.google.com/file/d/1zK6J8OKRf0Kr32XRUvKt-yJCWpFp07cc/view?usp=drive_link"  // Paste Life Sciences Sem 3 Section B link here
+                },
+                5: {
+                    A: "https://drive.google.com/file/d/1OSVz0_BFo9MZnf3QfSw099Wsg9OqBfQ6/view?usp=drive_link", // Paste Life Sciences Sem 5 Section A link here
+                    B: "https://drive.google.com/file/d/15AXSyecZ9MoGAQA0yydLYcSaQahRrKq5/view?usp=drive_link"  // Paste Life Sciences Sem 5 Section B link here
+                },
+                7: "https://drive.google.com/file/d/1-eXxCflsIdNokkE2SYnr8UjtZn6eI2Gy/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            /* ------------------ ARTS & HUMANITIES ------------------ */
+
+            "Economics": {
+                1: "https://drive.google.com/file/d/1MgMm2fJnByGG4RSd1Yr7udn19WTrDQ2P/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1pT2lYIKNQe7PY21kueOZFD-PyEEy97Hk/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1vM05HbAIwNkpT1_i8jRa-xS_Es7XmjAB/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1ft0vzilyRouomjsowUo4qdZYgU0TAicE/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "English": {
+                1: "https://drive.google.com/file/d/1ctSm90_XchfDzXQsGTCXFZdU3XL0CFoL/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1UDIv6tFM7n848vgTbC9ZvEDVhFywShtx/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1AzT6Lx8H09IsrMv4dufstu6CZGXlMhX0/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1mmjLVTkP7iHi5UqOoLMOyGVxQHqUydvF/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "History": {
+                1: "https://drive.google.com/file/d/1tg9Vfsig3A26UIdnzewZJMrs7u-zkOgd/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1ZdC5bYWZhCVL5G7tEy0BSqajGyG01CNr/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1tWKhijMBSeTmrQwGYPSW45uwXQwBRG7J/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1pgYkzA7Ys7_7pE0mSJ55LaRSrIRK9SRz/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Political Science": {
+                1: "https://drive.google.com/file/d/11e2_maZhGP4iAmU90mCf8qc2ExV8F6eA/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1MvEJJdco2smWacI4JqTh_hsIbRk5G6x9/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1lbKlZR7FlN4kQJCXwrwztYn66uPv2_ak/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1n0H9LERwzhppgySl3PGldR_B9PZQwFPS/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Sociology": {
+                1: "https://drive.google.com/file/d/1l_jYc8u9ummLzm1Bsxb4K_J9GYRS8pV1/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1O3zjZJLxxP-L9fphYla8jtgXbIheziVg/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1Kbtmc0zmAfp9uFQp0ehPlFGrRcn48ofU/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1nx3adYy33IeJa7OiOdggq4alJ5PvBxED/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Hindi": {
+                1: "https://drive.google.com/file/d/1XCuew1KoqLVyw9x3P41zBJqucHXSb4rg/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1e7W9eZLjHamqz2FDf7ClXRMC_z-9QzAS/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1bw2hz3ku2jOPrBsXe2CmFAUUM97bScY1/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1AtNUzrhW_eSFKoCjOLDpdZ3NpnHFWcET/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Sanskrit": {
+                1: "https://drive.google.com/file/d/14z5U-507X6LQrM0Aoffb0Dcyez-mqfGD/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1lmTCiIPU3n-yh4QR_iobVhEbhp_neiVV/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1SrblB5Jh-VwiN7HbZrFirwKDL9vJFHgW/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1NbxGH0quT3HiTNlaq9pkxoERJ3wkG3DF/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "B.A. Programme": {
+                1: "https://drive.google.com/file/d/1XA_EqRJrRNcGCo0fBUEaFqIy9Y9EzRxS/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1IPFVbjzqn7nxMs5UamliTtqY4QGTIeeC/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/16xsPDdxT261EFmDhX7-poTqoFzQFP9oC/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1W2JvYmJQ4qrPKU6jxlwhRrGIYz1eACGI/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            /* ------------------ OTHER SCIENCES ------------------ */
+
+            "Statistics": {
+                1: "https://drive.google.com/file/d/1Mko-jMoQfvqWkaanBavxdO-nLj2TYeHJ/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1rCFqT-SOTF3SJ8JtgQtuTZgb-ToN3CdB/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1s69Nxi9XLZR4vGSbuaaVifLYORdkZXvN/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/15ZN6ry5aXAGIQX1JT7uZRBTNjDph544o/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Physics": {
+                1: "https://drive.google.com/file/d/1-WKRmXZ5DfFwbXsXefvDVmFJiumFw_wx/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1L846SGZCHJ9uOlyLba42YVSpJIXF1zsX/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1iM58q6FBSC8fQmqMsb4IPcCfBPOaswjD/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1Kxj5oYpbUuATIWWWNg8B25hAvEjWZr3F/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Electronics": {
+                1: "https://drive.google.com/file/d/16EVnnsIDYPaXcB6XOfgB1XVeCxIf12yA/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1mKSEDH45W3EiLZM2x_GzMuyjBOUE0F-O/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1A08KHu0yjJ3XzC9EC5bt0eQLgONnmlt_/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1PyzLSntBpR-BH3A8LQuxfPbZoHnkW9uE/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Biochemistry": {
+                1: "https://drive.google.com/file/d/1pzlhJjjn5Wt_4buH4_Y9LMlgTX7xiy6q/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/18f3KmZMG_kFe1iRE2FidjdphNuSB9uba/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1uPvYCDXDxdy1so8P0WO4YMweobgkVdnk/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1qNPBjdxKMQJE2l1aSYXn04KfaaWo5NYX/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Botany": {
+                1: "https://drive.google.com/file/d/1VgyPlhvVOst7hrKO1dxXi5F_8SQaWpou/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1JCVjMkG5Fs7VawD0qx5TSs6luzGYdeJL/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1SQPDouPJHc0SxnlAdaHVTbuusniw9Nta/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1loUVgQF4FN8S0klQb1EDo6xwdb4gtl_g/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Zoology": {
+                1: "https://drive.google.com/file/d/11fQavnjHH_w-pEeJGHaERI89jhfFY4VQ/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1knceunfBa_IffXKCg4-ESOXBb6vqW-Se/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1QNn48Ax2zQdbAXA0c6XLe3j2sy7M3vf-/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1TY6_tSYF0UD4ramcINnj354btj6IQej5/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            },
+
+            "Biological Sciences": {
+                1: "https://drive.google.com/file/d/1wJnxDax3Hm73ej9FDv-X-jaDWCRv1vA-/view?usp=drivesdk",
+                3: "https://drive.google.com/file/d/1gcR7gJLP2ZQ0TBKR0AWHyIH4DwJ4eIGT/view?usp=drivesdk",
+                5: "https://drive.google.com/file/d/1KgnbXYWhmCPdM75P3CZ7GBT9kJAfJUof/view?usp=drivesdk",
+                7: "https://drive.google.com/file/d/1tWErB3pxejA0bwtnDbI1wfmWG8e4F4cN/view?usp=drivesdk",
+                2: "", 4: "", 6: "", 8: ""
+            }
+        };
+
+        /* ==========================================================================
+           APPLICATION CORE ENGINE
+           ========================================================================== */
+
+        const subjectIcons = {
+            sociology: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+            economics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>`,
+            politicalScience: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="2" y1="20" x2="22" y2="20"></line><line x1="5" y1="20" x2="5" y2="10"></line><line x1="10" y1="20" x2="10" y2="10"></line><line x1="14" y1="20" x2="14" y2="10"></line><line x1="19" y1="20" x2="19" y2="10"></line><path d="M2 10L12 3l10 7"></path></svg>`,
+            history: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="10" r="8"></circle><polyline points="12 6 12 10 15 13"></polyline><line x1="4" y1="22" x2="20" y2="22"></line></svg>`,
+            english: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
+            hindi: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path></svg>`,
+            sanskrit: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4 2.5 7.5 6 9 0-2 1-5 4-7 3 2 4 5 4 7 3.5-1.5 6-5 6-9 0-5.5-4.5-10-10-10z"></path></svg>`,
+            baprog: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"></path></svg>`,
+            commerceH: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+            commerceP: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="2" y1="20" x2="22" y2="20"></line></svg>`,
+            math: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 2 22 22 22 12 2"></polygon><line x1="5" y1="18" x2="19" y2="18"></line></svg>`,
+            statistics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>`,
+            physics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="2"></circle><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(30 12 12)"></ellipse><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(150 12 12)"></ellipse></svg>`,
+            chemistry: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 3h6"></path><path d="M10 3v6l-4 9a2 2 0 0 0 1.7 3h8.6a2 2 0 0 0 1.7-3l-4-9V3"></path><line x1="8.5" y1="15" x2="15.5" y2="15"></line></svg>`,
+            electronics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line></svg>`,
+            biochemistry: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 15c6.667-6 13.333 0 20-6"></path><path d="M2 9c6.667 6 13.333 0 20 6"></path><circle cx="6" cy="11.5" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="18" cy="12.5" r="1.5"></circle></svg>`,
+            botany: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 20A7 7 0 0 1 4 13C4 8 8 3 20 2c1 12-4 16-9 18z"></path><path d="M11 20l5-9"></path></svg>`,
+            zoology: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="15" r="4"></circle><circle cx="7" cy="8" r="2.5"></circle><circle cx="17" cy="8" r="2.5"></circle><circle cx="4" cy="13" r="2"></circle><circle cx="20" cy="13" r="2"></circle></svg>`,
+            bioSci: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0-7-7h1"></path><circle cx="9" cy="9" r="2"></circle><path d="M9 3v4"></path></svg>`,
+            lifeSci: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 20h10"></path><path d="M12 20v-8"></path><path d="M12 12c-3.5 0-6-2.5-6-6 3.5 0 6 2.5 6 6z"></path><path d="M12 10c3.5 0 6-2.5 6-6-3.5 0-6 2.5-6 6z"></path></svg>`
+        };
+
+        const coursesData = [
+            { name: "Sociology", degree: "B.A. (Honours) Sociology", stream: "Arts", iconKey: "sociology" },
+            { name: "Economics", degree: "B.A. (Honours) Economics", stream: "Arts", iconKey: "economics" },
+            { name: "Political Science", degree: "B.A. (Honours) Political Science", stream: "Arts", iconKey: "politicalScience" },
+            { name: "History", degree: "B.A. (Honours) History", stream: "Arts", iconKey: "history" },
+            { name: "English", degree: "B.A. (Honours) English", stream: "Arts", iconKey: "english" },
+            { name: "Hindi", degree: "B.A. (Honours) Hindi", stream: "Arts", iconKey: "hindi" },
+            { name: "Sanskrit", degree: "B.A. (Honours) Sanskrit", stream: "Arts", iconKey: "sanskrit" },
+            { name: "B.A. Programme", degree: "Bachelor of Arts (Programme)", stream: "Arts", iconKey: "baprog" },
+            { name: "Commerce (Honours)", degree: "B.Com. (Honours)", stream: "Commerce", iconKey: "commerceH" },
+            { name: "Commerce (Programme)", degree: "B.Com. (Programme)", stream: "Commerce", iconKey: "commerceP" },
+            { name: "Mathematics", degree: "B.Sc. (Honours) Mathematics", stream: "Science", iconKey: "math" },
+            { name: "Statistics", degree: "B.Sc. (Honours) Statistics", stream: "Science", iconKey: "statistics" },
+            { name: "Physics", degree: "B.Sc. (Honours) Physics", stream: "Science", iconKey: "physics" },
+            { name: "Chemistry", degree: "B.Sc. (Honours) Chemistry", stream: "Science", iconKey: "chemistry" },
+            { name: "Electronics", degree: "B.Sc. (Honours) Electronics", stream: "Science", iconKey: "electronics" },
+            { name: "Biochemistry", degree: "B.Sc. (Honours) Biochemistry", stream: "Science", iconKey: "biochemistry" },
+            { name: "Botany", degree: "B.Sc. (Honours) Botany", stream: "Science", iconKey: "botany" },
+            { name: "Zoology", degree: "B.Sc. (Honours) Zoology", stream: "Science", iconKey: "zoology" },
+            { name: "Biological Sciences", degree: "B.Sc. (Honours) Biological Sciences", stream: "Science", iconKey: "bioSci" },
+            { name: "Life Sciences", degree: "B.Sc. (Programme) Life Science", stream: "Science", iconKey: "lifeSci" }
+        ];
+
+        const semestersData = [
+            { num: 1, roman: "I", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 1", desc: "Core Lectures, Tutorial Allocations & Foundational Laboratories." },
+            { num: 2, roman: "II", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 1", desc: "Roster will be published upon the commencement of the Even Semester." },
+            { num: 3, roman: "III", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 2", desc: "Discipline Specific Core & Practical Skill Allocations." },
+            { num: 4, roman: "IV", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 2", desc: "Roster will be published upon the commencement of the Even Semester." },
+            { num: 5, roman: "V", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 3", desc: "Advanced Elective Allocations, Department Matrix & Seminars." },
+            { num: 6, roman: "VI", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 3", desc: "Roster will be published upon the commencement of the Even Semester." },
+            { num: 7, roman: "VII", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 4", desc: "Honours Research Modules & Academic Consultation Hours." },
+            { num: 8, roman: "VIII", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 4", desc: "Roster will be published upon the commencement of the Even Semester." }
+        ];
+
+        // Check if a course & semester has Section A & Section B split
+        function hasSections(courseName, semNum) {
+            const courseObj = TIMETABLE_LINKS[courseName];
+            if (!courseObj) return false;
+            const semVal = courseObj[semNum];
+            return (typeof semVal === 'object' && semVal !== null && ('A' in semVal || 'B' in semVal));
+        }
+
+        // Get Google Drive Link
+        function resolveLink(courseName, semNum, section = null) {
+            const courseObj = TIMETABLE_LINKS[courseName];
+            if (!courseObj) return "";
+            const semVal = courseObj[semNum];
+            if (!semVal) return "";
+            if (typeof semVal === 'object') {
+                return section && semVal[section] ? semVal[section] : "";
+            }
+            return semVal;
+        }
+
+        // Parse Google Drive Link
+        function parseGoogleDriveLink(rawUrl) {
+            if (!rawUrl || typeof rawUrl !== 'string' || rawUrl.trim() === "" || rawUrl.includes("insert your link here") || rawUrl === "#") {
+                return { isReady: false };
+            }
+
+            const url = rawUrl.trim();
+            const idMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) ||
+                            url.match(/[?&]id=([a-zA-Z0-9_-]+)/) ||
+                            url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+
+            if (idMatch && idMatch[1]) {
+                const fileId = idMatch[1];
+                return {
+                    isReady: true,
+                    previewUrl: `https://drive.google.com/file/d/${fileId}/preview`,
+                    downloadUrl: `https://drive.google.com/uc?export=download&id=${fileId}`,
+                    externalUrl: `https://drive.google.com/file/d/${fileId}/view?usp=sharing`
+                };
+            }
+
+            return {
+                isReady: true,
+                previewUrl: url,
+                downloadUrl: url,
+                externalUrl: url
+            };
+        }
+
+        let currentStep = 'courses';
+        let state = { course: null, semester: null, section: null };
+
+        const screenCourses = document.getElementById('screen-courses');
+        const screenSemesters = document.getElementById('screen-semesters');
+        const screenSections = document.getElementById('screen-sections');
+        const screenViewer = document.getElementById('screen-viewer');
+
+        const coursesGrid = document.getElementById('courses-grid');
+        const semestersGrid = document.getElementById('semesters-grid');
+        const sectionsGrid = document.getElementById('sections-grid');
+
+        const navBackBtn = document.getElementById('nav-back-btn');
+        const viewTitle = document.getElementById('view-title');
+        const viewSubtitle = document.getElementById('view-subtitle');
+
+        const crumbCourses = document.getElementById('crumb-courses');
+        const crumbSemesters = document.getElementById('crumb-semesters');
+        const crumbSections = document.getElementById('crumb-sections');
+        const sepSections = document.getElementById('sep-sections');
+        const crumbViewer = document.getElementById('crumb-viewer');
+
+        const timetableWrapper = document.getElementById('timetable-wrapper');
+        const fsBtn = document.getElementById('viewer-fullscreen-btn');
+        const fsExpandIcon = document.getElementById('fs-expand-icon');
+        const fsCollapseIcon = document.getElementById('fs-collapse-icon');
+        const fsBtnLabel = document.getElementById('fs-btn-label');
+        const pdfIframe = document.getElementById('pdf-viewer-frame');
+
+        // Fullscreen Toggle
+        if (fsBtn) {
+            fsBtn.addEventListener('click', () => {
+                const isFs = timetableWrapper.classList.toggle('is-fullscreen');
+                if (isFs) {
+                    fsExpandIcon.style.display = 'none';
+                    fsCollapseIcon.style.display = 'inline-block';
+                    fsBtnLabel.textContent = 'Exit Fullscreen';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    fsExpandIcon.style.display = 'inline-block';
+                    fsCollapseIcon.style.display = 'none';
+                    fsBtnLabel.textContent = 'Fullscreen';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Close fullscreen on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && timetableWrapper.classList.contains('is-fullscreen')) {
+                timetableWrapper.classList.remove('is-fullscreen');
+                fsExpandIcon.style.display = 'inline-block';
+                fsCollapseIcon.style.display = 'none';
+                fsBtnLabel.textContent = 'Fullscreen';
+                document.body.style.overflow = '';
+            }
+        });
+
+        // SCREEN 1: COURSES
+        function renderCourses(list) {
+            coursesGrid.innerHTML = '';
+            if (!list.length) {
+                coursesGrid.innerHTML = `<div class="no-results-msg">No departments found matching your search.</div>`;
+                return;
+            }
+
+            list.forEach(c => {
+                const card = document.createElement('div');
+                card.className = 'bento-card';
+                card.tabIndex = 0;
+                
+                const streamClass = c.stream.toLowerCase();
+                const iconSvg = subjectIcons[c.iconKey] || subjectIcons.baprog;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="card-top">
+                            <span class="card-icon-wrap">${iconSvg}</span>
+                            <span class="card-stream-tag ${streamClass}">${c.stream}</span>
+                        </div>
+                        <div class="card-info">
+                            <h3>${c.name}</h3>
+                            <p>${c.degree}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => selectCourse(c));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectCourse(c); });
+                coursesGrid.appendChild(card);
+            });
+        }
+
+        // SCREEN 2: SEMESTERS
+        function renderSemesters() {
+            semestersGrid.innerHTML = '';
+            semestersData.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'bento-card';
+                card.tabIndex = 0;
+                
+                const isSplit = hasSections(state.course.name, s.num);
+                const tagText = isSplit ? `Sections A & B • ${s.year}` : `${s.statusTag} • ${s.year}`;
+                const statusTagClass = s.isEven ? 'term-upcoming' : 'term-active';
+
+                card.innerHTML = `
+                    <div>
+                        <div class="card-top">
+                            <span class="card-icon-wrap" style="font-family: var(--font-heading); font-weight: 800; font-size: 0.9rem;">
+                                ${s.roman}
+                            </span>
+                            <span class="card-stream-tag ${statusTagClass}">${tagText}</span>
+                        </div>
+                        <div class="card-info">
+                            <h3>Semester ${s.num}</h3>
+                            <p>${isSplit ? "Multiple sections available. Select Section A or Section B roster." : s.desc}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => handleSemesterClick(s.num));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleSemesterClick(s.num); });
+                semestersGrid.appendChild(card);
+            });
+        }
+
+        function handleSemesterClick(semNum) {
+            state.semester = semNum;
+            state.section = null;
+
+            if (hasSections(state.course.name, semNum)) {
+                // If it has Section A & B, open Screen 2.5
+                openSectionsScreen(semNum);
+            } else {
+                // Regular single timetable
+                openTimetable(semNum, null);
+            }
+        }
+
+        // SCREEN 2.5: SECTION SELECTION
+        function openSectionsScreen(semNum) {
+            currentStep = 'sections';
+
+            screenCourses.style.display = 'none';
+            screenSemesters.style.display = 'none';
+            screenSections.style.display = 'block';
+            screenViewer.style.display = 'none';
+
+            viewTitle.textContent = `${state.course.name} — Semester ${semNum} Section`;
+            viewSubtitle.textContent = `Select your allocated section (Section A or Section B) to view the timetable roster for ${state.course.name}.`;
+            navBackBtn.querySelector('span').textContent = 'Semesters';
+
+            renderSections(semNum);
+            updateBreadcrumbs();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderSections(semNum) {
+            sectionsGrid.innerHTML = '';
+            const sections = [
+                { id: 'A', name: 'Section A', badge: 'Section Roster', desc: 'Lectures, Tutorial batches & Laboratory venues for Section A.' },
+                { id: 'B', name: 'Section B', badge: 'Section Roster', desc: 'Lectures, Tutorial batches & Laboratory venues for Section B.' }
+            ];
+
+            sections.forEach(sec => {
+                const card = document.createElement('div');
+                card.className = 'bento-card';
+                card.tabIndex = 0;
+                card.innerHTML = `
+                    <div>
+                        <div class="card-top">
+                            <span class="card-icon-wrap" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.05rem;">
+                                ${sec.id}
+                            </span>
+                            <span class="card-stream-tag" style="background: var(--accent-subtle); color: var(--accent);">${sec.badge}</span>
+                        </div>
+                        <div class="card-info">
+                            <h3>${sec.name}</h3>
+                            <p>${sec.desc}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => openTimetable(semNum, sec.id));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') openTimetable(semNum, sec.id); });
+                sectionsGrid.appendChild(card);
+            });
+        }
+
+        // SCREEN 3: TIMETABLE VIEWER
+        function openTimetable(semNum, section = null) {
+            state.semester = semNum;
+            state.section = section;
+            currentStep = 'viewer';
+
+            screenCourses.style.display = 'none';
+            screenSemesters.style.display = 'none';
+            screenSections.style.display = 'none';
+            screenViewer.style.display = 'block';
+
+            const sectionLabel = section ? ` (Section ${section})` : '';
+            viewTitle.textContent = `${state.course.name} — Semester ${semNum}${sectionLabel} Timetable`;
+            viewSubtitle.textContent = `Official Departmental Master Schedule, Tutorial Allocations & Laboratory Venues for ${state.course.degree}.`;
+            navBackBtn.querySelector('span').textContent = section ? 'Sections' : 'Semesters';
+
+            const docTitleElem = document.getElementById('viewer-doc-title');
+            const pendingBox = document.getElementById('viewer-pending-box');
+            const extLink = document.getElementById('viewer-external-link');
+            const downloadLink = document.getElementById('viewer-download-link');
+            const pendingTitle = document.getElementById('pending-title-text');
+            const pendingDesc = document.getElementById('pending-desc-text');
+            const pendingTag = document.getElementById('pending-category-tag');
+
+            docTitleElem.textContent = `${state.course.name} — Semester ${semNum}${sectionLabel} Master Timetable`;
+
+            const rawLink = resolveLink(state.course.name, semNum, section);
+            const linkData = parseGoogleDriveLink(rawLink);
+            const isEvenSemester = (semNum % 2 === 0);
+
+            if (linkData.isReady) {
+                pendingBox.style.display = 'none';
+                pdfIframe.style.display = 'block';
+                pdfIframe.src = linkData.previewUrl;
+
+                extLink.style.display = 'inline-flex';
+                extLink.href = linkData.externalUrl;
+
+                downloadLink.style.display = 'inline-flex';
+                downloadLink.href = linkData.downloadUrl;
+            } else {
+                pdfIframe.style.display = 'none';
+                pdfIframe.src = 'about:blank';
+                extLink.style.display = 'none';
+                downloadLink.style.display = 'none';
+                pendingBox.style.display = 'flex';
+
+                if (isEvenSemester) {
+                    pendingTag.textContent = "Academic Session Notification";
+                    pendingTitle.textContent = `Semester ${semNum} Timetable Awaiting Term Commencement`;
+                    pendingDesc.innerHTML = `
+                        Sri Venkateswara College is currently conducting the Odd Semester academic term (Semesters I, III, V, VII). 
+                        Official departmental timetables, room assignments, and practical laboratory schedules for 
+                        <strong>Semester ${semNum}</strong> will be published immediately upon the commencement of the upcoming Even Semester term in accordance with the University of Delhi academic calendar.
+                    `;
+                } else {
+                    pendingTag.textContent = "Publication in Progress";
+                    pendingTitle.textContent = `${state.course.name} (Semester ${semNum}${sectionLabel}) Schedule Pending`;
+                    pendingDesc.innerHTML = `
+                        The departmental timetable for <strong>${state.course.name} Semester ${semNum}${sectionLabel}</strong> is currently being verified and uploaded. 
+                        Please check back shortly or access official departmental notices.
+                    `;
+                }
+            }
+
+            updateBreadcrumbs();
+
+            const targetOffset = screenViewer.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: Math.max(0, targetOffset), behavior: 'smooth' });
+        }
+
+        function updateBreadcrumbs() {
+            crumbCourses.className = currentStep === 'courses' ? 'breadcrumb-step active' : 'breadcrumb-step';
+            crumbSemesters.className = currentStep === 'semesters' ? 'breadcrumb-step active' : 'breadcrumb-step';
+            
+            const isSectioned = state.course && state.semester && hasSections(state.course.name, state.semester);
+            if (isSectioned) {
+                crumbSections.style.display = 'inline-flex';
+                sepSections.style.display = 'inline-flex';
+                crumbSections.className = currentStep === 'sections' ? 'breadcrumb-step active' : 'breadcrumb-step';
+                crumbSections.textContent = state.section ? `Section ${state.section}` : 'Section';
+            } else {
+                crumbSections.style.display = 'none';
+                sepSections.style.display = 'none';
+            }
+
+            crumbViewer.className = currentStep === 'viewer' ? 'breadcrumb-step active' : 'breadcrumb-step';
+        }
+
+        function selectCourse(course) {
+            state.course = course;
+            state.semester = null;
+            state.section = null;
+            currentStep = 'semesters';
+
+            screenCourses.style.display = 'none';
+            screenSemesters.style.display = 'block';
+            screenSections.style.display = 'none';
+            screenViewer.style.display = 'none';
+
+            viewTitle.textContent = `${course.name} — Select Semester`;
+            viewSubtitle.textContent = `Choose your semester to view the active official timetable for ${course.degree}.`;
+            navBackBtn.querySelector('span').textContent = 'Departments';
+
+            renderSemesters();
+            updateBreadcrumbs();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        navBackBtn.addEventListener('click', () => {
+            if (currentStep === 'viewer') {
+                if (state.section) {
+                    openSectionsScreen(state.semester);
+                } else {
+                    selectCourse(state.course);
+                }
+            } else if (currentStep === 'sections') {
+                selectCourse(state.course);
+            } else if (currentStep === 'semesters') {
+                goToCourses();
+            } else {
+                window.location.href = '../index.html';
+            }
+        });
+
+        function goToCourses() {
+            currentStep = 'courses';
+            state.course = null;
+            state.semester = null;
+            state.section = null;
+
+            screenCourses.style.display = 'block';
+            screenSemesters.style.display = 'none';
+            screenSections.style.display = 'none';
+            screenViewer.style.display = 'none';
+
+            viewTitle.textContent = 'Select Your Department';
+            viewSubtitle.textContent = 'Access verified departmental master timetables, laboratory matrices, and room allotments across all undergraduate programs.';
+            navBackBtn.querySelector('span').textContent = 'Dashboard';
+
+            updateBreadcrumbs();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        crumbCourses.addEventListener('click', goToCourses);
+        crumbSemesters.addEventListener('click', () => { if (state.course) selectCourse(state.course); });
+        crumbSections.addEventListener('click', () => { 
+            if (state.course && state.semester && hasSections(state.course.name, state.semester)) {
+                openSectionsScreen(state.semester);
+            }
+        });
+
+        // Search & Filter
+        const searchInput = document.getElementById('course-search-input');
+        const filterChips = document.querySelectorAll('.category-chip');
+        let activeStream = 'all';
+
+        function applyCourseFilters() {
+            const query = searchInput.value.toLowerCase().trim();
+            const filtered = coursesData.filter(c => {
+                const matchesStream = (activeStream === 'all' || c.stream.toLowerCase() === activeStream.toLowerCase());
+                const matchesQuery = c.name.toLowerCase().includes(query) || c.degree.toLowerCase().includes(query);
+                return matchesStream && matchesQuery;
+            });
+            renderCourses(filtered);
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', applyCourseFilters);
+        }
+
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                filterChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeStream = chip.getAttribute('data-stream');
+                applyCourseFilters();
+            });
+        });
+
+        // Minimalist Pill Theme Toggle Controller
+        const themeBtn = document.getElementById('theme-toggle');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('venky-theme', theme);
+            if (themeBtn) {
+                themeBtn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('venky-theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            setTheme(savedTheme);
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                setTheme(current === 'dark' ? 'light' : 'dark');
+            });
+        }
+
+        initTheme();
+        renderCourses(coursesData);
+        updateBreadcrumbs();
+    </script>
+</body>
+</html>

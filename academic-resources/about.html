@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Learn about VenkySpace, its creator Harsh Deshwal, and the student team behind Sri Venkateswara College's independent academic workspace.">
+<meta name="theme-color" content="#16202A">
+<title>About VenkySpace — Built by Harsh Deshwal</title>
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF8F5;--sf:#fff;--sf2:#F5F1EA;--ln:#E8E1D7;--ln2:#D9D0C3;--ink:#16202A;--tx:#3B4756;--mu:#5F6B7A;--co:#D96B43;--gold:#B08D57;--gi:#8A6A36;--t1:#FBEBE3;--t1i:#B24E2A;--t2:#E8EEF3;--t2i:#2D4357;--sb:#FBE9E0;--sl:#D96B43;--si:#8A3A1C;--fc:#C65A33;--bb:#16202A;--bi:#fff;--serif:'Newsreader','Iowan Old Style',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color-scheme:light;
+--moon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z'/%3E%3C/svg%3E");
+--sun:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4'/%3E%3C/svg%3E")}
+[data-theme=dark]{--bg:#0F151C;--sf:#172029;--sf2:#1E2933;--ln:#26323E;--ln2:#33414F;--ink:#F3EFE8;--tx:#C9D1DA;--mu:#98A5B3;--gi:#C9A36A;--t1:#3A231B;--t1i:#F0A383;--t2:#1F3041;--t2i:#A9C3DA;--sb:rgba(217,107,67,.2);--sl:#E58A66;--si:#F6C3AE;--fc:#E58A66;--bb:#F3EFE8;--bi:#16202A;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg);-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+.vs-body{margin:0;background:var(--bg);color:var(--tx);font:400 15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+.vs-body a{color:inherit;text-decoration:none}
+.vs-body h1,.vs-body h2,.vs-body h3,.vs-body p,.vs-body ul{margin:0;padding:0}
+.vs-body ul{list-style:none}
+.vs-body button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--fc);outline-offset:2px}
+.vs-ic{width:1.125em;height:1.125em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Shell + Sidebar with Sleek Custom Scrollbar */
+.vs-shell{display:grid;grid-template-columns:268px minmax(0,1fr);align-items:start}
+.vs-sidebar{
+  --bw:#fff;
+  --bg2:var(--gold);
+  position:sticky;
+  top:0;
+  height:100vh;
+  height:100dvh;
+  overflow-y:auto;
+  overflow-x:hidden;
+  display:flex;
+  flex-direction:column;
+  padding:22px 14px 16px;
+  background:#16202A;
+  color:#B7C2CE;
+  z-index:60;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.18) transparent;
+}
+.vs-sidebar::-webkit-scrollbar{width:5px}
+.vs-sidebar::-webkit-scrollbar-track{background:transparent}
+.vs-sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:10px}
+.vs-sidebar::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.32)}
+
+.vs-side-top{display:flex;align-items:center;justify-content:space-between;padding:0 8px 24px}
+.vs-brand{display:inline-flex;align-items:baseline;gap:8px;line-height:1}
+.vs-brand b{font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--bw)}
+.vs-brand b i{font-style:normal;color:var(--co)}
+.vs-brand small{font-size:.75rem;font-weight:700;letter-spacing:.06em;color:var(--bg2)}
+.vs-nav-label{padding:0 12px 8px;font-size:.8125rem;font-weight:600;color:#8A98A9}
+.vs-nav{display:flex;flex-direction:column;gap:2px}
+.vs-nav a{position:relative;display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:10px;font-weight:500;color:#B7C2CE;transition:background-color .15s,color .15s}
+.vs-nav a:hover{background:rgba(255,255,255,.06);color:#fff}
+.vs-nav a[aria-current=page]{background:rgba(255,255,255,.1);color:#fff;font-weight:600}
+.vs-nav a[aria-current=page]::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 3px 3px 0;background:var(--co)}
+.vs-nav-more{display:none;margin-top:22px}
+.vs-side-foot{margin-top:auto;padding:18px 12px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.8125rem;color:#8A98A9}
+.vs-side-foot b{display:block;color:#C9D3DD;font-weight:600}
+.vs-side-close{display:none;width:40px;height:40px;align-items:center;justify-content:center;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:transparent;color:#C9D3DD;cursor:pointer}
+.vs-backdrop{position:fixed;inset:0;z-index:55;background:rgba(7,15,26,.65);opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.vs-backdrop.on{opacity:1;visibility:visible;transition:opacity .3s}
+
+/* Topbar */
+.vs-main{min-width:0}
+.vs-topbar{--bw:var(--ink);--bg2:var(--gi);position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;min-height:68px;padding:0 clamp(16px,3vw,40px);background:var(--bg);border-bottom:1px solid var(--ln)}
+@supports (background:color-mix(in srgb,red,blue)){.vs-topbar{background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}}
+.vs-actions{margin-left:auto;display:flex;align-items:center;gap:6px}
+.vs-quick{display:flex;gap:2px;margin-right:6px}
+.vs-quick a{padding:8px 10px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--mu)}
+.vs-quick a:hover{color:var(--ink);background:var(--sf2)}
+.vs-quick a[aria-current=page]{color:var(--ink);background:var(--sf2);font-weight:600}
+.vs-icon-btn{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:12px;border:1px solid var(--ln2);background:var(--sf);color:var(--ink);cursor:pointer}
+.vs-icon-btn:hover{background:var(--sf2)}
+.vs-hamburger,.vs-topbar-brand{display:none}
+#theme-icon{display:block;width:18px;height:18px;font-size:0;line-height:0;background:currentColor;-webkit-mask:var(--moon) center/contain no-repeat;mask:var(--moon) center/contain no-repeat}
+[data-theme=dark] #theme-icon{-webkit-mask-image:var(--sun);mask-image:var(--sun)}
+
+/* Page Content */
+.vs-content{max-width:1120px;margin:0 auto;padding:44px clamp(16px,3vw,40px) 64px}
+.vs-about-hero{padding-bottom:48px;border-bottom:1px solid var(--ln)}
+.vs-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--co);margin-bottom:12px}
+.vs-about-hero h1{font:600 clamp(2.3rem,4.5vw,3.4rem)/1.08 var(--serif);letter-spacing:-.025em;color:var(--ink);max-width:24ch}
+.vs-about-hero p{margin-top:18px;font-size:1.125rem;line-height:1.7;color:var(--tx);max-width:64ch}
+
+/* Story + Founder */
+.vs-story-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start;padding:48px 0;border-bottom:1px solid var(--ln)}
+.vs-prose h2{font:600 1.85rem/1.2 var(--serif);color:var(--ink);letter-spacing:-.015em;margin-bottom:16px}
+.vs-prose p{font-size:1rem;line-height:1.75;color:var(--tx);margin-bottom:18px}
+.vs-founder-card{padding:28px 24px;border-radius:20px;background:var(--sf);border:1px solid var(--ln);box-shadow:0 10px 30px -15px rgba(22,32,42,.08)}
+.vs-avatar-wrap{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.vs-avatar-initials{width:56px;height:56px;border-radius:16px;background:var(--bb);color:var(--bi);display:grid;place-items:center;font-weight:800;font-size:1.25rem}
+.vs-founder-meta h3{font:600 1.25rem/1.2 var(--serif);color:var(--ink)}
+.vs-founder-meta p{font-size:.8125rem;font-weight:600;color:var(--co);margin-top:2px}
+.vs-founder-quote{position:relative;padding:16px 18px;margin-bottom:20px;background:var(--sf2);border-left:3px solid var(--co);border-radius:0 12px 12px 0;font:italic 400 .9375rem/1.6 var(--serif);color:var(--ink)}
+.vs-founder-links{display:flex;flex-wrap:wrap;gap:8px}
+.vs-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;font-size:.8125rem;font-weight:600;background:var(--sf);border:1px solid var(--ln2);color:var(--tx);transition:all .15s}
+.vs-tag:hover{border-color:var(--ink);color:var(--ink);background:var(--sf2)}
+
+/* Special Thanks & Credits Section */
+.vs-credits-sec{padding:48px 0;border-bottom:1px solid var(--ln)}
+.vs-sec-title{font:600 1.85rem/1.2 var(--serif);color:var(--ink);letter-spacing:-.015em;margin-bottom:8px}
+.vs-sec-sub{font-size:1rem;color:var(--mu);margin-bottom:28px}
+.vs-credits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.vs-credit-card{padding:24px;border-radius:18px;background:var(--sf);border:1px solid var(--ln);display:flex;flex-direction:column;gap:12px;transition:box-shadow .2s}
+.vs-credit-card:hover{box-shadow:0 8px 24px -10px rgba(0,0,0,.08)}
+.vs-credit-head{display:flex;align-items:center;gap:14px}
+.vs-credit-avatar{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:var(--t2);color:var(--t2i);font-weight:700;font-size:1rem}
+.vs-credit-meta b{font-size:1.05rem;color:var(--ink);display:block}
+.vs-credit-meta small{font-size:.8rem;color:var(--co);font-weight:600}
+.vs-credit-card p{font-size:.875rem;line-height:1.6;color:var(--mu)}
+
+/* Dynamic Animated Counters */
+.vs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:48px 0;text-align:center;border-bottom:1px solid var(--ln)}
+.vs-stat b{display:block;font:700 2.5rem/1.1 var(--serif);color:var(--ink);letter-spacing:-.02em}
+.vs-stat span{display:block;margin-top:6px;font-size:.875rem;font-weight:600;color:var(--mu)}
+
+/* High-Contrast Action Banner (No White-on-White Glitch) */
+.vs-cta-banner{margin-top:40px;padding:36px clamp(20px,4vw,44px);background:linear-gradient(135deg,#16202A 0%,#202E3D 100%);color:#fff;border-radius:22px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.vs-cta-banner h2{font:600 clamp(1.45rem,2.8vw,1.95rem)/1.2 var(--serif);color:#fff}
+.vs-cta-banner p{margin-top:6px;color:#A5B4C4;max-width:50ch;font-size:.95rem}
+.vs-cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+.vs-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:12px;font-weight:600;font-size:.9375rem;transition:all .15s}
+.vs-btn-white{background:#fff;color:#16202A;border:1px solid #fff}
+.vs-btn-white:hover{background:#F5F1EA;border-color:#F5F1EA}
+.vs-btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+.vs-btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* Footer */
+.vs-footer{padding:56px 0 28px;background:linear-gradient(180deg,#070F1A,#0A1320);border-top:2px solid #B08D57;color:#CBD5E1}
+.vs-footer-in{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
+.vs-footer-cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.vs-footer-brand{font-weight:800;font-size:1.5rem;letter-spacing:-.02em;color:#fff}
+.vs-footer-brand i{font-style:normal;color:var(--co)}
+.vs-footer-badge{display:block;margin:4px 0 14px;font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#B08D57}
+.vs-footer-bio{max-width:340px;margin-bottom:18px;font-size:.875rem;line-height:1.6;color:#94A3B8}
+.vs-address{display:flex;gap:10px;max-width:320px;padding:10px 14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.04);font-size:.8125rem;color:#A5B2C3}
+.vs-address .vs-ic{margin-top:2px;color:#B08D57}
+.vs-footer h3{margin-bottom:16px;font-size:.875rem;font-weight:700;color:#B08D57}
+.vs-footer li+li{margin-top:12px}
+.vs-footer li a{display:inline-flex;align-items:center;gap:6px;font-size:.875rem;color:#A5B2C3;transition:color .2s}
+.vs-footer li a:hover{color:#E8825C}
+.vs-footer-low{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:.8125rem;color:#8392A6}
+.vs-status{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#34D399}
+.vs-status::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+
+/* Responsive */
+@media (max-width:991px){
+.vs-shell{display:block}
+.vs-sidebar{position:fixed;inset:0 auto 0 0;width:min(300px,86vw);transform:translateX(-102%);visibility:hidden;transition:transform .3s cubic-bezier(.16,1,.3,1),visibility 0s .3s}
+.vs-sidebar.is-open{transform:none;visibility:visible;box-shadow:8px 0 32px rgba(0,0,0,.45);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.vs-side-close{display:inline-flex}
+.vs-nav-more{display:block}
+.vs-topbar{padding-top:10px;padding-bottom:10px}
+.vs-hamburger{display:inline-flex;width:44px;height:44px}
+.vs-topbar-brand{display:inline-flex;margin-right:auto}
+.vs-story-grid{grid-template-columns:1fr;gap:36px}
+.vs-footer-cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+.vs-content{padding-top:28px}
+.vs-stats{grid-template-columns:1fr;gap:24px}
+.vs-cta-banner{flex-direction:column;align-items:flex-start}
+.vs-cta-actions{width:100%}
+.vs-cta-actions .vs-btn{flex:1 1 100%}
+.vs-footer-cols{grid-template-columns:1fr;gap:32px}
+.vs-footer-low{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body class="vs-body">
+
+<svg width="0" height="0" style="position:absolute" focusable="false" aria-hidden="true"><defs>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></symbol>
+<symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+<symbol id="i-vault" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></symbol>
+<symbol id="i-scroll" viewBox="0 0 24 24"><path d="M15 12h-5M15 8h-5M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/><rect width="18" height="18" x="3" y="4" rx="2"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></symbol>
+<symbol id="i-dash" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+<symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
+</defs></svg>
+
+<div class="vs-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+
+<div class="vs-shell">
+
+  <!-- SIDEBAR: Relative paths to ../index.html -->
+  <aside class="vs-sidebar" id="workspace-sidebar" aria-label="Academic Hub Sidebar">
+    <div class="vs-side-top">
+      <a href="../index.html" class="vs-brand" aria-label="VenkySpace Home"><b>VenkySpace<i>.</i></b><small>SVC DU</small></a>
+      <button class="vs-side-close" id="sidebar-close-btn" type="button" aria-label="Close navigation menu"><svg class="vs-ic"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="vs-nav-label">Academic hub</div>
+    <nav class="vs-nav" aria-label="Academic hub">
+      <a href="../index.html"><svg class="vs-ic"><use href="#i-dash"/></svg>Dashboard</a>
+      <a href="pyqs.html"><svg class="vs-ic"><use href="#i-vault"/></svg>PYQs 10-Yr Vault</a>
+      <a href="syllabus.html"><svg class="vs-ic"><use href="#i-scroll"/></svg>UGCF Syllabus</a>
+      <a href="timetable.html"><svg class="vs-ic"><use href="#i-cal"/></svg>Time Table PDFs</a>
+      <a href="notes.html"><svg class="vs-ic"><use href="#i-pen"/></svg>Notes Vault</a>
+      <a href="officialwagroups.html"><svg class="vs-ic"><use href="#i-chat"/></svg>WhatsApp Groups</a>
+      <a href="campusfaq.html"><svg class="vs-ic"><use href="#i-help"/></svg>Campus FAQs</a>
+    </nav>
+    <div class="vs-nav-more">
+      <div class="vs-nav-label">More</div>
+      <nav class="vs-nav" aria-label="More">
+        <a href="about.html" aria-current="page"><svg class="vs-ic"><use href="#i-info"/></svg>About</a>
+        <a href="contact.html"><svg class="vs-ic"><use href="#i-mail"/></svg>Contact</a>
+      </nav>
+    </div>
+    <div class="vs-side-foot"><b>VenkySpace v1.0.0</b>Built for SVC Students</div>
+  </aside>
+
+  <div class="vs-main">
+
+    <!-- TOPBAR -->
+    <header class="vs-topbar" id="vs-topbar">
+      <button class="vs-icon-btn vs-hamburger" id="mobile-hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="workspace-sidebar"><svg class="vs-ic"><use href="#i-menu"/></svg></button>
+      <a href="../index.html" class="vs-brand vs-topbar-brand" aria-label="VenkySpace Home"><b>VenkySpace<i>.</i></b><small>SVC DU</small></a>
+      <div class="vs-actions">
+        <nav class="vs-quick" aria-label="Quick links">
+          <a href="../index.html">Home</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a>
+        </nav>
+        <button class="vs-icon-btn theme-toggle-btn" id="theme-toggle" type="button" aria-label="Toggle Theme" title="Switch Theme"><span id="theme-icon">🌙</span></button>
+      </div>
+    </header>
+
+    <main class="vs-content">
+
+      <!-- HERO -->
+      <section class="vs-about-hero">
+        <span class="vs-eyebrow"><svg class="vs-ic"><use href="#i-sparkles"/></svg> Independent Student Initiative</span>
+        <h1>Curated for Sri Venkateswara College.</h1>
+        <p>VenkySpace was conceived out of a simple student reality: DU study resources shouldn't be hidden inside cluttered WhatsApp forward chains, broken Google Drive folders, or expired Telegram channels.</p>
+      </section>
+
+      <!-- STORY + FOUNDER -->
+      <section class="vs-story-grid">
+        <div class="vs-prose">
+          <h2>The Story Behind the Workspace</h2>
+          <p>Every examination season at <strong>Sri Venkateswara College (DU)</strong> comes with the same collective scramble: <em>"Where is the latest UGCF syllabus?", "Who has the 2022 Question Paper for DSC?", "Where is the lab batch timetable?"</em></p>
+          <p>With Delhi University's transition to the <strong>Undergraduate Curriculum Framework (NEP 2020)</strong>, course structures, credit distributions, and elective combinations (GE, SEC, VAC, AEC) became more complex than ever.</p>
+          <p>VenkySpace was engineered to replace that panic with a <strong>fast, elegant, and unified workspace</strong>. Every single past paper, syllabus breakdown, department schedule, and peer guide is verified, categorized, and made freely accessible to any student with zero friction.</p>
+        </div>
+
+        <aside class="vs-founder-card">
+          <div class="vs-avatar-wrap">
+            <div class="vs-avatar-initials">HD</div>
+            <div class="vs-founder-meta">
+              <h3>Harsh Deshwal</h3>
+              <p>Creator &amp; Lead Architect</p>
+            </div>
+          </div>
+          <div class="vs-founder-quote">
+            "I wanted to build something I personally wished existed on my first day at Venky — a clean, honest, and clutter-free desk for our entire college community."
+          </div>
+          <p style="font-size: .875rem; color: var(--mu); margin-bottom: 18px; line-height: 1.55;">
+            Student at Sri Venkateswara College. Dedicated to crafting reliable tools and making digital campus resources accessible to all Venkyites.
+          </p>
+          <div class="vs-founder-links">
+            <a href="https://www.instagram.com/venkyspace.svc/" target="_blank" rel="noopener noreferrer" class="vs-tag"><svg class="vs-ic"><use href="#i-instagram"/></svg> Instagram</a>
+            <a href="contact.html" class="vs-tag"><svg class="vs-ic"><use href="#i-mail"/></svg> Contact</a>
+            <a href="../index.html" class="vs-tag"><svg class="vs-ic"><use href="#i-dash"/></svg> Vaults</a>
+          </div>
+        </aside>
+      </section>
+
+      <!-- SPECIAL CREDITS & ACKNOWLEDGMENTS -->
+      <section class="vs-credits-sec" aria-labelledby="credits-title">
+        <h2 class="vs-sec-title" id="credits-title">Foundational Credits &amp; Contributors</h2>
+        <p class="vs-sec-sub">VenkySpace stands on the generosity and relentless peer support of dedicated college mates.</p>
+        
+        <div class="vs-credits-grid">
+          <article class="vs-credit-card">
+            <div class="vs-credit-head">
+              <div class="vs-credit-avatar">TP</div>
+              <div class="vs-credit-meta">
+                <b>Tej Pratap Singh</b>
+                <small>Senior • Department of Hindi</small>
+              </div>
+            </div>
+            <p>Supported the VenkySpace vision from day one. Provided essential encouragement, institutional guidance, and contributed vital initial academic resources to help turn the concept into a reality.</p>
+          </article>
+
+          <article class="vs-credit-card">
+            <div class="vs-credit-head">
+              <div class="vs-credit-avatar" style="background:var(--t1);color:var(--t1i)">KA</div>
+              <div class="vs-credit-meta">
+                <b>Krishna Arya</b>
+                <small>1st Semester • Department of Hindi</small>
+              </div>
+            </div>
+            <p>Stood by the project at every moment. Relentlessly scouted, curated, and delivered essential academic question papers, notes, and study resources whenever required.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ANIMATED METRIC COUNTERS (Counts from 1 upwards) -->
+      <section class="vs-stats" id="stats-section" aria-label="Platform Highlights">
+        <div class="vs-stat">
+          <b class="vs-count-up" data-target="10" data-suffix="+">1</b>
+          <span>Archived Semester PYQs</span>
+        </div>
+        <div class="vs-stat">
+          <b class="vs-count-up" data-target="14" data-suffix="+">1</b>
+          <span>Active Courses Covered</span>
+        </div>
+        <div class="vs-stat">
+          <b class="vs-count-up" data-target="100" data-suffix="%">1</b>
+          <span>Free &amp; Open Access</span>
+        </div>
+      </section>
+
+      <!-- HIGH-CONTRAST ACTION BANNER -->
+      <section class="vs-cta-banner">
+        <div>
+          <h2>Want to contribute or collaborate?</h2>
+          <p>Share your handwritten lecture notes, submit missing papers, or connect with our student team.</p>
+        </div>
+        <div class="vs-cta-actions">
+          <a href="contact.html" class="vs-btn vs-btn-white"><svg class="vs-ic"><use href="#i-mail"/></svg> Send Resources</a>
+          <a href="../index.html" class="vs-btn vs-btn-outline"><svg class="vs-ic"><use href="#i-book"/></svg> Back to Home</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="vs-footer">
+  <div class="vs-footer-in">
+    <div class="vs-footer-cols">
+      <div>
+        <p class="vs-footer-brand">VenkySpace<i>.</i></p>
+        <span class="vs-footer-badge">Sri Venkateswara College • DU</span>
+        <p class="vs-footer-bio">A unified academic workspace and verified digital repository engineered exclusively for the students of Sri Venkateswara College, University of Delhi.</p>
+        <div class="vs-address"><svg class="vs-ic"><use href="#i-pin"/></svg><span>Benito Juarez Road, Dhaula Kuan, New Delhi 110021</span></div>
+      </div>
+      <div>
+        <h3>Study Vaults</h3>
+        <ul>
+          <li><a href="pyqs.html">10-Yr PYQs Bank</a></li>
+          <li><a href="syllabus.html">UGCF Active Scheme</a></li>
+          <li><a href="notes.html">Handwritten Notes Vault</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Student Utilities</h3>
+        <ul>
+          <li><a href="timetable.html">Department Time Table</a></li>
+          <li><a href="officialwagroups.html">WhatsApp Communities</a></li>
+          <li><a href="campusfaq.html">Campus FAQs &amp; Help</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Official Portals</h3>
+        <ul>
+          <li><a href="https://www.svc.ac.in" target="_blank" rel="noopener noreferrer">College Website<svg class="vs-ic"><use href="#i-up-right"/></svg></a></li>
+          <li><a href="https://slc.uod.ac.in" target="_blank" rel="noopener noreferrer">DU Samarth Portal<svg class="vs-ic"><use href="#i-up-right"/></svg></a></li>
+          <li><a href="https://exam.du.ac.in" target="_blank" rel="noopener noreferrer">DU Exam Branch<svg class="vs-ic"><use href="#i-up-right"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="vs-footer-low">
+      <p>&copy; 2026 VenkySpace. Conceived &amp; built by Harsh Deshwal for Sri Venkateswara College.</p>
+      <span class="vs-status">Academic Repositories Active</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../common.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
+
+  $$('svg.vs-ic').forEach(function (s) { s.setAttribute('aria-hidden', 'true'); });
+
+  /* Mobile drawer */
+  var sb = $('#workspace-sidebar'), bd = $('#sidebar-backdrop'), burger = $('#mobile-hamburger'),
+      closeBtn = $('#sidebar-close-btn'), mq = window.matchMedia('(max-width:991px)');
+
+  function openDrawer() {
+    if (!sb) return;
+    sb.classList.add('is-open'); if (bd) bd.classList.add('on');
+    if (burger) burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  }
+  function closeDrawer(refocus) {
+    if (!sb) return;
+    sb.classList.remove('is-open'); if (bd) bd.classList.remove('on');
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (refocus && burger) burger.focus();
+  }
+  if (burger) burger.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', function () { closeDrawer(true); });
+  if (bd) bd.addEventListener('click', function () { closeDrawer(true); });
+  if (sb) {
+    $$('a', sb).forEach(function (a) {
+      a.addEventListener('click', function () { if (mq.matches) closeDrawer(false); });
+    });
+  }
+
+  /* Theme toggle fallback */
+  var themeToggle = $('#theme-toggle');
+  if (themeToggle) {
+    var stored = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (stored === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+
+    themeToggle.addEventListener('click', function () {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
+
+  /* Animated number counter (counts up from 1 to target) */
+  var statsSec = document.getElementById('stats-section');
+  if (statsSec && 'IntersectionObserver' in window) {
+    var counters = $$('.vs-count-up');
+    var started = false;
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !started) {
+        started = true;
+        counters.forEach(function(counter) {
+          var target = parseInt(counter.getAttribute('data-target'), 10);
+          var suffix = counter.getAttribute('data-suffix') || '';
+          var duration = 1600;
+          var startTime = null;
+
+          function step(currentTime) {
+            if (!startTime) startTime = currentTime;
+            var progress = Math.min((currentTime - startTime) / duration, 1);
+            var ease = progress * (2 - progress); // smooth ease-out
+            var currentVal = Math.floor(ease * (target - 1)) + 1;
+            counter.textContent = currentVal + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              counter.textContent = target + suffix;
+            }
+          }
+          requestAnimationFrame(step);
+        });
+        observer.unobserve(statsSec);
+      }
+    }, { threshold: 0.25 });
+    observer.observe(statsSec);
+  }
+})();
+</script>
+</body>
+</html>

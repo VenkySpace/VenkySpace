@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Syllabus &amp; Curricula — VenkySpace</title>
+    <meta name="description" content="Official UGCF NEP Course Syllabus, Learning Objectives &amp; Subject Matrices - Sri Venkateswara College.">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+
+    <!-- Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page:        #F7FAF8;
+            --bg-card:        #FFFFFF;
+            --bg-card-subtle: #F0F5F2;
+            --text-heading:   #0C1914;
+            --text-body:      #2D3F37;
+            --text-muted:     #5E7369;
+            --border-color:   #DFE8E2;
+            --border-subtle:  rgba(12, 25, 20, 0.06);
+
+            /* Aesthetic Nordic Forest Emerald */
+            --accent:         #0D7A5F;
+            --accent-hover:   #095C47;
+            --accent-subtle:  rgba(13, 122, 95, 0.08);
+
+            /* Stream Colors */
+            --stream-science: #0D9488;
+            --stream-science-bg: rgba(13, 148, 136, 0.08);
+            --stream-commerce: #2563EB;
+            --stream-commerce-bg: rgba(37, 99, 235, 0.08);
+            --stream-arts: #D97706;
+            --stream-arts-bg: rgba(217, 119, 6, 0.08);
+
+            /* Paper Category Badges */
+            --badge-dsc-bg: rgba(13, 122, 95, 0.09);
+            --badge-dsc-text: #0D7A5F;
+            --badge-dse-bg: rgba(124, 58, 237, 0.09);
+            --badge-dse-text: #7C3AED;
+            --badge-ge-bg: rgba(217, 119, 6, 0.09);
+            --badge-ge-text: #B45309;
+
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body:    'Inter', sans-serif;
+
+            --radius-lg: 14px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --shadow-card: 0 1px 3px rgba(12, 25, 20, 0.04), 0 4px 12px rgba(12, 25, 20, 0.03);
+            --shadow-hover: 0 4px 16px rgba(13, 122, 95, 0.14);
+        }
+
+        [data-theme="dark"] {
+            --bg-page:        #080D0B;
+            --bg-card:        #101714;
+            --bg-card-subtle: #15201C;
+            --text-heading:   #F3FAF6;
+            --text-body:      #C8D7CE;
+            --text-muted:     #7E958A;
+            --border-color:   #1D2B24;
+            --border-subtle:  rgba(255, 255, 255, 0.06);
+
+            /* Aesthetic Mint Jade */
+            --accent:         #34D399;
+            --accent-hover:   #6EE7B7;
+            --accent-subtle:  rgba(52, 211, 153, 0.12);
+
+            --stream-science-bg: rgba(13, 148, 136, 0.15);
+            --stream-commerce-bg: rgba(37, 99, 235, 0.15);
+            --stream-arts-bg: rgba(217, 119, 6, 0.15);
+
+            --badge-dsc-bg: rgba(52, 211, 153, 0.15);
+            --badge-dsc-text: #6EE7B7;
+            --badge-dse-bg: rgba(167, 139, 250, 0.15);
+            --badge-dse-text: #C4B5FD;
+            --badge-ge-bg: rgba(251, 191, 36, 0.15);
+            --badge-ge-text: #FCD34D;
+
+            --shadow-card:    0 4px 20px rgba(0, 0, 0, 0.45);
+            --shadow-hover:   0 6px 24px rgba(52, 211, 153, 0.18);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            line-height: 1.5;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Top Header Strip */
+        .vault-topbar {
+            width: 100%;
+            height: 68px;
+            background: linear-gradient(180deg, #05120E 0%, #0A1C16 100%);
+            border-bottom: 2px solid var(--accent);
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .topbar-brand {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-name span { color: var(--accent); }
+
+        .brand-sub {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        [data-theme="dark"] .brand-sub {
+            color: #6EE7B7;
+        }
+
+        /* Minimalist Pill Switch Theme Toggle */
+        .theme-switch-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 2px;
+            display: inline-flex;
+            align-items: center;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .switch-track {
+            width: 58px;
+            height: 32px;
+            background: #111E19;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 9999px;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .theme-switch-btn:hover .switch-track,
+        .theme-switch-btn:focus-visible .switch-track {
+            border-color: var(--accent);
+        }
+
+        .switch-thumb {
+            width: 24px;
+            height: 24px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111827;
+            transform: translateX(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .switch-icon {
+            width: 14px;
+            height: 14px;
+            display: block;
+            stroke-width: 2.2;
+        }
+
+        .switch-icon.moon {
+            display: none;
+        }
+
+        [data-theme="dark"] .switch-thumb {
+            transform: translateX(26px);
+            background: #FFFFFF;
+            color: #0F172A;
+        }
+
+        [data-theme="dark"] .switch-icon.sun {
+            display: none;
+        }
+
+        [data-theme="dark"] .switch-icon.moon {
+            display: block;
+        }
+
+        /* Container Layout */
+        .vault-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 28px 24px 64px;
+        }
+
+        /* Navigation Controls & Breadcrumbs */
+        .nav-controls-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .back-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .back-nav-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateX(-2px);
+        }
+
+        .breadcrumb-trail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-step {
+            cursor: pointer;
+            transition: color 0.15s ease;
+        }
+
+        .breadcrumb-step:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb-step.active {
+            color: var(--text-heading);
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .breadcrumb-separator {
+            display: inline-flex;
+            align-items: center;
+            opacity: 0.4;
+        }
+
+        /* Context Header */
+        .vault-header {
+            margin-bottom: 26px;
+        }
+
+        .college-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .vault-header h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+            font-weight: 800;
+            color: var(--text-heading);
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        .vault-header p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            max-width: 700px;
+        }
+
+        /* Filters & Search Toolbar */
+        .filter-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .search-box-wrap {
+            position: relative;
+            flex: 1;
+            max-width: 360px;
+            min-width: 240px;
+        }
+
+        .search-box-wrap input {
+            width: 100%;
+            padding: 9px 14px 9px 36px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-heading);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-box-wrap input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-subtle);
+        }
+
+        .search-icon-svg {
+            position: absolute;
+            left: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            stroke: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .category-filter-chips {
+            display: flex;
+            background: var(--bg-card-subtle);
+            padding: 3px;
+            border-radius: var(--radius-sm);
+            gap: 2px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .category-chip {
+            background: transparent;
+            border: none;
+            padding: 6px 14px;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .category-chip.active {
+            background: var(--bg-card);
+            color: var(--text-heading);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        [data-theme="dark"] .category-chip.active {
+            background: #1D2B24;
+            color: #FFFFFF;
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            outline: none;
+        }
+
+        .bento-card:hover, .bento-card:focus-visible {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .card-icon-wrap {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon-wrap svg {
+            width: 19px;
+            height: 19px;
+            stroke-width: 1.85;
+        }
+
+        .card-stream-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .card-stream-tag.science { background: var(--stream-science-bg); color: var(--stream-science); }
+        .card-stream-tag.commerce { background: var(--stream-commerce-bg); color: var(--stream-commerce); }
+        .card-stream-tag.arts { background: var(--stream-arts-bg); color: var(--stream-arts); }
+
+        .card-info h3 {
+            font-family: var(--font-heading);
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 3px;
+        }
+
+        .card-info p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .card-footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .card-meta-detail {
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .card-arrow-svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--text-muted);
+            transition: transform 0.2s ease, stroke 0.2s ease;
+        }
+
+        .bento-card:hover .card-arrow-svg {
+            stroke: var(--accent);
+            transform: translateX(3px);
+        }
+
+        /* Subject Specific Badge */
+        .subject-badge-pill {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            background: var(--badge-dsc-bg);
+            color: var(--badge-dsc-text);
+        }
+
+        /* ========================================================
+           FULL-SCREEN SYLLABUS VIEWER
+           ======================================================== */
+        .syllabus-fullscreen-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+
+        /* Dedicated Fullscreen Mode */
+        .syllabus-fullscreen-wrapper.is-fullscreen {
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 999999 !important;
+            border-radius: 0 !important;
+            border: none !important;
+        }
+
+        .syllabus-fullscreen-wrapper.is-fullscreen .viewer-frame-body {
+            height: calc(100vh - 60px) !important;
+            max-height: none !important;
+        }
+
+        .viewer-top-toolbar {
+            padding: 12px 18px;
+            background: var(--bg-card-subtle);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .viewer-meta-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .viewer-doc-title {
+            font-family: var(--font-heading);
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-verified {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .viewer-btn-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-viewer-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+
+        .btn-viewer-action svg {
+            width: 14px;
+            height: 14px;
+            stroke-width: 2;
+        }
+
+        .btn-viewer-action.primary {
+            background: var(--accent);
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .btn-viewer-action.primary:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-viewer-action.secondary {
+            background: var(--bg-card);
+            color: var(--text-heading);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-viewer-action.secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .viewer-frame-body {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            min-height: 520px;
+            max-height: 850px;
+            background: #E5E7EB;
+        }
+
+        [data-theme="dark"] .viewer-frame-body {
+            background: #09100D;
+        }
+
+        .syllabus-pdf-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+            background: #FFFFFF;
+        }
+
+        /* Minimalist Pending Notification */
+        .syllabus-pending-box {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 36px 20px;
+            text-align: center;
+            background: var(--bg-card);
+        }
+
+        .pending-icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .pending-icon-circle svg {
+            width: 28px;
+            height: 28px;
+            stroke-width: 1.8;
+        }
+
+        .pending-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 6px;
+        }
+
+        .pending-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .pending-chips {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pending-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .pending-chip svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .no-results-msg {
+            grid-column: 1 / -1;
+            padding: 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius-md);
+        }
+
+        @media (max-width: 768px) {
+            .vault-container { padding: 20px 14px 44px; }
+            .viewer-frame-body { height: 60vh; min-height: 420px; }
+            .filter-toolbar { flex-direction: column; align-items: stretch; }
+            .search-box-wrap { max-width: 100%; }
+            .category-filter-chips { overflow-x: auto; white-space: nowrap; }
+            .viewer-top-toolbar { flex-direction: column; align-items: stretch; }
+            .viewer-btn-group { justify-content: stretch; }
+            .btn-viewer-action { flex: 1; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Minimalist Top Navigation -->
+    <header class="vault-topbar">
+        <a href="../index.html" class="topbar-brand">
+            <span class="brand-name">VenkySpace<span>.</span></span>
+            <span class="brand-sub">Syllabus Vault</span>
+        </a>
+
+        <div class="topbar-right">
+            <!-- Minimalist Pill Theme Toggle Switch -->
+            <button class="theme-switch-btn" id="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle Theme" title="Toggle Light / Dark Mode">
+                <span class="switch-track">
+                    <span class="switch-thumb">
+                        <!-- Sun Icon for Light Mode -->
+                        <svg class="switch-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4.5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <!-- Moon Icon for Dark Mode -->
+                        <svg class="switch-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <div class="vault-container">
+
+        <!-- Stepper / Breadcrumbs -->
+        <div class="nav-controls-row">
+            <button class="back-nav-btn" id="nav-back-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span>Dashboard</span>
+            </button>
+
+            <nav class="breadcrumb-trail" aria-label="Breadcrumb Trail">
+                <span class="breadcrumb-step" id="crumb-courses">Department</span>
+                <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                <span class="breadcrumb-step" id="crumb-semesters">Semester</span>
+                <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                <span class="breadcrumb-step" id="crumb-subjects">Subjects</span>
+                <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                <span class="breadcrumb-step" id="crumb-viewer">Syllabus PDF</span>
+            </nav>
+        </div>
+
+        <!-- Dynamic Context Header -->
+        <header class="vault-header">
+            <span class="college-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                University of Delhi • UGCF NEP-2020 Scheme
+            </span>
+            <h1 id="view-title">Select Your Department</h1>
+            <p id="view-subtitle">Access verified syllabi, core course guidelines, practical matrices, and reference books across all undergraduate departments.</p>
+        </header>
+
+        <!-- SCREEN 1: 20 COURSES SELECTION -->
+        <div id="screen-courses">
+            <div class="filter-toolbar">
+                <div class="search-box-wrap">
+                    <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="course-search-input" placeholder="Search department (e.g. Economics, Mathematics)..." autocomplete="off">
+                </div>
+
+                <div class="category-filter-chips">
+                    <button class="category-chip active" data-stream="all">All Departments (20)</button>
+                    <button class="category-chip" data-stream="Science">Science</button>
+                    <button class="category-chip" data-stream="Commerce">Commerce</button>
+                    <button class="category-chip" data-stream="Arts">Arts</button>
+                </div>
+            </div>
+
+            <div class="bento-grid" id="courses-grid">
+                <!-- Courses injected via JavaScript -->
+            </div>
+        </div>
+
+        <!-- SCREEN 2: SEMESTER SELECTION -->
+        <div id="screen-semesters" style="display: none;">
+            <div class="bento-grid" id="semesters-grid">
+                <!-- Semesters injected via JavaScript -->
+            </div>
+        </div>
+
+        <!-- SCREEN 3: SUBJECTS / PAPERS SELECTION -->
+        <div id="screen-subjects" style="display: none;">
+            <div class="bento-grid" id="subjects-grid">
+                <!-- Subject Papers injected via JavaScript -->
+            </div>
+        </div>
+
+        <!-- SCREEN 4: INSTANT FULL-SCREEN SYLLABUS VIEWER -->
+        <div id="screen-viewer" style="display: none;">
+            <div class="syllabus-fullscreen-wrapper" id="syllabus-wrapper">
+                
+                <!-- Viewer Header Toolbar -->
+                <div class="viewer-top-toolbar">
+                    <div class="viewer-meta-left">
+                        <span class="viewer-doc-title" id="viewer-doc-title">
+                            Introductory Microeconomics — Official Syllabus
+                        </span>
+                        <span class="badge-verified">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                            UGCF Verified
+                        </span>
+                    </div>
+
+                    <div class="viewer-btn-group">
+                        <button type="button" id="viewer-fullscreen-btn" class="btn-viewer-action secondary" title="Toggle Fullscreen">
+                            <svg id="fs-expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                            <svg id="fs-collapse-icon" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
+                            <span id="fs-btn-label">Fullscreen</span>
+                        </button>
+
+                        <a href="#" target="_blank" id="viewer-external-link" class="btn-viewer-action secondary" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <span>Open Tab</span>
+                        </a>
+
+                        <a href="#" id="viewer-download-link" class="btn-viewer-action primary" download style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <span>Download</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Viewer Body Frame -->
+                <div class="viewer-frame-body" id="viewer-frame-container">
+                    
+                    <!-- Clean Pending Notice -->
+                    <div class="syllabus-pending-box" id="viewer-pending-box">
+                        <div class="pending-icon-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h3 class="pending-title" id="pending-title-text">Syllabus PDF Pending</h3>
+                        <p class="pending-desc" id="pending-desc-text">
+                            The syllabus document for this paper is currently being updated for the latest semester cycle. To link your Google Drive PDF, open <code>syllabus.html</code> and attach your link to <code>syllabusLibrary</code>.
+                        </p>
+                        <div class="pending-chips">
+                            <span class="pending-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                                University of Delhi
+                            </span>
+                            <span class="pending-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                                NEP UGCF Scheme
+                            </span>
+                            <span class="pending-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                Official Matrix
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Native Accessible PDF / Google Drive Embed -->
+                    <iframe id="pdf-viewer-frame" class="syllabus-pdf-frame" title="Syllabus PDF Viewer" allow="autoplay; fullscreen"></iframe>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Subject SVG Icon System (Clean, Minimalist Line Design)
+        const subjectIcons = {
+            sociology: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+            economics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>`,
+            politicalScience: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="2" y1="20" x2="22" y2="20"></line><line x1="5" y1="20" x2="5" y2="10"></line><line x1="10" y1="20" x2="10" y2="10"></line><line x1="14" y1="20" x2="14" y2="10"></line><line x1="19" y1="20" x2="19" y2="10"></line><path d="M2 10L12 3l10 7"></path></svg>`,
+            history: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 15 15"></polyline></svg>`,
+            english: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
+            hindi: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path></svg>`,
+            sanskrit: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4 2.5 7.5 6 9 0-2 1-5 4-7 3 2 4 5 4 7 3.5-1.5 6-5 6-9 0-5.5-4.5-10-10-10z"></path></svg>`,
+            baprog: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"></path></svg>`,
+            commerceH: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+            commerceP: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="2" y1="20" x2="22" y2="20"></line></svg>`,
+            math: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 2 22 22 22 12 2"></polygon><line x1="5" y1="18" x2="19" y2="18"></line></svg>`,
+            statistics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>`,
+            physics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="2"></circle><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(30 12 12)"></ellipse><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(150 12 12)"></ellipse></svg>`,
+            chemistry: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 3h6"></path><path d="M10 3v6l-4 9a2 2 0 0 0 1.7 3h8.6a2 2 0 0 0 1.7-3l-4-9V3"></path><line x1="8.5" y1="15" x2="15.5" y2="15"></line></svg>`,
+            electronics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line></svg>`,
+            biochemistry: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 15c6.667-6 13.333 0 20-6"></path><path d="M2 9c6.667 6 13.333 0 20 6"></path><circle cx="6" cy="11.5" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="18" cy="12.5" r="1.5"></circle></svg>`,
+            botany: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 20A7 7 0 0 1 4 13C4 8 8 3 20 2c1 12-4 16-9 18z"></path><path d="M11 20l5-9"></path></svg>`,
+            zoology: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="15" r="4"></circle><circle cx="7" cy="8" r="2.5"></circle><circle cx="17" cy="8" r="2.5"></circle><circle cx="4" cy="13" r="2"></circle><circle cx="20" cy="13" r="2"></circle></svg>`,
+            bioSci: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0-7-7h1"></path><circle cx="9" cy="9" r="2"></circle><path d="M9 3v4"></path></svg>`,
+            lifeSci: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 20h10"></path><path d="M12 20v-8"></path><path d="M12 12c-3.5 0-6-2.5-6-6 3.5 0 6 2.5 6 6z"></path><path d="M12 10c3.5 0 6-2.5 6-6-3.5 0-6 2.5-6 6z"></path></svg>`,
+            book: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`
+        };
+
+        /* =========================================================================
+           ⭐ HOW TO INSERT SYLLABUS GOOGLE DRIVE LINKS ⭐
+           Paste your links under Department -> Semester -> Paper Name.
+           Example:
+           "Introductory Microeconomics": "https://drive.google.com/file/d/1ABCxyz12345/view?usp=sharing"
+           ========================================================================= */
+        const syllabusLibrary = {
+            "Economics": {
+                1: {
+                    "Introductory Microeconomics": "https://drive.google.com/file/d/1MgMm2fJnByGG4RSd1Yr7udn19WTrDQ2P/view?usp=drive_link",
+                    "Mathematical Methods for Economics I": "insert your link here",
+                    "Introductory Statistics for Economics": "insert your link here"
+                }
+            }
+        };
+
+        const coursesData = [
+            { name: "Sociology", degree: "B.A. (Honours) Sociology", stream: "Arts", iconKey: "sociology" },
+            { name: "Economics", degree: "B.A. (Honours) Economics", stream: "Arts", iconKey: "economics" },
+            { name: "Political Science", degree: "B.A. (Honours) Political Science", stream: "Arts", iconKey: "politicalScience" },
+            { name: "History", degree: "B.A. (Honours) History", stream: "Arts", iconKey: "history" },
+            { name: "English", degree: "B.A. (Honours) English", stream: "Arts", iconKey: "english" },
+            { name: "Hindi", degree: "B.A. (Honours) Hindi", stream: "Arts", iconKey: "hindi" },
+            { name: "Sanskrit", degree: "B.A. (Honours) Sanskrit", stream: "Arts", iconKey: "sanskrit" },
+            { name: "B.A. Programme", degree: "Bachelor of Arts (Programme)", stream: "Arts", iconKey: "baprog" },
+            { name: "Commerce (Honours)", degree: "B.Com. (Honours)", stream: "Commerce", iconKey: "commerceH" },
+            { name: "Commerce (Programme)", degree: "B.Com. (Programme)", stream: "Commerce", iconKey: "commerceP" },
+            { name: "Mathematics", degree: "B.Sc. (Honours) Mathematics", stream: "Science", iconKey: "math" },
+            { name: "Statistics", degree: "B.Sc. (Honours) Statistics", stream: "Science", iconKey: "statistics" },
+            { name: "Physics", degree: "B.Sc. (Honours) Physics", stream: "Science", iconKey: "physics" },
+            { name: "Chemistry", degree: "B.Sc. (Honours) Chemistry", stream: "Science", iconKey: "chemistry" },
+            { name: "Electronics", degree: "B.Sc. (Honours) Electronics", stream: "Science", iconKey: "electronics" },
+            { name: "Biochemistry", degree: "B.Sc. (Honours) Biochemistry", stream: "Science", iconKey: "biochemistry" },
+            { name: "Botany", degree: "B.Sc. (Honours) Botany", stream: "Science", iconKey: "botany" },
+            { name: "Zoology", degree: "B.Sc. (Honours) Zoology", stream: "Science", iconKey: "zoology" },
+            { name: "Biological Sciences", degree: "B.Sc. (Honours) Biological Sciences", stream: "Science", iconKey: "bioSci" },
+            { name: "Life Sciences", degree: "B.Sc. (Programme) Life Science", stream: "Science", iconKey: "lifeSci" }
+        ];
+
+        const semestersData = [
+            { num: 1, roman: "I", cycle: "Odd Cycle", year: "Year 1", desc: "Core UGCF Papers & Foundational Disciplines" },
+            { num: 2, roman: "II", cycle: "Even Cycle", year: "Year 1", desc: "Core Specialization & Interdisciplinary Electives" },
+            { num: 3, roman: "III", cycle: "Odd Cycle", year: "Year 2", desc: "Advanced Core Discipline & Skill Practical Papers" },
+            { num: 4, roman: "IV", cycle: "Even Cycle", year: "Year 2", desc: "Advanced Core Discipline & Interdisciplinary Electives" },
+            { num: 5, roman: "V", cycle: "Odd Cycle", year: "Year 3", desc: "Discipline Specific Elective Matrix & Specializations" },
+            { num: 6, roman: "VI", cycle: "Even Cycle", year: "Year 3", desc: "Advanced Electives & Practical Curricula" },
+            { num: 7, roman: "VII", cycle: "Odd Cycle", year: "Year 4", desc: "Honours with Research Methodologies & Electives" },
+            { num: 8, roman: "VIII", cycle: "Even Cycle", year: "Year 4", desc: "Honours Dissertation & Advanced Project Guidelines" }
+        ];
+
+        // Realistic Department-Specific DU NEP Subject Catalog
+        function getSubjectsForSemester(courseName, semNum) {
+            // Economics
+            if (courseName === "Economics") {
+                if (semNum === 1) {
+                    return [
+                        { title: "Introductory Microeconomics", type: "DSC-1", credits: "4 Credits", desc: "Market mechanisms, consumer preference, firm behaviour and competitive equilibrium." },
+                        { title: "Mathematical Methods for Economics I", type: "DSC-2", credits: "4 Credits", desc: "Functions, single-variable calculus, optimization techniques and matrix applications." },
+                        { title: "Introductory Statistics for Economics", type: "DSC-3", credits: "4 Credits", desc: "Probability distributions, sampling, hypothesis testing and exploratory data metrics." }
+                    ];
+                }
+                if (semNum === 2) {
+                    return [
+                        { title: "Introductory Macroeconomics", type: "DSC-4", credits: "4 Credits", desc: "National income accounting, monetary systems, aggregate demand and fiscal policy." },
+                        { title: "Mathematical Methods for Economics II", type: "DSC-5", credits: "4 Credits", desc: "Multivariable calculus, unconstrained & constrained optimization, linear programming." },
+                        { title: "Intermediate Statistics for Economics", type: "DSC-6", credits: "4 Credits", desc: "Bivariate distributions, estimation, testing of hypothesis, and index numbers." }
+                    ];
+                }
+                if (semNum === 3) {
+                    return [
+                        { title: "Intermediate Microeconomics I", type: "DSC-7", credits: "4 Credits", desc: "General equilibrium, welfare theorems, market power, and game theory." },
+                        { title: "Intermediate Macroeconomics I", type: "DSC-8", credits: "4 Credits", desc: "IS-LM framework, financial markets, open economy models, and exchange rates." },
+                        { title: "Advanced Econometrics", type: "DSC-9", credits: "4 Credits", desc: "Classical linear regression model, multiple regression, and diagnostic testing." }
+                    ];
+                }
+            }
+
+            // Commerce (Honours)
+            if (courseName === "Commerce (Honours)") {
+                if (semNum === 1) {
+                    return [
+                        { title: "Management Principles and Practice", type: "DSC-1", credits: "4 Credits", desc: "Managerial functions, strategic planning, organizational design, and leadership paradigms." },
+                        { title: "Business Laws", type: "DSC-2", credits: "4 Credits", desc: "Indian Contract Act, Sale of Goods Act, and Limited Liability Partnership compliance." },
+                        { title: "Financial Accounting", type: "DSC-3", credits: "4 Credits", desc: "Accounting standards, depreciation accounting, partnership dissolution, and final accounts." }
+                    ];
+                }
+                if (semNum === 2) {
+                    return [
+                        { title: "Corporate Accounting", type: "DSC-4", credits: "4 Credits", desc: "Share capital transactions, debentures, internal reconstruction, and valuation of goodwill." },
+                        { title: "Company Law", type: "DSC-5", credits: "4 Credits", desc: "Corporate governance, incorporation, management, board meetings, and winding up procedures." },
+                        { title: "Human Resource Management", type: "DSC-6", credits: "4 Credits", desc: "Talent acquisition, training & development, appraisal systems, and industrial relations." }
+                    ];
+                }
+            }
+
+            // Mathematics
+            if (courseName === "Mathematics") {
+                if (semNum === 1) {
+                    return [
+                        { title: "Single Variable Calculus", type: "DSC-1", credits: "4 Credits", desc: "Limits, continuity, differentiability, mean value theorems, and Riemann integration." },
+                        { title: "Linear Algebra", type: "DSC-2", credits: "4 Credits", desc: "Vector spaces, linear transformations, matrices, determinants, eigenvalues and eigenvectors." },
+                        { title: "Real Analysis", type: "DSC-3", credits: "4 Credits", desc: "Sequences of real numbers, Cauchy completeness, infinite series, and convergence tests." }
+                    ];
+                }
+                if (semNum === 2) {
+                    return [
+                        { title: "Multivariable Calculus", type: "DSC-4", credits: "4 Credits", desc: "Partial derivatives, multiple integrals, Green's, Stokes', and divergence theorems." },
+                        { title: "Differential Equations", type: "DSC-5", credits: "4 Credits", desc: "First and second order ODEs, series solutions, power series, and Cauchy-Euler equations." },
+                        { title: "Abstract Algebra", type: "DSC-6", credits: "4 Credits", desc: "Groups, subgroups, cyclic groups, Lagrange's theorem, normal subgroups, and homomorphisms." }
+                    ];
+                }
+            }
+
+            // Universal Fallback Generator for all other 17 departments and semesters 3 to 8
+            return [
+                { 
+                    title: `${courseName} Discipline Core Paper I`, 
+                    type: `DSC-${semNum}.1`, 
+                    credits: "4 Credits", 
+                    desc: `Theoretical frameworks, foundational concepts, and core methodologies for Semester ${semNum}.` 
+                },
+                { 
+                    title: `${courseName} Discipline Core Paper II`, 
+                    type: `DSC-${semNum}.2`, 
+                    credits: "4 Credits", 
+                    desc: `Analytical applications, experimental laboratory matrix, and computational models for Semester ${semNum}.` 
+                },
+                { 
+                    title: `${courseName} Discipline Elective / Specialization`, 
+                    type: `DSE-${semNum}`, 
+                    credits: "4 Credits", 
+                    desc: `Advanced disciplinary specialization, research seminars, and contemporary sector analyses.` 
+                }
+            ];
+        }
+
+        let currentStep = 'courses';
+        let state = {
+            course: null,
+            semester: null,
+            subject: null
+        };
+
+        const screenCourses = document.getElementById('screen-courses');
+        const screenSemesters = document.getElementById('screen-semesters');
+        const screenSubjects = document.getElementById('screen-subjects');
+        const screenViewer = document.getElementById('screen-viewer');
+
+        const coursesGrid = document.getElementById('courses-grid');
+        const semestersGrid = document.getElementById('semesters-grid');
+        const subjectsGrid = document.getElementById('subjects-grid');
+
+        const navBackBtn = document.getElementById('nav-back-btn');
+        const viewTitle = document.getElementById('view-title');
+        const viewSubtitle = document.getElementById('view-subtitle');
+
+        const crumbCourses = document.getElementById('crumb-courses');
+        const crumbSemesters = document.getElementById('crumb-semesters');
+        const crumbSubjects = document.getElementById('crumb-subjects');
+        const crumbViewer = document.getElementById('crumb-viewer');
+
+        const syllabusWrapper = document.getElementById('syllabus-wrapper');
+        const fsBtn = document.getElementById('viewer-fullscreen-btn');
+        const fsExpandIcon = document.getElementById('fs-expand-icon');
+        const fsCollapseIcon = document.getElementById('fs-collapse-icon');
+        const fsBtnLabel = document.getElementById('fs-btn-label');
+        const pdfIframe = document.getElementById('pdf-viewer-frame');
+
+        // Fullscreen Toggle Controller
+        if (fsBtn) {
+            fsBtn.addEventListener('click', () => {
+                const isFs = syllabusWrapper.classList.toggle('is-fullscreen');
+                if (isFs) {
+                    fsExpandIcon.style.display = 'none';
+                    fsCollapseIcon.style.display = 'inline-block';
+                    fsBtnLabel.textContent = 'Exit Fullscreen';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    fsExpandIcon.style.display = 'inline-block';
+                    fsCollapseIcon.style.display = 'none';
+                    fsBtnLabel.textContent = 'Fullscreen';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && syllabusWrapper.classList.contains('is-fullscreen')) {
+                syllabusWrapper.classList.remove('is-fullscreen');
+                fsExpandIcon.style.display = 'inline-block';
+                fsCollapseIcon.style.display = 'none';
+                fsBtnLabel.textContent = 'Fullscreen';
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Google Drive Parser
+        function parseGoogleDriveLink(rawUrl) {
+            if (!rawUrl || rawUrl.trim() === "" || rawUrl.includes("insert your link here") || rawUrl === "#") {
+                return { isReady: false };
+            }
+
+            const url = rawUrl.trim();
+            const idMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+            if (idMatch && idMatch[1]) {
+                const fileId = idMatch[1];
+                return {
+                    isReady: true,
+                    previewUrl: `https://drive.google.com/file/d/${fileId}/preview`,
+                    downloadUrl: `https://drive.google.com/uc?export=download&id=${fileId}`,
+                    externalUrl: url
+                };
+            }
+
+            return {
+                isReady: true,
+                previewUrl: url,
+                downloadUrl: url,
+                externalUrl: url
+            };
+        }
+
+        // STEP 1: Render Courses
+        function renderCourses(list) {
+            coursesGrid.innerHTML = '';
+            if (!list.length) {
+                coursesGrid.innerHTML = `<div class="no-results-msg">No departments found matching your search.</div>`;
+                return;
+            }
+
+            list.forEach(c => {
+                const card = document.createElement('div');
+                card.className = 'bento-card';
+                card.tabIndex = 0;
+                
+                const streamClass = c.stream.toLowerCase();
+                const iconSvg = subjectIcons[c.iconKey] || subjectIcons.baprog;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="card-top">
+                            <span class="card-icon-wrap">${iconSvg}</span>
+                            <span class="card-stream-tag ${streamClass}">${c.stream}</span>
+                        </div>
+                        <div class="card-info">
+                            <h3>${c.name}</h3>
+                            <p>${c.degree}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-meta-detail">View Semesters</span>
+                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => selectCourse(c));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectCourse(c); });
+                coursesGrid.appendChild(card);
+            });
+        }
+
+        // STEP 2: Render Semesters
+        function renderSemesters() {
+            semestersGrid.innerHTML = '';
+            semestersData.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'bento-card';
+                card.tabIndex = 0;
+                card.innerHTML = `
+                    <div>
+                        <div class="card-top">
+                            <span class="card-icon-wrap" style="font-family: var(--font-heading); font-weight: 800; font-size: 0.9rem;">
+                                ${s.roman}
+                            </span>
+                            <span class="card-stream-tag" style="background: var(--bg-card-subtle); color: var(--text-muted);">${s.cycle} • ${s.year}</span>
+                        </div>
+                        <div class="card-info">
+                            <h3>Semester ${s.num}</h3>
+                            <p>${s.desc}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-meta-detail">Select Subject</span>
+                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => selectSemester(s.num));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectSemester(s.num); });
+                semestersGrid.appendChild(card);
+            });
+        }
+
+        // STEP 3: Render Subjects / Papers
+        function renderSubjects(courseName, semNum) {
+            subjectsGrid.innerHTML = '';
+            const papers = getSubjectsForSemester(courseName, semNum);
+
+            papers.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'bento-card';
+                card.tabIndex = 0;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="card-top">
+                            <span class="card-icon-wrap">${subjectIcons.book}</span>
+                            <span class="subject-badge-pill">${p.type}</span>
+                        </div>
+                        <div class="card-info">
+                            <h3>${p.title}</h3>
+                            <p>${p.desc}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-meta-detail">${p.credits}</span>
+                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                `;
+
+                // Clicking subject opens the full-screen syllabus immediately!
+                card.addEventListener('click', () => openSyllabus(p.title));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') openSyllabus(p.title); });
+                subjectsGrid.appendChild(card);
+            });
+        }
+
+        // STEP 4: Open Instant Full-Screen Viewer
+        function openSyllabus(subjectTitle) {
+            state.subject = subjectTitle;
+            currentStep = 'viewer';
+
+            screenCourses.style.display = 'none';
+            screenSemesters.style.display = 'none';
+            screenSubjects.style.display = 'none';
+            screenViewer.style.display = 'block';
+
+            viewTitle.textContent = `${subjectTitle}`;
+            viewSubtitle.textContent = `Official Syllabus, Units, Learning Outcomes, and Reading Matrix for ${state.course.name} (Semester ${state.semester}).`;
+            navBackBtn.querySelector('span').textContent = 'Subjects';
+
+            const docTitleElem = document.getElementById('viewer-doc-title');
+            const pendingBox = document.getElementById('viewer-pending-box');
+            const extLink = document.getElementById('viewer-external-link');
+            const downloadLink = document.getElementById('viewer-download-link');
+
+            docTitleElem.textContent = `${subjectTitle} — Official Syllabus`;
+
+            // Look up link safely in syllabusLibrary
+            const rawLink = (syllabusLibrary[state.course.name] && 
+                             syllabusLibrary[state.course.name][state.semester] && 
+                             syllabusLibrary[state.course.name][state.semester][subjectTitle]) 
+                            ? syllabusLibrary[state.course.name][state.semester][subjectTitle] 
+                            : "";
+
+            const linkData = parseGoogleDriveLink(rawLink);
+
+            if (linkData.isReady) {
+                pendingBox.style.display = 'none';
+                pdfIframe.style.display = 'block';
+                pdfIframe.src = linkData.previewUrl;
+
+                extLink.style.display = 'inline-flex';
+                extLink.href = linkData.externalUrl;
+
+                downloadLink.style.display = 'inline-flex';
+                downloadLink.href = linkData.downloadUrl;
+            } else {
+                pdfIframe.style.display = 'none';
+                pdfIframe.src = 'about:blank';
+                extLink.style.display = 'none';
+                downloadLink.style.display = 'none';
+                pendingBox.style.display = 'flex';
+
+                document.getElementById('pending-title-text').textContent = `${subjectTitle} Syllabus Pending`;
+                document.getElementById('pending-desc-text').innerHTML = `
+                    The syllabus PDF for <strong>${subjectTitle}</strong> (${state.course.name} Sem ${state.semester}) is currently queued. 
+                    <br><br>
+                    To attach your PDF, search for <code>"${subjectTitle}"</code> inside <code>syllabus.html</code> and insert your Google Drive link into <code>syllabusLibrary</code>.
+                `;
+            }
+
+            updateBreadcrumbs();
+            const targetOffset = screenViewer.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: Math.max(0, targetOffset), behavior: 'smooth' });
+        }
+
+        // Navigation Controllers
+        function updateBreadcrumbs() {
+            crumbCourses.className = currentStep === 'courses' ? 'breadcrumb-step active' : 'breadcrumb-step';
+            crumbSemesters.className = currentStep === 'semesters' ? 'breadcrumb-step active' : 'breadcrumb-step';
+            crumbSubjects.className = currentStep === 'subjects' ? 'breadcrumb-step active' : 'breadcrumb-step';
+            crumbViewer.className = currentStep === 'viewer' ? 'breadcrumb-step active' : 'breadcrumb-step';
+        }
+
+        function selectCourse(course) {
+            state.course = course;
+            currentStep = 'semesters';
+
+            screenCourses.style.display = 'none';
+            screenSemesters.style.display = 'block';
+            screenSubjects.style.display = 'none';
+            screenViewer.style.display = 'none';
+
+            viewTitle.textContent = `${course.name} — Select Semester`;
+            viewSubtitle.textContent = `Choose your semester to view all active UGCF papers and syllabi for ${course.degree}.`;
+            navBackBtn.querySelector('span').textContent = 'Departments';
+
+            renderSemesters();
+            updateBreadcrumbs();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function selectSemester(semNum) {
+            state.semester = semNum;
+            currentStep = 'subjects';
+
+            screenCourses.style.display = 'none';
+            screenSemesters.style.display = 'none';
+            screenSubjects.style.display = 'block';
+            screenViewer.style.display = 'none';
+
+            viewTitle.textContent = `${state.course.name} — Semester ${semNum} Papers`;
+            viewSubtitle.textContent = `Select any Core, Elective, or Generic paper to immediately open its full-screen syllabus reader.`;
+            navBackBtn.querySelector('span').textContent = 'Semesters';
+
+            renderSubjects(state.course.name, semNum);
+            updateBreadcrumbs();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        navBackBtn.addEventListener('click', () => {
+            if (currentStep === 'viewer') {
+                selectSemester(state.semester);
+            } else if (currentStep === 'subjects') {
+                selectCourse(state.course);
+            } else if (currentStep === 'semesters') {
+                goToCourses();
+            } else {
+                window.location.href = '../index.html';
+            }
+        });
+
+        function goToCourses() {
+            currentStep = 'courses';
+            state.course = null;
+            state.semester = null;
+            state.subject = null;
+
+            screenCourses.style.display = 'block';
+            screenSemesters.style.display = 'none';
+            screenSubjects.style.display = 'none';
+            screenViewer.style.display = 'none';
+
+            viewTitle.textContent = 'Select Your Department';
+            viewSubtitle.textContent = 'Access verified syllabi, core course guidelines, practical matrices, and reference books across all undergraduate departments.';
+            navBackBtn.querySelector('span').textContent = 'Dashboard';
+
+            updateBreadcrumbs();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        crumbCourses.addEventListener('click', goToCourses);
+        crumbSemesters.addEventListener('click', () => { if (state.course) selectCourse(state.course); });
+        crumbSubjects.addEventListener('click', () => { if (state.course && state.semester) selectSemester(state.semester); });
+
+        // Search & Filter
+        const searchInput = document.getElementById('course-search-input');
+        const filterChips = document.querySelectorAll('.category-chip');
+        let activeStream = 'all';
+
+        function applyCourseFilters() {
+            const query = searchInput.value.toLowerCase().trim();
+            const filtered = coursesData.filter(c => {
+                const matchesStream = (activeStream === 'all' || c.stream.toLowerCase() === activeStream.toLowerCase());
+                const matchesQuery = c.name.toLowerCase().includes(query) || c.degree.toLowerCase().includes(query);
+                return matchesStream && matchesQuery;
+            });
+            renderCourses(filtered);
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', applyCourseFilters);
+        }
+
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                filterChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeStream = chip.getAttribute('data-stream');
+                applyCourseFilters();
+            });
+        });
+
+        // Theme Toggle Controller
+        const themeBtn = document.getElementById('theme-toggle');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('venky-theme', theme);
+            if (themeBtn) {
+                themeBtn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('venky-theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            setTheme(savedTheme);
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                setTheme(current === 'dark' ? 'light' : 'dark');
+            });
+        }
+
+        initTheme();
+        renderCourses(coursesData);
+        updateBreadcrumbs();
+    </script>
+</body>
+</html>
