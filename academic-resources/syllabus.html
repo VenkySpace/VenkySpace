@@ -899,7 +899,7 @@
                         </div>
                         <h3 class="pending-title" id="pending-title-text">Syllabus PDF Pending</h3>
                         <p class="pending-desc" id="pending-desc-text">
-                            The syllabus document for this paper is currently being updated for the latest semester cycle. To link your Google Drive PDF, open <code>syllabus.html</code> and attach your link to <code>syllabusLibrary</code>.
+                            The syllabus document for this paper is currently being updated for the latest semester cycle. Please check back later or explore other subjects in the meantime.
                         </p>
                         <div class="pending-chips">
                             <span class="pending-chip">
@@ -961,7 +961,7 @@
         const syllabusLibrary = {
             "Economics": {
                 1: {
-                    "Introductory Microeconomics": "https://drive.google.com/file/d/1MgMm2fJnByGG4RSd1Yr7udn19WTrDQ2P/view?usp=drive_link",
+                    "Introductory Microeconomics": "insert your link here",
                     "Mathematical Methods for Economics I": "insert your link here",
                     "Introductory Statistics for Economics": "insert your link here"
                 }
@@ -1331,8 +1331,7 @@
                 document.getElementById('pending-desc-text').innerHTML = `
                     The syllabus PDF for <strong>${subjectTitle}</strong> (${state.course.name} Sem ${state.semester}) is currently queued. 
                     <br><br>
-                    To attach your PDF, search for <code>"${subjectTitle}"</code> inside <code>syllabus.html</code> and insert your Google Drive link into <code>syllabusLibrary</code>.
-                `;
+                    Please check back later or contact the department for access to the official syllabus document.`;
             }
 
             updateBreadcrumbs();

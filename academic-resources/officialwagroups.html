@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Official Groups Directory — VenkySpace</title>
-    <meta name="description" content="Verified Official WhatsApp Communities and Academic Groups - Sri Venkateswara College">
+    <meta name="description" content="Verified Official WhatsApp Communities and Academic Groups - SVC">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 
     <!-- Fonts: Plus Jakarta Sans & Inter -->
@@ -12,49 +12,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Embedded Minimalist Design System (WhatsApp Emerald Accent) -->
+    <!-- Embedded Minimalist Design System -->
     <style>
         :root {
-            --bg-page:        #F6F2EC;
+            --bg-page:        #F8FAFC;
             --bg-card:        #FFFFFF;
-            --bg-card-subtle: #F3FAF6;
-            --text-heading:   #111927;
-            --text-body:      #4B5565;
-            --text-muted:     #697586;
-            --border-color:   #E4DCD3;
-            --border-subtle:  rgba(19, 30, 43, 0.08);
+            --bg-card-subtle: #F1F5F9;
+            --text-heading:   #0F172A;
+            --text-body:      #334155;
+            --text-muted:     #64748B;
+            --border-color:   #E2E8F0;
+            --border-subtle:  rgba(15, 23, 42, 0.06);
 
-            /* WhatsApp Emerald Green Accent */
+            /* WhatsApp Emerald Accent */
             --accent:         #0F8A5F;
             --accent-hover:   #0B6A48;
-            --accent-subtle:  rgba(15, 138, 95, 0.12);
+            --accent-subtle:  rgba(15, 138, 95, 0.08);
             --wa-green:       #25D366;
-            --gold:           #B08D57;
-            --gold-subtle:    rgba(176, 141, 87, 0.15);
 
             --font-heading: 'Plus Jakarta Sans', sans-serif;
             --font-body:    'Inter', sans-serif;
 
-            --radius-lg: 16px;
+            --radius-lg: 14px;
             --radius-md: 10px;
             --radius-sm: 6px;
-            --shadow-card: 0 1px 3px rgba(19, 30, 43, 0.04), 0 6px 18px rgba(19, 30, 43, 0.03);
+            --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03);
+            --shadow-hover: 0 4px 16px rgba(15, 138, 95, 0.12);
         }
 
         [data-theme="dark"] {
-            --bg-page:        #080E17;
-            --bg-card:        #101926;
-            --bg-card-subtle: #0F231B;
-            --text-heading:   #F3F5F7;
+            --bg-page:        #090D16;
+            --bg-card:        #111726;
+            --bg-card-subtle: #161F33;
+            --text-heading:   #F8FAFC;
             --text-body:      #CBD5E1;
-            --text-muted:     #8696A8;
-            --border-color:   #1C2A3E;
-            --border-subtle:  rgba(255, 255, 255, 0.08);
+            --text-muted:     #8193AC;
+            --border-color:   #1E293B;
+            --border-subtle:  rgba(255, 255, 255, 0.06);
 
             --accent:         #34D399;
             --accent-hover:   #6EE7B7;
-            --accent-subtle:  rgba(52, 211, 153, 0.15);
-            --shadow-card:    0 6px 22px rgba(0, 0, 0, 0.45);
+            --accent-subtle:  rgba(52, 211, 153, 0.12);
+
+            --shadow-card:    0 4px 20px rgba(0, 0, 0, 0.45);
+            --shadow-hover:   0 6px 24px rgba(52, 211, 153, 0.18);
         }
 
         /* Base Resets */
@@ -81,10 +82,10 @@
         /* Top Header Strip */
         .vault-topbar {
             width: 100%;
-            height: 70px;
-            background: linear-gradient(180deg, #070F1A 0%, #0C1726 100%);
+            height: 68px;
+            background: linear-gradient(180deg, #070E18 0%, #0B1626 100%);
             border-bottom: 2px solid var(--accent);
-            padding: 0 32px;
+            padding: 0 28px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -101,7 +102,7 @@
 
         .brand-name {
             font-family: var(--font-heading);
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: #FFFFFF;
             letter-spacing: -0.02em;
@@ -121,37 +122,74 @@
             color: #6EE7B7;
         }
 
-        .topbar-right {
-            display: flex;
+        /* Minimalist Pill Theme Toggle */
+        .theme-switch-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 2px;
+            display: inline-flex;
             align-items: center;
-            gap: 16px;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .theme-toggle-btn {
-            width: 36px;
-            height: 36px;
+        .switch-track {
+            width: 58px;
+            height: 32px;
+            background: #182232;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 9999px;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .theme-switch-btn:hover .switch-track,
+        .theme-switch-btn:focus-visible .switch-track {
+            border-color: var(--accent);
+        }
+
+        .switch-thumb {
+            width: 24px;
+            height: 24px;
+            background: #FFFFFF;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #FFFFFF;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
-            transition: all 0.2s ease;
+            color: #111827;
+            transform: translateX(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .theme-toggle-btn:hover {
-            border-color: var(--accent);
-            transform: scale(1.05);
+        .switch-icon {
+            width: 14px;
+            height: 14px;
+            display: block;
+            stroke-width: 2.2;
         }
+
+        .switch-icon.moon { display: none; }
+
+        [data-theme="dark"] .switch-thumb {
+            transform: translateX(26px);
+            background: #FFFFFF;
+            color: #0F172A;
+        }
+
+        [data-theme="dark"] .switch-icon.sun { display: none; }
+        [data-theme="dark"] .switch-icon.moon { display: block; }
 
         /* Main Container */
         .page-container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 32px 28px 70px;
+            padding: 28px 24px 64px;
         }
 
         /* Top Navigation Row */
@@ -159,7 +197,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
             flex-wrap: wrap;
             gap: 12px;
         }
@@ -168,12 +206,12 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
+            padding: 7px 14px;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-sm);
             font-family: var(--font-heading);
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             font-weight: 600;
             color: var(--text-heading);
             transition: all 0.2s ease;
@@ -190,33 +228,36 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             font-weight: 700;
             color: var(--accent);
             background: var(--accent-subtle);
-            padding: 5px 12px;
+            padding: 4px 12px;
             border-radius: 999px;
             letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
 
         /* Header Context */
         .vault-header {
-            margin-bottom: 28px;
+            margin-bottom: 26px;
         }
 
         .college-tag {
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.08em;
             color: var(--accent);
             text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
         }
 
         .vault-header h1 {
             font-family: var(--font-heading);
-            font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+            font-size: clamp(1.7rem, 2.4vw, 2.1rem);
             font-weight: 800;
             color: var(--text-heading);
             letter-spacing: -0.02em;
@@ -224,7 +265,7 @@
         }
 
         .vault-header p {
-            font-size: 0.94rem;
+            font-size: 0.92rem;
             color: var(--text-muted);
             max-width: 680px;
         }
@@ -235,26 +276,26 @@
             justify-content: space-between;
             align-items: center;
             gap: 16px;
-            margin-bottom: 26px;
+            margin-bottom: 24px;
             flex-wrap: wrap;
         }
 
         .search-box-wrap {
             position: relative;
             flex: 1;
-            max-width: 440px;
+            max-width: 400px;
             min-width: 260px;
         }
 
         .search-box-wrap input {
             width: 100%;
-            padding: 10px 100px 10px 40px;
+            padding: 9px 85px 9px 36px;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-sm);
             color: var(--text-heading);
             font-family: var(--font-body);
-            font-size: 0.86rem;
+            font-size: 0.85rem;
             outline: none;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
@@ -264,13 +305,14 @@
             box-shadow: 0 0 0 3px var(--accent-subtle);
         }
 
-        .search-icon {
+        .search-icon-svg {
             position: absolute;
-            left: 14px;
+            left: 11px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 0.85rem;
-            opacity: 0.5;
+            width: 15px;
+            height: 15px;
+            stroke: var(--text-muted);
             pointer-events: none;
         }
 
@@ -283,29 +325,25 @@
             font-weight: 700;
             color: var(--accent);
             background: var(--accent-subtle);
-            padding: 4px 9px;
+            padding: 3px 8px;
             border-radius: 999px;
         }
 
         .category-filter-chips {
             display: flex;
-            background: rgba(19, 30, 43, 0.05);
+            background: var(--bg-card-subtle);
             padding: 3px;
             border-radius: var(--radius-sm);
-            gap: 3px;
-            flex-wrap: wrap;
-        }
-
-        [data-theme="dark"] .category-filter-chips {
-            background: rgba(255, 255, 255, 0.06);
+            gap: 2px;
+            border: 1px solid var(--border-subtle);
         }
 
         .category-chip {
             background: transparent;
             border: none;
-            padding: 6px 12px;
+            padding: 6px 14px;
             font-family: var(--font-body);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: var(--text-muted);
             border-radius: 4px;
@@ -314,97 +352,98 @@
         }
 
         .category-chip.active {
-            background: #1D2633;
-            color: #FFFFFF;
+            background: var(--bg-card);
+            color: var(--text-heading);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
         }
 
         [data-theme="dark"] .category-chip.active {
-            background: #253346;
+            background: #1E293B;
+            color: #FFFFFF;
         }
 
-        /* 3-Column Bento Grid */
+        /* Bento Grid */
         .groups-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 16px;
         }
 
-        /* Clickable Bento Card */
+        /* Bento Card UI */
         .group-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
-            padding: 20px;
+            padding: 16px 18px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             box-shadow: var(--shadow-card);
-            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             text-decoration: none;
             color: inherit;
             cursor: pointer;
-            user-select: none;
-            min-height: 190px;
+            outline: none;
+            min-height: 165px;
         }
 
-        .group-card:hover {
-            transform: translateY(-3px);
+        .group-card:hover, .group-card:focus-visible {
+            transform: translateY(-2px);
             border-color: var(--accent);
-            box-shadow: 0 10px 24px rgba(15, 138, 95, 0.12);
+            box-shadow: var(--shadow-hover);
         }
 
         .card-top-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .wa-icon-bubble {
             width: 36px;
             height: 36px;
-            border-radius: 10px;
+            border-radius: 8px;
             background: var(--accent-subtle);
             color: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+            flex-shrink: 0;
         }
 
         .group-card:hover .wa-icon-bubble {
-            transform: scale(1.08);
+            transform: scale(1.05);
             background: #25D366;
             color: #FFFFFF;
         }
 
         .group-badge {
-            font-size: 0.72rem;
-            font-weight: 700;
+            font-size: 0.7rem;
+            font-weight: 600;
             padding: 3px 8px;
             border-radius: 4px;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.02em;
         }
 
-        /* Category Color Accents for Badges */
-        .badge-dsc { background: #FEF3C7; color: #92400E; }
-        .badge-ge  { background: #E0E7FF; color: #3730A3; }
-        .badge-sec { background: #E8F5EE; color: #166534; }
-        .badge-vac { background: #FCE7F3; color: #9D174D; }
-        .badge-aec { background: #EDE9FE; color: #5B21B6; }
+        /* Category Color Accents */
+        .badge-ge  { background: rgba(37, 99, 235, 0.08); color: #2563EB; }
+        .badge-sec { background: rgba(13, 148, 136, 0.08); color: #0D9488; }
+        .badge-vac { background: rgba(217, 119, 6, 0.08); color: #D97706; }
+        .badge-aec { background: rgba(147, 51, 234, 0.08); color: #9333EA; }
 
-        [data-theme="dark"] .badge-dsc { background: #3B2A10; color: #FCD34D; }
-        [data-theme="dark"] .badge-ge  { background: #1E234D; color: #A5B4FC; }
-        [data-theme="dark"] .badge-sec { background: #133321; color: #86EFAC; }
-        [data-theme="dark"] .badge-vac { background: #3C1328; color: #F472B6; }
-        [data-theme="dark"] .badge-aec { background: #2B1847; color: #C4B5FD; }
+        [data-theme="dark"] .badge-ge  { background: rgba(37, 99, 235, 0.15); color: #93C5FD; }
+        [data-theme="dark"] .badge-sec { background: rgba(13, 148, 136, 0.15); color: #5EEAD4; }
+        [data-theme="dark"] .badge-vac { background: rgba(217, 119, 6, 0.15); color: #FCD34D; }
+        [data-theme="dark"] .badge-aec { background: rgba(147, 51, 234, 0.15); color: #D8B4FE; }
 
         .card-content h3 {
             font-family: var(--font-heading);
-            font-size: 1rem;
+            font-size: 0.96rem;
             font-weight: 700;
             color: var(--text-heading);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             line-height: 1.35;
         }
 
@@ -433,24 +472,24 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            font-size: 0.8rem;
-            font-weight: 700;
+            font-size: 0.78rem;
+            font-weight: 600;
             color: var(--accent);
-            transition: transform 0.15s ease;
+            transition: transform 0.2s ease;
         }
 
         .group-card:hover .join-cta {
             transform: translateX(3px);
-            text-decoration: underline;
+            color: var(--accent-hover);
         }
 
         /* Empty Search State */
         .no-results-msg {
             grid-column: 1 / -1;
-            padding: 48px 24px;
+            padding: 44px 20px;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             background: var(--bg-card);
             border: 1px dashed var(--border-color);
             border-radius: var(--radius-md);
@@ -465,7 +504,7 @@
 
         @media (max-width: 680px) {
             .page-container {
-                padding: 24px 16px 50px;
+                padding: 20px 14px 44px;
             }
 
             .filter-toolbar {
@@ -477,9 +516,14 @@
                 max-width: 100%;
             }
 
+            .category-filter-chips {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
             .groups-grid {
                 grid-template-columns: 1fr;
-                gap: 14px;
+                gap: 12px;
             }
         }
     </style>
@@ -501,8 +545,28 @@
         </a>
 
         <div class="topbar-right">
-            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme" title="Switch Theme">
-                <span id="theme-icon">🌙</span>
+            <!-- Minimalist Pill Theme Toggle -->
+            <button class="theme-switch-btn" id="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle Theme" title="Toggle Light / Dark Mode">
+                <span class="switch-track">
+                    <span class="switch-thumb">
+                        <!-- Sun Icon -->
+                        <svg class="switch-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4.5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg class="switch-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </span>
             </button>
         </div>
     </header>
@@ -511,65 +575,51 @@
 
         <!-- Top Navigation Row -->
         <div class="nav-controls-row">
-            <a href="../index.html" class="back-nav-btn">← Back to Dashboard</a>
-            <span class="vault-status-pill">💬 30 VERIFIED BATCH GROUPS</span>
+            <a href="../index.html" class="back-nav-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span>Dashboard</span>
+            </a>
+            <span class="vault-status-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                29 Verified Batch Groups
+            </span>
         </div>
 
         <!-- Header Context -->
         <header class="vault-header">
-            <span class="college-tag">Sri Venkateswara College • Official Student Communities</span>
+            <span class="college-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                SVC • Official Student Communities
+            </span>
             <h1>WhatsApp Communities</h1>
-            <p>Access active discipline core channels, cross-department generic electives, skill workshops, and value-added study circles moderated by elected CRs.</p>
+            <p>Access active generic electives, skill enhancement practicals, and value-added study circles moderated by elected student coordinators.</p>
         </header>
 
         <!-- Search & Filter Controls -->
         <div class="filter-toolbar">
             <div class="search-box-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="group-search" placeholder="Search by course name, section, category (e.g. Sociology, Python, EVS)..." autocomplete="off">
-                <span class="search-counter-badge" id="group-counter">30 Groups</span>
+                <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="group-search" placeholder="Search by course name, section, category (e.g. Python, EVS)..." autocomplete="off">
+                <span class="search-counter-badge" id="group-counter">29 Groups</span>
             </div>
 
             <!-- Category Filter Chips -->
             <div class="category-filter-chips">
-                <button class="category-chip active" data-category="all">All (30)</button>
+                <button class="category-chip active" data-category="all">All (29)</button>
                 <button class="category-chip" data-category="SEC">SEC (17)</button>
                 <button class="category-chip" data-category="VAC">VAC (7)</button>
                 <button class="category-chip" data-category="GE">GE (3)</button>
                 <button class="category-chip" data-category="AEC">AEC (2)</button>
-                <button class="category-chip" data-category="DSC">DSC (1)</button>
             </div>
         </div>
 
         <!-- ========================================================
-             30 VERIFIED WHATSAPP GROUPS (ORGANIZED BY CATEGORY)
+             29 VERIFIED WHATSAPP GROUPS (RENUMBERED & ORGANIZED)
              ======================================================== -->
         <div class="groups-grid" id="groups-grid">
 
             <!-- ----------------------------------------------------
-                 1. DSC — DISCIPLINE SPECIFIC CORE
-                 ---------------------------------------------------- -->
-            <a href="https://chat.whatsapp.com/EbW1MWUnZAT5BCqTZF5CIa?mode=gi_t" target="_blank" rel="noopener noreferrer" class="group-card" data-category="DSC">
-                <div>
-                    <div class="card-top-row">
-                        <div class="wa-icon-bubble">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                        </div>
-                        <span class="group-badge badge-dsc">DSC Core</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Introduction To Sociology 2026</h3>
-                        <p>Department of Sociology • Batch 2026</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span class="group-num">Group #01</span>
-                    <span class="join-cta">Join Group ↗</span>
-                </div>
-            </a>
-
-            <!-- ----------------------------------------------------
-                 2. GE — GENERIC ELECTIVES
+                 1. GE — GENERIC ELECTIVES
                  ---------------------------------------------------- -->
             <a href="https://chat.whatsapp.com/FZdKNSpn3jSCRRX9TrFxID?mode=gi_t" target="_blank" rel="noopener noreferrer" class="group-card" data-category="GE">
                 <div>
@@ -585,8 +635,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #02</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #01</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -604,8 +657,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #03</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #02</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -623,13 +679,16 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #04</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #03</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
             <!-- ----------------------------------------------------
-                 3. SEC — SKILL ENHANCEMENT COURSES
+                 2. SEC — SKILL ENHANCEMENT COURSES
                  ---------------------------------------------------- -->
             <a href="https://chat.whatsapp.com/EcuNh11mRxHD0cazHKaFM2?mode=gi_t" target="_blank" rel="noopener noreferrer" class="group-card" data-category="SEC">
                 <div>
@@ -645,8 +704,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #05</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #04</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -664,8 +726,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #06</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #05</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -683,8 +748,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #07</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #06</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -702,8 +770,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #08</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #07</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -721,8 +792,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #09</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #08</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -740,8 +814,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #10</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #09</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -759,8 +836,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #11</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #10</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -778,8 +858,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #12</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #11</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -797,8 +880,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #13</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #12</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -816,8 +902,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #14</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #13</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -835,8 +924,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #15</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #14</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -854,8 +946,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #16</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #15</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -873,8 +968,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #17</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #16</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -892,8 +990,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #18</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #17</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -911,8 +1012,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #19</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #18</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -930,8 +1034,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #20</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #19</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -949,13 +1056,16 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #21</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #20</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
             <!-- ----------------------------------------------------
-                 4. VAC — VALUE ADDITION COURSES
+                 3. VAC — VALUE ADDITION COURSES
                  ---------------------------------------------------- -->
             <a href="https://chat.whatsapp.com/KbwJg10RaEn2ODqjsmlGP4?mode=gi_t" target="_blank" rel="noopener noreferrer" class="group-card" data-category="VAC">
                 <div>
@@ -971,8 +1081,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #22</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #21</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -990,8 +1103,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #23</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #22</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -1009,8 +1125,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #24</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #23</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -1028,8 +1147,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #25</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #24</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -1047,8 +1169,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #26</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #25</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -1066,8 +1191,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #27</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #26</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -1085,13 +1213,16 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #28</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #27</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
             <!-- ----------------------------------------------------
-                 5. AEC — ABILITY ENHANCEMENT COURSES
+                 4. AEC — ABILITY ENHANCEMENT COURSES
                  ---------------------------------------------------- -->
             <a href="https://chat.whatsapp.com/DB9NwqLSRQUKk2oN0zmJ8U?mode=gi_t" target="_blank" rel="noopener noreferrer" class="group-card" data-category="AEC">
                 <div>
@@ -1107,8 +1238,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #29</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #28</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -1126,8 +1260,11 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="group-num">Group #30</span>
-                    <span class="join-cta">Join Group ↗</span>
+                    <span class="group-num">Group #29</span>
+                    <span class="join-cta">
+                        <span>Join Group</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </span>
                 </div>
             </a>
 
@@ -1135,15 +1272,17 @@
 
         <!-- No Results Fallback -->
         <div id="no-results" class="no-results-msg" style="display: none;">
-            <p style="font-size: 1.5rem; margin-bottom: 8px;">🔍</p>
+            <div style="width: 44px; height: 44px; margin: 0 auto 10px; border-radius: 50%; background: var(--accent-subtle); color: var(--accent); display: flex; align-items: center; justify-content: center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
             <strong>No WhatsApp community groups found</strong>
-            <p style="font-size: 0.82rem; margin-top: 4px;">Try searching for another subject or clear your category filter.</p>
+            <p style="font-size: 0.82rem; margin-top: 4px; color: var(--text-muted);">Try searching for another subject or clear your category filter.</p>
         </div>
 
     </div>
 
     <!-- ========================================================
-         SEARCH & FILTER LOGIC
+         SEARCH, FILTER & MINIMALIST THEME ENGINE
          ======================================================== -->
     <script>
         const searchInput = document.getElementById('group-search');
@@ -1189,24 +1328,27 @@
             });
         });
 
-        // Theme Toggle Engine
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
+        // Minimalist Pill Theme Toggle Controller
+        const themeBtn = document.getElementById('theme-toggle');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('venky-theme', theme);
+            if (themeBtn) {
+                themeBtn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+            }
+        }
 
         function initTheme() {
             const savedTheme = localStorage.getItem('venky-theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            if (themeIcon) themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            setTheme(savedTheme);
         }
 
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => {
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
                 const current = document.documentElement.getAttribute('data-theme');
-                const next = current === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-theme', next);
-                localStorage.setItem('venky-theme', next);
-                if (themeIcon) themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
+                setTheme(current === 'dark' ? 'light' : 'dark');
             });
         }
 
