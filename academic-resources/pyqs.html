@@ -7,852 +7,528 @@
     <meta name="description" content="Official DU 10-Year Question Papers Archive for Sri Venkateswara College Students.">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 
-    <!-- Fonts: Plus Jakarta Sans & Inter -->
+    <!-- Fonts: Inter (UI) and Noto Sans Devanagari (Hindi subject titles) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Embedded Minimalist Design System -->
+    <!-- Apply the saved theme before first paint to avoid a flash -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('venky-theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', saved);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
     <style>
+        /* =====================================================================
+           DESIGN TOKENS
+           Change --accent / --accent-bright to re-colour the whole vault
+           (Time Table Hub uses blue, Syllabus Vault uses green).
+           ===================================================================== */
         :root {
-            --bg-page:        #F6F2EC;
-            --bg-card:        #FFFFFF;
-            --bg-card-subtle: #FBF9F5;
-            --text-heading:   #111927;
-            --text-body:      #4B5565;
-            --text-muted:     #697586;
-            --border-color:   #E4DCD3;
-            --border-subtle:  rgba(19, 30, 43, 0.08);
+            --bg:            #FAFAFB;
+            --surface:       #FFFFFF;
+            --surface-2:     #F3F4F8;
+            --ink:           #0F1220;
+            --body:          #4A5068;
+            --muted:         #747A92;
+            --line:          #E6E8EF;
+            --line-strong:   #D3D7E3;
 
-            --accent:         #D96B43;
-            --accent-hover:   #C35A33;
-            --gold:           #B08D57;
-            --gold-subtle:    rgba(176, 141, 87, 0.15);
+            --accent:        #5B3FD9;
+            --accent-ink:    #4A30BD;
+            --accent-soft:   #F0ECFE;
+            --accent-bright: #7C5CF5;
+            --on-accent:     #FFFFFF;
 
-            --font-heading: 'Plus Jakarta Sans', sans-serif;
-            --font-body:    'Inter', sans-serif;
+            --topbar:        #0D0A1C;
 
-            --radius-lg: 16px;
-            --radius-md: 10px;
-            --radius-sm: 6px;
-            --shadow-card: 0 1px 3px rgba(19, 30, 43, 0.04), 0 6px 18px rgba(19, 30, 43, 0.03);
+            --arts-fg: #BF5E0B;  --arts-bg: #FFF2E3;
+            --com-fg:  #0F766E;  --com-bg:  #E2F5F2;
+            --sci-fg:  #1F6FB5;  --sci-bg:  #E5F0FB;
+
+            --shadow:        0 1px 2px rgba(15, 18, 32, 0.04), 0 4px 16px rgba(15, 18, 32, 0.04);
+            --shadow-hover:  0 2px 4px rgba(15, 18, 32, 0.05), 0 12px 30px rgba(70, 50, 150, 0.10);
+
+            --font: 'Inter', 'Noto Sans Devanagari', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --r-lg: 18px;
+            --r-md: 12px;
+            --r-sm: 9px;
+            --topbar-h: 62px;
+            color-scheme: light;
         }
 
         [data-theme="dark"] {
-            --bg-page:        #080E17;
-            --bg-card:        #101926;
-            --bg-card-subtle: #141F2E;
-            --text-heading:   #F3F5F7;
-            --text-body:      #CBD5E1;
-            --text-muted:     #8696A8;
-            --border-color:   #1C2A3E;
-            --border-subtle:  rgba(255, 255, 255, 0.08);
-            --shadow-card:    0 6px 22px rgba(0, 0, 0, 0.45);
+            --bg:            #0B0A12;
+            --surface:       #14121F;
+            --surface-2:     #1C1A2B;
+            --ink:           #F4F3FB;
+            --body:          #B8B5CC;
+            --muted:         #8D8AA7;
+            --line:          #26233A;
+            --line-strong:   #373352;
+
+            --accent:        #A18DFF;
+            --accent-ink:    #BBAEFF;
+            --accent-soft:   rgba(161, 141, 255, 0.14);
+            --accent-bright: #8B6CFF;
+            --on-accent:     #0B0A12;
+
+            --topbar:        #07060F;
+
+            --arts-fg: #F2A862;  --arts-bg: rgba(242, 168, 98, 0.13);
+            --com-fg:  #5EDBCB;  --com-bg:  rgba(94, 219, 203, 0.12);
+            --sci-fg:  #7DBBF2;  --sci-bg:  rgba(125, 187, 242, 0.13);
+
+            --shadow:        0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-hover:  0 12px 30px rgba(0, 0, 0, 0.45);
+            color-scheme: dark;
         }
 
-        /* Base Resets */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* =====================================================================
+           BASE
+           ===================================================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        [hidden] { display: none !important; }
+
+        html { scroll-padding-top: calc(var(--topbar-h) + 16px); }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--bg-page);
-            color: var(--text-body);
-            line-height: 1.5;
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--body);
+            line-height: 1.55;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
+        a { color: inherit; text-decoration: none; }
+        button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+        svg.ic { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+        /* =====================================================================
+           TOP BAR
+           ===================================================================== */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            height: var(--topbar-h);
+            padding: 0 clamp(18px, 2.4vw, 36px);
+            display: flex; align-items: center; justify-content: space-between;
+            background: var(--topbar);
+            border-bottom: 3px solid var(--accent-bright);
         }
 
-        /* Top Header Strip */
-        .vault-topbar {
-            width: 100%;
-            height: 70px;
-            background: linear-gradient(180deg, #070F1A 0%, #0C1726 100%);
-            border-bottom: 2px solid var(--gold);
-            padding: 0 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .brand { display: flex; align-items: baseline; gap: 12px; }
+        .brand-name { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.035em; color: #FFFFFF; }
+        .brand-dot  { color: var(--accent-bright); }
+        .brand-sub  { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-bright); }
+
+        .theme-switch {
+            position: relative; width: 50px; height: 28px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            transition: background 0.2s ease;
         }
-
-        .topbar-brand {
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
+        .theme-switch:hover { background: rgba(255, 255, 255, 0.16); }
+        .theme-switch .knob {
+            position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%;
+            background: #FFFFFF; color: #0D0A1C;
+            display: grid; place-items: center; font-size: 12px;
+            transition: transform 0.22s ease;
         }
+        .theme-switch .knob .ic { grid-area: 1 / 1; }
+        .theme-switch .icon-moon { display: none; }
+        [data-theme="dark"] .theme-switch .knob { transform: translateX(22px); }
+        [data-theme="dark"] .theme-switch .icon-sun  { display: none; }
+        [data-theme="dark"] .theme-switch .icon-moon { display: block; }
 
-        .brand-name {
-            font-family: var(--font-heading);
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: #FFFFFF;
-            letter-spacing: -0.02em;
+        /* =====================================================================
+           PAGE FRAME
+           ===================================================================== */
+        .page { max-width: 1560px; margin: 0 auto; padding: 28px clamp(16px, 2.2vw, 32px) 72px; }
+
+        .nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            height: 40px; padding: 0 16px;
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm);
+            font-size: 0.875rem; font-weight: 500; color: var(--ink);
+            transition: border-color 0.15s ease, color 0.15s ease;
         }
+        .back-btn .ic { font-size: 1.05em; transition: transform 0.15s ease; }
+        .back-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+        .back-btn:hover .ic { transform: translateX(-2px); }
 
-        .brand-name span { color: var(--accent); }
-
-        .brand-sub {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--gold);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+        .crumbs { list-style: none; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 2px; font-size: 0.875rem; }
+        .crumbs li { display: flex; align-items: center; }
+        .crumbs li + li::before {
+            content: ""; width: 6px; height: 6px; margin: 0 12px;
+            border-top: 1.5px solid var(--muted); border-right: 1.5px solid var(--muted);
+            transform: rotate(45deg); opacity: 0.7;
         }
+        .crumb { color: var(--muted); font-weight: 500; padding: 4px 0; }
+        .crumb[data-state="done"]:hover { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 4px; }
+        .crumb[data-state="done"] { color: var(--body); }
+        .crumb[data-state="current"] { color: var(--ink); font-weight: 700; cursor: default; }
+        .crumb[data-state="todo"] { cursor: default; opacity: 0.8; }
 
-        .topbar-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .theme-toggle-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #FFFFFF;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-        }
-
-        .theme-toggle-btn:hover {
-            border-color: var(--gold);
-            transform: scale(1.05);
-        }
-
-        /* Container Layout */
-        .vault-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 32px 28px 70px;
-        }
-
-        /* Stepper & Breadcrumb Row */
-        .nav-controls-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .back-nav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            font-family: var(--font-heading);
-            font-size: 0.84rem;
-            font-weight: 600;
-            color: var(--text-heading);
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .back-nav-btn:hover {
-            border-color: var(--accent);
+        .page-head { margin-bottom: 28px; }
+        .eyebrow {
+            display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
             color: var(--accent);
-            transform: translateX(-2px);
         }
-
-        .breadcrumb-trail {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            flex-wrap: wrap;
+        .eyebrow .ic { font-size: 1.1em; }
+        .page-head h1 {
+            font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.15; font-weight: 800;
+            letter-spacing: -0.035em; color: var(--ink); max-width: 34ch; text-wrap: balance;
         }
+        .page-head h1:focus { outline: none; }
+        .lede { margin-top: 10px; max-width: 64ch; font-size: 0.95rem; color: var(--muted); }
 
-        .breadcrumb-step {
-            cursor: pointer;
-            transition: color 0.15s ease;
+        /* =====================================================================
+           SEARCH + STREAM FILTER
+           ===================================================================== */
+        .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 26px; }
+
+        .search { position: relative; flex: 1 1 300px; max-width: 460px; }
+        .search .ic { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 1.05rem; color: var(--muted); pointer-events: none; }
+        .search input {
+            width: 100%; height: 46px; padding: 0 16px 0 44px;
+            font: inherit; font-size: 0.9rem; color: var(--ink);
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
         }
+        .search input::placeholder { color: var(--muted); }
+        .search input:hover { border-color: var(--line-strong); }
+        .search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
 
-        .breadcrumb-step:hover {
-            color: var(--accent);
-            text-decoration: underline;
+        .segmented { display: inline-flex; padding: 4px; gap: 2px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-md); }
+        .segmented button {
+            height: 36px; padding: 0 16px; border-radius: 8px;
+            font-size: 0.85rem; font-weight: 500; color: var(--muted); white-space: nowrap;
+            transition: color 0.15s ease, background 0.15s ease;
         }
+        .segmented button:hover { color: var(--ink); }
+        .segmented button[aria-pressed="true"] { background: var(--surface); color: var(--ink); font-weight: 700; box-shadow: 0 1px 3px rgba(15, 18, 32, 0.10); }
+        [data-theme="dark"] .segmented button[aria-pressed="true"] { background: var(--line-strong); }
 
-        .breadcrumb-step.active {
-            color: var(--text-heading);
-            font-weight: 600;
-            cursor: default;
-            text-decoration: none;
+        /* =====================================================================
+           CARD GRID (departments, semesters, subjects)
+           ===================================================================== */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+
+        .card {
+            display: flex; flex-direction: column; text-align: left; width: 100%;
+            padding: 20px 22px 0;
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+            transition: border-color 0.18s ease, box-shadow 0.18s ease;
         }
+        .card:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); box-shadow: var(--shadow-hover); }
+        .card:focus-visible { outline-offset: 2px; border-radius: var(--r-lg); }
 
-        .breadcrumb-separator {
-            opacity: 0.4;
+        .card-top { display: flex; width: 100%; align-items: flex-start; justify-content: space-between; gap: 12px; }
+        .tile {
+            width: 46px; height: 46px; border-radius: 12px; flex: none;
+            display: grid; place-items: center;
+            background: var(--accent-soft); color: var(--accent); font-size: 1.2rem;
         }
+        .tile.numeral { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em; }
 
-        /* Header Context */
-        .vault-header {
-            margin-bottom: 28px;
+        .pill {
+            display: inline-flex; align-items: center; height: 26px; padding: 0 11px; border-radius: 7px;
+            font-size: 0.75rem; font-weight: 600; white-space: nowrap;
+            background: var(--surface-2); color: var(--body);
         }
+        .pill.arts     { background: var(--arts-bg); color: var(--arts-fg); }
+        .pill.commerce { background: var(--com-bg);  color: var(--com-fg); }
+        .pill.science  { background: var(--sci-bg);  color: var(--sci-fg); }
+        .pill.soon     { background: transparent; border: 1px dashed var(--line-strong); color: var(--muted); }
 
-        .college-tag {
-            font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 4px;
+        .card-body { display: block; width: 100%; margin-top: 20px; padding-bottom: 18px; flex: 1; }
+        .card .card-title { display: block; font-size: 1.05rem; line-height: 1.3; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; }
+        .card .card-sub { display: block; margin-top: 4px; font-size: 0.85rem; color: var(--muted); }
+
+        .card-foot {
+            display: flex; width: 100%; align-items: center; justify-content: flex-end;
+            padding: 11px 0 13px; border-top: 1px solid var(--line);
         }
+        .card-foot .ic { font-size: 1rem; color: var(--muted); transition: transform 0.18s ease, color 0.18s ease; }
+        .card:hover .card-foot .ic { transform: translateX(3px); color: var(--accent); }
+        .card.is-soon .tile { background: var(--surface-2); color: var(--muted); }
+        .card.is-soon .card-title { color: var(--body); }
 
-        .vault-header h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(1.8rem, 2.5vw, 2.2rem);
-            font-weight: 800;
-            color: var(--text-heading);
-            letter-spacing: -0.02em;
-            margin-bottom: 6px;
+        .empty {
+            grid-column: 1 / -1; padding: 56px 24px; text-align: center;
+            background: var(--surface); border: 1px dashed var(--line-strong); border-radius: var(--r-lg);
         }
+        .empty h3 { font-size: 1rem; color: var(--ink); font-weight: 700; letter-spacing: -0.02em; }
+        .empty p { margin: 6px auto 18px; font-size: 0.9rem; max-width: 46ch; color: var(--muted); }
 
-        .vault-header p {
-            font-size: 0.94rem;
-            color: var(--text-muted);
-            max-width: 680px;
+        /* =====================================================================
+           BUTTONS
+           ===================================================================== */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            height: 36px; padding: 0 14px; border-radius: var(--r-sm);
+            font-size: 0.85rem; font-weight: 600; white-space: nowrap;
+            border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink);
+            transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
         }
+        .btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+        .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+        .btn.primary:hover { background: var(--accent-ink); border-color: var(--accent-ink); color: var(--on-accent); }
+        .btn .ic { font-size: 1.05em; }
 
-        /* Search & Filter Toolbar */
-        .filter-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
+        /* =====================================================================
+           PAPERS WORKSPACE
+           ===================================================================== */
+        .workspace { display: grid; grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); gap: 18px; align-items: start; }
+
+        .panel {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+            box-shadow: var(--shadow); overflow: hidden;
+            display: flex; flex-direction: column;
         }
-
-        .search-box-wrap {
-            position: relative;
-            flex: 1;
-            max-width: 380px;
-            min-width: 240px;
+        .viewer-panel {
+            position: sticky; top: calc(var(--topbar-h) + 14px);
+            height: calc(100vh - var(--topbar-h) - 28px); min-height: 480px;
         }
-
-        .search-box-wrap input {
-            width: 100%;
-            padding: 9px 14px 9px 38px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            color: var(--text-heading);
-            font-family: var(--font-body);
-            font-size: 0.86rem;
-            outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        .viewer-panel.is-expanded {
+            position: fixed; top: var(--topbar-h); left: 0; right: 0; bottom: 0; z-index: 90;
+            height: auto; min-height: 0; border: 0; border-radius: 0; box-shadow: none;
         }
-
-        .search-box-wrap input:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px var(--gold-subtle);
+        .panel-head {
+            display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+            padding: 16px 20px 14px; border-bottom: 1px solid var(--line);
         }
+        .panel-head h2 { font-size: 1rem; line-height: 1.3; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+        .panel-head p  { margin-top: 3px; font-size: 0.8rem; color: var(--muted); }
 
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.85rem;
-            opacity: 0.5;
-            pointer-events: none;
+        .papers-scroll { flex: 1; }
+        .year-group h4 {
+            display: flex; align-items: baseline; justify-content: space-between;
+            padding: 12px 20px 8px; background: var(--surface-2); border-bottom: 1px solid var(--line);
+            font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; color: var(--ink);
         }
+        .year-group h4 span { font-size: 0.75rem; font-weight: 500; letter-spacing: 0; color: var(--muted); }
+        .year-group ul { list-style: none; }
 
-        .category-filter-chips {
-            display: flex;
-            background: rgba(19, 30, 43, 0.05);
-            padding: 3px;
-            border-radius: var(--radius-sm);
-            gap: 2px;
-        }
-
-        [data-theme="dark"] .category-filter-chips {
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .category-chip {
-            background: transparent;
-            border: none;
-            padding: 6px 14px;
-            font-family: var(--font-body);
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-
-        .category-chip.active {
-            background: #1D2633;
-            color: #FFFFFF;
-        }
-
-        [data-theme="dark"] .category-chip.active {
-            background: #253346;
-        }
-
-        /* Bento Grid */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .bento-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 18px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            box-shadow: var(--shadow-card);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-            outline: none;
-        }
-
-        .bento-card:hover, .bento-card:focus-visible {
-            transform: translateY(-2px);
-            border-color: var(--accent);
-            box-shadow: 0 6px 18px rgba(19, 30, 43, 0.08);
-        }
-
-        .card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .card-icon {
-            font-size: 1.4rem;
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            background: rgba(19, 30, 43, 0.03);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        [data-theme="dark"] .card-icon {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .card-stream-tag {
-            font-size: 0.72rem;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 4px;
-            background: rgba(19, 30, 43, 0.04);
-            color: var(--text-muted);
-            border: 1px solid var(--border-subtle);
-        }
-
-        [data-theme="dark"] .card-stream-tag {
-            background: rgba(255, 255, 255, 0.06);
-            color: var(--text-body);
-        }
-
-        .card-info h3 {
-            font-family: var(--font-heading);
-            font-size: 1.02rem;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 3px;
-        }
-
-        .card-info p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .card-footer-row {
-            display: flex;
-            justify-content: flex-end;
-            padding-top: 12px;
-            margin-top: 10px;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .card-arrow {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            transition: transform 0.2s ease, color 0.2s ease;
-        }
-
-        .bento-card:hover .card-arrow {
-            color: var(--accent);
-            transform: translateX(3px);
-        }
-
-        /* Screen 4: Final Workspace */
-        .vault-workspace {
-            display: grid;
-            grid-template-columns: 1fr 1.35fr;
-            gap: 22px;
-            align-items: start;
-        }
-
-        .papers-panel {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 22px;
-            box-shadow: var(--shadow-card);
-        }
-
-        .panel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .panel-header h3 {
-            font-family: var(--font-heading);
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-heading);
-        }
-
-        .badge-verified {
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 999px;
-            background: #E8F5EE;
-            color: #246B41;
-        }
-
-        [data-theme="dark"] .badge-verified {
-            background: #143522;
-            color: #8BE3AC;
-        }
-
-        .papers-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .paper-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 14px;
-            background: rgba(19, 30, 43, 0.02);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-sm);
-            transition: all 0.2s ease;
-            gap: 12px;
-        }
-
-        .paper-item:hover, .paper-item.active {
-            background: var(--bg-card-subtle);
-            border-color: var(--accent);
-        }
-
-        .paper-meta h4 {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--text-heading);
-            margin-bottom: 2px;
-        }
-
-        .paper-meta p {
-            font-size: 0.76rem;
-            color: var(--text-muted);
-        }
-
-        .paper-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-
-        .btn-preview-paper {
-            background: #1D2633;
-            color: #FFFFFF;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            cursor: pointer;
+        .paper {
+            position: relative; display: flex; align-items: center; justify-content: space-between; gap: 14px;
+            padding: 11px 20px; border-bottom: 1px solid var(--line);
             transition: background 0.15s ease;
         }
+        .paper:last-child { border-bottom: 0; }
+        .paper:hover { background: var(--bg); }
+        .paper.active { background: var(--accent-soft); }
+        .paper.active::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); }
+        .paper-meta { min-width: 0; }
+        .paper-meta h5 { font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
+        .paper-meta p  { margin-top: 2px; font-size: 0.76rem; color: var(--muted); }
+        .paper-actions { display: flex; gap: 8px; flex: none; }
+        .paper-actions .btn { height: 32px; padding: 0 12px; font-size: 0.8rem; }
+        .paper-actions .btn.icon-only { width: 32px; padding: 0; }
+        .paper.pending .paper-meta h5 { color: var(--muted); font-weight: 500; }
+        .paper-state { font-size: 0.78rem; font-weight: 500; color: var(--muted); padding-right: 4px; }
 
-        .btn-preview-paper:hover {
-            background: var(--accent);
+        .viewer-bar {
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            padding: 12px 16px; border-bottom: 1px solid var(--line); min-height: 62px;
         }
+        .viewer-title { min-width: 0; }
+        .viewer-title strong { display: block; font-size: 0.9rem; font-weight: 700; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .viewer-title span { display: block; font-size: 0.78rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .viewer-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+        .viewer-body { position: relative; flex: 1; background: var(--surface-2); }
+        .viewer-body iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #FFFFFF; }
 
-        .btn-download-direct {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-body);
-            padding: 5px 9px;
-            border-radius: 6px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            transition: all 0.15s ease;
-            cursor: pointer;
+        .viewer-note {
+            position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 14px; padding: 32px; text-align: center; color: var(--muted);
         }
+        .viewer-note .tile { width: 54px; height: 54px; font-size: 1.4rem; }
+        .viewer-note p { max-width: 34ch; font-size: 0.88rem; }
+        .viewer-note strong { display: block; margin-bottom: 3px; font-size: 0.98rem; color: var(--ink); font-weight: 700; letter-spacing: -0.015em; }
+        .viewer-loading { background: var(--surface-2); pointer-events: none; }
+        .spinner { width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--line-strong); border-top-color: var(--accent); animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        .btn-download-direct:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+        /* Archive-in-progress state */
+        .soon-panel {
+            grid-column: 1 / -1; justify-self: start; width: 100%; max-width: 600px; padding: 38px 32px; text-align: center;
+            background: var(--surface); border: 1px dashed var(--line-strong); border-radius: var(--r-lg);
         }
+        .soon-panel .tile { margin: 0 auto 18px; width: 54px; height: 54px; font-size: 1.4rem; }
+        .soon-panel h3 { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
+        .soon-panel p { margin: 8px auto 22px; max-width: 46ch; font-size: 0.9rem; color: var(--muted); }
 
-        /* Right PDF Preview Frame */
-        .viewer-panel {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            min-height: 520px;
-            display: flex;
-            flex-direction: column;
-            scroll-margin-top: 85px; /* Offset for sticky topbar when auto-scrolled */
+        /* =====================================================================
+           RESPONSIVE
+           ===================================================================== */
+        @media (max-width: 980px) {
+            .workspace { grid-template-columns: minmax(0, 1fr); }
+            .viewer-panel { position: relative; top: auto; height: min(80vh, 720px); }
+            .viewer-panel.is-expanded { position: fixed; top: var(--topbar-h); height: auto; }
         }
-
-        .viewer-toolbar {
-            padding: 12px 18px;
-            background: rgba(19, 30, 43, 0.03);
-            border-bottom: 1px solid var(--border-subtle);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        @media (max-width: 640px) {
+            :root { --topbar-h: 58px; }
+            .brand-name { font-size: 1.2rem; }
+            .brand-sub { display: none; }
+            .page { padding-top: 20px; }
+            .nav-row { margin-bottom: 22px; }
+            .crumbs { font-size: 0.8rem; }
+            .crumbs li + li::before { margin: 0 8px; }
+            .segmented { width: 100%; overflow-x: auto; }
+            .segmented button { flex: 1; padding: 0 12px; }
+            .grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+            .paper { flex-wrap: wrap; }
+            .soon-panel { padding: 30px 20px; }
+            .viewer-actions .btn .label { display: none; }
+            .viewer-actions .btn { padding: 0 11px; }
         }
-
-        [data-theme="dark"] .viewer-toolbar {
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .viewer-title {
-            font-size: 0.84rem;
-            font-weight: 600;
-            color: var(--text-heading);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 320px;
-        }
-
-        .viewer-open-btn {
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        .viewer-open-btn:hover {
-            text-decoration: underline;
-        }
-
-        .viewer-body {
-            flex: 1;
-            position: relative;
-            background: #E5E7EB;
-            min-height: 480px;
-        }
-
-        [data-theme="dark"] .viewer-body {
-            background: #090E16;
-        }
-
-        .viewer-placeholder {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 30px;
-            color: var(--text-muted);
-        }
-
-        .viewer-placeholder .placeholder-icon {
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-            opacity: 0.7;
-        }
-
-        .viewer-placeholder p {
-            font-size: 0.86rem;
-            max-width: 300px;
-            line-height: 1.45;
-        }
-
-        .pdf-frame {
-            width: 100%;
-            height: 520px;
-            border: none;
-            display: none;
-            background: #FFFFFF;
-        }
-
-        /* Aesthetic "Coming Soon" Box */
-        .vault-coming-soon-card {
-            grid-column: 1 / -1;
-            background: var(--bg-card);
-            border: 2px dashed var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 56px 28px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-card);
-            margin: 6px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .coming-soon-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font-heading);
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--gold);
-            background: var(--gold-subtle);
-            border: 1px solid rgba(176, 141, 87, 0.3);
-            padding: 4px 14px;
-            border-radius: 999px;
-            margin-bottom: 16px;
-        }
-
-        .coming-soon-icon-wrap {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(217, 107, 67, 0.12), rgba(176, 141, 87, 0.12));
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            margin-bottom: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-        }
-
-        .coming-soon-title {
-            font-family: var(--font-heading);
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--text-heading);
-            margin-bottom: 8px;
-            letter-spacing: -0.01em;
-        }
-
-        .coming-soon-desc {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            max-width: 520px;
-            line-height: 1.6;
-            margin-bottom: 22px;
-        }
-
-        .coming-soon-chips {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .coming-soon-chip {
-            font-size: 0.74rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            background: var(--bg-card-subtle);
-            border: 1px solid var(--border-color);
-            padding: 5px 12px;
-            border-radius: var(--radius-sm);
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .no-results-msg {
-            grid-column: 1 / -1;
-            padding: 40px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            background: var(--bg-card);
-            border: 1px dashed var(--border-color);
-            border-radius: var(--radius-md);
-        }
-
-        /* Responsive Layout for Mobile & Tablet */
-        @media (max-width: 900px) {
-            .vault-workspace {
-                grid-template-columns: 1fr;
-            }
-
-            .vault-container {
-                padding: 24px 18px 50px;
-            }
-
-            .filter-toolbar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-box-wrap {
-                max-width: 100%;
-            }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition: none !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Minimalist Top Navigation -->
-    <header class="vault-topbar">
-        <a href="../index.html" class="topbar-brand">
-            <span class="brand-name">VenkySpace<span>.</span></span>
+    <!-- Top navigation -->
+    <header class="topbar">
+        <a href="../index.html" class="brand" aria-label="VenkySpace home">
+            <span class="brand-name">VenkySpace<span class="brand-dot">.</span></span>
             <span class="brand-sub">PYQ Vault</span>
         </a>
 
-        <div class="topbar-right">
-            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme" title="Switch Theme">
-                <span id="theme-icon">🌙</span>
-            </button>
-        </div>
+        <button class="theme-switch" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode" title="Switch theme">
+            <span class="knob">
+                <svg class="ic icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                <svg class="ic icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </span>
+        </button>
     </header>
 
-    <div class="vault-container">
+    <main class="page">
 
-        <!-- Dynamic Stepper / Breadcrumbs -->
-        <div class="nav-controls-row">
-            <button class="back-nav-btn" id="nav-back-btn">← Back to Dashboard</button>
+        <!-- Back button and step trail -->
+        <div class="nav-row">
+            <button class="back-btn" id="nav-back-btn" type="button">
+                <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+                <span id="back-label">Dashboard</span>
+            </button>
 
-            <nav class="breadcrumb-trail" aria-label="Vault Steps">
-                <span class="breadcrumb-step" id="crumb-courses">Courses</span>
-                <span class="breadcrumb-separator">/</span>
-                <span class="breadcrumb-step" id="crumb-semesters">Semester</span>
-                <span class="breadcrumb-separator">/</span>
-                <span class="breadcrumb-step" id="crumb-subjects">Subject</span>
-                <span class="breadcrumb-separator">/</span>
-                <span class="breadcrumb-step" id="crumb-vault">Papers</span>
+            <nav aria-label="Vault steps">
+                <ol class="crumbs" id="crumbs">
+                    <li><button class="crumb" type="button" data-step="courses">Department</button></li>
+                    <li><button class="crumb" type="button" data-step="semesters">Semester</button></li>
+                    <li><button class="crumb" type="button" data-step="subjects">Subject</button></li>
+                    <li><button class="crumb" type="button" data-step="vault">Papers</button></li>
+                </ol>
             </nav>
         </div>
 
-        <!-- Dynamic Context Header -->
-        <header class="vault-header">
-            <span class="college-tag">Sri Venkateswara College • DU</span>
-            <h1 id="view-title">Select Your Course</h1>
-            <p id="view-subtitle">Select your academic department to access official 10-Year Question Papers.</p>
+        <!-- Context header -->
+        <header class="page-head">
+            <p class="eyebrow">
+                <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                <span>Sri Venkateswara College &bull; Question Paper Archive</span>
+            </p>
+            <h1 id="view-title" tabindex="-1">Select Your Department</h1>
+            <p class="lede" id="view-subtitle">Access official 10-year question papers for every undergraduate department.</p>
         </header>
 
-        <!-- SCREEN 1: COURSES SELECTION -->
-        <div id="screen-courses">
-            <div class="filter-toolbar">
-                <div class="search-box-wrap">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" id="course-search-input" placeholder="Search by course name (e.g. Economics, Physics)..." autocomplete="off">
+        <!-- Step 1: departments -->
+        <section id="screen-courses" aria-label="Departments">
+            <div class="toolbar">
+                <div class="search">
+                    <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                    <input type="search" id="course-search-input" placeholder="Search department (e.g. Economics, Physics)" aria-label="Search departments" autocomplete="off">
                 </div>
 
-                <div class="category-filter-chips">
-                    <button class="category-chip active" data-stream="all">All (14)</button>
-                    <button class="category-chip" data-stream="Science">Science</button>
-                    <button class="category-chip" data-stream="Commerce">Commerce</button>
-                    <button class="category-chip" data-stream="Arts">Arts &amp; Humanities</button>
+                <div class="segmented" id="stream-filter" role="group" aria-label="Filter by stream">
+                    <button type="button" data-stream="all" aria-pressed="true" id="chip-all">All Departments</button>
+                    <button type="button" data-stream="Science" aria-pressed="false">Science</button>
+                    <button type="button" data-stream="Commerce" aria-pressed="false">Commerce</button>
+                    <button type="button" data-stream="Arts" aria-pressed="false">Arts</button>
                 </div>
             </div>
 
-            <div class="bento-grid" id="courses-grid">
-                <!-- Injected via JS -->
-            </div>
-        </div>
+            <div class="grid" id="courses-grid"></div>
+        </section>
 
-        <!-- SCREEN 2: SEMESTER SELECTION -->
-        <div id="screen-semesters" style="display: none;">
-            <div class="bento-grid" id="semesters-grid">
-                <!-- Injected via JS -->
-            </div>
-        </div>
+        <!-- Step 2: semesters -->
+        <section id="screen-semesters" aria-label="Semesters" hidden>
+            <div class="grid" id="semesters-grid"></div>
+        </section>
 
-        <!-- SCREEN 3: SUBJECTS SELECTION -->
-        <div id="screen-subjects" style="display: none;">
-            <div class="bento-grid" id="subjects-grid">
-                <!-- Injected via JS -->
-            </div>
-        </div>
+        <!-- Step 3: subjects -->
+        <section id="screen-subjects" aria-label="Subjects" hidden>
+            <div class="grid" id="subjects-grid"></div>
+        </section>
 
-        <!-- SCREEN 4: PAPERS & LIVE GOOGLE DRIVE PREVIEW -->
-        <div class="vault-workspace" id="screen-vault" style="display: none;">
-            
-            <div class="papers-panel">
-                <div class="panel-header">
+        <!-- Step 4: papers list and live preview -->
+        <section class="workspace" id="screen-vault" aria-label="Question papers" hidden>
+            <div class="panel">
+                <div class="panel-head">
                     <div>
-                        <h3 id="vault-panel-heading">Question Papers Archive</h3>
-                        <p style="font-size: 0.78rem; color: var(--text-muted);" id="vault-panel-sub">Verified DU Semester Examinations</p>
+                        <h2 id="vault-panel-heading">Question Papers</h2>
+                        <p id="vault-panel-sub">Verified DU semester examinations</p>
                     </div>
-                    <span class="badge-verified">Verified Papers</span>
+                    <span class="pill" id="vault-count">0 papers</span>
                 </div>
-
-                <ul class="papers-list" id="papers-list-container">
-                    <!-- Injected dynamically -->
-                </ul>
+                <div class="papers-scroll" id="papers-list-container"></div>
             </div>
 
-            <div class="viewer-panel">
-                <div class="viewer-toolbar">
-                    <span class="viewer-title" id="viewer-paper-title">Select a paper to preview</span>
-                    <a href="#" target="_blank" id="viewer-external-link" class="viewer-open-btn" style="display: none;">Open in New Tab ↗</a>
+            <div class="panel viewer-panel">
+                <div class="viewer-bar">
+                    <div class="viewer-title">
+                        <strong id="viewer-paper-title">Select a paper to preview</strong>
+                        <span id="viewer-paper-sub">Papers open here without leaving the page</span>
+                    </div>
+                    <div class="viewer-actions">
+                        <button type="button" class="btn" id="viewer-expand" aria-pressed="false" hidden>
+                            <svg class="ic" id="expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+                            <span class="label" id="expand-label">Full view</span>
+                        </button>
+                        <a href="#" target="_blank" rel="noopener" id="viewer-external-link" class="btn" hidden>
+                            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                            <span class="label">Open in new tab</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="viewer-body">
-                    <div class="viewer-placeholder" id="viewer-placeholder">
-                        <span class="placeholder-icon">📑</span>
-                        <p>Click "Preview" on any question paper on the left to read or view it directly here.</p>
+                    <div class="viewer-note" id="viewer-placeholder">
+                        <span class="tile">
+                            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                        </span>
+                        <p><strong>No paper selected</strong>Choose Preview on any paper in the list to read it here.</p>
                     </div>
-                    <iframe id="pdf-viewer-frame" class="pdf-frame" title="Question Paper Preview" allow="autoplay"></iframe>
+                    <div class="viewer-note viewer-loading" id="viewer-loading" hidden>
+                        <span class="spinner" aria-hidden="true"></span>
+                        <p>Loading paper</p>
+                    </div>
+                    <iframe id="pdf-viewer-frame" title="Question paper preview" allow="autoplay" hidden></iframe>
                 </div>
             </div>
+        </section>
 
-        </div>
-
-    </div>
+    </main>
 
     <!-- =========================================================================
-         JAVASCRIPT LOGIC & GOOGLE DRIVE LINK REPOSITORY
+         JAVASCRIPT: PAPER LIBRARY (Google Drive links) AND APP LOGIC
          ========================================================================= -->
     <script>
         const subjectLibrary = {
@@ -4713,68 +4389,80 @@
 
         };
 
-        // Course List
+        /* =====================================================================
+           ICONS (inline SVG, no emoji)
+           ===================================================================== */
+        const ICONS = {
+            users:    '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+            trend:    '<path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/>',
+            landmark: '<path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="m12 2 8 5H4z"/>',
+            clock:    '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+            book:     '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+            pen:      '<path d="m12 19 7-7 3 3-7 7z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18z"/><path d="m2 2 7.6 7.6"/><circle cx="11" cy="11" r="2"/>',
+            flame:    '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4.1 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+            briefcase:'<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+            bars:     '<path d="M12 20V10M18 20V4M6 20v-4"/>',
+            sigma:    '<path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2"/>',
+            atom:     '<circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2-2 .02-7.4-4.5-11.9C11.2 3.8 5.8 1.8 3.8 3.8s-.02 7.4 4.5 11.9c4.5 4.5 9.9 6.5 11.9 4.5Z"/><path d="M15.7 15.7c4.5-4.5 6.5-9.9 4.5-11.9s-7.4-.02-11.9 4.5c-4.5 4.5-6.5 9.9-4.5 11.9s7.4.02 11.9-4.5Z"/>',
+            flask:    '<path d="M10 2v7.5a2 2 0 0 1-.2.9L4.7 20.5a1 1 0 0 0 .9 1.5h12.8a1 1 0 0 0 .9-1.5l-5.1-10.1a2 2 0 0 1-.2-.9V2"/><path d="M8.5 2h7M7 16h10"/>',
+            leaf:     '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/>',
+            paw:      '<circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.8 1Q6.5 17.5 4.5 16.8A3.5 3.5 0 0 1 5.5 10Z"/>',
+            cap:      '<path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
+            file:     '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>',
+            chevron:  '<path d="m9 18 6-6-6-6"/>',
+            download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/>',
+            hourglass:'<path d="M5 22h14M5 2h14"/><path d="M17 22v-4.2a2 2 0 0 0-.6-1.4L12 12l-4.4 4.4a2 2 0 0 0-.6 1.4V22M7 2v4.2a2 2 0 0 0 .6 1.4L12 12l4.4-4.4A2 2 0 0 0 17 6.2V2"/>'
+        };
+
+        function icon(name) {
+            return `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ICONS.cap}</svg>`;
+        }
+
+        const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => (
+            { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+        ));
+
+        /* =====================================================================
+           DEPARTMENTS AND SEMESTERS
+           "key" must match the department's key inside subjectLibrary above.
+           ===================================================================== */
         const coursesData = [
-            { name: "Sociology", degree: "B.A. (Honours) Sociology", stream: "Arts", icon: "🏛️" },
-            { name: "Economics", degree: "B.A. (Honours) Economics", stream: "Arts", icon: "📈" },
-            { name: "Political Science", degree: "B.A. (Honours) Political Science", stream: "Arts", icon: "⚖️" },
-            { name: "History", degree: "B.A. (Honours) History", stream: "Arts", icon: "📜" },
-            { name: "English", degree: "B.A. (Honours) English", stream: "Arts", icon: "📖" },
-            { name: "Hindi", degree: "B.A. (Honours) Hindi", stream: "Arts", icon: "✍️" },
-            { name: "Sanskrit", degree: "B.A. (Honours) Sanskrit", stream: "Arts", icon: "🪔" },
-            // { name: "B.A. Programme", degree: "Bachelor of Arts (Programme)", stream: "Arts", icon: "🎓" },
-            { name: "Bachelors of Commerce", degree: "B.Com. (Honours)", stream: "Commerce", icon: "💼" },
-            { name: "Bachelors of Commerce (Programme)", degree: "B.Com. (Programme)", stream: "Commerce", icon: "📊" },
-            { name: "Mathematics", degree: "B.Sc. (Honours) Mathematics", stream: "Science", icon: "📐" },
-            // { name: "Statistics", degree: "B.Sc. (Honours) Statistics", stream: "Science", icon: "📉" },
-            { name: "Physics", degree: "B.Sc. (Honours) Physics", stream: "Science", icon: "⚛️" },
-            { name: "Chemistry", degree: "B.Sc. (Honours) Chemistry", stream: "Science", icon: "🧪" },
-            // { name: "Electronics", degree: "B.Sc. (Honours) Electronics", stream: "Science", icon: "🔌" },
-            // { name: "Biochemistry", degree: "B.Sc. (Honours) Biochemistry", stream: "Science", icon: "🧬" },
-            { name: "Botany", degree: "B.Sc. (Honours) Botany", stream: "Science", icon: "🌿" },
-            { name: "Zoology", degree: "B.Sc. (Honours) Zoology", stream: "Science", icon: "🐾" },
-            // { name: "Biological Sciences", degree: "B.Sc. (Honours) Biological Sciences", stream: "Science", icon: "🔬" },
-            // { name: "Life Sciences", degree: "B.Sc. (Programme) Life Science", stream: "Science", icon: "🌱" }
+            { name: "Sociology",         key: "Sociology",         degree: "B.A. (Honours) Sociology",         stream: "Arts",     icon: "users" },
+            { name: "Economics",         key: "Economics",         degree: "B.A. (Honours) Economics",         stream: "Arts",     icon: "trend" },
+            { name: "Political Science", key: "Political Science", degree: "B.A. (Honours) Political Science", stream: "Arts",     icon: "landmark" },
+            { name: "History",           key: "History",           degree: "B.A. (Honours) History",           stream: "Arts",     icon: "clock" },
+            { name: "English",           key: "English",           degree: "B.A. (Honours) English",           stream: "Arts",     icon: "book" },
+            { name: "Hindi",             key: "Hindi",             degree: "B.A. (Honours) Hindi",             stream: "Arts",     icon: "pen" },
+            { name: "Sanskrit",          key: "Sanskrit",          degree: "B.A. (Honours) Sanskrit",          stream: "Arts",     icon: "flame" },
+            // { name: "B.A. Programme", key: "B.A. Programme", degree: "Bachelor of Arts (Programme)", stream: "Arts", icon: "cap" },
+            { name: "Bachelors of Commerce",             key: "Commerce (Honours)",   degree: "B.Com. (Honours)",   stream: "Commerce", icon: "briefcase" },
+            { name: "Bachelors of Commerce (Programme)", key: "Commerce (Programme)", degree: "B.Com. (Programme)", stream: "Commerce", icon: "bars" },
+            { name: "Mathematics",       key: "Mathematics",       degree: "B.Sc. (Honours) Mathematics",      stream: "Science",  icon: "sigma" },
+            // { name: "Statistics", key: "Statistics", degree: "B.Sc. (Honours) Statistics", stream: "Science", icon: "bars" },
+            { name: "Physics",           key: "Physics",           degree: "B.Sc. (Honours) Physics",          stream: "Science",  icon: "atom" },
+            { name: "Chemistry",         key: "Chemistry",         degree: "B.Sc. (Honours) Chemistry",        stream: "Science",  icon: "flask" },
+            // { name: "Electronics", key: "Electronics", degree: "B.Sc. (Honours) Electronics", stream: "Science", icon: "atom" },
+            // { name: "Biochemistry", key: "Biochemistry", degree: "B.Sc. (Honours) Biochemistry", stream: "Science", icon: "flask" },
+            { name: "Botany",            key: "Botany",            degree: "B.Sc. (Honours) Botany",           stream: "Science",  icon: "leaf" },
+            { name: "Zoology",           key: "Zoology",           degree: "B.Sc. (Honours) Zoology",          stream: "Science",  icon: "paw" },
+            // { name: "Biological Sciences", key: "Biological Sciences", degree: "B.Sc. (Honours) Biological Sciences", stream: "Science", icon: "leaf" },
+            // { name: "Life Sciences", key: "Life Sciences", degree: "B.Sc. (Programme) Life Science", stream: "Science", icon: "leaf" }
         ];
 
-        // Semesters
         const semestersData = [
-            { num: 1, roman: "Ⅰ", year: "Year 1", desc: "DSC 1, DSC 2 , DSC 3, & Generic Electives" },
-            { num: 2, roman: "Ⅱ", year: "Year 1", desc: "DSC 4, DSC 5 , DSC 6 & Interdisciplinary GE" },
-            { num: 3, roman: "Ⅲ", year: "Year 2", desc: "DSC 7 , DSC 8 , DSC 9 & General Elective" },
-            { num: 4, roman: "Ⅳ", year: "Year 2", desc: "DSC 10 , DSC 11 , DSC 12 & General Elective" },
-            { num: 5, roman: "Ⅴ", year: "Year 3", desc: "DSC 13 , DSC 14 , DSC 15 & General Elective" },
-            { num: 6, roman: "Ⅵ", year: "Year 3", desc: "DSC 16 , DSC 17 , DSC 18 & General Elective" },
-            { num: 7, roman: "Ⅶ", year: "Year 4", desc: "DSC , DSE & Others" },
-            { num: 8, roman: "Ⅷ", year: "Year 4", desc: "DSC , DSE & Others" },
+            { num: 1, roman: "I",    year: "Year 1", desc: "DSC 1, DSC 2, DSC 3 and Generic Electives" },
+            { num: 2, roman: "II",   year: "Year 1", desc: "DSC 4, DSC 5, DSC 6 and Interdisciplinary GE" },
+            { num: 3, roman: "III",  year: "Year 2", desc: "DSC 7, DSC 8, DSC 9 and General Elective" },
+            { num: 4, roman: "IV",   year: "Year 2", desc: "DSC 10, DSC 11, DSC 12 and General Elective" },
+            { num: 5, roman: "V",    year: "Year 3", desc: "DSC 13, DSC 14, DSC 15 and General Elective" },
+            { num: 6, roman: "VI",   year: "Year 3", desc: "DSC 16, DSC 17, DSC 18 and General Elective" },
+            { num: 7, roman: "VII",  year: "Year 4", desc: "DSC, DSE and Others" },
+            { num: 8, roman: "VIII", year: "Year 4", desc: "DSC, DSE and Others" }
         ];
 
-        // State variables
-        let currentStep = 'courses';
-        let state = { course: null, semester: null, subject: null };
-
-        // DOM Handles
-        const screenCourses = document.getElementById('screen-courses');
-        const screenSemesters = document.getElementById('screen-semesters');
-        const screenSubjects = document.getElementById('screen-subjects');
-        const screenVault = document.getElementById('screen-vault');
-
-        const coursesGrid = document.getElementById('courses-grid');
-        const semestersGrid = document.getElementById('semesters-grid');
-        const subjectsGrid = document.getElementById('subjects-grid');
-
-        const navBackBtn = document.getElementById('nav-back-btn');
-        const viewTitle = document.getElementById('view-title');
-        const viewSubtitle = document.getElementById('view-subtitle');
-
-        const crumbCourses = document.getElementById('crumb-courses');
-        const crumbSemesters = document.getElementById('crumb-semesters');
-        const crumbSubjects = document.getElementById('crumb-subjects');
-        const crumbVault = document.getElementById('crumb-vault');
-
-        /* =========================================================================
+        /* =====================================================================
            GOOGLE DRIVE LINK CONVERTER
-           ========================================================================= */
+           ===================================================================== */
         function parseGoogleDriveLink(rawUrl) {
             if (!rawUrl || rawUrl.trim() === "" || rawUrl.includes("insert your link here") || rawUrl === "#") {
                 return { isReady: false };
@@ -4793,393 +4481,458 @@
                 };
             }
 
-            return {
-                isReady: true,
-                previewUrl: url,
-                downloadUrl: url,
-                externalUrl: url
-            };
+            return { isReady: true, previewUrl: url, downloadUrl: url, externalUrl: url };
         }
 
-        // Render Courses
+        /* =====================================================================
+           PAPER ORDERING: newest year first, newest session first inside a year.
+           Works on the session text, so new papers can be added in any order.
+           ===================================================================== */
+        const MONTH_INDEX = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
+
+        function sessionYear(session) {
+            const m = String(session).match(/(?:19|20)\d{2}/);
+            return m ? parseInt(m[0], 10) : 0;
+        }
+
+        // The last month named wins: "Dec / Jan 2026" is a January 2026 result,
+        // so it sits before "May / June 2026" and after "Nov / Dec 2025".
+        function sessionMonth(session) {
+            const found = String(session).toLowerCase().match(/\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*/g);
+            return found ? (MONTH_INDEX[found[found.length - 1].slice(0, 3)] || 0) : 0;
+        }
+
+        function cleanSession(session) {
+            return String(session)
+                .replace(/\s+/g, ' ').trim()
+                .replace(/\(\s+/g, '(').replace(/\s+\)/g, ')')
+                .replace(/\s*\/\s*/g, ' / ')
+                .replace(/([A-Za-z])(\d{4})/g, '$1 $2')
+                .replace(/(\d{4})\(/g, '$1 (');
+        }
+
+        function preparePapers(papers) {
+            const items = (papers || []).map((p, i) => ({
+                ...p,
+                order: i,
+                label: cleanSession(p.session),
+                year: sessionYear(p.session),
+                month: sessionMonth(p.session),
+                link: parseGoogleDriveLink(p.link)
+            }));
+
+            items.sort((a, b) => (b.year - a.year) || (b.month - a.month) || (a.order - b.order));
+
+            // Sessions that repeat inside one subject get "Paper n of m" so rows can be told apart
+            const totals = {};
+            items.forEach(p => { totals[p.label] = (totals[p.label] || 0) + 1; });
+            const seen = {};
+            items.forEach(p => {
+                seen[p.label] = (seen[p.label] || 0) + 1;
+                p.dupText = totals[p.label] > 1 ? `Paper ${seen[p.label]} of ${totals[p.label]}` : '';
+            });
+
+            return items;
+        }
+
+        const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+
+        /* =====================================================================
+           STATE AND DOM HANDLES
+           ===================================================================== */
+        const STEPS = ['courses', 'semesters', 'subjects', 'vault'];
+        let currentStep = 'courses';
+        const state = { course: null, semester: null, subject: null };
+
+        const $ = (id) => document.getElementById(id);
+        const screens = {
+            courses: $('screen-courses'),
+            semesters: $('screen-semesters'),
+            subjects: $('screen-subjects'),
+            vault: $('screen-vault')
+        };
+
+        const coursesGrid = $('courses-grid');
+        const semestersGrid = $('semesters-grid');
+        const subjectsGrid = $('subjects-grid');
+        const navBackBtn = $('nav-back-btn');
+        const backLabel = $('back-label');
+        const viewTitle = $('view-title');
+        const viewSubtitle = $('view-subtitle');
+        const crumbButtons = Array.from(document.querySelectorAll('#crumbs .crumb'));
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        /* =====================================================================
+           CARD BUILDER
+           ===================================================================== */
+        function makeCard({ tileHTML, tileClass = '', pill, pillClass = '', title, sub, soon = false }, onClick) {
+            const card = document.createElement('button');
+            card.type = 'button';
+            card.className = 'card' + (soon ? ' is-soon' : '');
+            card.innerHTML = `
+                <span class="card-top">
+                    <span class="tile ${tileClass}">${tileHTML}</span>
+                    <span class="pill ${pillClass}">${esc(pill)}</span>
+                </span>
+                <span class="card-body">
+                    <span class="card-title">${esc(title)}</span>
+                    ${sub ? `<span class="card-sub">${esc(sub)}</span>` : ''}
+                </span>
+                <span class="card-foot">${icon('chevron')}</span>
+            `;
+            card.addEventListener('click', onClick);
+            return card;
+        }
+
+        /* =====================================================================
+           RENDERERS
+           ===================================================================== */
         function renderCourses(list) {
             coursesGrid.innerHTML = '';
+
             if (!list.length) {
-                coursesGrid.innerHTML = `<div class="no-results-msg">No courses found matching your search.</div>`;
+                const query = searchInput.value.trim();
+                const box = document.createElement('div');
+                box.className = 'empty';
+                box.innerHTML = `
+                    <h3>${query ? `No department matches &ldquo;${esc(query)}&rdquo;` : 'No departments in this stream yet'}</h3>
+                    <p>Try a shorter name, or clear the search and stream filter to see every department.</p>
+                    <button type="button" class="btn primary" id="clear-filters">Clear filters</button>
+                `;
+                coursesGrid.appendChild(box);
+                box.querySelector('#clear-filters').addEventListener('click', () => {
+                    searchInput.value = '';
+                    setStream('all');
+                });
                 return;
             }
 
             list.forEach(c => {
-                const card = document.createElement('div');
-                card.className = 'bento-card';
-                card.tabIndex = 0;
-                card.innerHTML = `
-                    <div>
-                        <div class="card-top">
-                            <span class="card-icon">${c.icon}</span>
-                            <span class="card-stream-tag">${c.stream}</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>${c.name}</h3>
-                            <p>${c.degree}</p>
-                        </div>
-                    </div>
-                    <div class="card-footer-row">
-                        <span class="card-arrow">→</span>
-                    </div>
-                `;
-                card.addEventListener('click', () => selectCourse(c));
-                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectCourse(c); });
-                coursesGrid.appendChild(card);
+                coursesGrid.appendChild(makeCard({
+                    tileHTML: icon(c.icon),
+                    pill: c.stream,
+                    pillClass: c.stream.toLowerCase(),
+                    title: c.name,
+                    sub: c.degree
+                }, () => selectCourse(c)));
             });
         }
 
-        // Render Semesters
+        function subjectsFor(course, semNum) {
+            return (subjectLibrary[course.key] && subjectLibrary[course.key][semNum]) || [];
+        }
+
         function renderSemesters() {
             semestersGrid.innerHTML = '';
             semestersData.forEach(s => {
-                const card = document.createElement('div');
-                card.className = 'bento-card';
-                card.tabIndex = 0;
-                card.innerHTML = `
-                    <div>
-                        <div class="card-top">
-                            <span class="card-icon" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: var(--accent);">${s.roman}</span>
-                            <span class="card-stream-tag">${s.year}</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>Semester ${s.num}</h3>
-                            <p>${s.desc}</p>
-                        </div>
-                    </div>
-                    <div class="card-footer-row">
-                        <span class="card-arrow">→</span>
-                    </div>
-                `;
-                card.addEventListener('click', () => selectSemester(s.num));
-                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectSemester(s.num); });
-                semestersGrid.appendChild(card);
+                const count = subjectsFor(state.course, s.num).length;
+                semestersGrid.appendChild(makeCard({
+                    tileHTML: s.roman,
+                    tileClass: 'numeral',
+                    pill: count ? s.year : 'Coming soon',
+                    pillClass: count ? '' : 'soon',
+                    title: `Semester ${s.num}`,
+                    sub: s.desc,
+                    soon: !count
+                }, () => selectSemester(s.num)));
             });
         }
 
-        // Render Subjects (Displays subjects OR the aesthetic Coming Soon card)
-        function renderSubjects(courseName, semNum) {
+        function renderSubjects(course, semNum) {
             subjectsGrid.innerHTML = '';
+            const list = subjectsFor(course, semNum);
 
-            const list = (subjectLibrary[courseName] && subjectLibrary[courseName][semNum])
-                ? subjectLibrary[courseName][semNum]
-                : [];
-
-            if (!list || list.length === 0) {
-                subjectsGrid.innerHTML = `
-                    <div class="vault-coming-soon-card">
-                        <div class="coming-soon-badge">
-                            <span>✨</span> ARCHIVE IN PROGRESS • NEP 2020
-                        </div>
-                        <div class="coming-soon-icon-wrap">
-                            📜
-                        </div>
-                        <h3 class="coming-soon-title">Semester ${semNum} Papers Coming Soon</h3>
-                        <p class="coming-soon-desc">
-                            Official Sri Venkateswara College 10-Year Question Papers for Semester ${semNum} are currently being archived, digitized, and verified from academic records.
-                        </p>
-                        <div class="coming-soon-chips">
-                            <span class="coming-soon-chip">🏛️ Sri Venkateswara College</span>
-                            <span class="coming-soon-chip">⚡ DU NEP-UGCF Framework</span>
-                            <span class="coming-soon-chip">🎯 100% Verified Quality</span>
-                        </div>
-                    </div>
+            if (!list.length) {
+                const box = document.createElement('div');
+                box.className = 'soon-panel';
+                box.innerHTML = `
+                    <span class="tile">${icon('hourglass')}</span>
+                    <h3>Semester ${semNum} papers are coming soon</h3>
+                    <p>Question papers for ${esc(course.degree)}, Semester ${semNum}, are still being collected and checked. Pick another semester to see what is available now.</p>
+                    <button type="button" class="btn primary" id="soon-back">Choose another semester</button>
                 `;
+                subjectsGrid.appendChild(box);
+                box.querySelector('#soon-back').addEventListener('click', () => selectCourse(state.course));
                 return;
             }
 
             list.forEach(sub => {
-                const card = document.createElement('div');
-                card.className = 'bento-card';
-                card.tabIndex = 0;
-                card.innerHTML = `
-                    <div>
-                        <div class="card-top">
-                            <span class="card-icon">📑</span>
-                            <span class="card-stream-tag">${sub.tag || 'Core'}</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>${sub.title}</h3>
-                            <p>${sub.code || ''}</p>
-                        </div>
-                    </div>
-                    <div class="card-footer-row">
-                        <span class="card-arrow">→</span>
-                    </div>
-                `;
-                card.addEventListener('click', () => selectSubject(sub));
-                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectSubject(sub); });
-                subjectsGrid.appendChild(card);
+                const ready = (sub.papers || []).filter(p => parseGoogleDriveLink(p.link).isReady).length;
+                subjectsGrid.appendChild(makeCard({
+                    tileHTML: icon('file'),
+                    pill: sub.tag || 'Core',
+                    title: sub.title,
+                    sub: sub.code || '',
+                    soon: !ready
+                }, () => selectSubject(sub)));
             });
         }
 
-        // Render Papers list
-        function renderPapers(course, sem, subjectObj) {
-            const listContainer = document.getElementById('papers-list-container');
-            listContainer.innerHTML = '';
+        function renderPapers(subjectObj) {
+            const container = $('papers-list-container');
+            container.innerHTML = '';
 
-            const papers = subjectObj.papers || [];
+            const items = preparePapers(subjectObj.papers);
+            const ready = items.filter(p => p.link.isReady).length;
+            const countPill = $('vault-count');
+            countPill.textContent = plural(ready, 'paper');
+            countPill.title = ready < items.length ? `${items.length - ready} more not uploaded yet` : '';
 
-            if (!papers.length) {
-                listContainer.innerHTML = `<li style="padding: 20px; color: var(--text-muted); font-size: 0.85rem;">No past papers found for this subject.</li>`;
+            if (!items.length) {
+                container.innerHTML = `<div class="empty" style="border:0;border-radius:0"><h3>No papers yet</h3><p>Papers for this subject have not been added.</p></div>`;
                 return;
             }
 
-            papers.forEach((p, idx) => {
-                const linkData = parseGoogleDriveLink(p.link);
-                const li = document.createElement('li');
-                li.className = 'paper-item';
-                li.innerHTML = `
-                    <div class="paper-meta">
-                        <h4>${p.session}</h4>
-                        <p>${subjectObj.title}</p>
-                    </div>
-                    <div class="paper-actions">
-                        <button class="btn-preview-paper" data-idx="${idx}">Preview</button>
-                        <a href="${linkData.isReady ? linkData.downloadUrl : 'javascript:void(0)'}" 
-                           class="btn-download-direct" 
-                           ${linkData.isReady ? 'download' : ''}>Download ⤓</a>
-                    </div>
-                `;
+            // Group by year, newest first (items are already sorted)
+            const groups = [];
+            items.forEach(p => {
+                const last = groups[groups.length - 1];
+                if (last && last.year === p.year) last.items.push(p);
+                else groups.push({ year: p.year, items: [p] });
+            });
 
-                // Handle Preview Button
-                li.querySelector('.btn-preview-paper').addEventListener('click', () => {
-                    document.querySelectorAll('.paper-item').forEach(el => el.classList.remove('active'));
-                    li.classList.add('active');
+            groups.forEach(g => {
+                const section = document.createElement('section');
+                section.className = 'year-group';
+                section.innerHTML = `<h4>${g.year || 'Undated'}<span>${plural(g.items.length, 'paper')}</span></h4><ul></ul>`;
+                const ul = section.querySelector('ul');
 
-                    const placeholder = document.getElementById('viewer-placeholder');
-                    const iframe = document.getElementById('pdf-viewer-frame');
-                    const titleElem = document.getElementById('viewer-paper-title');
-                    const externalLink = document.getElementById('viewer-external-link');
+                g.items.forEach(p => {
+                    const li = document.createElement('li');
+                    li.className = 'paper' + (p.link.isReady ? '' : ' pending');
+                    const sub = p.dupText || subjectObj.title;
 
-                    titleElem.textContent = `${p.session} — ${subjectObj.title}`;
+                    li.innerHTML = `
+                        <div class="paper-meta">
+                            <h5>${esc(p.label)}</h5>
+                            <p>${esc(sub)}</p>
+                        </div>
+                        <div class="paper-actions">
+                            ${p.link.isReady ? `
+                                <button type="button" class="btn js-preview">Preview</button>
+                                <a class="btn icon-only" href="${esc(p.link.downloadUrl)}" download aria-label="Download ${esc(p.label)}" title="Download">${icon('download')}</a>
+                            ` : `<span class="paper-state">Not uploaded yet</span>`}
+                        </div>
+                    `;
 
-                    if (linkData.isReady) {
-                        externalLink.style.display = 'inline-block';
-                        externalLink.href = linkData.externalUrl;
-                        placeholder.style.display = 'none';
-                        iframe.style.display = 'block';
-                        iframe.removeAttribute('srcdoc');
-                        iframe.src = linkData.previewUrl;
-                    } else {
-                        externalLink.style.display = 'none';
-                        placeholder.style.display = 'none';
-                        iframe.style.display = 'block';
-                        iframe.src = 'about:blank';
-                        iframe.srcdoc = `
-                            <!DOCTYPE html>
-                            <html>
-                            <head>
-                                <style>
-                                    body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 90vh; text-align: center; color: #4B5565; padding: 20px; }
-                                    .box { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); max-width: 420px; }
-                                    .tag { display: inline-block; padding: 4px 10px; background: #FFF3CD; color: #856404; font-size: 0.72rem; font-weight: 700; border-radius: 999px; margin-bottom: 10px; }
-                                    h3 { font-size: 1.05rem; color: #111927; margin-bottom: 6px; }
-                                    p { font-size: 0.83rem; line-height: 1.5; color: #697586; margin-bottom: 12px; }
-                                    code { background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; color: #D96B43; }
-                                </style>
-                            </head>
-                            <body>
-                                <div class="box">
-                                    <span class="tag">LINK PENDING</span>
-                                    <h3>Google Drive Link Not Inserted</h3>
-                                    <p>Please open <code>pyqs.html</code>, search for <code>insert your link here</code> under <strong>${subjectObj.title}</strong>, and paste your Google Drive link.</p>
-                                    <p style="font-size: 0.76rem;">Make sure your Google Drive link permission is set to <em>"Anyone with the link can view"</em>.</p>
-                                </div>
-                            </body>
-                            </html>
-                        `;
+                    if (p.link.isReady) {
+                        li.querySelector('.js-preview').addEventListener('click', () => previewPaper(li, p, subjectObj));
                     }
-
-                    // Mobile & Tablet specific: Instantly smooth scroll down to the preview pane
-                    if (window.innerWidth <= 900) {
-                        const viewerPanel = document.querySelector('.viewer-panel');
-                        if (viewerPanel) {
-                            viewerPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }
+                    ul.appendChild(li);
                 });
 
-                // Download click guard for empty link
-                li.querySelector('.btn-download-direct').addEventListener('click', (e) => {
-                    if (!linkData.isReady) {
-                        e.preventDefault();
-                        alert(`Please replace "insert your link here" with your real Google Drive link for "${p.session}".`);
-                    }
-                });
-
-                listContainer.appendChild(li);
+                container.appendChild(section);
             });
         }
 
-        // Stepper Navigation
-        function updateBreadcrumbs() {
-            crumbCourses.className = currentStep === 'courses' ? 'breadcrumb-step active' : 'breadcrumb-step';
-            crumbSemesters.className = currentStep === 'semesters' ? 'breadcrumb-step active' : 'breadcrumb-step';
-            crumbSubjects.className = currentStep === 'subjects' ? 'breadcrumb-step active' : 'breadcrumb-step';
-            crumbVault.className = currentStep === 'vault' ? 'breadcrumb-step active' : 'breadcrumb-step';
+        /* =====================================================================
+           PREVIEW PANE
+           ===================================================================== */
+        const viewerFrame = $('pdf-viewer-frame');
+        const viewerPlaceholder = $('viewer-placeholder');
+        const viewerLoading = $('viewer-loading');
+        const viewerExternal = $('viewer-external-link');
+        const viewerPanel = document.querySelector('.viewer-panel');
+        const expandBtn = $('viewer-expand');
+        let loadToken = 0;
+
+        const ICON_EXPAND = '<path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/>';
+        const ICON_COLLAPSE = '<path d="M8 3v3a2 2 0 0 1-2 2H3M21 8h-3a2 2 0 0 1-2-2V3M3 16h3a2 2 0 0 1 2 2v3M16 21v-3a2 2 0 0 1 2-2h3"/>';
+
+        // Full view lets the paper fill the screen so it can be scrolled and zoomed freely
+        function setExpanded(on) {
+            viewerPanel.classList.toggle('is-expanded', on);
+            document.body.style.overflow = on ? 'hidden' : '';
+            expandBtn.setAttribute('aria-pressed', String(on));
+            $('expand-label').textContent = on ? 'Exit full view' : 'Full view';
+            $('expand-icon').innerHTML = on ? ICON_COLLAPSE : ICON_EXPAND;
+            if (on) expandBtn.focus({ preventScroll: true });
+        }
+
+        expandBtn.addEventListener('click', () => setExpanded(!viewerPanel.classList.contains('is-expanded')));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && viewerPanel.classList.contains('is-expanded')) setExpanded(false);
+        });
+
+        function resetViewer() {
+            loadToken++;
+            setExpanded(false);
+            expandBtn.hidden = true;
+            $('viewer-paper-title').textContent = 'Select a paper to preview';
+            $('viewer-paper-sub').textContent = 'Papers open here without leaving the page';
+            viewerExternal.hidden = true;
+            viewerPlaceholder.hidden = false;
+            viewerLoading.hidden = true;
+            viewerFrame.hidden = true;
+            viewerFrame.removeAttribute('src');
+        }
+
+        function previewPaper(li, p, subjectObj) {
+            document.querySelectorAll('.paper.active').forEach(el => {
+                el.classList.remove('active');
+                const b = el.querySelector('.js-preview');
+                if (b) { b.classList.remove('primary'); b.textContent = 'Preview'; }
+            });
+            const btn = li.querySelector('.js-preview');
+            li.classList.add('active');
+            btn.classList.add('primary');
+            btn.textContent = 'Previewing';
+
+            $('viewer-paper-title').textContent = p.label;
+            $('viewer-paper-sub').textContent = subjectObj.title;
+            viewerExternal.href = p.link.externalUrl;
+            viewerExternal.hidden = false;
+            expandBtn.hidden = false;
+
+            const token = ++loadToken;
+            const reveal = () => {
+                if (token !== loadToken) return;
+                viewerLoading.hidden = true;
+                viewerFrame.hidden = false;
+            };
+
+            viewerPlaceholder.hidden = true;
+            viewerLoading.hidden = false;
+            viewerFrame.hidden = true;
+            viewerFrame.onload = reveal;
+            viewerFrame.src = p.link.previewUrl;
+            setTimeout(reveal, 10000); // show the frame anyway if the load event never arrives
+
+            // Bring the preview into view if the person has scrolled past it (always on phones and tablets)
+            const topGap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--topbar-h')) || 62;
+            const top = viewerPanel.getBoundingClientRect().top;
+            const stacked = window.matchMedia('(max-width: 980px)').matches;
+            if (stacked || top < topGap || top > window.innerHeight * 0.6) {
+                viewerPanel.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+            }
+        }
+
+        /* =====================================================================
+           NAVIGATION
+           ===================================================================== */
+        const BACK_LABELS = { courses: 'Dashboard', semesters: 'Departments', subjects: 'Semesters', vault: 'Subjects' };
+
+        function showStep(step) {
+            currentStep = step;
+            if (step !== 'vault') setExpanded(false);
+            STEPS.forEach(s => { screens[s].hidden = (s !== step); });
+            backLabel.textContent = BACK_LABELS[step];
+
+            const idx = STEPS.indexOf(step);
+            crumbButtons.forEach((btn, i) => {
+                const st = i < idx ? 'done' : (i === idx ? 'current' : 'todo');
+                btn.dataset.state = st;
+                btn.disabled = st !== 'done';
+                if (st === 'current') btn.setAttribute('aria-current', 'step');
+                else btn.removeAttribute('aria-current');
+            });
+
+            window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+            viewTitle.focus({ preventScroll: true });
+        }
+
+        function setHeading(title, subtitle) {
+            viewTitle.textContent = title;
+            viewSubtitle.textContent = subtitle;
+        }
+
+        function goToCourses() {
+            state.course = state.semester = state.subject = null;
+            setHeading('Select Your Department', 'Access official 10-year question papers for every undergraduate department.');
+            showStep('courses');
         }
 
         function selectCourse(course) {
             state.course = course;
-            currentStep = 'semesters';
-
-            screenCourses.style.display = 'none';
-            screenSemesters.style.display = 'block';
-            screenSubjects.style.display = 'none';
-            screenVault.style.display = 'none';
-
-            viewTitle.textContent = `${course.name} — Select Semester`;
-            viewSubtitle.textContent = `Choose your semester to view 10-Year Question Papers for ${course.degree}.`;
-            navBackBtn.textContent = '← Back to Courses';
-
+            state.semester = state.subject = null;
+            setHeading('Select Your Semester', `Showing question papers for ${course.degree}.`);
             renderSemesters();
-            updateBreadcrumbs();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showStep('semesters');
         }
 
         function selectSemester(semNum) {
             state.semester = semNum;
-            currentStep = 'subjects';
-
-            screenCourses.style.display = 'none';
-            screenSemesters.style.display = 'none';
-            screenSubjects.style.display = 'block';
-            screenVault.style.display = 'none';
-
-            viewTitle.textContent = `${state.course.name} — Semester ${semNum} Subjects`;
-            viewSubtitle.textContent = `Select your discipline core or elective course to access past exam papers.`;
-            navBackBtn.textContent = '← Back to Semesters';
-
-            renderSubjects(state.course.name, semNum);
-            updateBreadcrumbs();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            state.subject = null;
+            setHeading('Select Your Subject', `${state.course.degree}, Semester ${semNum}. Choose a core or elective course to see its past papers.`);
+            renderSubjects(state.course, semNum);
+            showStep('subjects');
         }
 
         function selectSubject(subjectObj) {
             state.subject = subjectObj;
-            currentStep = 'vault';
-
-            screenCourses.style.display = 'none';
-            screenSemesters.style.display = 'none';
-            screenSubjects.style.display = 'none';
-            screenVault.style.display = 'grid';
-
-            viewTitle.textContent = subjectObj.title;
-            viewSubtitle.textContent = `${state.course.name} • Semester ${state.semester} • 10-Year Examination Archives`;
-            navBackBtn.textContent = '← Back to Subjects';
-
-            document.getElementById('vault-panel-heading').textContent = `${subjectObj.title}`;
-            document.getElementById('vault-panel-sub').textContent = `${state.course.degree} • Semester ${state.semester}`;
-
-            // Reset previewer box
-            document.getElementById('viewer-paper-title').textContent = 'Select a paper to preview';
-            document.getElementById('viewer-external-link').style.display = 'none';
-            document.getElementById('viewer-placeholder').style.display = 'flex';
-            document.getElementById('pdf-viewer-frame').style.display = 'none';
-            document.getElementById('pdf-viewer-frame').removeAttribute('srcdoc');
-            document.getElementById('pdf-viewer-frame').src = '';
-
-            renderPapers(state.course, state.semester, subjectObj);
-            updateBreadcrumbs();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setHeading(subjectObj.title, `${state.course.degree}, Semester ${state.semester}. Past papers are listed newest first.`);
+            $('vault-panel-heading').textContent = 'Question Papers';
+            $('vault-panel-sub').textContent = `${state.course.degree}, Semester ${state.semester}`;
+            resetViewer();
+            renderPapers(subjectObj);
+            showStep('vault');
         }
 
-        // Back Button
         navBackBtn.addEventListener('click', () => {
-            if (currentStep === 'vault') {
-                selectSemester(state.semester);
-            } else if (currentStep === 'subjects') {
-                selectCourse(state.course);
-            } else if (currentStep === 'semesters') {
-                goToCourses();
-            } else {
-                window.location.href = '../index.html';
-            }
+            if (currentStep === 'vault') selectSemester(state.semester);
+            else if (currentStep === 'subjects') selectCourse(state.course);
+            else if (currentStep === 'semesters') goToCourses();
+            else window.location.href = '../index.html';
         });
 
-        function goToCourses() {
-            currentStep = 'courses';
-            state.course = null;
-            state.semester = null;
-            state.subject = null;
+        crumbButtons.forEach(btn => btn.addEventListener('click', () => {
+            const step = btn.dataset.step;
+            if (step === 'courses') goToCourses();
+            else if (step === 'semesters' && state.course) selectCourse(state.course);
+            else if (step === 'subjects' && state.course && state.semester) selectSemester(state.semester);
+        }));
 
-            screenCourses.style.display = 'block';
-            screenSemesters.style.display = 'none';
-            screenSubjects.style.display = 'none';
-            screenVault.style.display = 'none';
-
-            viewTitle.textContent = 'Select Your Course';
-            viewSubtitle.textContent = 'Select your academic department to access official 10-Year Question Papers.';
-            navBackBtn.textContent = '← Back to Dashboard';
-
-            updateBreadcrumbs();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Breadcrumb clicks
-        crumbCourses.addEventListener('click', goToCourses);
-        crumbSemesters.addEventListener('click', () => { if (state.course) selectCourse(state.course); });
-        crumbSubjects.addEventListener('click', () => { if (state.course && state.semester) selectSemester(state.semester); });
-
-        // Search & Filter
-        const searchInput = document.getElementById('course-search-input');
-        const filterChips = document.querySelectorAll('.category-chip');
+        /* =====================================================================
+           SEARCH AND STREAM FILTER
+           ===================================================================== */
+        const searchInput = $('course-search-input');
+        const streamButtons = Array.from(document.querySelectorAll('#stream-filter button'));
         let activeStream = 'all';
+
+        $('chip-all').textContent = `All Departments (${coursesData.length})`;
 
         function applyCourseFilters() {
             const query = searchInput.value.toLowerCase().trim();
-            const filtered = coursesData.filter(c => {
-                const matchesStream = (activeStream === 'all' || c.stream.toLowerCase() === activeStream.toLowerCase());
-                const matchesQuery = c.name.toLowerCase().includes(query) || c.degree.toLowerCase().includes(query);
-                return matchesStream && matchesQuery;
-            });
-            renderCourses(filtered);
+            renderCourses(coursesData.filter(c => {
+                const inStream = activeStream === 'all' || c.stream === activeStream;
+                const inQuery = c.name.toLowerCase().includes(query) || c.degree.toLowerCase().includes(query);
+                return inStream && inQuery;
+            }));
         }
 
-        if (searchInput) {
-            searchInput.addEventListener('input', applyCourseFilters);
+        function setStream(stream) {
+            activeStream = stream;
+            streamButtons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.stream === stream)));
+            applyCourseFilters();
         }
 
-        filterChips.forEach(chip => {
-            chip.addEventListener('click', () => {
-                filterChips.forEach(c => c.classList.remove('active'));
-                chip.classList.add('active');
-                activeStream = chip.getAttribute('data-stream');
-                applyCourseFilters();
-            });
+        searchInput.addEventListener('input', applyCourseFilters);
+        streamButtons.forEach(b => b.addEventListener('click', () => setStream(b.dataset.stream)));
+
+        /* =====================================================================
+           THEME
+           ===================================================================== */
+        const themeToggle = $('theme-toggle');
+
+        function syncThemeSwitch() {
+            themeToggle.setAttribute('aria-checked', String(document.documentElement.getAttribute('data-theme') === 'dark'));
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('venky-theme', next); } catch (e) { /* storage unavailable */ }
+            syncThemeSwitch();
         });
 
-        // Theme Toggle
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem('venky-theme') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            if (themeIcon) themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        }
-
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => {
-                const current = document.documentElement.getAttribute('data-theme');
-                const next = current === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-theme', next);
-                localStorage.setItem('venky-theme', next);
-                if (themeIcon) themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
-            });
-        }
-
-        // Startup
-        initTheme();
+        /* =====================================================================
+           STARTUP
+           ===================================================================== */
+        syncThemeSwitch();
         renderCourses(coursesData);
-        updateBreadcrumbs();
+        showStep('courses');
+        window.scrollTo(0, 0);
+        document.activeElement && document.activeElement.blur();
     </script>
 </body>
 </html>
