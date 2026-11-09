@@ -500,19 +500,8 @@
             transform: translateX(3px);
         }
 
-        /* Subject Specific Badge */
-        .subject-badge-pill {
-            font-family: var(--font-heading);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: 4px;
-            background: var(--badge-dsc-bg);
-            color: var(--badge-dsc-text);
-        }
-
         /* ========================================================
-           FULL-SCREEN SYLLABUS VIEWER
+           FULL-SCREEN / IN-BOX SYLLABUS VIEWER
            ======================================================== */
         .syllabus-fullscreen-wrapper {
             background: var(--bg-card);
@@ -650,7 +639,7 @@
             background: #FFFFFF;
         }
 
-        /* Minimalist Pending Notification */
+        /* Minimalist Pending Notification (Matching Time Table Hub Card) */
         .syllabus-pending-box {
             position: absolute;
             inset: 0;
@@ -664,15 +653,15 @@
         }
 
         .pending-icon-circle {
-            width: 56px;
-            height: 56px;
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
             background: var(--accent-subtle);
             color: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .pending-icon-circle svg {
@@ -681,26 +670,36 @@
             stroke-width: 1.8;
         }
 
+        .pending-kicker {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
         .pending-title {
             font-family: var(--font-heading);
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.32rem;
+            font-weight: 800;
             color: var(--text-heading);
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
         }
 
         .pending-desc {
-            font-size: 0.85rem;
+            font-size: 0.86rem;
             color: var(--text-muted);
-            max-width: 520px;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            max-width: 600px;
+            line-height: 1.65;
+            margin-bottom: 24px;
         }
 
         .pending-chips {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -709,18 +708,18 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.74rem;
+            font-size: 0.76rem;
             font-weight: 600;
             color: var(--text-muted);
             background: var(--bg-card-subtle);
             border: 1px solid var(--border-color);
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: var(--radius-sm);
         }
 
         .pending-chip svg {
-            width: 12px;
-            height: 12px;
+            width: 13px;
+            height: 13px;
         }
 
         .no-results-msg {
@@ -803,8 +802,6 @@
                 <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
                 <span class="breadcrumb-step" id="crumb-semesters">Semester</span>
                 <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                <span class="breadcrumb-step" id="crumb-subjects">Subjects</span>
-                <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
                 <span class="breadcrumb-step" id="crumb-viewer">Syllabus PDF</span>
             </nav>
         </div>
@@ -813,7 +810,7 @@
         <header class="vault-header">
             <span class="college-tag">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                University of Delhi • UGCF NEP-2020 Scheme
+                Sri Venkateswara College • Department Schedules
             </span>
             <h1 id="view-title">Select Your Department</h1>
             <p id="view-subtitle">Access verified syllabi, core course guidelines, practical matrices, and reference books across all undergraduate departments.</p>
@@ -847,14 +844,7 @@
             </div>
         </div>
 
-        <!-- SCREEN 3: SUBJECTS / PAPERS SELECTION -->
-        <div id="screen-subjects" style="display: none;">
-            <div class="bento-grid" id="subjects-grid">
-                <!-- Subject Papers injected via JavaScript -->
-            </div>
-        </div>
-
-        <!-- SCREEN 4: INSTANT FULL-SCREEN SYLLABUS VIEWER -->
+        <!-- SCREEN 3: DIRECT FULL-SCREEN / IN-BOX SYLLABUS VIEWER -->
         <div id="screen-viewer" style="display: none;">
             <div class="syllabus-fullscreen-wrapper" id="syllabus-wrapper">
                 
@@ -862,11 +852,11 @@
                 <div class="viewer-top-toolbar">
                     <div class="viewer-meta-left">
                         <span class="viewer-doc-title" id="viewer-doc-title">
-                            Introductory Microeconomics — Official Syllabus
+                            Official Syllabus Matrix
                         </span>
                         <span class="badge-verified">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                            UGCF Verified
+                            Verified SVC Matrix
                         </span>
                     </div>
 
@@ -892,27 +882,28 @@
                 <!-- Viewer Body Frame -->
                 <div class="viewer-frame-body" id="viewer-frame-container">
                     
-                    <!-- Clean Pending Notice -->
+                    <!-- Clean Pending Notice (Matches Time Table Screen Exactly) -->
                     <div class="syllabus-pending-box" id="viewer-pending-box">
                         <div class="pending-icon-circle">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                         </div>
-                        <h3 class="pending-title" id="pending-title-text">Syllabus PDF Pending</h3>
+                        <span class="pending-kicker">Academic Session Notification</span>
+                        <h3 class="pending-title" id="pending-title-text">Semester Timetable Awaiting Term Commencement</h3>
                         <p class="pending-desc" id="pending-desc-text">
-                            The syllabus document for this paper is currently being updated for the latest semester cycle. Please check back later or explore other subjects in the meantime.
+                            Sri Venkateswara College is currently conducting the Odd Semester academic term (Semesters I, III, V, VII). Official departmental syllabi, room assignments, and practical matrices for this semester will be published immediately upon the commencement of the upcoming term in accordance with the University of Delhi academic calendar.
                         </p>
                         <div class="pending-chips">
                             <span class="pending-chip">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                                University of Delhi
+                                Sri Venkateswara College
                             </span>
                             <span class="pending-chip">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                                NEP UGCF Scheme
+                                DU NEP-UGCF Scheme
                             </span>
                             <span class="pending-chip">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                                Official Matrix
+                                Active Semester Matrix
                             </span>
                         </div>
                     </div>
@@ -948,25 +939,219 @@
             botany: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 20A7 7 0 0 1 4 13C4 8 8 3 20 2c1 12-4 16-9 18z"></path><path d="M11 20l5-9"></path></svg>`,
             zoology: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="15" r="4"></circle><circle cx="7" cy="8" r="2.5"></circle><circle cx="17" cy="8" r="2.5"></circle><circle cx="4" cy="13" r="2"></circle><circle cx="20" cy="13" r="2"></circle></svg>`,
             bioSci: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0-7-7h1"></path><circle cx="9" cy="9" r="2"></circle><path d="M9 3v4"></path></svg>`,
-            lifeSci: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 20h10"></path><path d="M12 20v-8"></path><path d="M12 12c-3.5 0-6-2.5-6-6 3.5 0 6 2.5 6 6z"></path><path d="M12 10c3.5 0 6-2.5 6-6-3.5 0-6 2.5-6 6z"></path></svg>`,
-            book: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`
+            lifeSci: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 20h10"></path><path d="M12 20v-8"></path><path d="M12 12c-3.5 0-6-2.5-6-6 3.5 0 6 2.5 6 6z"></path><path d="M12 10c3.5 0 6-2.5 6-6-3.5 0-6 2.5-6 6z"></path></svg>`
         };
 
         /* =========================================================================
-           ⭐ HOW TO INSERT SYLLABUS GOOGLE DRIVE LINKS ⭐
-           Paste your links under Department -> Semester -> Paper Name.
-           Example:
-           "Introductory Microeconomics": "https://drive.google.com/file/d/1ABCxyz12345/view?usp=sharing"
+           ⭐ EASY GOOGLE DRIVE LINKS (SEMESTER-WISE PASTE SYSTEM) ⭐
+
+           HOW TO PASTE:
+           1. In Google Drive, click Share on your Syllabus PDF and choose:
+              "Anyone with the link can view"
+           2. Copy your Drive link.
+           3. Simply paste it after the "=" sign for that Course & Semester below!
            ========================================================================= */
-        const syllabusLibrary = {
-            "Economics": {
-                1: {
-                    "Introductory Microeconomics": "insert your link here",
-                    "Mathematical Methods for Economics I": "insert your link here",
-                    "Introductory Statistics for Economics": "insert your link here"
-                }
-            }
-        };
+        const easySyllabusLinks = `
+            # --- ECONOMICS ---
+            Economics Semester 1 =https://drive.google.com/file/d/1wZhTwcIWW6fXpabIOE7PLtHCgiMVc4HB/view?usp=drive_link 
+            Economics Semester 2 = https://drive.google.com/file/d/1hO90iMHxyg1CRGj89AE401KMHDeBWBtB/view?usp=drive_link
+            Economics Semester 3 = https://drive.google.com/file/d/1yGu0NBurXjZYVtEXPAtZOy8tRWUKv6XD/view?usp=drive_link
+            Economics Semester 4 = https://drive.google.com/file/d/15yYoKuO3BsF7xaQzgwk_HbN_uzIitcfp/view?usp=drive_link
+            Economics Semester 5 = https://drive.google.com/file/d/1JILOvkDnnm5Xx7iIN6o5JJpTuI7uEBkJ/view?usp=drive_link
+            Economics Semester 6 = https://drive.google.com/file/d/14rMebQ5wv6PBtBtQQ7ZZ1CY4pvEzoXIq/view?usp=drive_link
+            Economics Semester 7 = 
+            Economics Semester 8 = 
+
+            # --- COMMERCE (HONOURS) ---
+            Commerce (Honours) Semester 1 = https://drive.google.com/file/d/1SgiG6LbWx4Q2yoJG27ahrRIWoIXLb2wp/view?usp=drive_link
+            Commerce (Honours) Semester 2 = https://drive.google.com/file/d/1jublKiktZl4wBneaoj2e8htTNqlSnXqU/view?usp=drive_link
+            Commerce (Honours) Semester 3 = https://drive.google.com/file/d/188cVdIRj8OsoiHm0KANE_ZplYNOtnT5U/view?usp=drive_link
+            Commerce (Honours) Semester 4 = https://drive.google.com/file/d/1OZDE3MGUPgiuBRDmD3MrNVW1aSiOw7fr/view?usp=drive_link
+            Commerce (Honours) Semester 5 = https://drive.google.com/file/d/13abI7MjqZQb44oBgzt2R_RdOA4YGbpNq/view?usp=drive_link
+            Commerce (Honours) Semester 6 = https://drive.google.com/file/d/1QLrmCGzhuY64MBRKoobHKkjsXZrghkg7/view?usp=drive_link
+            Commerce (Honours) Semester 7 = 
+            Commerce (Honours) Semester 8 = 
+
+            # --- COMMERCE (PROGRAMME) ---
+            Commerce (Programme) Semester 1 = https://drive.google.com/file/d/1nZCS9tZUb4laeJB-m9YWxvxFBJ5ehoay/view?usp=drive_link
+            Commerce (Programme) Semester 2 = https://drive.google.com/file/d/1LIBmZCdHqG0F7Vs_vKViGXSh7k7xTJP3/view?usp=drive_link
+            Commerce (Programme) Semester 3 = https://drive.google.com/file/d/1j14sT-HC_KTn3PAnuqacZnQ2UFYpxUhW/view?usp=drive_link
+            Commerce (Programme) Semester 4 = https://drive.google.com/file/d/11wQWsCZoI9qIh0h-dbeDwUBIG3Im4_2h/view?usp=drive_link
+            Commerce (Programme) Semester 5 = https://drive.google.com/file/d/1XzJgERslzgAkfmDjGmE84SbrrXNBG16H/view?usp=drive_link
+            Commerce (Programme) Semester 6 = https://drive.google.com/file/d/1dMGacQbPjgpklvkeAkFljOO5dav5ReWW/view?usp=drive_link
+            Commerce (Programme) Semester 7 = 
+            Commerce (Programme) Semester 8 = 
+
+            # --- MATHEMATICS ---
+            Mathematics Semester 1 = https://drive.google.com/file/d/1HEsvj5LCbS4LqAwVuzwGTwGz3JY4Bnrc/view?usp=drive_link
+            Mathematics Semester 2 = https://drive.google.com/file/d/1OmyAP2sibt8jNSqO8TCAhGt1YY6KnQbu/view?usp=drive_link
+            Mathematics Semester 3 = https://drive.google.com/file/d/1dpBPw7lKGL0r7BIn3-bwYaLEMs7qaQPW/view?usp=drive_link
+            Mathematics Semester 4 = https://drive.google.com/file/d/12ILX9ngldb8b6VyUzCSK4lFOCIMdmUMS/view?usp=drive_link
+            Mathematics Semester 5 = https://drive.google.com/file/d/1GAXpFr10hAnTuQLNEwOHRuLEL0YymtC2/view?usp=drive_link
+            Mathematics Semester 6 = https://drive.google.com/file/d/1GBec9LnfexfogJ5xayZRQlovzuXVZ8NC/view?usp=drive_link
+            Mathematics Semester 7 = 
+            Mathematics Semester 8 = 
+
+            # --- STATISTICS ---
+            Statistics Semester 1 = https://drive.google.com/file/d/1ffEtLLqkMZ7cCrGPO-B2N2Vs_zv_VQcx/view?usp=drive_link
+            Statistics Semester 2 = https://drive.google.com/file/d/1ygrho-0fZlaOph_lTab-4r3ZWO6e-weV/view?usp=drive_link
+            Statistics Semester 3 = https://drive.google.com/file/d/1OqVa_GqhtwGyE85AXBRoQYopzuwp3crk/view?usp=drive_link
+            Statistics Semester 4 = https://drive.google.com/file/d/171lLD07jUECszNVBGcUfkvY_H_uOGOLo/view?usp=drive_link
+            Statistics Semester 5 = https://drive.google.com/file/d/1Vya6UQYLHHwurPzuVGArnyhe9yIZ4jGP/view?usp=drive_link
+            Statistics Semester 6 = https://drive.google.com/file/d/1wVuv531TQOw_0CjwuNQVkHRKdRKBrxY8/view?usp=drive_link
+            Statistics Semester 7 = 
+            Statistics Semester 8 = 
+
+            # --- PHYSICS ---
+            Physics Semester 1 = https://drive.google.com/file/d/13vmd3pWGTPm0JPuRD-XkwfleoXWx7ScQ/view?usp=drive_link
+            Physics Semester 2 = https://drive.google.com/file/d/1S2HM1Mj5T6CH6OJDqkFKPANNSUwNK0Xa/view?usp=drive_link
+            Physics Semester 3 = https://drive.google.com/file/d/1MyDmMDmjoj9CJLpbBpChAS5pdKvcfXD_/view?usp=drive_link
+            Physics Semester 4 = https://drive.google.com/file/d/1EFw50GcsCPQQGhGFYYk1sYWZR_LOuOAN/view?usp=drive_link
+            Physics Semester 5 = https://drive.google.com/file/d/1kvwGabCPoUJAdUsV3_0TYvNn383URGD-/view?usp=drive_link
+            Physics Semester 6 = https://drive.google.com/file/d/1JmlIqSTbqNlGDh33gR27Gark8mLgZlK1/view?usp=drive_link
+            Physics Semester 7 = 
+            Physics Semester 8 = 
+
+            # --- CHEMISTRY ---
+            Chemistry Semester 1 = https://drive.google.com/file/d/1Sjf1JkBOP75rPXnLTUjOwLsqTA5K3Qmv/view?usp=drive_link
+            Chemistry Semester 2 = https://drive.google.com/file/d/1GKfDkDHbK-MniwXLpUCqbeYMybpvA0aF/view?usp=drive_link
+            Chemistry Semester 3 = https://drive.google.com/file/d/1bK2LcU71gwI_FMkAcXdJ03qLTCwhNhpC/view?usp=drive_link
+            Chemistry Semester 4 = https://drive.google.com/file/d/1MMOQ7z20BDz6p9zYBFzwm_04pohvCO45/view?usp=drive_link
+            Chemistry Semester 5 = https://drive.google.com/file/d/1wypVEx5-EbIZkCJaXaG8bAzai20aMgks/view?usp=drive_link
+            Chemistry Semester 6 = https://drive.google.com/file/d/1dr1SzTm_7Nru6e9DUiXWwXKKHbbQz-FV/view?usp=drive_link
+            Chemistry Semester 7 = 
+            Chemistry Semester 8 = 
+
+            # --- ELECTRONICS ---
+            Electronics Semester 1 = https://drive.google.com/file/d/1q2KJXMifpjJY7AgfCj9zhkkIGyP4Kzit/view?usp=drive_link
+            Electronics Semester 2 = https://drive.google.com/file/d/1GiJzVJAgyszGv9bqqjzk7BqeRSbupSTT/view?usp=drive_link
+            Electronics Semester 3 = https://drive.google.com/file/d/1A4S-uNUd_Xdk_hUfhzbXHzBidtzrNGBb/view?usp=drive_link
+            Electronics Semester 4 = https://drive.google.com/file/d/1fYVWpG-7yoqi8jzqhcic6VeLmDxYoryR/view?usp=drive_link
+            Electronics Semester 5 = https://drive.google.com/file/d/1XbTMTycZ7f6wpGiqznZcrWkDBB0acnVB/view?usp=drive_link
+            Electronics Semester 6 = https://drive.google.com/file/d/1TJN_Xba0fc7CcYwaFeiY9_4JS9dnDf_O/view?usp=drive_link
+            Electronics Semester 7 = 
+            Electronics Semester 8 = 
+
+            # --- BIOCHEMISTRY ---
+            Biochemistry Semester 1 = https://drive.google.com/file/d/1MyVb-A1z9G7X2Ta8L-64jfxiXox64B6L/view?usp=drive_link
+            Biochemistry Semester 2 = https://drive.google.com/file/d/1-ZapYt-YYAnuJthoik65Z35HF-ovQ9H2/view?usp=drive_link
+            Biochemistry Semester 3 = https://drive.google.com/file/d/1mGRQoViC5FBuFHz6iT15QjTvlffSjxkd/view?usp=drive_link
+            Biochemistry Semester 4 = https://drive.google.com/file/d/1rLt90LPuDBs-xdblLv_oXUPP_PUiUbVi/view?usp=drive_link
+            Biochemistry Semester 5 = https://drive.google.com/file/d/17_SFp-dAS9iz4-kYAS5KkPhpVT2R4j0E/view?usp=drive_link
+            Biochemistry Semester 6 = https://drive.google.com/file/d/103vWHGSxsEfiouys1lO8Rg7895uVZJS_/view?usp=drive_link
+            Biochemistry Semester 7 = 
+            Biochemistry Semester 8 = 
+
+            # --- BOTANY ---
+            Botany Semester 1 = https://drive.google.com/file/d/1Okn5CBXjWlvjwj2Ufdi9gbY4LYBFJ4dd/view?usp=drive_link
+            Botany Semester 2 = https://drive.google.com/file/d/1dU6b-N-SXfQXevp8f0OjsV3S2NV8-zR2/view?usp=drive_link
+            Botany Semester 3 = https://drive.google.com/file/d/1V3mYXJRycL4iMMSUtn4p5m--MdCQDyTF/view?usp=drive_link
+            Botany Semester 4 = https://drive.google.com/file/d/1coueGrtvHnUCti_mqDuPR6HACzsPTina/view?usp=drive_link
+            Botany Semester 5 = https://drive.google.com/file/d/14IoEl3_7WbKEpddBhCfVBmgttO0yfI_8/view?usp=drive_link
+            Botany Semester 6 = https://drive.google.com/file/d/1HD_gZGcdIbcQpo3bCBmxUnkU3__5NqMu/view?usp=drive_link
+            Botany Semester 7 = 
+            Botany Semester 8 = 
+
+            # --- ZOOLOGY ---
+            Zoology Semester 1 = https://drive.google.com/file/d/1v5zS-lc5SGfGwZw2LIjAokL2bQBh6fjV/view?usp=drive_link
+            Zoology Semester 2 = https://drive.google.com/file/d/1Bpr2WF5ftdR_8AuJbPFXqLWAY5HiXugn/view?usp=drive_link
+            Zoology Semester 3 = https://drive.google.com/file/d/1XcZCjifrAZT4DEWakKYjC9w9scbJk_9I/view?usp=drive_link
+            Zoology Semester 4 = https://drive.google.com/file/d/1d9DOk1g0mHBMPV37RkO7bvX4WZRZjcCf/view?usp=drive_link
+            Zoology Semester 5 = https://drive.google.com/file/d/18Iymtb_OkdVOWr8mkmszLXjGY23M8CFN/view?usp=drive_link
+            Zoology Semester 6 = https://drive.google.com/file/d/1jE29mJeD9M8Wmjfwno1bw7lXKQnEYRWR/view?usp=drive_link
+            Zoology Semester 7 = 
+            Zoology Semester 8 = 
+
+            # --- BIOLOGICAL SCIENCES ---
+            Biological Sciences Semester 1 = https://drive.google.com/file/d/17Y5Hy2HVpd1De8Xmuqo7yVToxKzxfXtv/view?usp=drive_link
+            Biological Sciences Semester 2 = https://drive.google.com/file/d/1TCMhAkjY7DlVEBibWj1cf-xzDaJu0fAQ/view?usp=drive_link
+            Biological Sciences Semester 3 = https://drive.google.com/file/d/1H0-TLCfvgSxc1vKRnxltNiBlAhl-1vou/view?usp=drive_link
+            Biological Sciences Semester 4 = https://drive.google.com/file/d/1CZRFpllvhY74dcmU_tYZveFNEnmekePc/view?usp=drive_link
+            Biological Sciences Semester 5 = https://drive.google.com/file/d/1ejtYqIQFDhqrg3JHmZn2sU3HfbVRGzem/view?usp=drive_link
+            Biological Sciences Semester 6 = https://drive.google.com/file/d/16nbG04GI9sOPN6uU6JFvszMwG4q6UT7W/view?usp=drive_link
+            Biological Sciences Semester 7 = 
+            Biological Sciences Semester 8 = 
+
+            # --- LIFE SCIENCES ---
+            Life Sciences Semester 1 = 
+            Life Sciences Semester 2 = 
+            Life Sciences Semester 3 = 
+            Life Sciences Semester 4 = 
+            Life Sciences Semester 5 = 
+            Life Sciences Semester 6 = 
+            Life Sciences Semester 7 = 
+            Life Sciences Semester 8 = 
+
+            # --- SOCIOLOGY ---
+            Sociology Semester 1 = https://drive.google.com/file/d/11masTm46U3VCVEfMfT7ZRF3YWJYwpUR0/view?usp=drive_link
+            Sociology Semester 2 = https://drive.google.com/file/d/1X3oY8MKbNSpAVO6mQPJj-WktCpaRuyzG/view?usp=drive_link
+            Sociology Semester 3 = https://drive.google.com/file/d/11Bc62ljTBxuqHCRnhnBWYerl8xH1wFYd/view?usp=drive_link
+            Sociology Semester 4 = https://drive.google.com/file/d/1QE8qhDLA7c5cRaJRo4Sx8JOks2MbUwHQ/view?usp=drive_link
+            Sociology Semester 5 = https://drive.google.com/file/d/1Kk8F9VXHPlhyz-dmd-SuEUrW31vnfiVs/view?usp=drive_link
+            Sociology Semester 6 = https://drive.google.com/file/d/1KGPPMoimmNbp7s-F7xL9u4EaB-9iHi1E/view?usp=drive_link
+            Sociology Semester 7 = 
+            Sociology Semester 8 = 
+
+            # --- POLITICAL SCIENCE ---
+            Political Science Semester 1 = https://drive.google.com/file/d/1BQWtt3NhjDWFnIH6Xa1bw3SraFzkviZZ/view?usp=drive_link
+            Political Science Semester 2 = https://drive.google.com/file/d/14i9cHqw4uISjcCc31o3jM1ZOZc_PITfh/view?usp=drive_link
+            Political Science Semester 3 = https://drive.google.com/file/d/1v9Z1GhVmqY5QWjyYBU8O9H5jnmjjOQAU/view?usp=drive_link
+            Political Science Semester 4 = https://drive.google.com/file/d/1LPDXnv0jH0gCDbnQvOnf_9UgoNBnbJK6/view?usp=drive_link
+            Political Science Semester 5 = https://drive.google.com/file/d/1p5TBA5TUMmvdJ9m7GyPFrjFj6u3xwCkv/view?usp=drive_link
+            Political Science Semester 6 = https://drive.google.com/file/d/1gxyCBBbFBk_DBywthm9ImwtidY60wwh2/view?usp=drive_link
+            Political Science Semester 7 = 
+            Political Science Semester 8 = 
+
+            # --- HISTORY ---
+            History Semester 1 = https://drive.google.com/file/d/1YVrLkiwOtfSPVGoGNNGZxhyHpGsi3hg6/view?usp=drive_link
+            History Semester 2 = https://drive.google.com/file/d/10VN-jMrjXIKtBMijGES114mK8ClpLpcg/view?usp=drive_link
+            History Semester 3 = https://drive.google.com/file/d/1iAT_kr7iY2UnWeeRpYxhiWDPne3HNsOX/view?usp=drive_link
+            History Semester 4 = https://drive.google.com/file/d/1px6BzeG1s2yqlMhr7uKPeim8BlNJAeYb/view?usp=drive_link
+            History Semester 5 = https://drive.google.com/file/d/1ynYuWCrQ6kMKdDNlzVO4pIFIVLWYzzE8/view?usp=drive_link
+            History Semester 6 = https://drive.google.com/file/d/13KQuiQjrRus46d-0XDVDkp1pg-HPOfFQ/view?usp=drive_link
+            History Semester 7 = 
+            History Semester 8 = 
+
+            # --- ENGLISH ---
+            English Semester 1 = https://drive.google.com/file/d/1CryDJXCbrVmIfXY8yHq3d-eKYLDXDjzn/view?usp=drive_link
+            English Semester 2 = https://drive.google.com/file/d/18piLgfhNW_Ihi2A03P8UBFWFv18xhKAe/view?usp=drive_link
+            English Semester 3 = https://drive.google.com/file/d/18J6cvjyCef7vueGrD568Ead3HLxgabo-/view?usp=drive_link
+            English Semester 4 = https://drive.google.com/file/d/1A7sn-QNzoOfSaZ0t9UiWRIITvDhWLKgm/view?usp=drive_link
+            English Semester 5 = https://drive.google.com/file/d/15P9_xWH3hwmf9Xt4foDi-hUceVduCQI5/view?usp=drive_link
+            English Semester 6 = https://drive.google.com/file/d/1k9LOWrH5kA5St_xO7R3ja3nEfxXoyFAo/view?usp=drive_link
+            English Semester 7 = 
+            English Semester 8 = 
+
+            # --- HINDI ---
+            Hindi Semester 1 = https://drive.google.com/file/d/18NyiyfEYA9NgFLckMH3pujycs5c_7fI_/view?usp=drive_link
+            Hindi Semester 2 = https://drive.google.com/file/d/1NkTAjyg2tVaKySxYrU0qC_fnlDlBSTJq/view?usp=drive_link
+            Hindi Semester 3 = https://drive.google.com/file/d/1Efk8ASxgRFbk-yHyyn7v1E9wNk2tAO62/view?usp=drive_link
+            Hindi Semester 4 = https://drive.google.com/file/d/1Msx9yKOlUeYshWcNETucgs85Fv-dKB_W/view?usp=drive_link
+            Hindi Semester 5 = https://drive.google.com/file/d/1IQc8Hv-4moVvL43ZYslLOFtIqTLjoSpv/view?usp=drive_link
+            Hindi Semester 6 = https://drive.google.com/file/d/1eYHRps9kp7qKO9mE9ob1hbD9Y_mM2mgA/view?usp=drive_link
+            Hindi Semester 7 = 
+            Hindi Semester 8 = 
+
+            # --- SANSKRIT ---
+            Sanskrit Semester 1 = https://drive.google.com/file/d/1RXvm7KRBhnYUS9xtcDMHjlVe-rPsckrk/view?usp=drive_link
+            Sanskrit Semester 2 = https://drive.google.com/file/d/1NAxTgz7EyTPXtozS174AYXLfu_Q1U2tp/view?usp=drive_link
+            Sanskrit Semester 3 = https://drive.google.com/file/d/1o1Xtzy7RtFcLZNnriI5IxOXiG52da78b/view?usp=drive_link
+            Sanskrit Semester 4 = https://drive.google.com/file/d/1mvmd1LZlYa8-YXdWd6nV5ZwymmxLkLz6/view?usp=drive_link
+            Sanskrit Semester 5 = https://drive.google.com/file/d/1CzKyYlOqOWiYVvi6FSbB1bfVckUafe77/view?usp=drive_link
+            Sanskrit Semester 6 = https://drive.google.com/file/d/1aPNRXzclGbHn9Lg0Ht7T2kHqk9MT2hcT/view?usp=drive_link
+            Sanskrit Semester 7 = 
+            Sanskrit Semester 8 = 
+
+            # --- B.A. PROGRAMME ---
+            B.A. Programme Semester 1 = 
+            B.A. Programme Semester 2 = 
+            B.A. Programme Semester 3 = 
+            B.A. Programme Semester 4 = 
+            B.A. Programme Semester 5 = 
+            B.A. Programme Semester 6 = 
+            B.A. Programme Semester 7 = 
+            B.A. Programme Semester 8 = 
+        `;
 
         const coursesData = [
             { name: "Sociology", degree: "B.A. (Honours) Sociology", stream: "Arts", iconKey: "sociology" },
@@ -976,7 +1161,7 @@
             { name: "English", degree: "B.A. (Honours) English", stream: "Arts", iconKey: "english" },
             { name: "Hindi", degree: "B.A. (Honours) Hindi", stream: "Arts", iconKey: "hindi" },
             { name: "Sanskrit", degree: "B.A. (Honours) Sanskrit", stream: "Arts", iconKey: "sanskrit" },
-            { name: "B.A. Programme", degree: "Bachelor of Arts (Programme)", stream: "Arts", iconKey: "baprog" },
+            // { name: "B.A. Programme", degree: "Bachelor of Arts (Programme)", stream: "Arts", iconKey: "baprog" },
             { name: "Commerce (Honours)", degree: "B.Com. (Honours)", stream: "Commerce", iconKey: "commerceH" },
             { name: "Commerce (Programme)", degree: "B.Com. (Programme)", stream: "Commerce", iconKey: "commerceP" },
             { name: "Mathematics", degree: "B.Sc. (Honours) Mathematics", stream: "Science", iconKey: "math" },
@@ -988,7 +1173,7 @@
             { name: "Botany", degree: "B.Sc. (Honours) Botany", stream: "Science", iconKey: "botany" },
             { name: "Zoology", degree: "B.Sc. (Honours) Zoology", stream: "Science", iconKey: "zoology" },
             { name: "Biological Sciences", degree: "B.Sc. (Honours) Biological Sciences", stream: "Science", iconKey: "bioSci" },
-            { name: "Life Sciences", degree: "B.Sc. (Programme) Life Science", stream: "Science", iconKey: "lifeSci" }
+            // { name: "Life Sciences", degree: "B.Sc. (Programme) Life Science", stream: "Science", iconKey: "lifeSci" }
         ];
 
         const semestersData = [
@@ -998,111 +1183,22 @@
             { num: 4, roman: "IV", cycle: "Even Cycle", year: "Year 2", desc: "Advanced Core Discipline & Interdisciplinary Electives" },
             { num: 5, roman: "V", cycle: "Odd Cycle", year: "Year 3", desc: "Discipline Specific Elective Matrix & Specializations" },
             { num: 6, roman: "VI", cycle: "Even Cycle", year: "Year 3", desc: "Advanced Electives & Practical Curricula" },
-            { num: 7, roman: "VII", cycle: "Odd Cycle", year: "Year 4", desc: "Honours with Research Methodologies & Electives" },
-            { num: 8, roman: "VIII", cycle: "Even Cycle", year: "Year 4", desc: "Honours Dissertation & Advanced Project Guidelines" }
+            // { num: 7, roman: "VII", cycle: "Odd Cycle", year: "Year 4", desc: "Honours with Research Methodologies & Electives" },
+            // { num: 8, roman: "VIII", cycle: "Even Cycle", year: "Year 4", desc: "Honours Dissertation & Advanced Project Guidelines" }
         ];
-
-        // Realistic Department-Specific DU NEP Subject Catalog
-        function getSubjectsForSemester(courseName, semNum) {
-            // Economics
-            if (courseName === "Economics") {
-                if (semNum === 1) {
-                    return [
-                        { title: "Introductory Microeconomics", type: "DSC-1", credits: "4 Credits", desc: "Market mechanisms, consumer preference, firm behaviour and competitive equilibrium." },
-                        { title: "Mathematical Methods for Economics I", type: "DSC-2", credits: "4 Credits", desc: "Functions, single-variable calculus, optimization techniques and matrix applications." },
-                        { title: "Introductory Statistics for Economics", type: "DSC-3", credits: "4 Credits", desc: "Probability distributions, sampling, hypothesis testing and exploratory data metrics." }
-                    ];
-                }
-                if (semNum === 2) {
-                    return [
-                        { title: "Introductory Macroeconomics", type: "DSC-4", credits: "4 Credits", desc: "National income accounting, monetary systems, aggregate demand and fiscal policy." },
-                        { title: "Mathematical Methods for Economics II", type: "DSC-5", credits: "4 Credits", desc: "Multivariable calculus, unconstrained & constrained optimization, linear programming." },
-                        { title: "Intermediate Statistics for Economics", type: "DSC-6", credits: "4 Credits", desc: "Bivariate distributions, estimation, testing of hypothesis, and index numbers." }
-                    ];
-                }
-                if (semNum === 3) {
-                    return [
-                        { title: "Intermediate Microeconomics I", type: "DSC-7", credits: "4 Credits", desc: "General equilibrium, welfare theorems, market power, and game theory." },
-                        { title: "Intermediate Macroeconomics I", type: "DSC-8", credits: "4 Credits", desc: "IS-LM framework, financial markets, open economy models, and exchange rates." },
-                        { title: "Advanced Econometrics", type: "DSC-9", credits: "4 Credits", desc: "Classical linear regression model, multiple regression, and diagnostic testing." }
-                    ];
-                }
-            }
-
-            // Commerce (Honours)
-            if (courseName === "Commerce (Honours)") {
-                if (semNum === 1) {
-                    return [
-                        { title: "Management Principles and Practice", type: "DSC-1", credits: "4 Credits", desc: "Managerial functions, strategic planning, organizational design, and leadership paradigms." },
-                        { title: "Business Laws", type: "DSC-2", credits: "4 Credits", desc: "Indian Contract Act, Sale of Goods Act, and Limited Liability Partnership compliance." },
-                        { title: "Financial Accounting", type: "DSC-3", credits: "4 Credits", desc: "Accounting standards, depreciation accounting, partnership dissolution, and final accounts." }
-                    ];
-                }
-                if (semNum === 2) {
-                    return [
-                        { title: "Corporate Accounting", type: "DSC-4", credits: "4 Credits", desc: "Share capital transactions, debentures, internal reconstruction, and valuation of goodwill." },
-                        { title: "Company Law", type: "DSC-5", credits: "4 Credits", desc: "Corporate governance, incorporation, management, board meetings, and winding up procedures." },
-                        { title: "Human Resource Management", type: "DSC-6", credits: "4 Credits", desc: "Talent acquisition, training & development, appraisal systems, and industrial relations." }
-                    ];
-                }
-            }
-
-            // Mathematics
-            if (courseName === "Mathematics") {
-                if (semNum === 1) {
-                    return [
-                        { title: "Single Variable Calculus", type: "DSC-1", credits: "4 Credits", desc: "Limits, continuity, differentiability, mean value theorems, and Riemann integration." },
-                        { title: "Linear Algebra", type: "DSC-2", credits: "4 Credits", desc: "Vector spaces, linear transformations, matrices, determinants, eigenvalues and eigenvectors." },
-                        { title: "Real Analysis", type: "DSC-3", credits: "4 Credits", desc: "Sequences of real numbers, Cauchy completeness, infinite series, and convergence tests." }
-                    ];
-                }
-                if (semNum === 2) {
-                    return [
-                        { title: "Multivariable Calculus", type: "DSC-4", credits: "4 Credits", desc: "Partial derivatives, multiple integrals, Green's, Stokes', and divergence theorems." },
-                        { title: "Differential Equations", type: "DSC-5", credits: "4 Credits", desc: "First and second order ODEs, series solutions, power series, and Cauchy-Euler equations." },
-                        { title: "Abstract Algebra", type: "DSC-6", credits: "4 Credits", desc: "Groups, subgroups, cyclic groups, Lagrange's theorem, normal subgroups, and homomorphisms." }
-                    ];
-                }
-            }
-
-            // Universal Fallback Generator for all other 17 departments and semesters 3 to 8
-            return [
-                { 
-                    title: `${courseName} Discipline Core Paper I`, 
-                    type: `DSC-${semNum}.1`, 
-                    credits: "4 Credits", 
-                    desc: `Theoretical frameworks, foundational concepts, and core methodologies for Semester ${semNum}.` 
-                },
-                { 
-                    title: `${courseName} Discipline Core Paper II`, 
-                    type: `DSC-${semNum}.2`, 
-                    credits: "4 Credits", 
-                    desc: `Analytical applications, experimental laboratory matrix, and computational models for Semester ${semNum}.` 
-                },
-                { 
-                    title: `${courseName} Discipline Elective / Specialization`, 
-                    type: `DSE-${semNum}`, 
-                    credits: "4 Credits", 
-                    desc: `Advanced disciplinary specialization, research seminars, and contemporary sector analyses.` 
-                }
-            ];
-        }
 
         let currentStep = 'courses';
         let state = {
             course: null,
-            semester: null,
-            subject: null
+            semester: null
         };
 
         const screenCourses = document.getElementById('screen-courses');
         const screenSemesters = document.getElementById('screen-semesters');
-        const screenSubjects = document.getElementById('screen-subjects');
         const screenViewer = document.getElementById('screen-viewer');
 
         const coursesGrid = document.getElementById('courses-grid');
         const semestersGrid = document.getElementById('semesters-grid');
-        const subjectsGrid = document.getElementById('subjects-grid');
 
         const navBackBtn = document.getElementById('nav-back-btn');
         const viewTitle = document.getElementById('view-title');
@@ -1110,7 +1206,6 @@
 
         const crumbCourses = document.getElementById('crumb-courses');
         const crumbSemesters = document.getElementById('crumb-semesters');
-        const crumbSubjects = document.getElementById('crumb-subjects');
         const crumbViewer = document.getElementById('crumb-viewer');
 
         const syllabusWrapper = document.getElementById('syllabus-wrapper');
@@ -1147,6 +1242,51 @@
                 document.body.style.overflow = '';
             }
         });
+
+        // Smart Helper: Finds the Drive Link for any Course + Semester
+        function normalizeStr(str) {
+            return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+        }
+
+        function getSyllabusLink(courseName, semNum) {
+            if (typeof easySyllabusLinks === 'string') {
+                const lines = easySyllabusLinks.split('\n');
+                const targetA = normalizeStr(`${courseName} Semester ${semNum}`);
+                const targetB = normalizeStr(`${courseName} Sem ${semNum}`);
+                const targetC = normalizeStr(`${courseName} ${semNum}`);
+
+                for (let line of lines) {
+                    line = line.trim();
+                    if (!line || line.startsWith('#') || line.startsWith('//')) continue;
+                    const eqIdx = line.indexOf('=');
+                    if (eqIdx !== -1) {
+                        const rawKey = line.slice(0, eqIdx).trim();
+                        let val = line.slice(eqIdx + 1).trim();
+                        // Clean quotation marks if accidentally added
+                        val = val.replace(/^["']|["']$/g, '').trim();
+
+                        if (!val) continue;
+
+                        const normKey = normalizeStr(rawKey);
+                        if (normKey === targetA || normKey === targetB || normKey === targetC) {
+                            return val;
+                        }
+
+                        // Also support "Department | Semester" format
+                        if (rawKey.includes('|')) {
+                            const parts = rawKey.split('|').map(p => normalizeStr(p.trim()));
+                            if (parts.length === 2) {
+                                if (parts[0] === normalizeStr(courseName) &&
+                                    (parts[1] === String(semNum) || parts[1] === normalizeStr(`Semester ${semNum}`))) {
+                                    return val;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return "";
+        }
 
         // Google Drive Parser
         function parseGoogleDriveLink(rawUrl) {
@@ -1214,7 +1354,7 @@
             });
         }
 
-        // STEP 2: Render Semesters
+        // STEP 2: Render Semesters (Directly opens syllabus on click)
         function renderSemesters() {
             semestersGrid.innerHTML = '';
             semestersData.forEach(s => {
@@ -1235,7 +1375,7 @@
                         </div>
                     </div>
                     <div class="card-footer-row">
-                        <span class="card-meta-detail">Select Subject</span>
+                        <span class="card-meta-detail">View Syllabus</span>
                         <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                 `;
@@ -1246,68 +1386,30 @@
             });
         }
 
-        // STEP 3: Render Subjects / Papers
-        function renderSubjects(courseName, semNum) {
-            subjectsGrid.innerHTML = '';
-            const papers = getSubjectsForSemester(courseName, semNum);
-
-            papers.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'bento-card';
-                card.tabIndex = 0;
-
-                card.innerHTML = `
-                    <div>
-                        <div class="card-top">
-                            <span class="card-icon-wrap">${subjectIcons.book}</span>
-                            <span class="subject-badge-pill">${p.type}</span>
-                        </div>
-                        <div class="card-info">
-                            <h3>${p.title}</h3>
-                            <p>${p.desc}</p>
-                        </div>
-                    </div>
-                    <div class="card-footer-row">
-                        <span class="card-meta-detail">${p.credits}</span>
-                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
-                `;
-
-                // Clicking subject opens the full-screen syllabus immediately!
-                card.addEventListener('click', () => openSyllabus(p.title));
-                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') openSyllabus(p.title); });
-                subjectsGrid.appendChild(card);
-            });
-        }
-
-        // STEP 4: Open Instant Full-Screen Viewer
-        function openSyllabus(subjectTitle) {
-            state.subject = subjectTitle;
+        // STEP 3: Directly Open Syllabus Viewer Box
+        function selectSemester(semNum) {
+            state.semester = semNum;
             currentStep = 'viewer';
 
             screenCourses.style.display = 'none';
             screenSemesters.style.display = 'none';
-            screenSubjects.style.display = 'none';
             screenViewer.style.display = 'block';
 
-            viewTitle.textContent = `${subjectTitle}`;
-            viewSubtitle.textContent = `Official Syllabus, Units, Learning Outcomes, and Reading Matrix for ${state.course.name} (Semester ${state.semester}).`;
-            navBackBtn.querySelector('span').textContent = 'Subjects';
+            // Update Page Context
+            viewTitle.textContent = `${state.course.name} — Semester ${semNum} Syllabus`;
+            viewSubtitle.textContent = `Official Departmental Master Syllabus, Core Papers & Academic Matrix for ${state.course.degree}.`;
+            navBackBtn.querySelector('span').textContent = 'Semesters';
 
+            // Top Toolbar Meta
             const docTitleElem = document.getElementById('viewer-doc-title');
             const pendingBox = document.getElementById('viewer-pending-box');
             const extLink = document.getElementById('viewer-external-link');
             const downloadLink = document.getElementById('viewer-download-link');
 
-            docTitleElem.textContent = `${subjectTitle} — Official Syllabus`;
+            docTitleElem.textContent = `${state.course.name} — Semester ${semNum} Master Syllabus`;
 
-            // Look up link safely in syllabusLibrary
-            const rawLink = (syllabusLibrary[state.course.name] && 
-                             syllabusLibrary[state.course.name][state.semester] && 
-                             syllabusLibrary[state.course.name][state.semester][subjectTitle]) 
-                            ? syllabusLibrary[state.course.name][state.semester][subjectTitle] 
-                            : "";
-
+            // Look up link safely from the easy copy-paste list
+            const rawLink = getSyllabusLink(state.course.name, semNum);
             const linkData = parseGoogleDriveLink(rawLink);
 
             if (linkData.isReady) {
@@ -1327,11 +1429,10 @@
                 downloadLink.style.display = 'none';
                 pendingBox.style.display = 'flex';
 
-                document.getElementById('pending-title-text').textContent = `${subjectTitle} Syllabus Pending`;
+                document.getElementById('pending-title-text').textContent = `Semester ${semNum} Syllabus Awaiting Term Commencement`;
                 document.getElementById('pending-desc-text').innerHTML = `
-                    The syllabus PDF for <strong>${subjectTitle}</strong> (${state.course.name} Sem ${state.semester}) is currently queued. 
-                    <br><br>
-                    Please check back later or contact the department for access to the official syllabus document.`;
+                    Sri Venkateswara College is currently conducting the academic term. Official departmental syllabi, room assignments, and practical laboratory schedules for <strong>Semester ${semNum}</strong> will be published immediately upon the commencement of the upcoming term in accordance with the University of Delhi academic calendar.
+                `;
             }
 
             updateBreadcrumbs();
@@ -1343,7 +1444,6 @@
         function updateBreadcrumbs() {
             crumbCourses.className = currentStep === 'courses' ? 'breadcrumb-step active' : 'breadcrumb-step';
             crumbSemesters.className = currentStep === 'semesters' ? 'breadcrumb-step active' : 'breadcrumb-step';
-            crumbSubjects.className = currentStep === 'subjects' ? 'breadcrumb-step active' : 'breadcrumb-step';
             crumbViewer.className = currentStep === 'viewer' ? 'breadcrumb-step active' : 'breadcrumb-step';
         }
 
@@ -1353,11 +1453,10 @@
 
             screenCourses.style.display = 'none';
             screenSemesters.style.display = 'block';
-            screenSubjects.style.display = 'none';
             screenViewer.style.display = 'none';
 
             viewTitle.textContent = `${course.name} — Select Semester`;
-            viewSubtitle.textContent = `Choose your semester to view all active UGCF papers and syllabi for ${course.degree}.`;
+            viewSubtitle.textContent = `Choose your semester to view all active UGCF syllabus documents for ${course.degree}.`;
             navBackBtn.querySelector('span').textContent = 'Departments';
 
             renderSemesters();
@@ -1365,28 +1464,8 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function selectSemester(semNum) {
-            state.semester = semNum;
-            currentStep = 'subjects';
-
-            screenCourses.style.display = 'none';
-            screenSemesters.style.display = 'none';
-            screenSubjects.style.display = 'block';
-            screenViewer.style.display = 'none';
-
-            viewTitle.textContent = `${state.course.name} — Semester ${semNum} Papers`;
-            viewSubtitle.textContent = `Select any Core, Elective, or Generic paper to immediately open its full-screen syllabus reader.`;
-            navBackBtn.querySelector('span').textContent = 'Semesters';
-
-            renderSubjects(state.course.name, semNum);
-            updateBreadcrumbs();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
         navBackBtn.addEventListener('click', () => {
             if (currentStep === 'viewer') {
-                selectSemester(state.semester);
-            } else if (currentStep === 'subjects') {
                 selectCourse(state.course);
             } else if (currentStep === 'semesters') {
                 goToCourses();
@@ -1399,11 +1478,9 @@
             currentStep = 'courses';
             state.course = null;
             state.semester = null;
-            state.subject = null;
 
             screenCourses.style.display = 'block';
             screenSemesters.style.display = 'none';
-            screenSubjects.style.display = 'none';
             screenViewer.style.display = 'none';
 
             viewTitle.textContent = 'Select Your Department';
@@ -1416,7 +1493,6 @@
 
         crumbCourses.addEventListener('click', goToCourses);
         crumbSemesters.addEventListener('click', () => { if (state.course) selectCourse(state.course); });
-        crumbSubjects.addEventListener('click', () => { if (state.course && state.semester) selectSemester(state.semester); });
 
         // Search & Filter
         const searchInput = document.getElementById('course-search-input');
