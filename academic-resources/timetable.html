@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Department Time Table &amp; Schedules — VenkySpace</title>
-    <meta name="description" content="Official Departmental Timetable Rosters &amp; Venue Allocation Matrix - Sri Venkateswara College.">
+    <meta name="description" content="Official Departmental Master Timetables across all undergraduate programs.">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 
     <!-- Fonts: Plus Jakarta Sans & Inter -->
@@ -397,6 +397,7 @@
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
             padding: 16px 18px;
+            min-height: 142px; /* Keeps card height consistent across screens */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -624,7 +625,7 @@
             background: #FFFFFF;
         }
 
-        /* Minimalist Status Box (Zero Emojis) */
+        /* Minimalist Status Box */
         .timetable-pending-box {
             position: absolute;
             inset: 0;
@@ -755,7 +756,7 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "zaesi27ysh");
-</script>
+    </script>
 </head>
 <body>
 
@@ -812,10 +813,10 @@
         <header class="vault-header">
             <span class="college-tag">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                Sri Venkateswara College • Department Schedules
+                Department Schedules
             </span>
             <h1 id="view-title">Select Your Department</h1>
-            <p id="view-subtitle">Access verified departmental master timetables, laboratory matrices, and room allotments across all undergraduate programs.</p>
+            <p id="view-subtitle">Access verified departmental master timetables across all undergraduate programs.</p>
         </header>
 
         <!-- SCREEN 1: COURSES -->
@@ -827,7 +828,7 @@
                 </div>
 
                 <div class="category-filter-chips">
-                    <button class="category-chip active" data-stream="all">All Departments (20)</button>
+                    <button class="category-chip active" data-stream="all">All Departments (19)</button>
                     <button class="category-chip" data-stream="Science">Science</button>
                     <button class="category-chip" data-stream="Commerce">Commerce</button>
                     <button class="category-chip" data-stream="Arts">Arts</button>
@@ -854,11 +855,11 @@
                 <div class="viewer-top-toolbar">
                     <div class="viewer-meta-left">
                         <span class="viewer-doc-title" id="viewer-doc-title">
-                            Master Timetable Schedule
+                            Master Timetable
                         </span>
                         <span class="badge-verified">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                            Verified SVC Matrix
+                            Verified Master Timetable
                         </span>
                     </div>
 
@@ -883,7 +884,7 @@
 
                 <div class="viewer-frame-body" id="viewer-frame-container">
                     
-                    <!-- Official Notice Box -->
+                    <!-- Status Box -->
                     <div class="timetable-pending-box" id="viewer-pending-box">
                         <div class="pending-icon-circle" id="pending-icon-wrap">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -896,7 +897,7 @@
                         <div class="pending-chips" id="pending-chips-wrap">
                             <span class="pending-chip">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                                Sri Venkateswara College
+                                Master Timetable
                             </span>
                             <span class="pending-chip">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
@@ -934,16 +935,16 @@
             // Split into Section A & B for Sem 1, 3, 5
             "Commerce (Honours)": {
                 1: {
-                    A: "https://drive.google.com/file/d/1K_HzuchMSE74kyHpxYlcFbso52WHIxOh/view?usp=drive_link", // Paste Commerce (H) Sem 1 Section A link here
-                    B: "https://drive.google.com/file/d/13XE23RnjRix63ncJUsuJQmiz_nEWH5n3/view?usp=drive_link"  // Paste Commerce (H) Sem 1 Section B link here
+                    A: "https://drive.google.com/file/d/1K_HzuchMSE74kyHpxYlcFbso52WHIxOh/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/13XE23RnjRix63ncJUsuJQmiz_nEWH5n3/view?usp=drive_link"
                 },
                 3: {
-                    A: "https://drive.google.com/file/d/1AWGTyhK7NYmbRL6FADO0DwQqmeQTbbGa/view?usp=drive_link", // Paste Commerce (H) Sem 3 Section A link here
-                    B: "https://drive.google.com/file/d/1XE3bOdxeOOXTHTd-OMTsxMESuqOgyVGf/view?usp=drive_link"  // Paste Commerce (H) Sem 3 Section B link here
+                    A: "https://drive.google.com/file/d/1AWGTyhK7NYmbRL6FADO0DwQqmeQTbbGa/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1XE3bOdxeOOXTHTd-OMTsxMESuqOgyVGf/view?usp=drive_link"
                 },
                 5: {
-                    A: "https://drive.google.com/file/d/1WdM4GxH69_rfAkRwAGG93nhKSu5n3gyj/view?usp=drive_link", // Paste Commerce (H) Sem 5 Section A link here
-                    B: "https://drive.google.com/file/d/1PeePieolBru9_NfPV7gWlHvtLO_dRhUs/view?usp=drive_link"  // Paste Commerce (H) Sem 5 Section B link here
+                    A: "https://drive.google.com/file/d/1WdM4GxH69_rfAkRwAGG93nhKSu5n3gyj/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1PeePieolBru9_NfPV7gWlHvtLO_dRhUs/view?usp=drive_link"
                 },
                 7: "https://drive.google.com/file/d/1MTzsdfgQwyxNqOrk2goE-0eji4N1hUCz/view?usp=drivesdk",
                 2: "", 4: "", 6: "", 8: ""
@@ -952,16 +953,16 @@
             // Split into Section A & B for Sem 1, 3, 5, 7
             "Commerce (Programme)": {
                 1: {
-                    A: "https://drive.google.com/file/d/1utdd49gEkqSq1EI2ARa4-cbZQhEaYGNL/view?usp=drive_link", // Paste Commerce (P) Sem 1 Section A link here
-                    B: "https://drive.google.com/file/d/1JSoBFmZOOxc03cJg3xAXQK0z6fhRyqZK/view?usp=drive_link"  // Paste Commerce (P) Sem 1 Section B link here
+                    A: "https://drive.google.com/file/d/1utdd49gEkqSq1EI2ARa4-cbZQhEaYGNL/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1JSoBFmZOOxc03cJg3xAXQK0z6fhRyqZK/view?usp=drive_link"
                 },
                 3: {
-                    A: "https://drive.google.com/file/d/1ahW-Ebm2u_w3spx_Zch4SI6433ZvH74W/view?usp=drive_link", // Paste Commerce (P) Sem 3 Section A link here
-                    B: "https://drive.google.com/file/d/1XslSx9o-FklM4feok6gOZ3o-LB_vAm0A/view?usp=drive_link"  // Paste Commerce (P) Sem 3 Section B link here
+                    A: "https://drive.google.com/file/d/1ahW-Ebm2u_w3spx_Zch4SI6433ZvH74W/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1XslSx9o-FklM4feok6gOZ3o-LB_vAm0A/view?usp=drive_link"
                 },
                 5: {
-                    A: "https://drive.google.com/file/d/1unBGUR0wKqWmub_iEnsWjqhrRyb1NbOB/view?usp=drive_link", // Paste Commerce (P) Sem 5 Section A link here
-                    B: "https://drive.google.com/file/d/1wJgODyLl7_LYCW-OkqOp7MK-Jcqp6Pch/view?usp=drive_link"  // Paste Commerce (P) Sem 5 Section B link here
+                    A: "https://drive.google.com/file/d/1unBGUR0wKqWmub_iEnsWjqhrRyb1NbOB/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1wJgODyLl7_LYCW-OkqOp7MK-Jcqp6Pch/view?usp=drive_link"
                 },
                 2: "", 4: "", 6: "",
             },
@@ -971,19 +972,19 @@
             // Split into Section A & B for Sem 1, 3, 5, 7
             "Mathematics": {
                 1: {
-                    A: "https://drive.google.com/file/d/1BN9muBz_NaRDM9Uczi64trhummDJKthR/view?usp=drive_link", // Paste Mathematics Sem 1 Section A link here
-                    B: "https://drive.google.com/file/d/1ZWAaDrE3jOljxIrpPKotXi77F-nc0Nay/view?usp=drive_link"  // Paste Mathematics Sem 1 Section B link here
+                    A: "https://drive.google.com/file/d/1BN9muBz_NaRDM9Uczi64trhummDJKthR/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1ZWAaDrE3jOljxIrpPKotXi77F-nc0Nay/view?usp=drive_link"
                 },
                 3: {
-                    A: "https://drive.google.com/file/d/1HBWJaZPl2FJ0IAb6Ee1NjaqezL6oFm5b/view?usp=drive_link", // Paste Mathematics Sem 3 Section A link here
-                    B: "https://drive.google.com/file/d/1f4fjCKyHFP4G58zxZO3IJt87lPHMWa0M/view?usp=drive_link"  // Paste Mathematics Sem 3 Section B link here
+                    A: "https://drive.google.com/file/d/1HBWJaZPl2FJ0IAb6Ee1NjaqezL6oFm5b/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1f4fjCKyHFP4G58zxZO3IJt87lPHMWa0M/view?usp=drive_link"
                 },
                 5: {
-                    A: "https://drive.google.com/file/d/1ebVBx5qLpZuRq3Iz18xPsWPwOnQDQ-00/view?usp=drive_link", // Paste Mathematics Sem 5 Section A link here
-                    B: "https://drive.google.com/file/d/1zFMVyoHeg_EfOOj0jL1TV-bKw_Sd3ypN/view?usp=drive_link"  // Paste Mathematics Sem 5 Section B link here
+                    A: "https://drive.google.com/file/d/1ebVBx5qLpZuRq3Iz18xPsWPwOnQDQ-00/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1zFMVyoHeg_EfOOj0jL1TV-bKw_Sd3ypN/view?usp=drive_link"
                 },
                 7: {
-                    A: "https://drive.google.com/file/d/1A4dOq7Eo_0m5Dbo26BstDmKyrWsSh1Ps/view?usp=drive_link", // Paste Mathematics Sem 7 Section A link here
+                    A: "https://drive.google.com/file/d/1A4dOq7Eo_0m5Dbo26BstDmKyrWsSh1Ps/view?usp=drive_link",
                 },
                 2: "", 4: "", 6: "", 8: ""
             },
@@ -991,8 +992,8 @@
             // Split into Section A & B for Sem 1 only
             "Chemistry": {
                 1: {
-                    A: "https://drive.google.com/file/d/1VVuL4S7bzt4IHf1RhWfVzvoJyM2J6A73/view?usp=drive_link", // Paste Chemistry Sem 1 Section A link here
-                    B: "https://drive.google.com/file/d/1JJ5EdIHc9lBJIi98dSJjR3i21AIrgTFN/view?usp=drive_link"  // Paste Chemistry Sem 1 Section B link here
+                    A: "https://drive.google.com/file/d/1VVuL4S7bzt4IHf1RhWfVzvoJyM2J6A73/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1JJ5EdIHc9lBJIi98dSJjR3i21AIrgTFN/view?usp=drive_link"
                 },
                 3: "https://drive.google.com/file/d/1Vhe0U4J2chnWlLoKsZFy0X8EpeIyZWFa/view?usp=drivesdk",
                 5: "https://drive.google.com/file/d/1oGH-VSq9LDmfaLaZR48-9vQ7g97_ZTIn/view?usp=drivesdk",
@@ -1003,16 +1004,16 @@
             // Split into Section A & B for Sem 1, 3, 5
             "Life Sciences": {
                 1: {
-                    A: "https://drive.google.com/file/d/13EYLLvVVvVZeho5cQd3zUxaGIetPIUQ3/view?usp=drive_link", // Paste Life Sciences Sem 1 Section A link here
-                    B: "https://drive.google.com/file/d/1ZUVzkjawO8X29r5lMWAhIjNa55Lc9dDy/view?usp=drive_link"  // Paste Life Sciences Sem 1 Section B link here
+                    A: "https://drive.google.com/file/d/13EYLLvVVvVZeho5cQd3zUxaGIetPIUQ3/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1ZUVzkjawO8X29r5lMWAhIjNa55Lc9dDy/view?usp=drive_link"
                 },
                 3: {
-                    A: "https://drive.google.com/file/d/1bGtQJhWEaJcflW838N6zTfIi9C5OXdEM/view?usp=drive_link", // Paste Life Sciences Sem 3 Section A link here
-                    B: "https://drive.google.com/file/d/1zK6J8OKRf0Kr32XRUvKt-yJCWpFp07cc/view?usp=drive_link"  // Paste Life Sciences Sem 3 Section B link here
+                    A: "https://drive.google.com/file/d/1bGtQJhWEaJcflW838N6zTfIi9C5OXdEM/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/1zK6J8OKRf0Kr32XRUvKt-yJCWpFp07cc/view?usp=drive_link"
                 },
                 5: {
-                    A: "https://drive.google.com/file/d/1OSVz0_BFo9MZnf3QfSw099Wsg9OqBfQ6/view?usp=drive_link", // Paste Life Sciences Sem 5 Section A link here
-                    B: "https://drive.google.com/file/d/15AXSyecZ9MoGAQA0yydLYcSaQahRrKq5/view?usp=drive_link"  // Paste Life Sciences Sem 5 Section B link here
+                    A: "https://drive.google.com/file/d/1OSVz0_BFo9MZnf3QfSw099Wsg9OqBfQ6/view?usp=drive_link",
+                    B: "https://drive.google.com/file/d/15AXSyecZ9MoGAQA0yydLYcSaQahRrKq5/view?usp=drive_link"
                 },
                 7: "https://drive.google.com/file/d/1-eXxCflsIdNokkE2SYnr8UjtZn6eI2Gy/view?usp=drivesdk",
                 2: "", 4: "", 6: "", 8: ""
@@ -1061,10 +1062,10 @@
             },
 
             "Hindi": {
-                1: "https://drive.google.com/file/d/1XCuew1KoqLVyw9x3P41zBJqucHXSb4rg/view?usp=drivesdk",
-                3: "https://drive.google.com/file/d/1e7W9eZLjHamqz2FDf7ClXRMC_z-9QzAS/view?usp=drivesdk",
-                5: "https://drive.google.com/file/d/1bw2hz3ku2jOPrBsXe2CmFAUUM97bScY1/view?usp=drivesdk",
-                7: "https://drive.google.com/file/d/1AtNUzrhW_eSFKoCjOLDpdZ3NpnHFWcET/view?usp=drivesdk",
+                1: "https://drive.google.com/file/d/1X0eHNKCv6pZsREpQE6Jb66B_FZjORM8n/view?usp=drive_link",
+                3: "https://drive.google.com/file/d/16c4tYyZVhBV3tj750Y8nxVulf1xvxxqT/view?usp=drive_link",
+                5: "https://drive.google.com/file/d/10fE3UECPlNZbYgniKVEFT8MrmfFV-lks/view?usp=drive_link",
+                7: "https://drive.google.com/file/d/1HRKU7MsahyN1FqsuHBKVNiv0--xw-FyX/view?usp=drive_link",
                 2: "", 4: "", 6: "", 8: ""
             },
 
@@ -1073,14 +1074,6 @@
                 3: "https://drive.google.com/file/d/1lmTCiIPU3n-yh4QR_iobVhEbhp_neiVV/view?usp=drivesdk",
                 5: "https://drive.google.com/file/d/1SrblB5Jh-VwiN7HbZrFirwKDL9vJFHgW/view?usp=drivesdk",
                 7: "https://drive.google.com/file/d/1NbxGH0quT3HiTNlaq9pkxoERJ3wkG3DF/view?usp=drivesdk",
-                2: "", 4: "", 6: "", 8: ""
-            },
-
-            "B.A. Programme": {
-                1: "https://drive.google.com/file/d/1XA_EqRJrRNcGCo0fBUEaFqIy9Y9EzRxS/view?usp=drivesdk",
-                3: "https://drive.google.com/file/d/1IPFVbjzqn7nxMs5UamliTtqY4QGTIeeC/view?usp=drivesdk",
-                5: "https://drive.google.com/file/d/16xsPDdxT261EFmDhX7-poTqoFzQFP9oC/view?usp=drivesdk",
-                7: "https://drive.google.com/file/d/1W2JvYmJQ4qrPKU6jxlwhRrGIYz1eACGI/view?usp=drivesdk",
                 2: "", 4: "", 6: "", 8: ""
             },
 
@@ -1178,9 +1171,8 @@
             { name: "English", degree: "B.A. (Honours) English", stream: "Arts", iconKey: "english" },
             { name: "Hindi", degree: "B.A. (Honours) Hindi", stream: "Arts", iconKey: "hindi" },
             { name: "Sanskrit", degree: "B.A. (Honours) Sanskrit", stream: "Arts", iconKey: "sanskrit" },
-            { name: "B.A. Programme", degree: "Bachelor of Arts (Programme)", stream: "Arts", iconKey: "baprog" },
-            { name: "Commerce (Honours)", degree: "B.Com. (Honours)", stream: "Commerce", iconKey: "commerceH" },
-            { name: "Commerce (Programme)", degree: "B.Com. (Programme)", stream: "Commerce", iconKey: "commerceP" },
+            { name: "Bachelor of Commerce (Honours)", degree: "B.Com. (Honours)", stream: "Commerce", iconKey: "commerceH" },
+            { name: "Bachelor of Commerce (Programme)", degree: "B.Com. (Programme)", stream: "Commerce", iconKey: "commerceP" },
             { name: "Mathematics", degree: "B.Sc. (Honours) Mathematics", stream: "Science", iconKey: "math" },
             { name: "Statistics", degree: "B.Sc. (Honours) Statistics", stream: "Science", iconKey: "statistics" },
             { name: "Physics", degree: "B.Sc. (Honours) Physics", stream: "Science", iconKey: "physics" },
@@ -1194,14 +1186,14 @@
         ];
 
         const semestersData = [
-            { num: 1, roman: "I", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 1", desc: "Core Lectures, Tutorial Allocations & Foundational Laboratories." },
-            { num: 2, roman: "II", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 1", desc: "Roster will be published upon the commencement of the Even Semester." },
-            { num: 3, roman: "III", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 2", desc: "Discipline Specific Core & Practical Skill Allocations." },
-            { num: 4, roman: "IV", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 2", desc: "Roster will be published upon the commencement of the Even Semester." },
-            { num: 5, roman: "V", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 3", desc: "Advanced Elective Allocations, Department Matrix & Seminars." },
-            { num: 6, roman: "VI", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 3", desc: "Roster will be published upon the commencement of the Even Semester." },
-            { num: 7, roman: "VII", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 4", desc: "Honours Research Modules & Academic Consultation Hours." },
-            { num: 8, roman: "VIII", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 4", desc: "Roster will be published upon the commencement of the Even Semester." }
+            { num: 1, roman: "I", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 1" },
+            { num: 2, roman: "II", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 1" },
+            { num: 3, roman: "III", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 2" },
+            { num: 4, roman: "IV", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 2" },
+            { num: 5, roman: "V", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 3" },
+            { num: 6, roman: "VI", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 3" },
+            { num: 7, roman: "VII", cycle: "Odd Cycle", isEven: false, statusTag: "Active Session", year: "Year 4" },
+            { num: 8, roman: "VIII", cycle: "Even Cycle", isEven: true, statusTag: "Upcoming Term", year: "Year 4" }
         ];
 
         // Check if a course & semester has Section A & Section B split
@@ -1349,7 +1341,7 @@
             });
         }
 
-        // SCREEN 2: SEMESTERS
+        // SCREEN 2: SEMESTERS (Card height preserved via min-height, descriptions cleanly removed)
         function renderSemesters() {
             semestersGrid.innerHTML = '';
             semestersData.forEach(s => {
@@ -1371,7 +1363,6 @@
                         </div>
                         <div class="card-info">
                             <h3>Semester ${s.num}</h3>
-                            <p>${isSplit ? "Multiple sections available. Select Section A or Section B roster." : s.desc}</p>
                         </div>
                     </div>
                     <div class="card-footer-row">
@@ -1390,10 +1381,8 @@
             state.section = null;
 
             if (hasSections(state.course.name, semNum)) {
-                // If it has Section A & B, open Screen 2.5
                 openSectionsScreen(semNum);
             } else {
-                // Regular single timetable
                 openTimetable(semNum, null);
             }
         }
@@ -1408,7 +1397,7 @@
             screenViewer.style.display = 'none';
 
             viewTitle.textContent = `${state.course.name} — Semester ${semNum} Section`;
-            viewSubtitle.textContent = `Select your allocated section (Section A or Section B) to view the timetable roster for ${state.course.name}.`;
+            viewSubtitle.textContent = `Select your allocated section (Section A or Section B) to view the master timetable for ${state.course.name}.`;
             navBackBtn.querySelector('span').textContent = 'Semesters';
 
             renderSections(semNum);
@@ -1419,8 +1408,8 @@
         function renderSections(semNum) {
             sectionsGrid.innerHTML = '';
             const sections = [
-                { id: 'A', name: 'Section A', badge: 'Section Roster', desc: 'Lectures, Tutorial batches & Laboratory venues for Section A.' },
-                { id: 'B', name: 'Section B', badge: 'Section Roster', desc: 'Lectures, Tutorial batches & Laboratory venues for Section B.' }
+                { id: 'A', name: 'Section A', badge: 'Section Roster' },
+                { id: 'B', name: 'Section B', badge: 'Section Roster' }
             ];
 
             sections.forEach(sec => {
@@ -1437,7 +1426,6 @@
                         </div>
                         <div class="card-info">
                             <h3>${sec.name}</h3>
-                            <p>${sec.desc}</p>
                         </div>
                     </div>
                     <div class="card-footer-row">
@@ -1464,7 +1452,7 @@
 
             const sectionLabel = section ? ` (Section ${section})` : '';
             viewTitle.textContent = `${state.course.name} — Semester ${semNum}${sectionLabel} Timetable`;
-            viewSubtitle.textContent = `Official Departmental Master Schedule, Tutorial Allocations & Laboratory Venues for ${state.course.degree}.`;
+            viewSubtitle.textContent = `Official Departmental Master Timetable for ${state.course.degree}.`;
             navBackBtn.querySelector('span').textContent = section ? 'Sections' : 'Semesters';
 
             const docTitleElem = document.getElementById('viewer-doc-title');
@@ -1502,15 +1490,15 @@
                     pendingTag.textContent = "Academic Session Notification";
                     pendingTitle.textContent = `Semester ${semNum} Timetable Awaiting Term Commencement`;
                     pendingDesc.innerHTML = `
-                        Sri Venkateswara College is currently conducting the Odd Semester academic term (Semesters I, III, V, VII). 
-                        Official departmental timetables, room assignments, and practical laboratory schedules for 
-                        <strong>Semester ${semNum}</strong> will be published immediately upon the commencement of the upcoming Even Semester term in accordance with the University of Delhi academic calendar.
+                        The academic session is currently in progress. 
+                        Official departmental master timetables for 
+                        <strong>Semester ${semNum}</strong> will be published upon the commencement of the upcoming term in accordance with the university academic calendar.
                     `;
                 } else {
                     pendingTag.textContent = "Publication in Progress";
                     pendingTitle.textContent = `${state.course.name} (Semester ${semNum}${sectionLabel}) Schedule Pending`;
                     pendingDesc.innerHTML = `
-                        The departmental timetable for <strong>${state.course.name} Semester ${semNum}${sectionLabel}</strong> is currently being verified and uploaded. 
+                        The master timetable for <strong>${state.course.name} Semester ${semNum}${sectionLabel}</strong> is currently being verified and uploaded. 
                         Please check back shortly or access official departmental notices.
                     `;
                 }
@@ -1552,7 +1540,7 @@
             screenViewer.style.display = 'none';
 
             viewTitle.textContent = `${course.name} — Select Semester`;
-            viewSubtitle.textContent = `Choose your semester to view the active official timetable for ${course.degree}.`;
+            viewSubtitle.textContent = `Choose your semester to view the active master timetable for ${course.degree}.`;
             navBackBtn.querySelector('span').textContent = 'Departments';
 
             renderSemesters();
@@ -1588,7 +1576,7 @@
             screenViewer.style.display = 'none';
 
             viewTitle.textContent = 'Select Your Department';
-            viewSubtitle.textContent = 'Access verified departmental master timetables, laboratory matrices, and room allotments across all undergraduate programs.';
+            viewSubtitle.textContent = 'Access verified departmental master timetables across all undergraduate programs.';
             navBackBtn.querySelector('span').textContent = 'Dashboard';
 
             updateBreadcrumbs();

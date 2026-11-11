@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus FAQs &amp; Student Helpdesk — VenkySpace</title>
-    <meta name="description" content="Official student FAQs, attendance regulations, internal assessment matrices, and campus procedures - Sri Venkateswara College.">
+    <meta name="description" content="Verified student FAQs, attendance regulations, examination schedules, administrative procedures, and campus guides — Venky.">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 
     <!-- Google Fonts: Plus Jakarta Sans & Inter -->
@@ -697,7 +697,7 @@
             </a>
             <span class="faq-verified-pill">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                VERIFIED SENIOR DIRECTORY
+                VERIFIED CAMPUS DIRECTORY
             </span>
         </div>
 
@@ -705,17 +705,17 @@
         <header class="vault-header">
             <span class="college-tag">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                Sri Venkateswara College • Student Desk
+                Venky • Student Helpdesk
             </span>
-            <h1>Campus FAQs &amp; Clarifications</h1>
-            <p>Clear, verified resolutions for recurring academic regulations, examination notices, and administrative procedures.</p>
+            <h1>Campus FAQs &amp; Student Helpdesk</h1>
+            <p>Clear, verified resolutions for academic regulations, examination notifications, administrative procedures, and campus facilities.</p>
         </header>
 
         <!-- Search and Filter Toolbar -->
         <div class="faq-controls-bar">
             <div class="search-box-wrap">
                 <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" id="faq-search-input" placeholder="Search anything (e.g. wifiso, admit card, 75%)..." autocomplete="off">
+                <input type="text" id="faq-search-input" placeholder="Search anything (e.g. wifi, admit card, 66.6%, DTC, library)..." autocomplete="off">
                 <button type="button" class="search-clear-btn" id="faq-clear-btn" title="Clear Search">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
@@ -742,10 +742,11 @@
             <p id="empty-query-msg">No exact questions found.</p>
             <div class="smart-suggestion-row">
                 <span style="font-size: 0.8rem;">Try quick topics:</span>
-                <button class="suggestion-pill" data-query="wifi">Wi-Fi &amp; Eduroam</button>
-                <button class="suggestion-pill" data-query="attendance">75% Attendance</button>
+                <button class="suggestion-pill" data-query="wifi">Wi-Fi &amp; MyDU</button>
+                <button class="suggestion-pill" data-query="attendance">66.6% Attendance</button>
                 <button class="suggestion-pill" data-query="admit card">Admit Card</button>
-                <button class="suggestion-pill" data-query="internal">Internal Assessment</button>
+                <button class="suggestion-pill" data-query="verification">Document Verification</button>
+                <button class="suggestion-pill" data-query="library">Library &amp; Fines</button>
             </div>
         </div>
 
@@ -757,70 +758,174 @@
     <script>
         /*
           TO ADD OR EDIT FAQs:
-          Just copy-paste a block below.
           - category: "Academics", "Exams", "Admin", or "Campus"
           - question: The question title
           - answer: Detailed explanation (supports **bold text**)
           - tip: A senior pro-tip (or leave as "" if none)
-          - keywords: (Optional) extra words people might type (e.g. "wifiso internet")
+          - keywords: Search keywords to make it easy to find
         */
         const faqData = [
             {
-                category: "Admin",
-                question: "How can I access the College Wi-Fi on campus?",
-                answer: "Students can register their devices for high-speed campus Wi-Fi by visiting the **Computer Centre (ICT Lab)** with their college ID card. The IT staff will provision your Eduroam login credentials, which also grant you roaming internet access across other universities worldwide.",
-                tip: "Ensure your mobile operating system is updated before heading to the IT counter for configuration.",
-                keywords: "wifi wifiso wi-fi internet eduroam net network computer lab password login ict hotspot connect connection"
+                category: "Campus",
+                question: "Does the college provide Wi-Fi facilities?",
+                answer: "Yes, Venky is fully equipped with Wi-Fi facilities across campus. However, connection speeds may vary depending on your specific location.",
+                tip: "The Maggi Point, the ICT Hotspot area, and the Foyer generally have the strongest connectivity.",
+                keywords: "wifi wifiso wi-fi internet eduroam net network computer lab password login ict hotspot connect connection speed"
+            },
+            { 
+                category: "Campus", 
+                question: "What is the password for the college Wi-Fi?",
+                answer: "For network security and privacy reasons, the official Wi-Fi password cannot be published online. However, you can ask your department classmates, seniors, or lab attendants on campus for the network credentials.",
+                tip: "You can also connect to the 'MyDU' Wi-Fi network using your official college email ID and password provided by the administration.",
+                keywords: "wifi wifiso wi-fi internet eduroam net network computer lab password login ict hotspot connect connection credential credentials mydu"
             },
             {
                 category: "Academics",
                 question: "Is the 66.6% attendance rule strictly enforced at Venky?",
-                answer: "Yes, as per University of Delhi guidelines, **75% attendance is mandatory** to appear in semester examinations without administrative friction. If your attendance falls marginally short (60%–74%), you will be required to submit medical documentation or an official college undertaking before the semester cut-off.",
-                tip: "If you participate actively in college societies (Verve, Nexus, Expressions, etc.), ensure your society Teacher-in-Charge submits your official ECA attendance waivers on time.",
-                keywords: "attendance attendence attend shortage detained detain 75% percent medical undertaking leave absent society waiver duty slip"
+                answer: "Yes. According to Delhi University regulations, a minimum of 66.6% attendance is mandatory to remain eligible for semester examinations. While the college administration, under the Principal's discretion, may grant relaxations on a case-by-case basis, this is subject to strict institutional criteria and is never guaranteed. If your attendance falls severely below the required threshold, you risk being detained from appearing in your third Discipline Specific Core (DSC) examination.",
+                tip: "If you actively participate in college societies (such as Verve, Nexus, or Expressions), ensure your Teacher-in-Charge submits your official ECA duty slips on time to claim attendance waivers.",
+                keywords: "attendance attendence attend shortage detained detain 66.6% 75% percent medical undertaking leave absent society waiver duty slip dsc relaxation"
             },
             {
                 category: "Exams",
-                question: "What happens if I miss my Internal Assessment (IA) exams or assignments?",
-                answer: "Internal assessments carry critical weight in your final semester CGPA under the NEP-UGCF structure. If you missed an assessment due to a genuine emergency or medical reason, **immediately approach your paper professor** to request a compensatory re-test or alternate assignment before the internal portal closes.",
-                tip: "Always retain a digital copy or timestamped email of your assignment submissions for proof.",
-                keywords: "internal assessment ia ca test marks assignment presentation exam missed retest fail score re-exam"
+                question: "What happens if I miss my Internal Assessment (IA) tests or assignments?",
+                answer: "Missing an IA test, assignment, or presentation directly lowers your Internal Assessment (IA) and Continuous Assessment (CA) scores. While retests are occasionally permitted under valid medical or emergency circumstances, it is strongly advised to appear on the primary scheduled date. Deadlines for assignments and presentations are determined strictly by individual subject teachers.",
+                tip: "Always retain a timestamped email or digital copy of your assignment submissions as proof in case of any discrepancy.",
+                keywords: "internal assessment ia ca test marks assignment presentation exam missed retest fail score re-exam continuous assessment"
             },
             {
-                category: "Admin",
-                question: "Where and when do we collect physical Admit Cards before examinations?",
-                answer: "Physical admit cards are typically disbursed **3 to 5 days prior to the commencement of theory exams**. The administration releases a window schedule on the college notice boards. You must verify any pending fee or library dues to receive your stamped admit card from the respective department counter in the Admin Block.",
-                tip: "Keep your student ID card or college fee receipt handy when standing in the counter queue.",
+                category: "Exams",
+                question: "Where and when do we collect physical admit cards before examinations?",
+                answer: "Physical admit cards are typically disbursed **3 to 5 days prior to the commencement of theory exams**. The administration releases a counter schedule on college notice boards. You must ensure all pending fee and library dues are cleared before collecting and getting your admit card stamped at your department's counter in the Admin Block.",
+                tip: "Keep your student ID card or recent college fee receipt handy when standing in the counter queue to expedite verification.",
                 keywords: "admit card hall ticket hallticket entry card exam slip verification counter admin block stamped collection dates"
             },
             {
                 category: "Academics",
-                question: "How do General Elective (GE) and Skill Enhancement (SEC) allocations work?",
-                answer: "Allocations are processed at the start of each semester via the official college portal. Seats are allocated based on **merit/CGPA rankings and student preference order**. You cannot choose a GE paper that is offered by your own parent department.",
-                tip: "Submit your preference forms on the first day the portal opens, as popular lab-based SEC and VAC courses fill up quickly.",
-                keywords: "ge sec vac elective subject paper allocation preference ranking form optional course"
+                question: "Can I change my allotted GE, SEC, VAC, and AEC subjects in the next semester?",
+                answer: "Yes, students can change their Generic Elective (GE), Skill Enhancement Course (SEC), and Value Addition Course (VAC) subjects in subsequent semesters. Under DU NEP guidelines, SEC and VAC papers change every semester. For GE, students have the option either to continue with the discipline or switch to a new one. However, Ability Enhancement Courses (AEC)—such as Environmental Science (EVS) or an Indian Language—are allotted systematically by the college, and students cannot change them.",
+                tip: "Submit your elective preference forms promptly on the day the portal opens, as popular lab-based SEC and VAC courses fill up quickly.",
+                keywords: "ge sec vac aec elective subject paper allocation preference ranking form optional course change semester nep"
             },
             {
                 category: "Campus",
-                question: "How do I issue books and access digital research papers from the SVC Library?",
-                answer: "Your physical **College ID Card functions as your library barcode card**. You can issue up to 4 books simultaneously from the central library stack. To access research papers (JSTOR, DELNET, N-LIST), request the remote institutional access credentials from the digital section on the first floor.",
-                tip: "Return dates are strictly monitored. Renew your books online or at the circulation counter to avoid daily late charges.",
-                keywords: "library books issue return fine reading room jstor research paper barcode id card renewal"
+                question: "Can Previous Year Question (PYQ) booklets be issued from the library?",
+                answer: "No, physical PYQ booklets cannot be issued for home checkout from the library. However, you can easily access, view, and download previous years' question papers on the **VenkySpace PYQs Vault**.",
+                tip: "You can consult physical reference question banks within the library reading hall during operational hours.",
+                keywords: "pyq pyqs previous year question paper library booklet issue download papers exams past papers question bank"
+            },
+            { 
+                category: "Campus",
+                question: "What are the opening and closing timings of the library?",
+                answer: "Under regular schedules, the library remains open from **9:00 AM to 4:30 PM** on all working weekdays. Timings are often extended during examination periods to facilitate student preparation.",
+                tip: "Arrive early during exam weeks to secure quiet study spaces and reading desks with charging points.",
+                keywords: "library timing timings opening closing hours schedule open close reading room working days"
+            },
+            {
+                category: "Campus",
+                question: "Is it safe to leave bags outside the library?",
+                answer: "Yes, dedicated bag racks are provided outside the library entrance. Security guards are deployed nearby and the entire area is monitored by 24/7 CCTV surveillance. However, leaving your bag on the racks while heading outside campus or attending lectures elsewhere is strictly prohibited.",
+                tip: "Always take your valuables—such as laptops, phones, and wallets—inside the library reading hall with you.",
+                keywords: "library bags luggage property counter racks security cctv safety belongings valuables"
+            },
+            { 
+                category: "Campus",
+                question: "Does the college have a digital library or an online catalogue?",
+                answer: "The library does not offer an online digital library for full-text downloads; however, a QR code system and OPAC terminal are available at the entrance. Scanning the QR code allows you to search the library inventory and pinpoint the exact stack, row, and shelf location of any book.",
+                tip: "Note down the call number and rack code from the digital search before entering the book stacks to quickly find your text.",
+                keywords: "digital library online catalogue catalog qr code search opac book stack rack locator shelf accession"
+            },
+            { 
+                category: "Campus",
+                question: "What rules and etiquette must be followed inside the library?",
+                answer: "Upon entering, you must enter your details and entry time in the student register at the front counter, and record your exit time when leaving. Mobile phones must be kept on silent mode at all times, absolute silence must be maintained in all reading sections.",
+                tip: "Keep your student ID card handy, as library personnel conduct periodic identity checks inside the reading rooms.",
+                keywords: "library rules etiquette entry register silent bag regulations guidelines student id decorum silence"
+            },
+            { 
+                category: "Exams",
+                question: "When will admit cards be released, and how can students get them?",
+                answer: "Admit cards are released online as per the schedule announced by Delhi University. Once you have submitted your examination form and cleared dues, your admit card will become available on the **Samarth Student Portal**. After downloading and printing it, you must visit the college admin office to get it physically verified and stamped. Carrying a verified admit card is mandatory for entry into the examination hall.",
+                tip: "Print at least two copies of your admit card—one to get stamped for the examination hall and a spare copy for your personal records.",
+                keywords: "admit card release date samarth portal download hall ticket verification stamp exam entry hall"
+            },
+            { 
+                category: "Exams",
+                question: "Where can I find the official examination datesheet?",
+                answer: "Delhi University releases a tentative datesheet on its exam portal several weeks before exams, followed by the finalized schedule. Because the university datesheet spans all courses and semesters and can be difficult to navigate, VenkySpace organizes, filters, and publishes course-specific dates on our platform as soon as they are announced.",
+                tip: "Always verify your Unique Paper Codes (UPC) against your examination form to ensure you note the exact exam dates and sessions.",
+                keywords: "datesheet date sheet exam schedule time table upc tentative final timetable du portal examination"
             },
             {
                 category: "Admin",
-                question: "How can I apply for a DTC Student Bus Pass or Railway Concession?",
-                answer: "Collect the official **DTC Concession form** from the designated window in the Admin Block, fill in your residential route, and get it stamped by the college authority. For railway concessions during semester breaks, submit your application at the admin counter along with your journey details.",
-                tip: "Apply at least one week prior to your planned travel dates to avoid delays during semester exam rush.",
-                keywords: "bus pass dtc railway concession train travel travel discount metro commute route transport"
+                question: "Can I enter the college campus without an ID card if I forgot or misplaced it?",
+                answer: "Entry into the college without a student ID card is generally restricted for security reasons. However, if you have temporarily misplaced or forgotten your card, security personnel may allow entry upon presenting a valid government ID (such as an Aadhaar Card) alongside a physical or digital copy of your college fee receipt or ID acknowledgment slip.",
+                tip: "Save a clear PDF copy of your latest college fee receipt on your phone for emergency verification at the security gates.",
+                keywords: "id card entry gate security forgot lost misplaced aadhaar fee receipt entry pass verification"
+            },
+            {
+                category: "Admin",
+                question: "What are the working hours of the college admin office?",
+                answer: "The college admin office is open for student queries and submissions from **10:00 AM to 4:30 PM** on all operational working days (Monday through Friday). Staff observe a daily lunch break during this period. The administrative block remains closed on Saturdays, Sundays, and gazetted holidays.",
+                tip: "Visit the counters between 10:30 AM and 12:30 PM to avoid long queues during peak afternoon hours.",
+                keywords: "admin office timings working hours schedule windows lunch break open close administrative block counters"
+            },
+            { 
+                category: "Admin",
+                question: "Which window or counter is assigned for different tasks and courses?",
+                answer: "Different counters in the Admin Block are dedicated to specific streams (Arts, Commerce, Science) and specific student services (Admissions, Fee Inquiries, Examination Verification, and DTC Concessions). Clear directional boards and course allocations are posted prominently above each window.",
+                tip: "Check the master notice board next to Window 1 before queuing up, as counter assignments occasionally adjust during high-volume periods.",
+                keywords: "window counter admin block token course department inquiries submission marksheet verification allocation"
+            },
+            { 
+                category: "Admin",
+                question: "What is the complete procedure to get a DTC student concession bus pass?",
+                answer: "First, collect a DTC Student Bus Concession application form from any DTC bus depot (preferably the DU South Campus depot). Fill it out neatly in capital letters, affix a passport-sized photograph, and sign across the form and photo. Attach photocopies of your Aadhaar Card, college ID card, and DU admission fee receipt, then submit the packet at Admin Window 7 (or your department window) for signature and the college stamp. Finally, take the stamped form back to the DTC depot with the required concessional fare (₹115 for 1 month or ₹515 for up to 5 months) to get your photo clicked and receive your pass.",
+                tip: "Carry exact cash to the bus depot counter to prevent unnecessary delays when issuing your pass.",
+                keywords: "dtc bus pass concession student pass transport commute route depot attestation fare travel bus concession"
+            },
+            {
+                category: "Admin",
+                question: "When will physical document verification take place for 1st-semester students?",
+                answer: "Physical document verification for newly enrolled first-semester students is conducted according to official circulars issued by the college. This process typically takes place between **October and November** following the conclusion of CSAS admission rounds. Students should monitor their college email and official portal notifications for their specific department dates.",
+                tip: "Check the college notice boards regularly during your first semester so you do not miss your department's designated verification date.",
+                keywords: "document verification 1st sem first year freshers schedule dates physical verification csas admission"
+            },
+            {
+                category: "Admin",
+                question: "What is the process for physical document verification?",
+                answer: "On your assigned verification day, you will present your original academic credentials, identity proofs, and category certificates alongside a set of self-attested photocopies to your department's verification committee. Faculty members cross-examine the originals against the uploaded admission data to confirm your enrollment.",
+                tip: "Arrange all certificates in the exact sequence outlined in the official college circular to speed up your verification desk review.",
+                keywords: "document verification procedure process steps originals photocopies admission confirmation committee desk"
+            },
+            { 
+                category: "Admin",
+                question: "Where does document verification take place on campus?",
+                answer: "Document verification is held inside the college Admin Block or designated seminar rooms and departmental classrooms. Exact room numbers and stream-wise venues are posted on the main foyer notice board on the morning of verification.",
+                tip: "Report to campus 15 to 20 minutes prior to your slot to check your department's assigned room on the foyer board.",
+                keywords: "document verification location venue room admin block seminar hall foyer where verification desk"
+            },
+            { 
+                category: "Admin",
+                question: "Which documents are required for physical document verification?",
+                answer: "Students generally must bring original certificates and self-attested photocopies of: (1) NTA CUET Registration Form, (2) NTA CUET Admit Card, (3) NTA CUET Score Card, (4) CSAS Admission Registration Form, (5) CSAS Seat Allocation Letter, (6) College Admission Fee Receipt, (7) Class 10th Marksheet & Passing Certificate (from DigiLocker or Board original), (8) Class 12th Marksheet, (9) Provisional Certificate, (10) Character Certificate, (11) Class 12th Admit Card, (12) Category Certificate (SC/ST/PwBD/EWS/CW/KM/ECA/Sports, if applicable), (13) Valid OBC (Non-Creamy Layer) Certificate for the relevant financial year, (14) Mandatory Hindi passing self-certificate (if applicable), (15) Two recent passport-sized photographs, (16) Anti-Ragging Undertaking forms, and (17) Self-attested copies of passport and visa (for foreign students). *Caution: This list is tentative; always verify against the final checklist in the official college notice.*",
+                tip: "Prepare two complete sets of self-attested photocopies in separate folders along with all original documents to ensure an effortless verification.",
+                keywords: "documents required verification checklist cuet csas 10th 12th marksheet character provisional caste certificate obc ews undertaking nta"
             },
             {
                 category: "Campus",
-                question: "What are the most popular spots and food options on campus and in Satya Niketan?",
-                answer: "On campus, the **South Indian Canteen** (famous for crispy dosas and filter coffee), the Nescafe kiosk, the Rock Garden, and the Foyer are primary student hubs. Just across the road in **Satya Niketan**, you will find numerous budget-friendly cafes, roll stalls, and photocopy shops.",
-                tip: "The canteen morning slot (around 10:30 AM) is the best time for freshly brewed filter coffee before queues build up.",
-                keywords: "canteen food dosa coffee nescafe lunch satya niketan hangout spots rock garden foyer cafes"
-            }
+                question: "How do I issue books from the SVC Library?",
+                answer: "To borrow books, you must first register your membership at the library circulation counter using your college student ID card. Membership registration is completely free. Once registered, undergraduate students can borrow 3 to 4 books simultaneously for the prescribed lending period.",
+                tip: "Keep track of due dates stamped on the date slip inside each book, and renew them in advance to prevent overdue fines.",
+                keywords: "library books issue borrow return circulation counter lending book slip id card renewal reading room"
+            },
+            { 
+                category: "Campus",
+                question: "What is the book return deadline, and how much is the fine for late returns?",
+                answer: "When a book is issued, the librarian stamps the designated return date on the book's due slip (typically a 14-day loan period). If you return the book past the deadline without prior renewal, an overdue fine of ₹1 per day per book is charged.",
+                tip: "If you still need the book, visit the circulation desk before the due date to renew it, provided no other student has placed a hold on it.",
+                keywords: "library fine overdue late fee return date book deadline renewal charges penalty loan period"
+            }, 
         ];
 
         /* =========================================================================
@@ -829,19 +934,20 @@
 
         // Built-in College Synonyms Dictionary
         const synonymDictionary = {
-            "wifi": ["wifiso", "wi-fi", "wi fi", "internet", "eduroam", "net", "network", "ict", "hotspot", "online"],
+            "wifi": ["wifiso", "wi-fi", "wi fi", "internet", "eduroam", "net", "network", "ict", "hotspot", "online", "mydu"],
             "wifiso": ["wifi", "eduroam", "internet"],
             "internet": ["wifi", "eduroam", "net", "network"],
             "eduroam": ["wifi", "internet", "login"],
             "admit": ["hall ticket", "hallticket", "admitcard", "exam card", "roll number", "entry card"],
             "hallticket": ["admit card", "hall ticket"],
-            "attendance": ["attendence", "shortage", "detained", "detain", "75%", "medical", "undertaking", "short"],
-            "attendence": ["attendance", "75%"],
+            "attendance": ["attendence", "shortage", "detained", "detain", "66.6%", "75%", "medical", "undertaking", "short"],
+            "attendence": ["attendance", "75%", "66.6%"],
             "internal": ["ia", "assignment", "ca", "retest", "test", "marks"],
             "marks": ["score", "grade", "cgpa", "sgpa", "internal", "result", "ia"],
-            "canteen": ["food", "dosa", "coffee", "lunch", "meals", "nescafe"],
-            "library": ["books", "reading room", "issue", "jstor"],
-            "travel": ["bus pass", "dtc", "metro", "railway concession"]
+            "canteen": ["food", "dosa", "coffee", "lunch", "meals", "nescafe", "maggi point"],
+            "library": ["books", "reading room", "issue", "jstor", "fine", "opac", "catalogue"],
+            "verification": ["documents", "csas", "cuet", "admission", "attestation", "10th", "12th"],
+            "travel": ["bus pass", "dtc", "metro", "railway concession", "transport"]
         };
 
         // Utility: Normalize text (removes special chars and extra spaces)
@@ -849,7 +955,7 @@
             return (str || "").toLowerCase().replace(/[^a-z0-9]/g, "");
         }
 
-        // Levenshtein Distance for typo detection (e.g. "attendence" -> "attendance")
+        // Levenshtein Distance for typo detection
         function getLevenshteinDistance(a, b) {
             if (a.length === 0) return b.length;
             if (b.length === 0) return a.length;
@@ -910,7 +1016,7 @@
 
             let score = 0;
 
-            // 1. Direct normalized match (catches "wifiso" inside keywords or "wifi" inside "wi-fi")
+            // 1. Direct normalized match
             if (normalizedContent.includes(cleanQuery)) {
                 score += 80;
             }
@@ -920,11 +1026,10 @@
                 score += 100;
             }
 
-            // 3. Synonym matching from our college dictionary
+            // 3. Synonym matching from dictionary
             for (const [key, synonyms] of Object.entries(synonymDictionary)) {
                 const cleanKey = cleanString(key);
                 if (cleanQuery.includes(cleanKey) || cleanKey.includes(cleanQuery)) {
-                    // Check if this FAQ relates to this concept
                     if (normalizedContent.includes(cleanKey)) {
                         score += 60;
                     }
@@ -936,7 +1041,7 @@
                 }
             }
 
-            // 4. Token-by-token fuzzy matching for multi-word queries or typos
+            // 4. Token-by-token fuzzy matching
             const queryWords = rawQuery.split(/\s+/).filter(w => w.length > 1);
             const contentWords = searchableContent.split(/[\s,.\-()?!:]+/).filter(w => w.length > 1);
 
@@ -966,14 +1071,13 @@
 
             let result = text;
             words.forEach(word => {
-                // If direct substring exists, highlight it
                 const regex = new RegExp(`(${word.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
                 result = result.replace(regex, '<mark class="faq-highlight">$1</mark>');
             });
             return result;
         }
 
-        // Minimalist SVG Icons for Categories
+        // Category SVGs
         const categorySvgs = {
             Academics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"></path></svg>`,
             Exams: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`,
@@ -1044,7 +1148,6 @@
                 triggerBtn.addEventListener('click', () => {
                     const isOpen = card.classList.contains('open');
                     
-                    // Close other cards for a neat single-open view
                     document.querySelectorAll('.faq-card.open').forEach(c => {
                         if (c !== card) {
                             c.classList.remove('open');
@@ -1064,18 +1167,17 @@
         function executeSmartSearch() {
             const query = searchInput.value.trim();
 
-            // Toggle clear button
             clearBtn.style.display = query.length > 0 ? 'inline-flex' : 'none';
 
-            // 1. Filter by category first
+            // 1. Filter by category
             let baseList = faqData;
             if (currentFilter !== 'all') {
                 baseList = faqData.filter(item => item.category === currentFilter);
             }
 
-            // 2. If no search query, show the base list
+            // 2. If no search query, show base category list
             if (!query) {
-                feedbackBar.textContent = `Showing all ${baseList.length} verified resolutions`;
+                feedbackBar.textContent = `Showing all ${baseList.length} verified answers`;
                 renderFAQs(baseList, "");
                 return;
             }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Syllabus &amp; Curricula — VenkySpace</title>
-    <meta name="description" content="Official UGCF NEP Course Syllabus, Learning Objectives &amp; Subject Matrices - Sri Venkateswara College.">
+    <meta name="description" content="Official UGCF NEP Course Syllabus, Learning Objectives &amp; Subject Matrices.">
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 
     <!-- Fonts: Plus Jakarta Sans & Inter -->
@@ -36,13 +36,17 @@
             --stream-arts: #D97706;
             --stream-arts-bg: rgba(217, 119, 6, 0.08);
 
-            /* Paper Category Badges */
+            /* Category Badges */
             --badge-dsc-bg: rgba(13, 122, 95, 0.09);
             --badge-dsc-text: #0D7A5F;
-            --badge-dse-bg: rgba(124, 58, 237, 0.09);
-            --badge-dse-text: #7C3AED;
             --badge-ge-bg: rgba(217, 119, 6, 0.09);
             --badge-ge-text: #B45309;
+            --badge-sec-bg: rgba(14, 116, 144, 0.09);
+            --badge-sec-text: #0E7490;
+            --badge-vac-bg: rgba(190, 24, 93, 0.09);
+            --badge-vac-text: #BE185D;
+            --badge-aec-bg: rgba(15, 118, 110, 0.09);
+            --badge-aec-text: #0F766E;
 
             --font-heading: 'Plus Jakarta Sans', sans-serif;
             --font-body:    'Inter', sans-serif;
@@ -75,10 +79,14 @@
 
             --badge-dsc-bg: rgba(52, 211, 153, 0.15);
             --badge-dsc-text: #6EE7B7;
-            --badge-dse-bg: rgba(167, 139, 250, 0.15);
-            --badge-dse-text: #C4B5FD;
             --badge-ge-bg: rgba(251, 191, 36, 0.15);
             --badge-ge-text: #FCD34D;
+            --badge-sec-bg: rgba(34, 211, 238, 0.15);
+            --badge-sec-text: #67E8F9;
+            --badge-vac-bg: rgba(244, 114, 182, 0.15);
+            --badge-vac-text: #F472B6;
+            --badge-aec-bg: rgba(45, 212, 191, 0.15);
+            --badge-aec-text: #5EEAD4;
 
             --shadow-card:    0 4px 20px rgba(0, 0, 0, 0.45);
             --shadow-hover:   0 6px 24px rgba(52, 211, 153, 0.18);
@@ -199,29 +207,16 @@
             stroke-width: 2.2;
         }
 
-        .switch-icon.moon {
-            display: none;
-        }
-
-        [data-theme="dark"] .switch-thumb {
-            transform: translateX(26px);
-            background: #FFFFFF;
-            color: #0F172A;
-        }
-
-        [data-theme="dark"] .switch-icon.sun {
-            display: none;
-        }
-
-        [data-theme="dark"] .switch-icon.moon {
-            display: block;
-        }
+        .switch-icon.moon { display: none; }
+        [data-theme="dark"] .switch-thumb { transform: translateX(26px); background: #FFFFFF; color: #0F172A; }
+        [data-theme="dark"] .switch-icon.sun { display: none; }
+        [data-theme="dark"] .switch-icon.moon { display: block; }
 
         /* Container Layout */
         .vault-container {
-            max-width: 1280px;
+            max-width: 1260px;
             margin: 0 auto;
-            padding: 28px 24px 64px;
+            padding: 26px 22px 64px;
         }
 
         /* Navigation Controls & Breadcrumbs */
@@ -270,9 +265,7 @@
             transition: color 0.15s ease;
         }
 
-        .breadcrumb-step:hover {
-            color: var(--accent);
-        }
+        .breadcrumb-step:hover { color: var(--accent); }
 
         .breadcrumb-step.active {
             color: var(--text-heading);
@@ -288,7 +281,7 @@
 
         /* Context Header */
         .vault-header {
-            margin-bottom: 26px;
+            margin-bottom: 24px;
         }
 
         .college-tag {
@@ -305,17 +298,36 @@
 
         .vault-header h1 {
             font-family: var(--font-heading);
-            font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+            font-size: clamp(1.7rem, 2.3vw, 2.1rem);
             font-weight: 800;
             color: var(--text-heading);
             letter-spacing: -0.02em;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .vault-header p {
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 750px;
+        }
+
+        /* Info Banner */
+        .info-notification-banner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 18px;
+            font-size: 0.8rem;
+            color: var(--text-body);
+        }
+
+        .info-notification-banner svg {
+            flex-shrink: 0;
+            stroke: var(--accent);
         }
 
         /* Filters & Search Toolbar */
@@ -324,7 +336,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
             flex-wrap: wrap;
         }
 
@@ -332,12 +344,12 @@
             position: relative;
             flex: 1;
             max-width: 360px;
-            min-width: 240px;
+            min-width: 230px;
         }
 
         .search-box-wrap input {
             width: 100%;
-            padding: 9px 14px 9px 36px;
+            padding: 9px 12px 9px 36px;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-sm);
@@ -397,18 +409,19 @@
             color: #FFFFFF;
         }
 
-        /* Bento Grid */
+        /* Bento Grid & Card Styles */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 14px;
+            gap: 16px;
         }
 
         .bento-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
-            padding: 16px 18px;
+            padding: 18px 20px;
+            min-height: 156px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -432,9 +445,9 @@
         }
 
         .card-icon-wrap {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
             background: var(--accent-subtle);
             color: var(--accent);
             display: flex;
@@ -454,31 +467,41 @@
             font-weight: 600;
             padding: 3px 8px;
             border-radius: 4px;
+            letter-spacing: 0.02em;
         }
 
         .card-stream-tag.science { background: var(--stream-science-bg); color: var(--stream-science); }
         .card-stream-tag.commerce { background: var(--stream-commerce-bg); color: var(--stream-commerce); }
         .card-stream-tag.arts { background: var(--stream-arts-bg); color: var(--stream-arts); }
+        
+        .card-stream-tag.badge-dsc { background: var(--badge-dsc-bg); color: var(--badge-dsc-text); }
+        .card-stream-tag.badge-ge { background: var(--badge-ge-bg); color: var(--badge-ge-text); }
+        .card-stream-tag.badge-sec { background: var(--badge-sec-bg); color: var(--badge-sec-text); }
+        .card-stream-tag.badge-vac { background: var(--badge-vac-bg); color: var(--badge-vac-text); }
+        .card-stream-tag.badge-aec { background: var(--badge-aec-bg); color: var(--badge-aec-text); }
 
         .card-info h3 {
             font-family: var(--font-heading);
             font-size: 0.98rem;
             font-weight: 700;
             color: var(--text-heading);
-            margin-bottom: 3px;
+            line-height: 1.35;
+            margin-bottom: 4px;
         }
 
         .card-info p {
             font-size: 0.78rem;
+            font-weight: 500;
             color: var(--text-muted);
+            line-height: 1.4;
         }
 
         .card-footer-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 10px;
-            margin-top: 10px;
+            padding-top: 12px;
+            margin-top: 12px;
             border-top: 1px solid var(--border-subtle);
         }
 
@@ -500,9 +523,16 @@
             transform: translateX(3px);
         }
 
-        /* ========================================================
-           FULL-SCREEN / IN-BOX SYLLABUS VIEWER
-           ======================================================== */
+        .serial-pill {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-subtle);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        /* Fullscreen / In-box Syllabus Viewer */
         .syllabus-fullscreen-wrapper {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -512,10 +542,8 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            transition: all 0.2s ease;
         }
 
-        /* Dedicated Fullscreen Mode */
         .syllabus-fullscreen-wrapper.is-fullscreen {
             position: fixed !important;
             inset: 0 !important;
@@ -554,9 +582,6 @@
             font-size: 0.98rem;
             font-weight: 700;
             color: var(--text-heading);
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .badge-verified {
@@ -591,32 +616,11 @@
             transition: all 0.15s ease;
         }
 
-        .btn-viewer-action svg {
-            width: 14px;
-            height: 14px;
-            stroke-width: 2;
-        }
-
-        .btn-viewer-action.primary {
-            background: var(--accent);
-            color: #FFFFFF;
-            border: none;
-        }
-
-        .btn-viewer-action.primary:hover {
-            background: var(--accent-hover);
-        }
-
-        .btn-viewer-action.secondary {
-            background: var(--bg-card);
-            color: var(--text-heading);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-viewer-action.secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
+        .btn-viewer-action svg { width: 14px; height: 14px; stroke-width: 2; }
+        .btn-viewer-action.primary { background: var(--accent); color: #FFFFFF; border: none; }
+        .btn-viewer-action.primary:hover { background: var(--accent-hover); }
+        .btn-viewer-action.secondary { background: var(--bg-card); color: var(--text-heading); border: 1px solid var(--border-color); }
+        .btn-viewer-action.secondary:hover { border-color: var(--accent); color: var(--accent); }
 
         .viewer-frame-body {
             position: relative;
@@ -627,9 +631,7 @@
             background: #E5E7EB;
         }
 
-        [data-theme="dark"] .viewer-frame-body {
-            background: #09100D;
-        }
+        [data-theme="dark"] .viewer-frame-body { background: #09100D; }
 
         .syllabus-pdf-frame {
             width: 100%;
@@ -639,7 +641,7 @@
             background: #FFFFFF;
         }
 
-        /* Minimalist Pending Notification (Matching Time Table Hub Card) */
+        /* Coming Soon / Pending Document Box */
         .syllabus-pending-box {
             position: absolute;
             inset: 0;
@@ -647,7 +649,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 36px 20px;
+            padding: 40px 24px;
             text-align: center;
             background: var(--bg-card);
         }
@@ -661,40 +663,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
-        .pending-icon-circle svg {
-            width: 28px;
-            height: 28px;
-            stroke-width: 1.8;
-        }
-
-        .pending-kicker {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .pending-title {
-            font-family: var(--font-heading);
-            font-size: 1.32rem;
-            font-weight: 800;
-            color: var(--text-heading);
-            margin-bottom: 10px;
-            letter-spacing: -0.01em;
-        }
-
-        .pending-desc {
-            font-size: 0.86rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            line-height: 1.65;
-            margin-bottom: 24px;
-        }
+        .pending-icon-circle svg { width: 26px; height: 26px; stroke-width: 1.8; }
+        .pending-kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+        .pending-title { font-family: var(--font-heading); font-size: 1.38rem; font-weight: 800; color: var(--text-heading); margin-bottom: 8px; }
+        .pending-desc { font-size: 0.88rem; color: var(--text-muted); max-width: 520px; line-height: 1.6; margin-bottom: 22px; }
 
         .pending-chips {
             display: flex;
@@ -717,24 +692,23 @@
             border-radius: var(--radius-sm);
         }
 
-        .pending-chip svg {
-            width: 13px;
-            height: 13px;
-        }
+        .pending-chip svg { width: 13px; height: 13px; }
 
         .no-results-msg {
             grid-column: 1 / -1;
-            padding: 40px;
+            padding: 36px;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             background: var(--bg-card);
             border: 1px dashed var(--border-color);
             border-radius: var(--radius-md);
         }
 
         @media (max-width: 768px) {
-            .vault-container { padding: 20px 14px 44px; }
+            .vault-container { padding: 18px 14px 44px; }
+            .bento-grid { grid-template-columns: 1fr; gap: 12px; }
+            .bento-card { min-height: 140px; padding: 16px; }
             .viewer-frame-body { height: 60vh; min-height: 420px; }
             .filter-toolbar { flex-direction: column; align-items: stretch; }
             .search-box-wrap { max-width: 100%; }
@@ -750,7 +724,7 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "zaesi27ysh");
-</script>
+    </script>
 </head>
 <body>
 
@@ -762,11 +736,9 @@
         </a>
 
         <div class="topbar-right">
-            <!-- Minimalist Pill Theme Toggle Switch -->
             <button class="theme-switch-btn" id="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle Theme" title="Toggle Light / Dark Mode">
                 <span class="switch-track">
                     <span class="switch-thumb">
-                        <!-- Sun Icon for Light Mode -->
                         <svg class="switch-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="4.5"></circle>
                             <line x1="12" y1="1" x2="12" y2="4"></line>
@@ -778,7 +750,6 @@
                             <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
                             <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
                         </svg>
-                        <!-- Moon Icon for Dark Mode -->
                         <svg class="switch-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
@@ -801,7 +772,11 @@
                 <span class="breadcrumb-step" id="crumb-courses">Department</span>
                 <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
                 <span class="breadcrumb-step" id="crumb-semesters">Semester</span>
-                <span class="breadcrumb-separator"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                <span class="breadcrumb-separator" id="sep-categories" style="display:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                <span class="breadcrumb-step" id="crumb-categories" style="display:none;">Category</span>
+                <span class="breadcrumb-separator" id="sep-subjects" style="display:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                <span class="breadcrumb-step" id="crumb-subjects" style="display:none;">Subject</span>
+                <span class="breadcrumb-separator" id="sep-viewer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
                 <span class="breadcrumb-step" id="crumb-viewer">Syllabus PDF</span>
             </nav>
         </div>
@@ -810,53 +785,64 @@
         <header class="vault-header">
             <span class="college-tag">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                Sri Venkateswara College • Department Schedules
+                Academic Curricula &amp; Matrices
             </span>
             <h1 id="view-title">Select Your Department</h1>
-            <p id="view-subtitle">Access verified syllabi, core course guidelines, practical matrices, and reference books across all undergraduate departments.</p>
+            <p id="view-subtitle">Access verified syllabi, core paper guidelines, and elective curricula across all undergraduate departments.</p>
         </header>
 
-        <!-- SCREEN 1: 20 COURSES SELECTION -->
+        <!-- SCREEN 1: COURSES -->
         <div id="screen-courses">
             <div class="filter-toolbar">
                 <div class="search-box-wrap">
                     <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" id="course-search-input" placeholder="Search department (e.g. Economics, Mathematics)..." autocomplete="off">
+                    <input type="text" id="course-search-input" placeholder="Search department (e.g. Economics)..." autocomplete="off">
                 </div>
-
                 <div class="category-filter-chips">
-                    <button class="category-chip active" data-stream="all">All Departments (20)</button>
+                    <button class="category-chip active" data-stream="all">All Departments</button>
                     <button class="category-chip" data-stream="Science">Science</button>
                     <button class="category-chip" data-stream="Commerce">Commerce</button>
                     <button class="category-chip" data-stream="Arts">Arts</button>
                 </div>
             </div>
-
-            <div class="bento-grid" id="courses-grid">
-                <!-- Courses injected via JavaScript -->
-            </div>
+            <div class="bento-grid" id="courses-grid"></div>
         </div>
 
-        <!-- SCREEN 2: SEMESTER SELECTION -->
+        <!-- SCREEN 2: SEMESTER -->
         <div id="screen-semesters" style="display: none;">
-            <div class="bento-grid" id="semesters-grid">
-                <!-- Semesters injected via JavaScript -->
-            </div>
+            <div class="bento-grid" id="semesters-grid"></div>
         </div>
 
-        <!-- SCREEN 3: DIRECT FULL-SCREEN / IN-BOX SYLLABUS VIEWER -->
+        <!-- SCREEN 3: CATEGORY (DSC, GE/GEL, SEC, VAC, AEC) -->
+        <div id="screen-categories" style="display: none;">
+            <div id="category-info-banner" style="display:none;" class="info-notification-banner">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span id="category-info-text">Third Year (Semesters 5 &amp; 6) focuses exclusively on Discipline Specific Core (DSC) papers.</span>
+            </div>
+            <div class="bento-grid" id="categories-grid"></div>
+        </div>
+
+        <!-- SCREEN 4: SUBJECT SELECTION -->
+        <div id="screen-subjects" style="display: none;">
+            <div class="filter-toolbar">
+                <div class="search-box-wrap">
+                    <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="subject-search-input" placeholder="Search paper title..." autocomplete="off">
+                </div>
+                <div id="subject-pool-badge" style="font-size: 0.8rem; font-weight: 700; color: var(--accent);"></div>
+            </div>
+            <div class="bento-grid" id="subjects-grid"></div>
+        </div>
+
+        <!-- SCREEN 5: VIEWER -->
         <div id="screen-viewer" style="display: none;">
             <div class="syllabus-fullscreen-wrapper" id="syllabus-wrapper">
-                
-                <!-- Viewer Header Toolbar -->
                 <div class="viewer-top-toolbar">
                     <div class="viewer-meta-left">
-                        <span class="viewer-doc-title" id="viewer-doc-title">
-                            Official Syllabus Matrix
-                        </span>
+                        <span class="viewer-doc-title" id="viewer-doc-title">Syllabus Matrix</span>
                         <span class="badge-verified">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                            Verified SVC Matrix
+                            Verified Matrix
                         </span>
                     </div>
 
@@ -866,12 +852,10 @@
                             <svg id="fs-collapse-icon" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
                             <span id="fs-btn-label">Fullscreen</span>
                         </button>
-
                         <a href="#" target="_blank" id="viewer-external-link" class="btn-viewer-action secondary" style="display: none;">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                             <span>Open Tab</span>
                         </a>
-
                         <a href="#" id="viewer-download-link" class="btn-viewer-action primary" download style="display: none;">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                             <span>Download</span>
@@ -879,47 +863,278 @@
                     </div>
                 </div>
 
-                <!-- Viewer Body Frame -->
                 <div class="viewer-frame-body" id="viewer-frame-container">
-                    
-                    <!-- Clean Pending Notice (Matches Time Table Screen Exactly) -->
                     <div class="syllabus-pending-box" id="viewer-pending-box">
                         <div class="pending-icon-circle">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         </div>
-                        <span class="pending-kicker">Academic Session Notification</span>
-                        <h3 class="pending-title" id="pending-title-text">Semester Timetable Awaiting Term Commencement</h3>
+                        <span class="pending-kicker">Curriculum Update</span>
+                        <h3 class="pending-title" id="pending-title-text">Coming Soon</h3>
                         <p class="pending-desc" id="pending-desc-text">
-                            Sri Venkateswara College is currently conducting the Odd Semester academic term (Semesters I, III, V, VII). Official departmental syllabi, room assignments, and practical matrices for this semester will be published immediately upon the commencement of the upcoming term in accordance with the University of Delhi academic calendar.
+                            The syllabus for this paper is currently being updated and will be available shortly.
                         </p>
                         <div class="pending-chips">
                             <span class="pending-chip">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                                Sri Venkateswara College
-                            </span>
-                            <span class="pending-chip">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                                DU NEP-UGCF Scheme
+                                UGCF NEP 2020
                             </span>
                             <span class="pending-chip">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                                Active Semester Matrix
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+                                Upload Scheduled
                             </span>
                         </div>
                     </div>
-
-                    <!-- Native Accessible PDF / Google Drive Embed -->
                     <iframe id="pdf-viewer-frame" class="syllabus-pdf-frame" title="Syllabus PDF Viewer" allow="autoplay; fullscreen"></iframe>
                 </div>
-
             </div>
         </div>
 
     </div>
 
     <script>
-        // Subject SVG Icon System (Clean, Minimalist Line Design)
-        const subjectIcons = {
+        /* =========================================================================
+           ⭐ 🔗 INSTANT SYLLABUS LINKS REGISTRY 🔗 ⭐
+           Paste your Google Drive share links directly between the quotes ("") below.
+           ========================================================================= */
+        const SYLLABUS_REGISTRY = {
+
+            /* -------------------------------------------------------------
+               1. DISCIPLINE SPECIFIC CORE (DSC)
+               ------------------------------------------------------------- */
+            "Economics Sem 1": "https://drive.google.com/file/d/1wZhTwcIWW6fXpabIOE7PLtHCgiMVc4HB/view?usp=drive_link",
+            "Economics Sem 2": "https://drive.google.com/file/d/1hO90iMHxyg1CRGj89AE401KMHDeBWBtB/view?usp=drive_link",
+            "Economics Sem 3": "https://drive.google.com/file/d/1yGu0NBurXjZYVtEXPAtZOy8tRWUKv6XD/view?usp=drive_link",
+            "Economics Sem 4": "https://drive.google.com/file/d/15yYoKuO3BsF7xaQzgwk_HbN_uzIitcfp/view?usp=drive_link",
+            "Economics Sem 5": "https://drive.google.com/file/d/1JILOvkDnnm5Xx7iIN6o5JJpTuI7uEBkJ/view?usp=drive_link",
+            "Economics Sem 6": "https://drive.google.com/file/d/14rMebQ5wv6PBtBtQQ7ZZ1CY4pvEzoXIq/view?usp=drive_link",
+
+            "Commerce (Honours) Sem 1": "https://drive.google.com/file/d/1SgiG6LbWx4Q2yoJG27ahrRIWoIXLb2wp/view?usp=drive_link",
+            "Commerce (Honours) Sem 2": "https://drive.google.com/file/d/1jublKiktZl4wBneaoj2e8htTNqlSnXqU/view?usp=drive_link",
+            "Commerce (Honours) Sem 3": "https://drive.google.com/file/d/188cVdIRj8OsoiHm0KANE_ZplYNOtnT5U/view?usp=drive_link",
+            "Commerce (Honours) Sem 4": "https://drive.google.com/file/d/1OZDE3MGUPgiuBRDmD3MrNVW1aSiOw7fr/view?usp=drive_link",
+            "Commerce (Honours) Sem 5": "https://drive.google.com/file/d/13abI7MjqZQb44oBgzt2R_RdOA4YGbpNq/view?usp=drive_link",
+            "Commerce (Honours) Sem 6": "https://drive.google.com/file/d/1QLrmCGzhuY64MBRKoobHKkjsXZrghkg7/view?usp=drive_link",
+
+            "Commerce (Programme) Sem 1": "https://drive.google.com/file/d/1nZCS9tZUb4laeJB-m9YWxvxFBJ5ehoay/view?usp=drive_link",
+            "Commerce (Programme) Sem 2": "https://drive.google.com/file/d/1LIBmZCdHqG0F7Vs_vKViGXSh7k7xTJP3/view?usp=drive_link",
+            "Commerce (Programme) Sem 3": "https://drive.google.com/file/d/1j14sT-HC_KTn3PAnuqacZnQ2UFYpxUhW/view?usp=drive_link",
+            "Commerce (Programme) Sem 4": "https://drive.google.com/file/d/11wQWsCZoI9qIh0h-dbeDwUBIG3Im4_2h/view?usp=drive_link",
+            "Commerce (Programme) Sem 5": "https://drive.google.com/file/d/1XzJgERslzgAkfmDjGmE84SbrrXNBG16H/view?usp=drive_link",
+            "Commerce (Programme) Sem 6": "https://drive.google.com/file/d/1dMGacQbPjgpklvkeAkFljOO5dav5ReWW/view?usp=drive_link",
+
+            "Mathematics Sem 1": "https://drive.google.com/file/d/1HEsvj5LCbS4LqAwVuzwGTwGz3JY4Bnrc/view?usp=drive_link",
+            "Mathematics Sem 2": "https://drive.google.com/file/d/1OmyAP2sibt8jNSqO8TCAhGt1YY6KnQbu/view?usp=drive_link",
+            "Mathematics Sem 3": "https://drive.google.com/file/d/1dpBPw7lKGL0r7BIn3-bwYaLEMs7qaQPW/view?usp=drive_link",
+            "Mathematics Sem 4": "https://drive.google.com/file/d/12ILX9ngldb8b6VyUzCSK4lFOCIMdmUMS/view?usp=drive_link",
+            "Mathematics Sem 5": "https://drive.google.com/file/d/1GAXpFr10hAnTuQLNEwOHRuLEL0YymtC2/view?usp=drive_link",
+            "Mathematics Sem 6": "https://drive.google.com/file/d/1GBec9LnfexfogJ5xayZRQlovzuXVZ8NC/view?usp=drive_link",
+
+            "Statistics Sem 1": "https://drive.google.com/file/d/1ffEtLLqkMZ7cCrGPO-B2N2Vs_zv_VQcx/view?usp=drive_link",
+            "Statistics Sem 2": "https://drive.google.com/file/d/1ygrho-0fZlaOph_lTab-4r3ZWO6e-weV/view?usp=drive_link",
+            "Statistics Sem 3": "https://drive.google.com/file/d/1OqVa_GqhtwGyE85AXBRoQYopzuwp3crk/view?usp=drive_link",
+            "Statistics Sem 4": "https://drive.google.com/file/d/171lLD07jUECszNVBGcUfkvY_H_uOGOLo/view?usp=drive_link",
+            "Statistics Sem 5": "https://drive.google.com/file/d/1Vya6UQYLHHwurPzuVGArnyhe9yIZ4jGP/view?usp=drive_link",
+            "Statistics Sem 6": "https://drive.google.com/file/d/1wVuv531TQOw_0CjwuNQVkHRKdRKBrxY8/view?usp=drive_link",
+
+            "Physics Sem 1": "https://drive.google.com/file/d/13vmd3pWGTPm0JPuRD-XkwfleoXWx7ScQ/view?usp=drive_link",
+            "Physics Sem 2": "https://drive.google.com/file/d/1S2HM1Mj5T6CH6OJDqkFKPANNSUwNK0Xa/view?usp=drive_link",
+            "Physics Sem 3": "https://drive.google.com/file/d/1MyDmMDmjoj9CJLpbBpChAS5pdKvcfXD_/view?usp=drive_link",
+            "Physics Sem 4": "https://drive.google.com/file/d/1EFw50GcsCPQQGhGFYYk1sYWZR_LOuOAN/view?usp=drive_link",
+            "Physics Sem 5": "https://drive.google.com/file/d/1kvwGabCPoUJAdUsV3_0TYvNn383URGD-/view?usp=drive_link",
+            "Physics Sem 6": "https://drive.google.com/file/d/1JmlIqSTbqNlGDh33gR27Gark8mLgZlK1/view?usp=drive_link",
+
+            "Chemistry Sem 1": "https://drive.google.com/file/d/1Sjf1JkBOP75rPXnLTUjOwLsqTA5K3Qmv/view?usp=drive_link",
+            "Chemistry Sem 2": "https://drive.google.com/file/d/1GKfDkDHbK-MniwXLpUCqbeYMybpvA0aF/view?usp=drive_link",
+            "Chemistry Sem 3": "https://drive.google.com/file/d/1bK2LcU71gwI_FMkAcXdJ03qLTCwhNhpC/view?usp=drive_link",
+            "Chemistry Sem 4": "https://drive.google.com/file/d/1MMOQ7z20BDz6p9zYBFzwm_04pohvCO45/view?usp=drive_link",
+            "Chemistry Sem 5": "https://drive.google.com/file/d/1wypVEx5-EbIZkCJaXaG8bAzai20aMgks/view?usp=drive_link",
+            "Chemistry Sem 6": "https://drive.google.com/file/d/1dr1SzTm_7Nru6e9DUiXWwXKKHbbQz-FV/view?usp=drive_link",
+
+            "Electronics Sem 1": "https://drive.google.com/file/d/1q2KJXMifpjJY7AgfCj9zhkkIGyP4Kzit/view?usp=drive_link",
+            "Electronics Sem 2": "https://drive.google.com/file/d/1GiJzVJAgyszGv9bqqjzk7BqeRSbupSTT/view?usp=drive_link",
+            "Electronics Sem 3": "https://drive.google.com/file/d/1A4S-uNUd_Xdk_hUfhzbXHzBidtzrNGBb/view?usp=drive_link",
+            "Electronics Sem 4": "https://drive.google.com/file/d/1fYVWpG-7yoqi8jzqhcic6VeLmDxYoryR/view?usp=drive_link",
+            "Electronics Sem 5": "https://drive.google.com/file/d/1XbTMTycZ7f6wpGiqznZcrWkDBB0acnVB/view?usp=drive_link",
+            "Electronics Sem 6": "https://drive.google.com/file/d/1TJN_Xba0fc7CcYwaFeiY9_4JS9dnDf_O/view?usp=drive_link",
+
+            "Biochemistry Sem 1": "https://drive.google.com/file/d/1MyVb-A1z9G7X2Ta8L-64jfxiXox64B6L/view?usp=drive_link",
+            "Biochemistry Sem 2": "https://drive.google.com/file/d/1-ZapYt-YYAnuJthoik65Z35HF-ovQ9H2/view?usp=drive_link",
+            "Biochemistry Sem 3": "https://drive.google.com/file/d/1mGRQoViC5FBuFHz6iT15QjTvlffSjxkd/view?usp=drive_link",
+            "Biochemistry Sem 4": "https://drive.google.com/file/d/1rLt90LPuDBs-xdblLv_oXUPP_PUiUbVi/view?usp=drive_link",
+            "Biochemistry Sem 5": "https://drive.google.com/file/d/17_SFp-dAS9iz4-kYAS5KkPhpVT2R4j0E/view?usp=drive_link",
+            "Biochemistry Sem 6": "https://drive.google.com/file/d/103vWHGSxsEfiouys1lO8Rg7895uVZJS_/view?usp=drive_link",
+
+            "Botany Sem 1": "https://drive.google.com/file/d/1Okn5CBXjWlvjwj2Ufdi9gbY4LYBFJ4dd/view?usp=drive_link",
+            "Botany Sem 2": "https://drive.google.com/file/d/1dU6b-N-SXfQXevp8f0OjsV3S2NV8-zR2/view?usp=drive_link",
+            "Botany Sem 3": "https://drive.google.com/file/d/1V3mYXJRycL4iMMSUtn4p5m--MdCQDyTF/view?usp=drive_link",
+            "Botany Sem 4": "https://drive.google.com/file/d/1coueGrtvHnUCti_mqDuPR6HACzsPTina/view?usp=drive_link",
+            "Botany Sem 5": "https://drive.google.com/file/d/14IoEl3_7WbKEpddBhCfVBmgttO0yfI_8/view?usp=drive_link",
+            "Botany Sem 6": "https://drive.google.com/file/d/1HD_gZGcdIbcQpo3bCBmxUnkU3__5NqMu/view?usp=drive_link",
+
+            "Zoology Sem 1": "https://drive.google.com/file/d/1v5zS-lc5SGfGwZw2LIjAokL2bQBh6fjV/view?usp=drive_link",
+            "Zoology Sem 2": "https://drive.google.com/file/d/1Bpr2WF5ftdR_8AuJbPFXqLWAY5HiXugn/view?usp=drive_link",
+            "Zoology Sem 3": "https://drive.google.com/file/d/1XcZCjifrAZT4DEWakKYjC9w9scbJk_9I/view?usp=drive_link",
+            "Zoology Sem 4": "https://drive.google.com/file/d/1d9DOk1g0mHBMPV37RkO7bvX4WZRZjcCf/view?usp=drive_link",
+            "Zoology Sem 5": "https://drive.google.com/file/d/18Iymtb_OkdVOWr8mkmszLXjGY23M8CFN/view?usp=drive_link",
+            "Zoology Sem 6": "https://drive.google.com/file/d/1jE29mJeD9M8Wmjfwno1bw7lXKQnEYRWR/view?usp=drive_link",
+
+            "Biological Sciences Sem 1": "https://drive.google.com/file/d/17Y5Hy2HVpd1De8Xmuqo7yVToxKzxfXtv/view?usp=drive_link",
+            "Biological Sciences Sem 2": "https://drive.google.com/file/d/1TCMhAkjY7DlVEBibWj1cf-xzDaJu0fAQ/view?usp=drive_link",
+            "Biological Sciences Sem 3": "https://drive.google.com/file/d/1H0-TLCfvgSxc1vKRnxltNiBlAhl-1vou/view?usp=drive_link",
+            "Biological Sciences Sem 4": "https://drive.google.com/file/d/1CZRFpllvhY74dcmU_tYZveFNEnmekePc/view?usp=drive_link",
+            "Biological Sciences Sem 5": "https://drive.google.com/file/d/1ejtYqIQFDhqrg3JHmZn2sU3HfbVRGzem/view?usp=drive_link",
+            "Biological Sciences Sem 6": "https://drive.google.com/file/d/16nbG04GI9sOPN6uU6JFvszMwG4q6UT7W/view?usp=drive_link",
+
+            "Sociology Sem 1": "https://drive.google.com/file/d/11masTm46U3VCVEfMfT7ZRF3YWJYwpUR0/view?usp=drive_link",
+            "Sociology Sem 2": "https://drive.google.com/file/d/1X3oY8MKbNSpAVO6mQPJj-WktCpaRuyzG/view?usp=drive_link",
+            "Sociology Sem 3": "https://drive.google.com/file/d/11Bc62ljTBxuqHCRnhnBWYerl8xH1wFYd/view?usp=drive_link",
+            "Sociology Sem 4": "https://drive.google.com/file/d/1QE8qhDLA7c5cRaJRo4Sx8JOks2MbUwHQ/view?usp=drive_link",
+            "Sociology Sem 5": "https://drive.google.com/file/d/1Kk8F9VXHPlhyz-dmd-SuEUrW31vnfiVs/view?usp=drive_link",
+            "Sociology Sem 6": "https://drive.google.com/file/d/1KGPPMoimmNbp7s-F7xL9u4EaB-9iHi1E/view?usp=drive_link",
+
+            "Political Science Sem 1": "https://drive.google.com/file/d/1BQWtt3NhjDWFnIH6Xa1bw3SraFzkviZZ/view?usp=drive_link",
+            "Political Science Sem 2": "https://drive.google.com/file/d/14i9cHqw4uISjcCc31o3jM1ZOZc_PITfh/view?usp=drive_link",
+            "Political Science Sem 3": "https://drive.google.com/file/d/1v9Z1GhVmqY5QWjyYBU8O9H5jnmjjOQAU/view?usp=drive_link",
+            "Political Science Sem 4": "https://drive.google.com/file/d/1LPDXnv0jH0gCDbnQvOnf_9UgoNBnbJK6/view?usp=drive_link",
+            "Political Science Sem 5": "https://drive.google.com/file/d/1p5TBA5TUMmvdJ9m7GyPFrjFj6u3xwCkv/view?usp=drive_link",
+            "Political Science Sem 6": "https://drive.google.com/file/d/1gxyCBBbFBk_DBywthm9ImwtidY60wwh2/view?usp=drive_link",
+
+            "History Sem 1": "https://drive.google.com/file/d/1YVrLkiwOtfSPVGoGNNGZxhyHpGsi3hg6/view?usp=drive_link",
+            "History Sem 2": "https://drive.google.com/file/d/10VN-jMrjXIKtBMijGES114mK8ClpLpcg/view?usp=drive_link",
+            "History Sem 3": "https://drive.google.com/file/d/1iAT_kr7iY2UnWeeRpYxhiWDPne3HNsOX/view?usp=drive_link",
+            "History Sem 4": "https://drive.google.com/file/d/1px6BzeG1s2yqlMhr7uKPeim8BlNJAeYb/view?usp=drive_link",
+            "History Sem 5": "https://drive.google.com/file/d/1ynYuWCrQ6kMKdDNlzVO4pIFIVLWYzzE8/view?usp=drive_link",
+            "History Sem 6": "https://drive.google.com/file/d/13KQuiQjrRus46d-0XDVDkp1pg-HPOfFQ/view?usp=drive_link",
+
+            "English Sem 1": "https://drive.google.com/file/d/1CryDJXCbrVmIfXY8yHq3d-eKYLDXDjzn/view?usp=drive_link",
+            "English Sem 2": "https://drive.google.com/file/d/18piLgfhNW_Ihi2A03P8UBFWFv18xhKAe/view?usp=drive_link",
+            "English Sem 3": "https://drive.google.com/file/d/18J6cvjyCef7vueGrD568Ead3HLxgabo-/view?usp=drive_link",
+            "English Sem 4": "https://drive.google.com/file/d/1A7sn-QNzoOfSaZ0t9UiWRIITvDhWLKgm/view?usp=drive_link",
+            "English Sem 5": "https://drive.google.com/file/d/15P9_xWH3hwmf9Xt4foDi-hUceVduCQI5/view?usp=drive_link",
+            "English Sem 6": "https://drive.google.com/file/d/1k9LOWrH5kA5St_xO7R3ja3nEfxXoyFAo/view?usp=drive_link",
+
+            "Hindi Sem 1": "https://drive.google.com/file/d/18NyiyfEYA9NgFLckMH3pujycs5c_7fI_/view?usp=drive_link",
+            "Hindi Sem 2": "https://drive.google.com/file/d/1NkTAjyg2tVaKySxYrU0qC_fnlDlBSTJq/view?usp=drive_link",
+            "Hindi Sem 3": "https://drive.google.com/file/d/1Efk8ASxgRFbk-yHyyn7v1E9wNk2tAO62/view?usp=drive_link",
+            "Hindi Sem 4": "https://drive.google.com/file/d/1Msx9yKOlUeYshWcNETucgs85Fv-dKB_W/view?usp=drive_link",
+            "Hindi Sem 5": "https://drive.google.com/file/d/1IQc8Hv-4moVvL43ZYslLOFtIqTLjoSpv/view?usp=drive_link",
+            "Hindi Sem 6": "https://drive.google.com/file/d/1eYHRps9kp7qKO9mE9ob1hbD9Y_mM2mgA/view?usp=drive_link",
+
+            "Sanskrit Sem 1": "https://drive.google.com/file/d/1RXvm7KRBhnYUS9xtcDMHjlVe-rPsckrk/view?usp=drive_link",
+            "Sanskrit Sem 2": "https://drive.google.com/file/d/1NAxTgz7EyTPXtozS174AYXLfu_Q1U2tp/view?usp=drive_link",
+            "Sanskrit Sem 3": "https://drive.google.com/file/d/1o1Xtzy7RtFcLZNnriI5IxOXiG52da78b/view?usp=drive_link",
+            "Sanskrit Sem 4": "https://drive.google.com/file/d/1mvmd1LZlYa8-YXdWd6nV5ZwymmxLkLz6/view?usp=drive_link",
+            "Sanskrit Sem 5": "https://drive.google.com/file/d/1CzKyYlOqOWiYVvi6FSbB1bfVckUafe77/view?usp=drive_link",
+            "Sanskrit Sem 6": "https://drive.google.com/file/d/1aPNRXzclGbHn9Lg0Ht7T2kHqk9MT2hcT/view?usp=drive_link",
+
+            /* -------------------------------------------------------------
+               2. GENERIC ELECTIVE (GE) PAPERS
+               ------------------------------------------------------------- */
+            "Molecules of Life": "https://drive.google.com/file/d/1hyMET1Sx_1A-ArLpboCvPl8v1b1cBLri/view?usp=drive_link",
+            "Biofertilizer": "https://drive.google.com/file/d/1g6y2MyxAMC9aDZXdstr1RWWnGvpz9qvp/view?usp=drive_link",
+            "Atomic Structure and Chemical Bonding": "https://drive.google.com/file/d/1amMwfdE49r4W8WnT6MVBTEyVCSj2UGs2/view?usp=drive_link",
+            "Business Organisation": "https://drive.google.com/file/d/1WC8vEG4tgq7HVTP4kBw_pq8jdU-JW1AY/view?usp=drive_link",
+            "Principles of Microeconomics - I": "https://drive.google.com/file/d/1wtWfdVdim7VDwMloIOSW7utcYFWEsu9g/view?usp=drive_link",
+            "Data Engineering and Analytics": "https://drive.google.com/file/d/1WdxZXYzNhg1vjKMbJTvCSKz1Dxqv4DfJ/view?usp=drive_link",
+            "Indian English Literature": "https://drive.google.com/file/d/12sconnPO0f7xBcqjmSKw-IUCvbBwJshc/view?usp=drive_link",
+            "Hindi Cinema or Uska Adhyan": "https://drive.google.com/file/d/1XPySzLsqJHLQl9g2MiAEDty1vZ4kXez9/view?usp=drive_link",
+            "Delhi Through the Ages : The Making of its Early Modern History": "https://drive.google.com/file/d/1RPGm2w9zNtyAKjx-5-aqJdYg1XAYDBqo/view?usp=drive_link",
+            "Fundamentals of Calculus": "https://drive.google.com/file/d/1FADzGAsonzzEzWapNyx3CXXto1HazYZz/view?usp=drive_link",
+            "Mechanics": "https://drive.google.com/file/d/1fZj53uqY3ILWHp-A5654EnibD80pBH_N/view?usp=drive_link",
+            "Nationalism in India": "https://drive.google.com/file/d/1CTotWSJ1EK_0s5nRaxPCBqJmu1ln-mjC/view?usp=drive_link",
+            "Ancient Indian Medicinal Science: Unveiling the Secrets of Ayurveda": "https://drive.google.com/file/d/1PxHQbHcigjgP34kzLEOZdEN_IY_m95j1/view?usp=drive_link",
+            "Sociology and Everyday Life": "https://drive.google.com/file/d/1mgp2JOrXjBxHTanIDGOt3TxZPxoBPzku/view?usp=drive_link",
+            "Basic Statistics for Economics": "https://drive.google.com/file/d/18H3FKy_Ic5FyTR3yJ6JK6cf37bwK8KBM/view?usp=drive_link",
+            "Economic Zoology": "https://drive.google.com/file/d/1yTHyx_AwdNbNZ74q1dQA9k3WPlJgq4wI/view?usp=drive_link",
+            "Fitness and Wellness": "https://drive.google.com/file/d/1yNDyq8YdZso_Zlfwn7ooDV2HyLhUQsus/view?usp=drive_link",
+
+            /* -------------------------------------------------------------
+               3. GENERIC ELECTIVE LANGUAGE (GEL) PAPERS
+               ------------------------------------------------------------- */
+            "English Language Through Literature I": "",
+            "Hindi Bhasa aur Sahitya ka Udbhavaur Vikas (K)": "",
+            "Hindi Bhasa aur Sahitya ka Udbhavaur Vikas (B)": "",
+            "Hindi Bhasa aur Sahitya ka Udbhavaur Vikas (G)": "",
+            "Sanskrit Bhasa aevm Sahitya": "",
+            "Introduction to Tamil Folk Literature": "",
+            "Telugu Literature and History : An Introduction": "",
+
+            /* -------------------------------------------------------------
+               4. SKILL ENHANCEMENT COURSES (SEC)
+               ------------------------------------------------------------- */
+            "Essential Food Nutrients": "https://drive.google.com/file/d/1gqSRSPxQXi1Rg9rHSPTbHOHm7Xv026i7/view?usp=drive_link",
+            "Green Belt Development for Smart Cities": "https://drive.google.com/file/d/1rSlxoyxIUb3JwOMJoYSciL29d6gWjHl2/view?usp=drive_link",
+            "Basic IT Tools": "https://drive.google.com/file/d/1ONR0Mh3xGeNIWNEaPagFaCy1xoNyP0IB/view?usp=drive_link",
+            "Personality Development and Communication": "https://drive.google.com/file/d/1Ft2FFnq__S90PzGeTrj6Gfv8tPpHtmtC/view?usp=drive_link",
+            "Digital Marketing": "https://drive.google.com/file/d/1sHVYh4f2WrrouDZgpNzSCplq_18AfQ0M/view?usp=drive_link",
+            "Creative Writing": "https://drive.google.com/file/d/1sBvmia1WExzfRnAnQq3I_d44bC9_Ea_S/view?usp=drive_link",
+            "Rachnatmak Lekhan": "https://drive.google.com/file/d/1lYey18IpYVbvJkv6V6uz0L9e_Zj01St5/view?usp=drive_link",
+            "Museum and Museology": "https://drive.google.com/file/d/1Hu4pA141qvG9j_f1ZYYNjLhFLM2DNUOc/view?usp=drive_link",
+            "Programming using Python": "https://drive.google.com/file/d/1sY29KlXPwlbUpr8RdLIvodwVe-mMCh3l/view?usp=drive_link",
+            "Essentials of Python": "https://drive.google.com/file/d/1clQphCmsAd9savXYTNpOKjaM2_2FQUX3/view?usp=drive_link",
+            "Political Leadership and Communication": "https://drive.google.com/file/d/1_kuixWg300iz6HSZnl4od_YCwcckqcJa/view?usp=drive_link",
+            "Yoga in Practice": "https://drive.google.com/file/d/11zAV0PwmAjSDK3lmLOVRal5Tf57cyQ2Q/view?usp=drive_link",
+            "Advanced Spreadsheet Tools": "https://drive.google.com/file/d/1ysXzF4M6KAXRGMnTiaGjR3lCgM1y1SqF/view?usp=drive_link",
+            "Healthy and Sustainable Food Choices": "https://drive.google.com/file/d/1mhdK9U3uuwar7VmSjpbV4N3mrHVAle2w/view?usp=drive_link",
+
+            /* -------------------------------------------------------------
+               5. VALUE ADDITION COURSES (VAC)
+               ------------------------------------------------------------- */
+            "Ayurveda and Nutrition": "https://drive.google.com/file/d/1DtIuLuOxcT9C64LpN94A3qWrqv_QodjD/view?usp=drive_link",
+            "भारतीय भक्ति परम्परा और मानव मूल्य": "https://drive.google.com/file/d/10dOSglvMRDwglZBCq3jZBSPMaZVtjAMB/view?usp=drive_link",
+            "Constitutional Values and Fundamental Duties": "https://drive.google.com/file/d/1t7QqG9Ms90r-e_7_ktaxrfFMcxldhfI4/view?usp=drive_link",
+            "Digital Empowerment": "https://drive.google.com/file/d/1pyB6MygYCNW-cbdUmQe7Mj8sh1F4MlV0/view?usp=drive_link",
+            "Ethics and Culture": "https://drive.google.com/file/d/1fOYrsnm-Abxl5Kb2J_0sVUIcK68So3vZ/view?usp=drive_link",
+            "Financial Literacy": "https://drive.google.com/file/d/13htTUj1SQhM3wnSFkRonZvfqEFdlvAjY/view?usp=drive_link",
+            "National Cadet Corps - I": "https://drive.google.com/file/d/12bB4-FhiMy3oqbb1Zs2ALZVSbeHSXdzB/view?usp=drive_link",
+            "Sports for Life - I": "https://drive.google.com/file/d/19OHWUdue_FhMZ4d2us7Sl3cldgHweWet/view?usp=drive_link",
+            "The Art of Being Happy": "https://drive.google.com/file/d/1-BJXEDDyo8JbHCGBdyFQjsc_4wPRY7B_/view?usp=drive_link",
+            "Vedic Mathematics - I": "https://drive.google.com/file/d/1YPSR-71uejiMqYoCE1RBjWUw5bYXogit/view?usp=drive_link",
+            "Yoga Philosophy and Practice": "https://drive.google.com/file/d/1p77esB_RLE8e6y0QjlFHsTjMwdE2hWxF/view?usp=drive_link",
+
+            /* -------------------------------------------------------------
+               6. AEC: ENVIRONMENTAL SCIENCE (EVS)
+               ------------------------------------------------------------- */
+            "Environmental Science: Theory into Practice - I": "",
+            "Environmental Science: Theory into Practice - II": "",
+            "Environmental Studies": "",
+
+            /* -------------------------------------------------------------
+               7. AEC: INDIAN LANGUAGES (HINDI, SANSKRIT, TAMIL, TELUGU & CLUSTER)
+               ------------------------------------------------------------- */
+            "AEC: हिंदी भाषा: सम्प्रेषण और संचार (हिंदी क)": "",
+            "AEC: हिंदी औपचारिक लेखन (हिंदी ख)": "",
+            "AEC: सोशल मीडिया और ब्लॉग लेखन (हिंदी ग)": "",
+            "AEC: Hindi D (Special Course)": "",
+            "AEC: Hindi E अनिवार्य हिंदी पाठ्यक्रम": "",
+            "AEC: Sanskrit A : Advance Neeti Literature in Sanskrit": "",
+            "AEC: Sanskrit B : Introductory Upanishad and Geeta": "",
+            "AEC: Sanskrit C : Introduction to Sanskrit Language": "",
+            "AEC (A): Translation and Interpretation in Tamil": "",
+            "AEC (B): Basic Tamil": "",
+            "AEC (A): Translation and Interpretation in Telugu": "",
+            "AEC (B): Basic Telugu": "",
+            "Assamese (Translation & Interpretation / Basic)": "",
+            "Bengali (Translation & Interpretation / Basic)": "",
+            "Bodo (Translation & Interpretation / Basic)": "",
+            "Dogri (Translation & Interpretation / Basic)": "",
+            "Gujarati (Translation & Interpretation / Basic)": "",
+            "Kannada (Translation & Interpretation / Basic)": "",
+            "Kashmiri (Translation & Interpretation / Basic)": "",
+            "Konkani (Translation & Interpretation / Basic)": "",
+            "Malayalam (Translation & Interpretation / Basic)": "",
+            "Manipuri (Translation & Interpretation / Basic)": "",
+            "Marathi (Translation & Interpretation / Basic)": "",
+            "Maithili (Translation & Interpretation / Basic)": "",
+            "Nepali (Translation & Interpretation / Basic)": "",
+            "Odia (Translation & Interpretation / Basic)": "",
+            "Punjabi (Level 1 / 2 / 3)": "",
+            "Santali (Translation & Interpretation / Basic)": "",
+            "Sindhi (Translation & Interpretation / Basic)": "",
+            "Urdu (Urdu A / Urdu B / Urdu C)": ""
+        };
+
+        const icons = {
             sociology: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
             economics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>`,
             politicalScience: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="2" y1="20" x2="22" y2="20"></line><line x1="5" y1="20" x2="5" y2="10"></line><line x1="10" y1="20" x2="10" y2="10"></line><line x1="14" y1="20" x2="14" y2="10"></line><line x1="19" y1="20" x2="19" y2="10"></line><path d="M2 10L12 3l10 7"></path></svg>`,
@@ -939,266 +1154,202 @@
             botany: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 20A7 7 0 0 1 4 13C4 8 8 3 20 2c1 12-4 16-9 18z"></path><path d="M11 20l5-9"></path></svg>`,
             zoology: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="15" r="4"></circle><circle cx="7" cy="8" r="2.5"></circle><circle cx="17" cy="8" r="2.5"></circle><circle cx="4" cy="13" r="2"></circle><circle cx="20" cy="13" r="2"></circle></svg>`,
             bioSci: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0-7-7h1"></path><circle cx="9" cy="9" r="2"></circle><path d="M9 3v4"></path></svg>`,
-            lifeSci: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 20h10"></path><path d="M12 20v-8"></path><path d="M12 12c-3.5 0-6-2.5-6-6 3.5 0 6 2.5 6 6z"></path><path d="M12 10c3.5 0 6-2.5 6-6-3.5 0-6 2.5-6 6z"></path></svg>`
+            dsc: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>`,
+            ge: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`,
+            gel: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`,
+            sec: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+            vac: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`,
+            aec: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`
         };
 
-        /* =========================================================================
-           ⭐ EASY GOOGLE DRIVE LINKS (SEMESTER-WISE PASTE SYSTEM) ⭐
-
-           HOW TO PASTE:
-           1. In Google Drive, click Share on your Syllabus PDF and choose:
-              "Anyone with the link can view"
-           2. Copy your Drive link.
-           3. Simply paste it after the "=" sign for that Course & Semester below!
-           ========================================================================= */
-        const easySyllabusLinks = `
-            # --- ECONOMICS ---
-            Economics Semester 1 =https://drive.google.com/file/d/1wZhTwcIWW6fXpabIOE7PLtHCgiMVc4HB/view?usp=drive_link 
-            Economics Semester 2 = https://drive.google.com/file/d/1hO90iMHxyg1CRGj89AE401KMHDeBWBtB/view?usp=drive_link
-            Economics Semester 3 = https://drive.google.com/file/d/1yGu0NBurXjZYVtEXPAtZOy8tRWUKv6XD/view?usp=drive_link
-            Economics Semester 4 = https://drive.google.com/file/d/15yYoKuO3BsF7xaQzgwk_HbN_uzIitcfp/view?usp=drive_link
-            Economics Semester 5 = https://drive.google.com/file/d/1JILOvkDnnm5Xx7iIN6o5JJpTuI7uEBkJ/view?usp=drive_link
-            Economics Semester 6 = https://drive.google.com/file/d/14rMebQ5wv6PBtBtQQ7ZZ1CY4pvEzoXIq/view?usp=drive_link
-            Economics Semester 7 = 
-            Economics Semester 8 = 
-
-            # --- COMMERCE (HONOURS) ---
-            Commerce (Honours) Semester 1 = https://drive.google.com/file/d/1SgiG6LbWx4Q2yoJG27ahrRIWoIXLb2wp/view?usp=drive_link
-            Commerce (Honours) Semester 2 = https://drive.google.com/file/d/1jublKiktZl4wBneaoj2e8htTNqlSnXqU/view?usp=drive_link
-            Commerce (Honours) Semester 3 = https://drive.google.com/file/d/188cVdIRj8OsoiHm0KANE_ZplYNOtnT5U/view?usp=drive_link
-            Commerce (Honours) Semester 4 = https://drive.google.com/file/d/1OZDE3MGUPgiuBRDmD3MrNVW1aSiOw7fr/view?usp=drive_link
-            Commerce (Honours) Semester 5 = https://drive.google.com/file/d/13abI7MjqZQb44oBgzt2R_RdOA4YGbpNq/view?usp=drive_link
-            Commerce (Honours) Semester 6 = https://drive.google.com/file/d/1QLrmCGzhuY64MBRKoobHKkjsXZrghkg7/view?usp=drive_link
-            Commerce (Honours) Semester 7 = 
-            Commerce (Honours) Semester 8 = 
-
-            # --- COMMERCE (PROGRAMME) ---
-            Commerce (Programme) Semester 1 = https://drive.google.com/file/d/1nZCS9tZUb4laeJB-m9YWxvxFBJ5ehoay/view?usp=drive_link
-            Commerce (Programme) Semester 2 = https://drive.google.com/file/d/1LIBmZCdHqG0F7Vs_vKViGXSh7k7xTJP3/view?usp=drive_link
-            Commerce (Programme) Semester 3 = https://drive.google.com/file/d/1j14sT-HC_KTn3PAnuqacZnQ2UFYpxUhW/view?usp=drive_link
-            Commerce (Programme) Semester 4 = https://drive.google.com/file/d/11wQWsCZoI9qIh0h-dbeDwUBIG3Im4_2h/view?usp=drive_link
-            Commerce (Programme) Semester 5 = https://drive.google.com/file/d/1XzJgERslzgAkfmDjGmE84SbrrXNBG16H/view?usp=drive_link
-            Commerce (Programme) Semester 6 = https://drive.google.com/file/d/1dMGacQbPjgpklvkeAkFljOO5dav5ReWW/view?usp=drive_link
-            Commerce (Programme) Semester 7 = 
-            Commerce (Programme) Semester 8 = 
-
-            # --- MATHEMATICS ---
-            Mathematics Semester 1 = https://drive.google.com/file/d/1HEsvj5LCbS4LqAwVuzwGTwGz3JY4Bnrc/view?usp=drive_link
-            Mathematics Semester 2 = https://drive.google.com/file/d/1OmyAP2sibt8jNSqO8TCAhGt1YY6KnQbu/view?usp=drive_link
-            Mathematics Semester 3 = https://drive.google.com/file/d/1dpBPw7lKGL0r7BIn3-bwYaLEMs7qaQPW/view?usp=drive_link
-            Mathematics Semester 4 = https://drive.google.com/file/d/12ILX9ngldb8b6VyUzCSK4lFOCIMdmUMS/view?usp=drive_link
-            Mathematics Semester 5 = https://drive.google.com/file/d/1GAXpFr10hAnTuQLNEwOHRuLEL0YymtC2/view?usp=drive_link
-            Mathematics Semester 6 = https://drive.google.com/file/d/1GBec9LnfexfogJ5xayZRQlovzuXVZ8NC/view?usp=drive_link
-            Mathematics Semester 7 = 
-            Mathematics Semester 8 = 
-
-            # --- STATISTICS ---
-            Statistics Semester 1 = https://drive.google.com/file/d/1ffEtLLqkMZ7cCrGPO-B2N2Vs_zv_VQcx/view?usp=drive_link
-            Statistics Semester 2 = https://drive.google.com/file/d/1ygrho-0fZlaOph_lTab-4r3ZWO6e-weV/view?usp=drive_link
-            Statistics Semester 3 = https://drive.google.com/file/d/1OqVa_GqhtwGyE85AXBRoQYopzuwp3crk/view?usp=drive_link
-            Statistics Semester 4 = https://drive.google.com/file/d/171lLD07jUECszNVBGcUfkvY_H_uOGOLo/view?usp=drive_link
-            Statistics Semester 5 = https://drive.google.com/file/d/1Vya6UQYLHHwurPzuVGArnyhe9yIZ4jGP/view?usp=drive_link
-            Statistics Semester 6 = https://drive.google.com/file/d/1wVuv531TQOw_0CjwuNQVkHRKdRKBrxY8/view?usp=drive_link
-            Statistics Semester 7 = 
-            Statistics Semester 8 = 
-
-            # --- PHYSICS ---
-            Physics Semester 1 = https://drive.google.com/file/d/13vmd3pWGTPm0JPuRD-XkwfleoXWx7ScQ/view?usp=drive_link
-            Physics Semester 2 = https://drive.google.com/file/d/1S2HM1Mj5T6CH6OJDqkFKPANNSUwNK0Xa/view?usp=drive_link
-            Physics Semester 3 = https://drive.google.com/file/d/1MyDmMDmjoj9CJLpbBpChAS5pdKvcfXD_/view?usp=drive_link
-            Physics Semester 4 = https://drive.google.com/file/d/1EFw50GcsCPQQGhGFYYk1sYWZR_LOuOAN/view?usp=drive_link
-            Physics Semester 5 = https://drive.google.com/file/d/1kvwGabCPoUJAdUsV3_0TYvNn383URGD-/view?usp=drive_link
-            Physics Semester 6 = https://drive.google.com/file/d/1JmlIqSTbqNlGDh33gR27Gark8mLgZlK1/view?usp=drive_link
-            Physics Semester 7 = 
-            Physics Semester 8 = 
-
-            # --- CHEMISTRY ---
-            Chemistry Semester 1 = https://drive.google.com/file/d/1Sjf1JkBOP75rPXnLTUjOwLsqTA5K3Qmv/view?usp=drive_link
-            Chemistry Semester 2 = https://drive.google.com/file/d/1GKfDkDHbK-MniwXLpUCqbeYMybpvA0aF/view?usp=drive_link
-            Chemistry Semester 3 = https://drive.google.com/file/d/1bK2LcU71gwI_FMkAcXdJ03qLTCwhNhpC/view?usp=drive_link
-            Chemistry Semester 4 = https://drive.google.com/file/d/1MMOQ7z20BDz6p9zYBFzwm_04pohvCO45/view?usp=drive_link
-            Chemistry Semester 5 = https://drive.google.com/file/d/1wypVEx5-EbIZkCJaXaG8bAzai20aMgks/view?usp=drive_link
-            Chemistry Semester 6 = https://drive.google.com/file/d/1dr1SzTm_7Nru6e9DUiXWwXKKHbbQz-FV/view?usp=drive_link
-            Chemistry Semester 7 = 
-            Chemistry Semester 8 = 
-
-            # --- ELECTRONICS ---
-            Electronics Semester 1 = https://drive.google.com/file/d/1q2KJXMifpjJY7AgfCj9zhkkIGyP4Kzit/view?usp=drive_link
-            Electronics Semester 2 = https://drive.google.com/file/d/1GiJzVJAgyszGv9bqqjzk7BqeRSbupSTT/view?usp=drive_link
-            Electronics Semester 3 = https://drive.google.com/file/d/1A4S-uNUd_Xdk_hUfhzbXHzBidtzrNGBb/view?usp=drive_link
-            Electronics Semester 4 = https://drive.google.com/file/d/1fYVWpG-7yoqi8jzqhcic6VeLmDxYoryR/view?usp=drive_link
-            Electronics Semester 5 = https://drive.google.com/file/d/1XbTMTycZ7f6wpGiqznZcrWkDBB0acnVB/view?usp=drive_link
-            Electronics Semester 6 = https://drive.google.com/file/d/1TJN_Xba0fc7CcYwaFeiY9_4JS9dnDf_O/view?usp=drive_link
-            Electronics Semester 7 = 
-            Electronics Semester 8 = 
-
-            # --- BIOCHEMISTRY ---
-            Biochemistry Semester 1 = https://drive.google.com/file/d/1MyVb-A1z9G7X2Ta8L-64jfxiXox64B6L/view?usp=drive_link
-            Biochemistry Semester 2 = https://drive.google.com/file/d/1-ZapYt-YYAnuJthoik65Z35HF-ovQ9H2/view?usp=drive_link
-            Biochemistry Semester 3 = https://drive.google.com/file/d/1mGRQoViC5FBuFHz6iT15QjTvlffSjxkd/view?usp=drive_link
-            Biochemistry Semester 4 = https://drive.google.com/file/d/1rLt90LPuDBs-xdblLv_oXUPP_PUiUbVi/view?usp=drive_link
-            Biochemistry Semester 5 = https://drive.google.com/file/d/17_SFp-dAS9iz4-kYAS5KkPhpVT2R4j0E/view?usp=drive_link
-            Biochemistry Semester 6 = https://drive.google.com/file/d/103vWHGSxsEfiouys1lO8Rg7895uVZJS_/view?usp=drive_link
-            Biochemistry Semester 7 = 
-            Biochemistry Semester 8 = 
-
-            # --- BOTANY ---
-            Botany Semester 1 = https://drive.google.com/file/d/1Okn5CBXjWlvjwj2Ufdi9gbY4LYBFJ4dd/view?usp=drive_link
-            Botany Semester 2 = https://drive.google.com/file/d/1dU6b-N-SXfQXevp8f0OjsV3S2NV8-zR2/view?usp=drive_link
-            Botany Semester 3 = https://drive.google.com/file/d/1V3mYXJRycL4iMMSUtn4p5m--MdCQDyTF/view?usp=drive_link
-            Botany Semester 4 = https://drive.google.com/file/d/1coueGrtvHnUCti_mqDuPR6HACzsPTina/view?usp=drive_link
-            Botany Semester 5 = https://drive.google.com/file/d/14IoEl3_7WbKEpddBhCfVBmgttO0yfI_8/view?usp=drive_link
-            Botany Semester 6 = https://drive.google.com/file/d/1HD_gZGcdIbcQpo3bCBmxUnkU3__5NqMu/view?usp=drive_link
-            Botany Semester 7 = 
-            Botany Semester 8 = 
-
-            # --- ZOOLOGY ---
-            Zoology Semester 1 = https://drive.google.com/file/d/1v5zS-lc5SGfGwZw2LIjAokL2bQBh6fjV/view?usp=drive_link
-            Zoology Semester 2 = https://drive.google.com/file/d/1Bpr2WF5ftdR_8AuJbPFXqLWAY5HiXugn/view?usp=drive_link
-            Zoology Semester 3 = https://drive.google.com/file/d/1XcZCjifrAZT4DEWakKYjC9w9scbJk_9I/view?usp=drive_link
-            Zoology Semester 4 = https://drive.google.com/file/d/1d9DOk1g0mHBMPV37RkO7bvX4WZRZjcCf/view?usp=drive_link
-            Zoology Semester 5 = https://drive.google.com/file/d/18Iymtb_OkdVOWr8mkmszLXjGY23M8CFN/view?usp=drive_link
-            Zoology Semester 6 = https://drive.google.com/file/d/1jE29mJeD9M8Wmjfwno1bw7lXKQnEYRWR/view?usp=drive_link
-            Zoology Semester 7 = 
-            Zoology Semester 8 = 
-
-            # --- BIOLOGICAL SCIENCES ---
-            Biological Sciences Semester 1 = https://drive.google.com/file/d/17Y5Hy2HVpd1De8Xmuqo7yVToxKzxfXtv/view?usp=drive_link
-            Biological Sciences Semester 2 = https://drive.google.com/file/d/1TCMhAkjY7DlVEBibWj1cf-xzDaJu0fAQ/view?usp=drive_link
-            Biological Sciences Semester 3 = https://drive.google.com/file/d/1H0-TLCfvgSxc1vKRnxltNiBlAhl-1vou/view?usp=drive_link
-            Biological Sciences Semester 4 = https://drive.google.com/file/d/1CZRFpllvhY74dcmU_tYZveFNEnmekePc/view?usp=drive_link
-            Biological Sciences Semester 5 = https://drive.google.com/file/d/1ejtYqIQFDhqrg3JHmZn2sU3HfbVRGzem/view?usp=drive_link
-            Biological Sciences Semester 6 = https://drive.google.com/file/d/16nbG04GI9sOPN6uU6JFvszMwG4q6UT7W/view?usp=drive_link
-            Biological Sciences Semester 7 = 
-            Biological Sciences Semester 8 = 
-
-            # --- LIFE SCIENCES ---
-            Life Sciences Semester 1 = 
-            Life Sciences Semester 2 = 
-            Life Sciences Semester 3 = 
-            Life Sciences Semester 4 = 
-            Life Sciences Semester 5 = 
-            Life Sciences Semester 6 = 
-            Life Sciences Semester 7 = 
-            Life Sciences Semester 8 = 
-
-            # --- SOCIOLOGY ---
-            Sociology Semester 1 = https://drive.google.com/file/d/11masTm46U3VCVEfMfT7ZRF3YWJYwpUR0/view?usp=drive_link
-            Sociology Semester 2 = https://drive.google.com/file/d/1X3oY8MKbNSpAVO6mQPJj-WktCpaRuyzG/view?usp=drive_link
-            Sociology Semester 3 = https://drive.google.com/file/d/11Bc62ljTBxuqHCRnhnBWYerl8xH1wFYd/view?usp=drive_link
-            Sociology Semester 4 = https://drive.google.com/file/d/1QE8qhDLA7c5cRaJRo4Sx8JOks2MbUwHQ/view?usp=drive_link
-            Sociology Semester 5 = https://drive.google.com/file/d/1Kk8F9VXHPlhyz-dmd-SuEUrW31vnfiVs/view?usp=drive_link
-            Sociology Semester 6 = https://drive.google.com/file/d/1KGPPMoimmNbp7s-F7xL9u4EaB-9iHi1E/view?usp=drive_link
-            Sociology Semester 7 = 
-            Sociology Semester 8 = 
-
-            # --- POLITICAL SCIENCE ---
-            Political Science Semester 1 = https://drive.google.com/file/d/1BQWtt3NhjDWFnIH6Xa1bw3SraFzkviZZ/view?usp=drive_link
-            Political Science Semester 2 = https://drive.google.com/file/d/14i9cHqw4uISjcCc31o3jM1ZOZc_PITfh/view?usp=drive_link
-            Political Science Semester 3 = https://drive.google.com/file/d/1v9Z1GhVmqY5QWjyYBU8O9H5jnmjjOQAU/view?usp=drive_link
-            Political Science Semester 4 = https://drive.google.com/file/d/1LPDXnv0jH0gCDbnQvOnf_9UgoNBnbJK6/view?usp=drive_link
-            Political Science Semester 5 = https://drive.google.com/file/d/1p5TBA5TUMmvdJ9m7GyPFrjFj6u3xwCkv/view?usp=drive_link
-            Political Science Semester 6 = https://drive.google.com/file/d/1gxyCBBbFBk_DBywthm9ImwtidY60wwh2/view?usp=drive_link
-            Political Science Semester 7 = 
-            Political Science Semester 8 = 
-
-            # --- HISTORY ---
-            History Semester 1 = https://drive.google.com/file/d/1YVrLkiwOtfSPVGoGNNGZxhyHpGsi3hg6/view?usp=drive_link
-            History Semester 2 = https://drive.google.com/file/d/10VN-jMrjXIKtBMijGES114mK8ClpLpcg/view?usp=drive_link
-            History Semester 3 = https://drive.google.com/file/d/1iAT_kr7iY2UnWeeRpYxhiWDPne3HNsOX/view?usp=drive_link
-            History Semester 4 = https://drive.google.com/file/d/1px6BzeG1s2yqlMhr7uKPeim8BlNJAeYb/view?usp=drive_link
-            History Semester 5 = https://drive.google.com/file/d/1ynYuWCrQ6kMKdDNlzVO4pIFIVLWYzzE8/view?usp=drive_link
-            History Semester 6 = https://drive.google.com/file/d/13KQuiQjrRus46d-0XDVDkp1pg-HPOfFQ/view?usp=drive_link
-            History Semester 7 = 
-            History Semester 8 = 
-
-            # --- ENGLISH ---
-            English Semester 1 = https://drive.google.com/file/d/1CryDJXCbrVmIfXY8yHq3d-eKYLDXDjzn/view?usp=drive_link
-            English Semester 2 = https://drive.google.com/file/d/18piLgfhNW_Ihi2A03P8UBFWFv18xhKAe/view?usp=drive_link
-            English Semester 3 = https://drive.google.com/file/d/18J6cvjyCef7vueGrD568Ead3HLxgabo-/view?usp=drive_link
-            English Semester 4 = https://drive.google.com/file/d/1A7sn-QNzoOfSaZ0t9UiWRIITvDhWLKgm/view?usp=drive_link
-            English Semester 5 = https://drive.google.com/file/d/15P9_xWH3hwmf9Xt4foDi-hUceVduCQI5/view?usp=drive_link
-            English Semester 6 = https://drive.google.com/file/d/1k9LOWrH5kA5St_xO7R3ja3nEfxXoyFAo/view?usp=drive_link
-            English Semester 7 = 
-            English Semester 8 = 
-
-            # --- HINDI ---
-            Hindi Semester 1 = https://drive.google.com/file/d/18NyiyfEYA9NgFLckMH3pujycs5c_7fI_/view?usp=drive_link
-            Hindi Semester 2 = https://drive.google.com/file/d/1NkTAjyg2tVaKySxYrU0qC_fnlDlBSTJq/view?usp=drive_link
-            Hindi Semester 3 = https://drive.google.com/file/d/1Efk8ASxgRFbk-yHyyn7v1E9wNk2tAO62/view?usp=drive_link
-            Hindi Semester 4 = https://drive.google.com/file/d/1Msx9yKOlUeYshWcNETucgs85Fv-dKB_W/view?usp=drive_link
-            Hindi Semester 5 = https://drive.google.com/file/d/1IQc8Hv-4moVvL43ZYslLOFtIqTLjoSpv/view?usp=drive_link
-            Hindi Semester 6 = https://drive.google.com/file/d/1eYHRps9kp7qKO9mE9ob1hbD9Y_mM2mgA/view?usp=drive_link
-            Hindi Semester 7 = 
-            Hindi Semester 8 = 
-
-            # --- SANSKRIT ---
-            Sanskrit Semester 1 = https://drive.google.com/file/d/1RXvm7KRBhnYUS9xtcDMHjlVe-rPsckrk/view?usp=drive_link
-            Sanskrit Semester 2 = https://drive.google.com/file/d/1NAxTgz7EyTPXtozS174AYXLfu_Q1U2tp/view?usp=drive_link
-            Sanskrit Semester 3 = https://drive.google.com/file/d/1o1Xtzy7RtFcLZNnriI5IxOXiG52da78b/view?usp=drive_link
-            Sanskrit Semester 4 = https://drive.google.com/file/d/1mvmd1LZlYa8-YXdWd6nV5ZwymmxLkLz6/view?usp=drive_link
-            Sanskrit Semester 5 = https://drive.google.com/file/d/1CzKyYlOqOWiYVvi6FSbB1bfVckUafe77/view?usp=drive_link
-            Sanskrit Semester 6 = https://drive.google.com/file/d/1aPNRXzclGbHn9Lg0Ht7T2kHqk9MT2hcT/view?usp=drive_link
-            Sanskrit Semester 7 = 
-            Sanskrit Semester 8 = 
-
-            # --- B.A. PROGRAMME ---
-            B.A. Programme Semester 1 = 
-            B.A. Programme Semester 2 = 
-            B.A. Programme Semester 3 = 
-            B.A. Programme Semester 4 = 
-            B.A. Programme Semester 5 = 
-            B.A. Programme Semester 6 = 
-            B.A. Programme Semester 7 = 
-            B.A. Programme Semester 8 = 
-        `;
-
         const coursesData = [
-            { name: "Sociology", degree: "B.A. (Honours) Sociology", stream: "Arts", iconKey: "sociology" },
-            { name: "Economics", degree: "B.A. (Honours) Economics", stream: "Arts", iconKey: "economics" },
-            { name: "Political Science", degree: "B.A. (Honours) Political Science", stream: "Arts", iconKey: "politicalScience" },
-            { name: "History", degree: "B.A. (Honours) History", stream: "Arts", iconKey: "history" },
-            { name: "English", degree: "B.A. (Honours) English", stream: "Arts", iconKey: "english" },
-            { name: "Hindi", degree: "B.A. (Honours) Hindi", stream: "Arts", iconKey: "hindi" },
-            { name: "Sanskrit", degree: "B.A. (Honours) Sanskrit", stream: "Arts", iconKey: "sanskrit" },
-            // { name: "B.A. Programme", degree: "Bachelor of Arts (Programme)", stream: "Arts", iconKey: "baprog" },
-            { name: "Commerce (Honours)", degree: "B.Com. (Honours)", stream: "Commerce", iconKey: "commerceH" },
-            { name: "Commerce (Programme)", degree: "B.Com. (Programme)", stream: "Commerce", iconKey: "commerceP" },
-            { name: "Mathematics", degree: "B.Sc. (Honours) Mathematics", stream: "Science", iconKey: "math" },
-            { name: "Statistics", degree: "B.Sc. (Honours) Statistics", stream: "Science", iconKey: "statistics" },
-            { name: "Physics", degree: "B.Sc. (Honours) Physics", stream: "Science", iconKey: "physics" },
-            { name: "Chemistry", degree: "B.Sc. (Honours) Chemistry", stream: "Science", iconKey: "chemistry" },
-            { name: "Electronics", degree: "B.Sc. (Honours) Electronics", stream: "Science", iconKey: "electronics" },
-            { name: "Biochemistry", degree: "B.Sc. (Honours) Biochemistry", stream: "Science", iconKey: "biochemistry" },
-            { name: "Botany", degree: "B.Sc. (Honours) Botany", stream: "Science", iconKey: "botany" },
-            { name: "Zoology", degree: "B.Sc. (Honours) Zoology", stream: "Science", iconKey: "zoology" },
-            { name: "Biological Sciences", degree: "B.Sc. (Honours) Biological Sciences", stream: "Science", iconKey: "bioSci" },
-            // { name: "Life Sciences", degree: "B.Sc. (Programme) Life Science", stream: "Science", iconKey: "lifeSci" }
+            { name: "Sociology", degree: "B.A. (Hons)", stream: "Arts", icon: icons.sociology },
+            { name: "Economics", degree: "B.A. (Hons)", stream: "Arts", icon: icons.economics },
+            { name: "Political Science", degree: "B.A. (Hons)", stream: "Arts", icon: icons.politicalScience },
+            { name: "History", degree: "B.A. (Hons)", stream: "Arts", icon: icons.history },
+            { name: "English", degree: "B.A. (Hons)", stream: "Arts", icon: icons.english },
+            { name: "Hindi", degree: "B.A. (Hons)", stream: "Arts", icon: icons.hindi },
+            { name: "Sanskrit", degree: "B.A. (Hons)", stream: "Arts", icon: icons.sanskrit },
+            { name: "Bachelor of Commerce (Honours)", degree: "B.Com. (Hons)", stream: "Commerce", icon: icons.commerceH },
+            { name: "Bachelor of Commerce (Programme)", degree: "B.Com. (Prog)", stream: "Commerce", icon: icons.commerceP },
+            { name: "Mathematics", degree: "B.Sc. (Hons)", stream: "Science", icon: icons.math },
+            { name: "Statistics", degree: "B.Sc. (Hons)", stream: "Science", icon: icons.statistics },
+            { name: "Physics", degree: "B.Sc. (Hons)", stream: "Science", icon: icons.physics },
+            { name: "Chemistry", degree: "B.Sc. (Hons)", stream: "Science", icon: icons.chemistry },
+            { name: "Electronics", degree: "B.Sc. (Hons)", stream: "Science", icon: icons.electronics },
+            { name: "Biochemistry", degree: "B.Sc. (Hons)", stream: "Science", icon: icons.biochemistry },
+            { name: "Botany", degree: "B.Sc. (Hons)", stream: "Science", icon: icons.botany },
+            { name: "Zoology", degree: "B.Sc. (Hons)", stream: "Science", icon: icons.zoology },
+            { name: "Biological Sciences", degree: "B.Sc. (Hons)", stream: "Science", icon: icons.bioSci }
         ];
 
         const semestersData = [
-            { num: 1, roman: "I", cycle: "Odd Cycle", year: "Year 1", desc: "Core UGCF Papers & Foundational Disciplines" },
-            { num: 2, roman: "II", cycle: "Even Cycle", year: "Year 1", desc: "Core Specialization & Interdisciplinary Electives" },
-            { num: 3, roman: "III", cycle: "Odd Cycle", year: "Year 2", desc: "Advanced Core Discipline & Skill Practical Papers" },
-            { num: 4, roman: "IV", cycle: "Even Cycle", year: "Year 2", desc: "Advanced Core Discipline & Interdisciplinary Electives" },
-            { num: 5, roman: "V", cycle: "Odd Cycle", year: "Year 3", desc: "Discipline Specific Elective Matrix & Specializations" },
-            { num: 6, roman: "VI", cycle: "Even Cycle", year: "Year 3", desc: "Advanced Electives & Practical Curricula" },
-            // { num: 7, roman: "VII", cycle: "Odd Cycle", year: "Year 4", desc: "Honours with Research Methodologies & Electives" },
-            // { num: 8, roman: "VIII", cycle: "Even Cycle", year: "Year 4", desc: "Honours Dissertation & Advanced Project Guidelines" }
+            { num: 1, roman: "I", cycle: "Odd Cycle", year: "First Year" },
+            { num: 2, roman: "II", cycle: "Even Cycle", year: "First Year" },
+            { num: 3, roman: "III", cycle: "Odd Cycle", year: "Second Year" },
+            { num: 4, roman: "IV", cycle: "Even Cycle", year: "Second Year" },
+            { num: 5, roman: "V", cycle: "Odd Cycle", year: "Third Year" },
+            { num: 6, roman: "VI", cycle: "Even Cycle", year: "Third Year" }
         ];
 
+        const geSubjectsList = [
+            { serial: 1, title: "Molecules of Life", tag: "Biochemistry" },
+            { serial: 2, title: "Biofertilizer", tag: "Botany" },
+            { serial: 3, title: "Atomic Structure and Chemical Bonding", tag: "Chemistry" },
+            { serial: 4, title: "Business Organisation", tag: "Commerce" },
+            { serial: 5, title: "Principles of Microeconomics - I", tag: "Economics" },
+            { serial: 6, title: "Data Engineering and Analytics", tag: "Computer Science" },
+            { serial: 7, title: "Indian English Literature", tag: "English" },
+            { serial: 8, title: "Hindi Cinema or Uska Adhyan", tag: "Hindi" },
+            { serial: 9, title: "Delhi Through the Ages : The Making of its Early Modern History", tag: "History" },
+            { serial: 10, title: "Fundamentals of Calculus", tag: "Mathematics" },
+            { serial: 11, title: "Mechanics", tag: "Physics" },
+            { serial: 12, title: "Nationalism in India", tag: "Political Science" },
+            { serial: 13, title: "Ancient Indian Medicinal Science: Unveiling the Secrets of Ayurveda", tag: "Sanskrit" },
+            { serial: 14, title: "Sociology and Everyday Life", tag: "Sociology" },
+            { serial: 15, title: "Basic Statistics for Economics", tag: "Statistics" },
+            { serial: 16, title: "Economic Zoology", tag: "Zoology" },
+            { serial: 17, title: "Fitness and Wellness", tag: "Physical Education" }
+        ];
+
+        const gelSubjectsList = [
+            { serial: 1, title: "English Language Through Literature I", tag: "English", criteria: "Language Elective" },
+            { serial: 2, title: "Hindi Bhasa aur Sahitya ka Udbhavaur Vikas (K)", tag: "Hindi", criteria: "Studied Hindi up to Class 12" },
+            { serial: 3, title: "Hindi Bhasa aur Sahitya ka Udbhavaur Vikas (B)", tag: "Hindi", criteria: "Studied Hindi up to Class 10" },
+            { serial: 4, title: "Hindi Bhasa aur Sahitya ka Udbhavaur Vikas (G)", tag: "Hindi", criteria: "Studied Hindi up to Class 8" },
+            { serial: 5, title: "Sanskrit Bhasa aevm Sahitya", tag: "Sanskrit", criteria: "Language Elective" },
+            { serial: 6, title: "Introduction to Tamil Folk Literature", tag: "Tamil", criteria: "Regional Language Track" },
+            { serial: 7, title: "Telugu Literature and History : An Introduction", tag: "Telugu", criteria: "Regional Language Track" }
+        ];
+
+        const secSubjectsList = [
+            { serial: 1, title: "Essential Food Nutrients", tag: "Biochemistry" },
+            { serial: 2, title: "Green Belt Development for Smart Cities", tag: "Botany" },
+            { serial: 3, title: "Basic IT Tools", tag: "Computer Science" },
+            { serial: 4, title: "Personality Development and Communication", tag: "English" },
+            { serial: 5, title: "Digital Marketing", tag: "Commerce" },
+            { serial: 6, title: "Creative Writing", tag: "English" },
+            { serial: 7, title: "Rachnatmak Lekhan", tag: "Hindi" },
+            { serial: 8, title: "Museum and Museology", tag: "History" },
+            { serial: 9, title: "Programming using Python", tag: "Electronics" },
+            { serial: 10, title: "Essentials of Python", tag: "Mathematics" },
+            { serial: 11, title: "Political Leadership and Communication", tag: "Political Science" },
+            { serial: 12, title: "Yoga in Practice", tag: "Physical Education" },
+            { serial: 13, title: "Advanced Spreadsheet Tools", tag: "Commerce / Stats" },
+            { serial: 14, title: "Healthy and Sustainable Food Choices", tag: "Food Tech" }
+        ];
+
+        const vacSubjectsList = [
+            { serial: 1, title: "Ayurveda and Nutrition", tag: "Ayurveda" },
+            { serial: 2, title: "भारतीय भक्ति परम्परा और मानव मूल्य", tag: "Values" },
+            { serial: 3, title: "Constitutional Values and Fundamental Duties", tag: "Civics" },
+            { serial: 4, title: "Digital Empowerment", tag: "Digital Literacy" },
+            { serial: 5, title: "Ethics and Culture", tag: "Philosophy" },
+            { serial: 6, title: "Financial Literacy", tag: "Finance" },
+            { serial: 7, title: "National Cadet Corps - I", tag: "NCC" },
+            { serial: 8, title: "Sports for Life - I", tag: "Sports" },
+            { serial: 9, title: "The Art of Being Happy", tag: "Well-being" },
+            { serial: 10, title: "Vedic Mathematics - I", tag: "Mathematics" },
+            { serial: 11, title: "Yoga Philosophy and Practice", tag: "Yoga" }
+        ];
+
+        const aecIndianLanguagesDetail = [
+            { serial: "1A", title: "AEC: हिंदी भाषा: सम्प्रेषण और संचार (हिंदी क)", tag: "Hindi", criteria: "Studied Hindi up to Class 12" },
+            { serial: "1B", title: "AEC: हिंदी औपचारिक लेखन (हिंदी ख)", tag: "Hindi", criteria: "Studied Hindi up to Class 10" },
+            { serial: "1C", title: "AEC: सोशल मीडिया और ब्लॉग लेखन (हिंदी ग)", tag: "Hindi", criteria: "Studied Hindi up to Class 8" },
+            { serial: "1D", title: "AEC: Hindi D (Special Course)", tag: "Hindi", criteria: "International Students Course" },
+            { serial: "1E", title: "AEC: Hindi E अनिवार्य हिंदी पाठ्यक्रम", tag: "Hindi", criteria: "Not studied Hindi up to Class 8" },
+            { serial: "2A", title: "AEC: Sanskrit A : Advance Neeti Literature in Sanskrit", tag: "Sanskrit", criteria: "Studied Sanskrit up to Class 12" },
+            { serial: "2B", title: "AEC: Sanskrit B : Introductory Upanishad and Geeta", tag: "Sanskrit", criteria: "Studied Sanskrit up to Class 10" },
+            { serial: "2C", title: "AEC: Sanskrit C : Introduction to Sanskrit Language", tag: "Sanskrit", criteria: "Studied Sanskrit up to Class 8 / Beginners" },
+            { serial: "3A", title: "AEC (A): Translation and Interpretation in Tamil", tag: "Tamil", criteria: "Studied up to Class 8 & above" },
+            { serial: "3B", title: "AEC (B): Basic Tamil", tag: "Tamil", criteria: "Beginners Track" },
+            { serial: "4A", title: "AEC (A): Translation and Interpretation in Telugu", tag: "Telugu", criteria: "Studied up to Class 8 & above" },
+            { serial: "4B", title: "AEC (B): Basic Telugu", tag: "Telugu", criteria: "Beginners Track" },
+            { serial: "5", title: "Assamese (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "6", title: "Bengali (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "7", title: "Bodo (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "8", title: "Dogri (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "9", title: "Gujarati (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "10", title: "Kannada (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "11", title: "Kashmiri (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "12", title: "Konkani (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "13", title: "Malayalam (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "14", title: "Manipuri (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "15", title: "Marathi (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "16", title: "Maithili (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "17", title: "Nepali (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "18", title: "Odia (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "19", title: "Punjabi (Level 1 / 2 / 3)", tag: "Cluster Language", criteria: "Allocated according to prior study" },
+            { serial: "20", title: "Santali (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "21", title: "Sindhi (Translation & Interpretation / Basic)", tag: "Cluster Language", criteria: "Offered across cluster colleges" },
+            { serial: "22", title: "Urdu (Urdu A / Urdu B / Urdu C)", tag: "Cluster Language", criteria: "Allocated according to prior study" }
+        ];
+
+        /* =========================================================================
+           AEC ALLOCATION ROTATION LOGIC
+           ========================================================================= */
+        function getCollegeAecAllocation(courseName, semesterNum) {
+            const evsInEvenSemCourses = [
+                "Commerce (Honours)",
+                "Commerce (Programme)",
+                "Botany",
+                "English",
+                "Chemistry",
+                "History",
+                "Hindi",
+                "Statistics",
+                "Mathematics",
+                "Zoology"
+            ];
+
+            const isGroup1 = evsInEvenSemCourses.includes(courseName);
+            const isEvenSem = (semesterNum % 2 === 0);
+
+            const studyType = isGroup1 
+                ? (isEvenSem ? 'evs' : 'language')
+                : (isEvenSem ? 'language' : 'evs');
+
+            if (studyType === 'evs') {
+                const part = (semesterNum <= 2) ? "I" : "II";
+                return {
+                    type: 'evs',
+                    title: `Environmental Science: Theory into Practice - ${part}`,
+                    shortTitle: `Environmental Science (Part ${part})`,
+                    desc: `Compulsory UGCF paper scheduled for ${courseName} in Semester ${semesterNum}.`
+                };
+            } else {
+                const yearLabel = (semesterNum <= 2) ? "First Year" : "Second Year";
+                return {
+                    type: 'language',
+                    title: `AEC Indian Languages (${yearLabel})`,
+                    shortTitle: `AEC Indian Languages`,
+                    desc: `Department course track for Semester ${semesterNum}: Choose your enrolled Indian language.`
+                };
+            }
+        }
+
+        /* =========================================================================
+           STATE MACHINE & DOM HANDLERS
+           ========================================================================= */
         let currentStep = 'courses';
         let state = {
             course: null,
-            semester: null
+            semester: null,
+            category: null,
+            subject: null
         };
 
         const screenCourses = document.getElementById('screen-courses');
         const screenSemesters = document.getElementById('screen-semesters');
+        const screenCategories = document.getElementById('screen-categories');
+        const screenSubjects = document.getElementById('screen-subjects');
         const screenViewer = document.getElementById('screen-viewer');
 
         const coursesGrid = document.getElementById('courses-grid');
         const semestersGrid = document.getElementById('semesters-grid');
+        const categoriesGrid = document.getElementById('categories-grid');
+        const subjectsGrid = document.getElementById('subjects-grid');
 
         const navBackBtn = document.getElementById('nav-back-btn');
         const viewTitle = document.getElementById('view-title');
@@ -1206,7 +1357,16 @@
 
         const crumbCourses = document.getElementById('crumb-courses');
         const crumbSemesters = document.getElementById('crumb-semesters');
+        const crumbCategories = document.getElementById('crumb-categories');
+        const crumbSubjects = document.getElementById('crumb-subjects');
         const crumbViewer = document.getElementById('crumb-viewer');
+
+        const sepCategories = document.getElementById('sep-categories');
+        const sepSubjects = document.getElementById('sep-subjects');
+        const sepViewer = document.getElementById('sep-viewer');
+
+        const categoryInfoBanner = document.getElementById('category-info-banner');
+        const categoryInfoText = document.getElementById('category-info-text');
 
         const syllabusWrapper = document.getElementById('syllabus-wrapper');
         const fsBtn = document.getElementById('viewer-fullscreen-btn');
@@ -1215,21 +1375,14 @@
         const fsBtnLabel = document.getElementById('fs-btn-label');
         const pdfIframe = document.getElementById('pdf-viewer-frame');
 
-        // Fullscreen Toggle Controller
+        // Fullscreen Controller
         if (fsBtn) {
             fsBtn.addEventListener('click', () => {
                 const isFs = syllabusWrapper.classList.toggle('is-fullscreen');
-                if (isFs) {
-                    fsExpandIcon.style.display = 'none';
-                    fsCollapseIcon.style.display = 'inline-block';
-                    fsBtnLabel.textContent = 'Exit Fullscreen';
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    fsExpandIcon.style.display = 'inline-block';
-                    fsCollapseIcon.style.display = 'none';
-                    fsBtnLabel.textContent = 'Fullscreen';
-                    document.body.style.overflow = '';
-                }
+                fsExpandIcon.style.display = isFs ? 'none' : 'inline-block';
+                fsCollapseIcon.style.display = isFs ? 'inline-block' : 'none';
+                fsBtnLabel.textContent = isFs ? 'Exit' : 'Fullscreen';
+                document.body.style.overflow = isFs ? 'hidden' : '';
             });
         }
 
@@ -1243,60 +1396,39 @@
             }
         });
 
-        // Smart Helper: Finds the Drive Link for any Course + Semester
-        function normalizeStr(str) {
-            return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+        function isProgrammeCourse(course) {
+            if (!course) return false;
+            const n = course.name.toLowerCase();
+            return n.includes("programme") || n.includes("program");
         }
 
-        function getSyllabusLink(courseName, semNum) {
-            if (typeof easySyllabusLinks === 'string') {
-                const lines = easySyllabusLinks.split('\n');
-                const targetA = normalizeStr(`${courseName} Semester ${semNum}`);
-                const targetB = normalizeStr(`${courseName} Sem ${semNum}`);
-                const targetC = normalizeStr(`${courseName} ${semNum}`);
+        function normalizeStr(str) {
+            return (str || "").toLowerCase().replace(/[^a-z0-9]/g, '');
+        }
 
-                for (let line of lines) {
-                    line = line.trim();
-                    if (!line || line.startsWith('#') || line.startsWith('//')) continue;
-                    const eqIdx = line.indexOf('=');
-                    if (eqIdx !== -1) {
-                        const rawKey = line.slice(0, eqIdx).trim();
-                        let val = line.slice(eqIdx + 1).trim();
-                        // Clean quotation marks if accidentally added
-                        val = val.replace(/^["']|["']$/g, '').trim();
-
-                        if (!val) continue;
-
-                        const normKey = normalizeStr(rawKey);
-                        if (normKey === targetA || normKey === targetB || normKey === targetC) {
-                            return val;
-                        }
-
-                        // Also support "Department | Semester" format
-                        if (rawKey.includes('|')) {
-                            const parts = rawKey.split('|').map(p => normalizeStr(p.trim()));
-                            if (parts.length === 2) {
-                                if (parts[0] === normalizeStr(courseName) &&
-                                    (parts[1] === String(semNum) || parts[1] === normalizeStr(`Semester ${semNum}`))) {
-                                    return val;
-                                }
-                            }
-                        }
-                    }
+        function getRegistryLink(queryKey) {
+            if (SYLLABUS_REGISTRY[queryKey] && SYLLABUS_REGISTRY[queryKey].trim() !== "") {
+                return SYLLABUS_REGISTRY[queryKey].trim();
+            }
+            const normTarget = normalizeStr(queryKey);
+            for (const [key, val] of Object.entries(SYLLABUS_REGISTRY)) {
+                if (normalizeStr(key) === normTarget && val.trim() !== "") {
+                    return val.trim();
                 }
+            }
+            if (normTarget.includes("environmental")) {
+                const envFallback = SYLLABUS_REGISTRY["Environmental Studies"] || "";
+                return envFallback.trim();
             }
             return "";
         }
 
-        // Google Drive Parser
         function parseGoogleDriveLink(rawUrl) {
-            if (!rawUrl || rawUrl.trim() === "" || rawUrl.includes("insert your link here") || rawUrl === "#") {
+            if (!rawUrl || rawUrl.trim() === "" || rawUrl === "#") {
                 return { isReady: false };
             }
-
             const url = rawUrl.trim();
             const idMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-
             if (idMatch && idMatch[1]) {
                 const fileId = idMatch[1];
                 return {
@@ -1306,72 +1438,232 @@
                     externalUrl: url
                 };
             }
-
-            return {
-                isReady: true,
-                previewUrl: url,
-                downloadUrl: url,
-                externalUrl: url
-            };
+            return { isReady: true, previewUrl: url, downloadUrl: url, externalUrl: url };
         }
 
-        // STEP 1: Render Courses
+        /* 1. COURSES SCREEN */
         function renderCourses(list) {
             coursesGrid.innerHTML = '';
             if (!list.length) {
                 coursesGrid.innerHTML = `<div class="no-results-msg">No departments found matching your search.</div>`;
                 return;
             }
-
             list.forEach(c => {
                 const card = document.createElement('div');
                 card.className = 'bento-card';
                 card.tabIndex = 0;
-                
-                const streamClass = c.stream.toLowerCase();
-                const iconSvg = subjectIcons[c.iconKey] || subjectIcons.baprog;
-
                 card.innerHTML = `
                     <div>
                         <div class="card-top">
-                            <span class="card-icon-wrap">${iconSvg}</span>
-                            <span class="card-stream-tag ${streamClass}">${c.stream}</span>
+                            <span class="card-icon-wrap">${c.icon}</span>
+                            <span class="card-stream-tag ${c.stream.toLowerCase()}">${c.stream}</span>
                         </div>
                         <div class="card-info">
                             <h3>${c.name}</h3>
-                            <p>${c.degree}</p>
+                            <p>${c.degree} Department</p>
                         </div>
                     </div>
                     <div class="card-footer-row">
-                        <span class="card-meta-detail">View Semesters</span>
+                        <span class="card-meta-detail">Select Department</span>
                         <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                 `;
-
                 card.addEventListener('click', () => selectCourse(c));
                 card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectCourse(c); });
                 coursesGrid.appendChild(card);
             });
         }
 
-        // STEP 2: Render Semesters (Directly opens syllabus on click)
+        /* 2. SEMESTER SCREEN */
         function renderSemesters() {
             semestersGrid.innerHTML = '';
             semestersData.forEach(s => {
                 const card = document.createElement('div');
                 card.className = 'bento-card';
                 card.tabIndex = 0;
+                const isThirdYear = (s.num >= 5);
                 card.innerHTML = `
                     <div>
                         <div class="card-top">
-                            <span class="card-icon-wrap" style="font-family: var(--font-heading); font-weight: 800; font-size: 0.9rem;">
+                            <span class="card-icon-wrap" style="font-family: var(--font-heading); font-weight: 800; font-size: 0.94rem;">
                                 ${s.roman}
                             </span>
-                            <span class="card-stream-tag" style="background: var(--bg-card-subtle); color: var(--text-muted);">${s.cycle} • ${s.year}</span>
+                            <span class="card-stream-tag" style="background:var(--bg-card-subtle); color:var(--text-muted);">${s.cycle}</span>
                         </div>
                         <div class="card-info">
                             <h3>Semester ${s.num}</h3>
-                            <p>${s.desc}</p>
+                            <p>${s.year} • ${isThirdYear ? 'Core Discipline (DSC) Papers' : 'UGCF NEP Curriculum'}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-meta-detail">${isThirdYear ? 'View Core Papers' : 'Select Subject Category'}</span>
+                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                `;
+                card.addEventListener('click', () => selectSemester(s.num));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectSemester(s.num); });
+                semestersGrid.appendChild(card);
+            });
+        }
+
+        /* 3. CATEGORY SCREEN */
+        function renderCategories() {
+            categoriesGrid.innerHTML = '';
+            const isProg = isProgrammeCourse(state.course);
+            const isThirdYear = (state.semester >= 5);
+
+            if (isThirdYear) {
+                categoryInfoBanner.style.display = 'flex';
+                categoryInfoText.textContent = `Third Year Curriculum (Semester ${state.semester}): Electives (GE, SEC, VAC, AEC) are fulfilled. Only Discipline Specific Core (DSC) papers apply.`;
+
+                const dscCat = {
+                    key: 'DSC',
+                    title: 'Discipline Specific Core (DSC)',
+                    sub: 'Mandatory Major Core Papers',
+                    tag: 'Core Major',
+                    tagClass: 'badge-dsc',
+                    icon: icons.dsc
+                };
+
+                const card = document.createElement('div');
+                card.className = 'bento-card';
+                card.tabIndex = 0;
+                card.innerHTML = `
+                    <div>
+                        <div class="card-top">
+                            <span class="card-icon-wrap">${dscCat.icon}</span>
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span class="serial-pill">01</span>
+                                <span class="card-stream-tag ${dscCat.tagClass}">${dscCat.tag}</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>${dscCat.title}</h3>
+                            <p>${dscCat.sub}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-meta-detail">View Syllabus</span>
+                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                `;
+                card.addEventListener('click', () => selectCategory('DSC'));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectCategory('DSC'); });
+                categoriesGrid.appendChild(card);
+                return;
+            }
+
+            categoryInfoBanner.style.display = 'none';
+            const aecInfo = getCollegeAecAllocation(state.course.name, state.semester);
+
+            const categories = [
+                { key: 'DSC', title: 'Discipline Specific Core (DSC)', sub: 'Department Core Major Papers', tag: 'Core Major', tagClass: 'badge-dsc', icon: icons.dsc },
+                isProg ? 
+                    { key: 'GEL', title: 'Generic Elective Language (GEL)', sub: 'Programme Language Electives', tag: 'Language Track', tagClass: 'badge-ge', icon: icons.gel } :
+                    { key: 'GE', title: 'Generic Elective (GE)', sub: 'Interdisciplinary Minor Papers', tag: 'Interdisciplinary', tagClass: 'badge-ge', icon: icons.ge },
+                { key: 'SEC', title: 'Skill Enhancement Course (SEC)', sub: 'Applied Practical Skill Papers', tag: 'Skill Papers', tagClass: 'badge-sec', icon: icons.sec },
+                { key: 'VAC', title: 'Value Addition Course (VAC)', sub: 'Ethics, Culture & Wellness Papers', tag: 'Value Courses', tagClass: 'badge-vac', icon: icons.vac },
+                { 
+                    key: 'AEC', 
+                    title: 'Ability Enhancement Course (AEC)', 
+                    sub: aecInfo.title, 
+                    tag: (aecInfo.type === 'evs' ? 'EVS Track' : 'Language Track'), 
+                    tagClass: 'badge-aec', 
+                    icon: icons.aec 
+                }
+            ];
+
+            categories.forEach((cat, idx) => {
+                const card = document.createElement('div');
+                card.className = 'bento-card';
+                card.tabIndex = 0;
+                card.innerHTML = `
+                    <div>
+                        <div class="card-top">
+                            <span class="card-icon-wrap">${cat.icon}</span>
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span class="serial-pill">0${idx + 1}</span>
+                                <span class="card-stream-tag ${cat.tagClass}">${cat.tag}</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>${cat.title}</h3>
+                            <p>${cat.sub}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-meta-detail">${cat.key === 'DSC' ? 'View Syllabus' : 'Explore Subjects'}</span>
+                        <svg class="card-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                `;
+                card.addEventListener('click', () => selectCategory(cat.key));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectCategory(cat.key); });
+                categoriesGrid.appendChild(card);
+            });
+        }
+
+        /* 4. SUBJECT SELECTION SCREEN */
+        function getSubjectsForActiveCategory() {
+            if (state.category === 'GE') return geSubjectsList;
+            if (state.category === 'GEL') return gelSubjectsList;
+            if (state.category === 'SEC') return secSubjectsList;
+            if (state.category === 'VAC') return vacSubjectsList;
+            if (state.category === 'AEC') {
+                const aecAllocation = getCollegeAecAllocation(state.course.name, state.semester);
+                if (aecAllocation.type === 'evs') {
+                    return [{
+                        serial: 1,
+                        title: aecAllocation.title,
+                        tag: "Compulsory UGCF",
+                        criteria: `${state.course.name} studies Environmental Science in Semester ${state.semester}`
+                    }];
+                } else {
+                    return aecIndianLanguagesDetail;
+                }
+            }
+            return [];
+        }
+
+        function renderSubjects(filterQuery = "") {
+            subjectsGrid.innerHTML = '';
+            const list = getSubjectsForActiveCategory();
+            const query = filterQuery.toLowerCase().trim();
+
+            const filtered = list.filter(item => {
+                const t = (item.title || "").toLowerCase();
+                const d = (item.tag || "").toLowerCase();
+                const c = (item.criteria || "").toLowerCase();
+                return t.includes(query) || d.includes(query) || c.includes(query);
+            });
+
+            const badgeElem = document.getElementById('subject-pool-badge');
+            if (badgeElem) {
+                badgeElem.textContent = `${filtered.length} Paper${filtered.length === 1 ? '' : 's'} Available`;
+            }
+
+            if (!filtered.length) {
+                subjectsGrid.innerHTML = `<div class="no-results-msg">No papers found matching "${filterQuery}".</div>`;
+                return;
+            }
+
+            filtered.forEach(sub => {
+                const card = document.createElement('div');
+                card.className = 'bento-card';
+                card.tabIndex = 0;
+
+                const serialNum = sub.serial ? `#${sub.serial}` : '#';
+                const tagLabel = sub.tag || state.category;
+                const subText = sub.criteria ? sub.criteria : `${tagLabel} Department`;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="card-top">
+                            <span class="serial-pill">${serialNum}</span>
+                            <span class="card-stream-tag" style="background:var(--bg-card-subtle); color:var(--text-muted);">${tagLabel}</span>
+                        </div>
+                        <div class="card-info">
+                            <h3>${sub.title}</h3>
+                            <p>${subText}</p>
                         </div>
                     </div>
                     <div class="card-footer-row">
@@ -1380,46 +1672,41 @@
                     </div>
                 `;
 
-                card.addEventListener('click', () => selectSemester(s.num));
-                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectSemester(s.num); });
-                semestersGrid.appendChild(card);
+                card.addEventListener('click', () => selectSubject(sub));
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectSubject(sub); });
+                subjectsGrid.appendChild(card);
             });
         }
 
-        // STEP 3: Directly Open Syllabus Viewer Box
-        function selectSemester(semNum) {
-            state.semester = semNum;
+        /* 5. VIEWER CONTROLLER */
+        function openViewer(docTitle, rawLink) {
             currentStep = 'viewer';
 
             screenCourses.style.display = 'none';
             screenSemesters.style.display = 'none';
+            screenCategories.style.display = 'none';
+            screenSubjects.style.display = 'none';
             screenViewer.style.display = 'block';
 
-            // Update Page Context
-            viewTitle.textContent = `${state.course.name} — Semester ${semNum} Syllabus`;
-            viewSubtitle.textContent = `Official Departmental Master Syllabus, Core Papers & Academic Matrix for ${state.course.degree}.`;
-            navBackBtn.querySelector('span').textContent = 'Semesters';
+            viewTitle.textContent = docTitle;
+            viewSubtitle.textContent = `Official Syllabus & Curricular Matrix.`;
+            navBackBtn.querySelector('span').textContent = 'Back';
 
-            // Top Toolbar Meta
             const docTitleElem = document.getElementById('viewer-doc-title');
             const pendingBox = document.getElementById('viewer-pending-box');
             const extLink = document.getElementById('viewer-external-link');
             const downloadLink = document.getElementById('viewer-download-link');
 
-            docTitleElem.textContent = `${state.course.name} — Semester ${semNum} Master Syllabus`;
+            docTitleElem.textContent = docTitle;
 
-            // Look up link safely from the easy copy-paste list
-            const rawLink = getSyllabusLink(state.course.name, semNum);
             const linkData = parseGoogleDriveLink(rawLink);
 
             if (linkData.isReady) {
                 pendingBox.style.display = 'none';
                 pdfIframe.style.display = 'block';
                 pdfIframe.src = linkData.previewUrl;
-
                 extLink.style.display = 'inline-flex';
                 extLink.href = linkData.externalUrl;
-
                 downloadLink.style.display = 'inline-flex';
                 downloadLink.href = linkData.downloadUrl;
             } else {
@@ -1428,23 +1715,48 @@
                 extLink.style.display = 'none';
                 downloadLink.style.display = 'none';
                 pendingBox.style.display = 'flex';
-
-                document.getElementById('pending-title-text').textContent = `Semester ${semNum} Syllabus Awaiting Term Commencement`;
-                document.getElementById('pending-desc-text').innerHTML = `
-                    Sri Venkateswara College is currently conducting the academic term. Official departmental syllabi, room assignments, and practical laboratory schedules for <strong>Semester ${semNum}</strong> will be published immediately upon the commencement of the upcoming term in accordance with the University of Delhi academic calendar.
-                `;
+                document.getElementById('pending-title-text').textContent = `Coming Soon`;
+                document.getElementById('pending-desc-text').textContent = `The official syllabus document for "${docTitle}" is being prepared and will be uploaded shortly.`;
             }
 
             updateBreadcrumbs();
-            const targetOffset = screenViewer.getBoundingClientRect().top + window.pageYOffset - 80;
+            const targetOffset = screenViewer.getBoundingClientRect().top + window.pageYOffset - 70;
             window.scrollTo({ top: Math.max(0, targetOffset), behavior: 'smooth' });
         }
 
-        // Navigation Controllers
+        /* NAVIGATION FLOW CONTROLLERS */
         function updateBreadcrumbs() {
             crumbCourses.className = currentStep === 'courses' ? 'breadcrumb-step active' : 'breadcrumb-step';
             crumbSemesters.className = currentStep === 'semesters' ? 'breadcrumb-step active' : 'breadcrumb-step';
-            crumbViewer.className = currentStep === 'viewer' ? 'breadcrumb-step active' : 'breadcrumb-step';
+            
+            if (currentStep === 'categories' || currentStep === 'subjects' || currentStep === 'viewer') {
+                sepCategories.style.display = 'inline-flex';
+                crumbCategories.style.display = 'inline-block';
+                crumbCategories.textContent = state.category ? state.category : 'Category';
+                crumbCategories.className = currentStep === 'categories' ? 'breadcrumb-step active' : 'breadcrumb-step';
+            } else {
+                sepCategories.style.display = 'none';
+                crumbCategories.style.display = 'none';
+            }
+
+            if (currentStep === 'subjects' || (currentStep === 'viewer' && state.category !== 'DSC')) {
+                sepSubjects.style.display = 'inline-flex';
+                crumbSubjects.style.display = 'inline-block';
+                crumbSubjects.textContent = state.subject ? (state.subject.title.length > 18 ? state.subject.title.substring(0, 16) + '…' : state.subject.title) : 'Subject';
+                crumbSubjects.className = currentStep === 'subjects' ? 'breadcrumb-step active' : 'breadcrumb-step';
+            } else {
+                sepSubjects.style.display = 'none';
+                crumbSubjects.style.display = 'none';
+            }
+
+            if (currentStep === 'viewer') {
+                sepViewer.style.display = 'inline-flex';
+                crumbViewer.style.display = 'inline-block';
+                crumbViewer.className = 'breadcrumb-step active';
+            } else {
+                sepViewer.style.display = 'none';
+                crumbViewer.style.display = 'none';
+            }
         }
 
         function selectCourse(course) {
@@ -1453,10 +1765,12 @@
 
             screenCourses.style.display = 'none';
             screenSemesters.style.display = 'block';
+            screenCategories.style.display = 'none';
+            screenSubjects.style.display = 'none';
             screenViewer.style.display = 'none';
 
-            viewTitle.textContent = `${course.name} — Select Semester`;
-            viewSubtitle.textContent = `Choose your semester to view all active UGCF syllabus documents for ${course.degree}.`;
+            viewTitle.textContent = `${course.name}`;
+            viewSubtitle.textContent = `Select your semester to view official syllabi for ${course.degree}.`;
             navBackBtn.querySelector('span').textContent = 'Departments';
 
             renderSemesters();
@@ -1464,8 +1778,86 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        function selectSemester(semNum) {
+            state.semester = semNum;
+            currentStep = 'categories';
+
+            screenCourses.style.display = 'none';
+            screenSemesters.style.display = 'none';
+            screenCategories.style.display = 'block';
+            screenSubjects.style.display = 'none';
+            screenViewer.style.display = 'none';
+
+            viewTitle.textContent = `${state.course.name} — Semester ${semNum}`;
+            
+            if (semNum >= 5) {
+                viewSubtitle.textContent = `Third-year academic term (Semesters 5 & 6) consists solely of Discipline Specific Core (DSC) papers.`;
+            } else {
+                viewSubtitle.textContent = `Select your subject category below to explore the syllabus and course matrix.`;
+            }
+            navBackBtn.querySelector('span').textContent = 'Semesters';
+
+            renderCategories();
+            updateBreadcrumbs();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function selectCategory(categoryKey) {
+            state.category = categoryKey;
+
+            if (categoryKey === 'DSC') {
+                const dscKey = `${state.course.name} Sem ${state.semester}`;
+                const rawLink = getRegistryLink(dscKey);
+                openViewer(`${state.course.name} — Sem ${state.semester} DSC`, rawLink);
+                return;
+            }
+
+            currentStep = 'subjects';
+            screenCourses.style.display = 'none';
+            screenSemesters.style.display = 'none';
+            screenCategories.style.display = 'none';
+            screenSubjects.style.display = 'block';
+            screenViewer.style.display = 'none';
+
+            const subSearch = document.getElementById('subject-search-input');
+            if (subSearch) subSearch.value = '';
+
+            if (categoryKey === 'AEC') {
+                const aecAlloc = getCollegeAecAllocation(state.course.name, state.semester);
+                viewTitle.textContent = `AEC: ${aecAlloc.shortTitle} — Semester ${state.semester}`;
+                viewSubtitle.textContent = aecAlloc.desc;
+            } else {
+                viewTitle.textContent = `${categoryKey} Papers — Semester ${state.semester}`;
+                viewSubtitle.textContent = `Select your subject paper from the options below.`;
+            }
+            navBackBtn.querySelector('span').textContent = 'Categories';
+
+            renderSubjects();
+            updateBreadcrumbs();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function selectSubject(sub) {
+            state.subject = sub;
+            const rawLink = getRegistryLink(sub.title);
+            openViewer(`${sub.title}`, rawLink);
+        }
+
+        // Global Back Controller
         navBackBtn.addEventListener('click', () => {
             if (currentStep === 'viewer') {
+                if (state.category === 'DSC') {
+                    selectSemester(state.semester);
+                } else {
+                    currentStep = 'subjects';
+                    screenViewer.style.display = 'none';
+                    screenSubjects.style.display = 'block';
+                    navBackBtn.querySelector('span').textContent = 'Categories';
+                    updateBreadcrumbs();
+                }
+            } else if (currentStep === 'subjects') {
+                selectSemester(state.semester);
+            } else if (currentStep === 'categories') {
                 selectCourse(state.course);
             } else if (currentStep === 'semesters') {
                 goToCourses();
@@ -1478,13 +1870,17 @@
             currentStep = 'courses';
             state.course = null;
             state.semester = null;
+            state.category = null;
+            state.subject = null;
 
             screenCourses.style.display = 'block';
             screenSemesters.style.display = 'none';
+            screenCategories.style.display = 'none';
+            screenSubjects.style.display = 'none';
             screenViewer.style.display = 'none';
 
             viewTitle.textContent = 'Select Your Department';
-            viewSubtitle.textContent = 'Access verified syllabi, core course guidelines, practical matrices, and reference books across all undergraduate departments.';
+            viewSubtitle.textContent = 'Access verified syllabi, core paper guidelines, and elective curricula across all undergraduate departments.';
             navBackBtn.querySelector('span').textContent = 'Dashboard';
 
             updateBreadcrumbs();
@@ -1493,14 +1889,16 @@
 
         crumbCourses.addEventListener('click', goToCourses);
         crumbSemesters.addEventListener('click', () => { if (state.course) selectCourse(state.course); });
+        crumbCategories.addEventListener('click', () => { if (state.course && state.semester) selectSemester(state.semester); });
+        crumbSubjects.addEventListener('click', () => { if (state.category && state.category !== 'DSC') selectCategory(state.category); });
 
-        // Search & Filter
-        const searchInput = document.getElementById('course-search-input');
+        // Search Handlers
+        const courseSearchInput = document.getElementById('course-search-input');
         const filterChips = document.querySelectorAll('.category-chip');
         let activeStream = 'all';
 
         function applyCourseFilters() {
-            const query = searchInput.value.toLowerCase().trim();
+            const query = courseSearchInput.value.toLowerCase().trim();
             const filtered = coursesData.filter(c => {
                 const matchesStream = (activeStream === 'all' || c.stream.toLowerCase() === activeStream.toLowerCase());
                 const matchesQuery = c.name.toLowerCase().includes(query) || c.degree.toLowerCase().includes(query);
@@ -1509,9 +1907,7 @@
             renderCourses(filtered);
         }
 
-        if (searchInput) {
-            searchInput.addEventListener('input', applyCourseFilters);
-        }
+        if (courseSearchInput) courseSearchInput.addEventListener('input', applyCourseFilters);
 
         filterChips.forEach(chip => {
             chip.addEventListener('click', () => {
@@ -1522,15 +1918,20 @@
             });
         });
 
+        const subjectSearchInput = document.getElementById('subject-search-input');
+        if (subjectSearchInput) {
+            subjectSearchInput.addEventListener('input', () => {
+                renderSubjects(subjectSearchInput.value);
+            });
+        }
+
         // Theme Toggle Controller
         const themeBtn = document.getElementById('theme-toggle');
 
         function setTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('venky-theme', theme);
-            if (themeBtn) {
-                themeBtn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
-            }
+            if (themeBtn) themeBtn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
         }
 
         function initTheme() {
@@ -1546,6 +1947,7 @@
             });
         }
 
+        // Initialize App
         initTheme();
         renderCourses(coursesData);
         updateBreadcrumbs();
