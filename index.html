@@ -42,7 +42,6 @@ a{color:inherit;text-decoration:none}
   background:#16202A;
   color:#B7C2CE;
   z-index:60;
-  /* Sleek custom scrollbar for left vertical bar */
   scrollbar-width:thin;
   scrollbar-color:rgba(255,255,255,.16) transparent;
 }
@@ -62,6 +61,8 @@ a{color:inherit;text-decoration:none}
 .vs-nav a:hover{background:rgba(255,255,255,.06);color:#fff}
 .vs-nav a[aria-current=page]{background:rgba(255,255,255,.1);color:#fff;font-weight:600}
 .vs-nav a[aria-current=page]::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 3px 3px 0;background:var(--co)}
+.vs-badge-new{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:.6875rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--sb);color:var(--si);line-height:1.3}
+.vs-nav a .vs-badge-new{margin-left:auto;background:rgba(217,107,67,.22);color:#F6C3AE}
 .vs-nav-more{display:none;margin-top:22px}
 .vs-side-foot{margin-top:auto;padding:18px 12px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.8125rem;color:#8A98A9}
 .vs-side-foot b{display:block;color:#C9D3DD;font-weight:600}
@@ -89,16 +90,18 @@ a{color:inherit;text-decoration:none}
  
 /* Hero */
 .vs-content{max-width:1180px;margin:0 auto;padding:44px clamp(16px,3vw,40px) 56px}
-.vs-hero{padding-bottom:52px}
+.vs-hero{padding-bottom:44px}
 .vs-greeting{margin-bottom:12px;font-weight:500;color:var(--mu)}
 .vs-hero h1{font:600 clamp(2.4rem,5.2vw,3.6rem)/1.04 var(--serif);letter-spacing:-.025em;color:var(--ink)}
-.vs-hero-sub{margin-top:16px;max-width:52ch;font-size:1.0625rem;line-height:1.65}
+.vs-hero-sub{margin-top:16px;max-width:54ch;font-size:1.0625rem;line-height:1.65}
 .vs-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.vs-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:12px;border:1px solid transparent;font-weight:600}
+.vs-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:12px;border:1px solid transparent;font-weight:600;transition:background-color .15s,border-color .15s}
 .vs-btn.vs-btn-primary{background:#16202A;border-color:#16202A;color:#FFFFFF}
 .vs-btn.vs-btn-primary:hover{background:#2A3D52;border-color:#2A3D52;color:#FFFFFF}
 [data-theme=dark] .vs-btn.vs-btn-primary{background:#243445;border-color:rgba(255,255,255,.22)}
 [data-theme=dark] .vs-btn.vs-btn-primary:hover{background:#31465C}
+.vs-btn-accent{background:var(--co);border-color:var(--co);color:#fff}
+.vs-btn-accent:hover{background:#C25933;border-color:#C25933;color:#fff}
 .vs-btn-ghost{background:var(--sf2);color:var(--ink);border-color:var(--ln2)}
 .vs-btn-ghost:hover{background:var(--sf)}
 .vs-tile{width:40px;height:40px;flex:none;display:grid;place-items:center;border-radius:12px;background:var(--t1);color:var(--t1i)}
@@ -132,6 +135,24 @@ a{color:inherit;text-decoration:none}
 .vs-open:focus-visible::after{outline:2px solid var(--fc);outline-offset:3px}
 .vs-open .vs-ic{transition:transform .2s}
 .vs-card:hover .vs-open .vs-ic{transform:translateX(3px)}
+
+/* Featured launch card (spans full grid width above the 3x2 cards) */
+.vs-card-featured{grid-column:1 / -1;background:linear-gradient(135deg,var(--sf) 45%,var(--sf2) 100%);border-color:var(--ln2)}
+.vs-card-featured .vs-tile{background:var(--sb);color:var(--si)}
+.vs-card-title-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.vs-card-featured h3{font-size:1.45rem}
+.vs-card-specs{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;font-size:.8125rem;font-weight:500;color:var(--mu)}
+.vs-card-specs span{display:inline-flex;align-items:center;gap:7px}
+.vs-card-specs span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--co);opacity:.85}
+@media (min-width:860px){
+  .vs-card-featured{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;align-items:center;gap:16px 28px;padding:24px 26px}
+  .vs-card-featured .vs-card-head{grid-column:1;grid-row:1}
+  .vs-card-featured .vs-card-specs{grid-column:1;grid-row:2;padding-left:60px}
+  .vs-card-featured .vs-card-foot{grid-column:2;grid-row:1 / span 2;margin-top:0;padding-top:0;padding-left:28px;border-top:0;border-left:1px solid var(--ln);flex-direction:column;align-items:flex-end;justify-content:center;gap:12px;min-width:210px;height:100%}
+  .vs-card-featured .vs-open{padding:10px 18px;border-radius:12px;background:var(--ink);color:var(--bg);font-size:.875rem}
+  [data-theme=dark] .vs-card-featured .vs-open{background:var(--sf2);color:var(--ink);border:1px solid var(--ln2)}
+}
+
 .vs-empty{margin-top:20px;padding:40px 20px;text-align:center;background:var(--sf);border:1px dashed var(--ln2);border-radius:18px}
 .vs-empty[hidden]{display:none}
 .vs-empty .vs-btn{margin-top:14px;min-height:44px}
@@ -172,7 +193,7 @@ a{color:inherit;text-decoration:none}
 .vs-search{display:none;order:3;flex-basis:100%;max-width:none}
 .vs-topbar.is-search .vs-search{display:block}
 #theme-toggle{width:44px;height:44px}
-.vs-hero{padding-bottom:40px}
+.vs-hero{padding-bottom:36px}
 .vs-footer-cols{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:640px){
@@ -204,6 +225,7 @@ a{color:inherit;text-decoration:none}
 <symbol id="i-vault" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></symbol>
 <symbol id="i-scroll" viewBox="0 0 24 24"><path d="M15 12h-5M15 8h-5M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></symbol>
 <symbol id="i-cal" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/><rect width="18" height="18" x="3" y="4" rx="2"/></symbol>
+<symbol id="i-datesheet" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="m9 16 2 2 4-4"/></symbol>
 <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
 <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
 <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></symbol>
@@ -228,6 +250,7 @@ a{color:inherit;text-decoration:none}
     <div class="vs-nav-label">Academic hub</div>
     <nav class="vs-nav" aria-label="Academic hub">
       <a href="index.html" aria-current="page"><svg class="vs-ic"><use href="#i-dash"/></svg>Dashboard</a>
+      <a href="academic-resources/datesheet.html"><svg class="vs-ic"><use href="#i-datesheet"/></svg>Exam Datesheet<span class="vs-badge-new">New</span></a>
       <a href="academic-resources/pyqs.html"><svg class="vs-ic"><use href="#i-vault"/></svg>PYQs 10-Yr Vault</a>
       <a href="academic-resources/syllabus.html"><svg class="vs-ic"><use href="#i-scroll"/></svg>UGCF Syllabus</a>
       <a href="academic-resources/timetable.html"><svg class="vs-ic"><use href="#i-cal"/></svg>Time Table PDFs</a>
@@ -242,7 +265,7 @@ a{color:inherit;text-decoration:none}
         <a href="academic-resources/contact.html"><svg class="vs-ic"><use href="#i-mail"/></svg>Contact</a>
       </nav>
     </div>
-    <div class="vs-side-foot"><b>VenkySpace v1.1.0</b>Built for SVC Students</div>
+    <div class="vs-side-foot"><b>VenkySpace v1.2.0</b>Built for SVC Students</div>
   </aside>
  
   <div class="vs-main">
@@ -253,7 +276,7 @@ a{color:inherit;text-decoration:none}
       <a href="index.html" class="vs-brand vs-topbar-brand" aria-label="VenkySpace Home"><b>VenkySpace<i>.</i></b><small>SVC DU</small></a>
       <div class="vs-search" role="search">
         <svg class="vs-ic"><use href="#i-search"/></svg>
-        <input type="search" id="global-campus-search" placeholder="Search PYQs, syllabus, timetables, notes, FAQs…" aria-label="Search all modules" autocomplete="off">
+        <input type="search" id="global-campus-search" placeholder="Search datesheet, PYQs, syllabus, timetables, notes, FAQs…" aria-label="Search all modules" autocomplete="off">
       </div>
       <div class="vs-actions">
         <nav class="vs-quick" aria-label="Quick links">
@@ -273,7 +296,7 @@ a{color:inherit;text-decoration:none}
         <div>
           <p class="vs-greeting" id="dynamic-greeting">Welcome back, Venkyite</p>
           <h1>Academic Workspace.</h1>
-          <p class="vs-hero-sub">Past papers, UGCF syllabi, department timetables, WhatsApp groups and campus FAQs for SVC students, all in one place.</p>
+          <p class="vs-hero-sub">Exam datesheets, past papers, UGCF syllabi, department timetables, WhatsApp groups and campus FAQs for SVC students, all in one place.</p>
           <div class="vs-cta">
             <a href="academic-resources/pyqs.html" class="vs-btn vs-btn-primary"><svg class="vs-ic"><use href="#i-book"/></svg>Browse PYQs</a>
             <a href="https://www.svc.ac.in" target="_blank" rel="noopener noreferrer" class="vs-btn vs-btn-ghost">Official College Portal<svg class="vs-ic"><use href="#i-up-right"/></svg></a>
@@ -284,6 +307,29 @@ a{color:inherit;text-decoration:none}
       <!-- CORE ACADEMIC UTILITIES -->
       <section aria-label="Academic modules">
         <div class="vs-grid">
+
+          <article class="vs-card vs-card-featured" data-category="schedule" data-keywords="datesheet date sheet exam schedule dec 2026 jan 2027 end semester admit card upc morning evening dsc ge sec vac aec b.a. programme major minor pin personal datesheet png download countdown">
+            <div class="vs-card-head">
+              <span class="vs-tile"><svg class="vs-ic"><use href="#i-datesheet"/></svg></span>
+              <div>
+                <div class="vs-card-title-row">
+                  <h3>End-Semester Exam Datesheet</h3>
+                  <span class="vs-badge-new">New</span>
+                </div>
+                <p>Official DU schedule (Dec 2026 – Jan 2027) — filter by department, pin your exams &amp; download as PNG.</p>
+              </div>
+            </div>
+            <p class="vs-card-specs">
+              <span>20 Departments</span>
+              <span>B.A. Prog Combos</span>
+              <span>DSC, GE, SEC, VAC &amp; AEC</span>
+              <span>Personal PNG Export</span>
+            </p>
+            <div class="vs-card-foot">
+              <span class="vs-meta" id="datesheet-live-meta">Dec 2026 – Jan 2027 • Synced Nov 24</span>
+              <a class="vs-open" href="academic-resources/datesheet.html" aria-label="Open End-Semester Exam Datesheet">Open Datesheet<svg class="vs-ic"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
  
           <article class="vs-card" data-category="studies" data-keywords="pyq previous year question papers physics chemistry maths mathematics stats statistics electronics biological sciences b.com commerce economics history political science pol science english sociology hindi semester exams">
             <div class="vs-card-head"><span class="vs-tile"><svg class="vs-ic"><use href="#i-vault"/></svg></span><div><h3>10-Yr PYQs Vault</h3><p>Past DU semester papers</p></div></div>
@@ -376,6 +422,7 @@ a{color:inherit;text-decoration:none}
       <div>
         <h3>Student Utilities</h3>
         <ul>
+          <li><a href="academic-resources/datesheet.html">End-Sem Exam Datesheet</a></li>
           <li><a href="academic-resources/timetable.html">Department Time Table</a></li>
           <li><a href="academic-resources/officialwagroups.html">WhatsApp Communities</a></li>
           <li><a href="academic-resources/campusfaq.html">Campus FAQs &amp; Help</a></li>
@@ -415,6 +462,17 @@ a{color:inherit;text-decoration:none}
   if (greet) {
     var hr = new Date().getHours();
     greet.textContent = 'Good ' + (hr < 12 ? 'morning' : hr < 17 ? 'afternoon' : 'evening') + ', Venkyite';
+  }
+
+  /* ---------- Live pinned exam count from Datesheet ---------- */
+  var dsMeta = $('#datesheet-live-meta');
+  if (dsMeta) {
+    try {
+      var pins = JSON.parse(localStorage.getItem('venky-personal-datesheet-v3') || '[]');
+      if (Array.isArray(pins) && pins.length > 0) {
+        dsMeta.textContent = pins.length + ' exam' + (pins.length === 1 ? '' : 's') + ' pinned • Synced Nov 24';
+      }
+    } catch (e) {}
   }
  
   /* ---------- Mobile drawer ---------- */
