@@ -630,10 +630,12 @@
             #timeline > .exam-card:nth-child(2) { animation-delay: .04s; } #timeline > .exam-card:nth-child(3) { animation-delay: .08s; }
             #timeline > .exam-card:nth-child(4) { animation-delay: .12s; } #timeline > .exam-card:nth-child(n+5) { animation-delay: .16s; }
         }
-        @media print { .exam-card { transform: none !important; animation: none !important; } }
-    </style>
-    <Style>
-    /* =====================================================================
+       @media print {
+            .exam-card { transform: none !important; animation: none !important; }
+            .png-modal { display: none !important; }
+        }
+
+        /* =====================================================================
            FULLSCREEN PNG PREVIEW MODAL (Mobile / WhatsApp Fallback)
            ===================================================================== */
         .png-modal {
@@ -686,6 +688,8 @@
             color: #FFFFFF;
         }
         .png-modal-actions .btn-ghost-dark:hover { background: rgba(255, 255, 255, 0.2); color: #FFFFFF; }
+    </style>
+
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -2575,7 +2579,7 @@
             return { blob, dataUrl };
         }
 
-        const pngModal          = $('png-modal');
+       const pngModal          = $('png-modal');
         const pngPreviewImg     = $('png-preview-img');
         const pngNativeShareBtn = $('png-native-share-btn');
         const pngDirectBtn      = $('png-direct-download-btn');
@@ -2630,7 +2634,7 @@
 
         function closePngModal() {
             pngModal.hidden = true;
-            pngPreviewImg.src = '';
+            pngPreviewImg.removeAttribute('src');
             currentPngBlob = null;
             currentPngFile = null;
             document.body.style.overflow = '';
@@ -2675,7 +2679,7 @@
                         document.fonts.load('800 40px Inter'), document.fonts.load('700 20px Inter'),
                         document.fonts.load('500 20px Inter'), document.fonts.load('700 20px "Noto Sans Devanagari"', 'अ')
                     ]),
-                    new Promise(r => setTimeout(r, 2500))
+                    new Promise(r => setTimeout(r, 400))
                 ]);
             } catch (e) { /* draw with fallback fonts */ }
 
