@@ -632,6 +632,59 @@
         }
         @media print { .exam-card { transform: none !important; animation: none !important; } }
     </style>
+    /* =====================================================================
+           FULLSCREEN PNG PREVIEW MODAL (Mobile / WhatsApp Fallback)
+           ===================================================================== */
+        .png-modal {
+            position: fixed; inset: 0; z-index: 300;
+            display: flex; flex-direction: column;
+            background: rgba(8, 13, 26, 0.92);
+            -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+            padding: env(safe-area-inset-top, 12px) 14px env(safe-area-inset-bottom, 14px);
+        }
+        .png-modal-bar {
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            max-width: 720px; width: 100%; margin: 6px auto 10px;
+        }
+        .png-modal-title { font-size: 0.95rem; font-weight: 700; color: #FFFFFF; }
+        .png-modal-close {
+            width: 38px; height: 38px; border-radius: 10px;
+            display: grid; place-items: center;
+            background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #FFFFFF; font-size: 1.2rem;
+        }
+        .png-modal-close:hover { background: rgba(255, 255, 255, 0.22); }
+
+        .png-modal-tip {
+            max-width: 720px; width: 100%; margin: 0 auto 12px;
+            padding: 11px 14px; border-radius: 12px;
+            background: #FFFBEB; border: 1px solid #FDE68A; color: #92400E;
+            font-size: 0.84rem; font-weight: 700; line-height: 1.4; text-align: center;
+        }
+
+        .png-modal-scroll {
+            flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;
+            max-width: 720px; width: 100%; margin: 0 auto;
+            border-radius: 14px;
+        }
+        .png-modal-scroll img {
+            display: block; width: 100%; height: auto; border-radius: 14px;
+            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5);
+            -webkit-touch-callout: default !important;
+            pointer-events: auto;
+        }
+
+        .png-modal-actions {
+            display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px;
+            max-width: 720px; width: 100%; margin: 12px auto 4px;
+        }
+        .png-modal-actions .btn { height: 42px; padding: 0 18px; }
+        .png-modal-actions .btn-ghost-dark {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.24);
+            color: #FFFFFF;
+        }
+        .png-modal-actions .btn-ghost-dark:hover { background: rgba(255, 255, 255, 0.2); color: #FFFFFF; }
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -783,6 +836,33 @@
         </section>
 
     </main>
+    <!-- Fullscreen PNG Preview Modal (iOS Safari / WhatsApp In-App Browser Fallback) -->
+    <div class="png-modal" id="png-modal" role="dialog" aria-modal="true" aria-labelledby="png-modal-title" hidden>
+        <div class="png-modal-bar">
+            <span class="png-modal-title" id="png-modal-title">Your Personal Datesheet</span>
+            <button type="button" class="png-modal-close" id="png-modal-close" aria-label="Close preview">&times;</button>
+        </div>
+
+        <div class="png-modal-tip">
+            📲 Using WhatsApp/iPhone? Long-press the image below and tap 'Save to Photos / Download Image'!
+        </div>
+
+        <div class="png-modal-scroll">
+            <img id="png-preview-img" src="" alt="Generated VenkySpace Datesheet">
+        </div>
+
+        <div class="png-modal-actions">
+            <button type="button" class="btn primary" id="png-native-share-btn" hidden>
+                Share / Save to Photos
+            </button>
+            <button type="button" class="btn btn-ghost-dark" id="png-direct-download-btn">
+                Try Direct Download
+            </button>
+            <button type="button" class="btn btn-ghost-dark" id="png-modal-done-btn">
+                Close
+            </button>
+        </div>
+    </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -2483,16 +2563,104 @@
             text('Cross-verify timings with your official DU Admit Card', padX, fy + 218, pf(500, 15), '#94A3B8');
             text(`Generated on VenkySpace, ${today}`, W - padX, fy + 218, pf(500, 15), '#94A3B8', 'right');
 
-            await new Promise(res => cv.toBlob(blob => {
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.download = 'venkyspace-personal-datesheet.png';
-                link.href = url;
-                document.body.appendChild(link); link.click(); link.remove();
-                setTimeout(() => URL.revokeObjectURL(url), 4000);
-                res();
-            }, 'image/png'));
+            const dataUrl = cv.toDataURL('image/png');
+            let blob = await new Promise(res => cv.toBlob(res, 'image/png'));
+            if (!blob) {
+                const bin = atob(dataUrl.split(',')[1]);
+                const arr = new Uint8Array(bin.length);
+                for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+                blob = new Blob([arr], { type: 'image/png' });
+            }
+            return { blob, dataUrl };
         }
+
+        const pngModal          = $('png-modal');
+        const pngPreviewImg     = $('png-preview-img');
+        const pngNativeShareBtn = $('png-native-share-btn');
+        const pngDirectBtn      = $('png-direct-download-btn');
+        let currentPngBlob      = null;
+        let currentPngFile      = null;
+
+        function isMobileBrowser() {
+            return /Android|iPhone|iPad|iPod|Mobile|WhatsApp|Instagram|FBAN|FBAV/i.test(navigator.userAgent)
+                || (navigator.maxTouchPoints > 1 && window.innerWidth <= 1024);
+        }
+
+        function buildPngFile(blob) {
+            try {
+                return new File([blob], 'venkyspace-personal-datesheet.png', { type: 'image/png' });
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function canSharePngFile(file) {
+            if (!file || typeof navigator.share !== 'function' || typeof navigator.canShare !== 'function') {
+                return false;
+            }
+            try {
+                return navigator.canShare({ files: [file] });
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function triggerDirectDownload(blob) {
+            if (!blob) return;
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.download = 'venkyspace-personal-datesheet.png';
+            link.href = url;
+            link.rel = 'noopener';
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 10000);
+        }
+
+        function openPngModal(blob, dataUrl, file) {
+            currentPngBlob = blob;
+            currentPngFile = file;
+            pngPreviewImg.src = dataUrl;
+            pngNativeShareBtn.hidden = !canSharePngFile(file);
+            pngModal.hidden = false;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePngModal() {
+            pngModal.hidden = true;
+            pngPreviewImg.src = '';
+            currentPngBlob = null;
+            currentPngFile = null;
+            document.body.style.overflow = '';
+        }
+
+        $('png-modal-close').addEventListener('click', closePngModal);
+        $('png-modal-done-btn').addEventListener('click', closePngModal);
+        pngModal.addEventListener('click', (e) => {
+            if (e.target === pngModal) closePngModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !pngModal.hidden) closePngModal();
+        });
+
+        pngDirectBtn.addEventListener('click', () => {
+            if (!currentPngBlob) return;
+            triggerDirectDownload(currentPngBlob);
+            if (typeof showToast === 'function') showToast('Direct download started');
+        });
+
+        pngNativeShareBtn.addEventListener('click', async () => {
+            if (!canSharePngFile(currentPngFile)) return;
+            try {
+                await navigator.share({
+                    files: [currentPngFile],
+                    title: 'My VenkySpace Datesheet'
+                });
+            } catch (err) {
+                /* User cancelled or WebView blocked share; preview modal stays open */
+            }
+        });
 
         $('download-png-btn').addEventListener('click', async (ev) => {
             const btn = ev.currentTarget;
@@ -2509,9 +2677,27 @@
                     new Promise(r => setTimeout(r, 2500))
                 ]);
             } catch (e) { /* draw with fallback fonts */ }
+
             try {
-                await renderDatesheetPNG(exams);
-                showToast('Datesheet PNG downloaded');
+                const { blob, dataUrl } = await renderDatesheetPNG(exams);
+                const pngFile = buildPngFile(blob);
+
+                // Always open fullscreen preview modal immediately (guaranteed fallback for WhatsApp / iOS)
+                openPngModal(blob, dataUrl, pngFile);
+
+                if (isMobileBrowser() && canSharePngFile(pngFile)) {
+                    try {
+                        await navigator.share({
+                            files: [pngFile],
+                            title: 'My VenkySpace Datesheet'
+                        });
+                    } catch (err) {
+                        /* If cancelled or blocked in WhatsApp WebView, the modal with long-press image is already visible */
+                    }
+                } else if (!isMobileBrowser()) {
+                    triggerDirectDownload(blob);
+                    if (typeof showToast === 'function') showToast('Datesheet PNG downloaded');
+                }
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = label;
