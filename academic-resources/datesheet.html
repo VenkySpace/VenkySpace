@@ -1,0 +1,2582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End-Semester Exam Datesheet — VenkySpace</title>
+    <meta name="description" content="Official DU End-Semester Exam Datesheet (Dec 2026 – Jan 2027) for Sri Venkateswara College students.">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+
+    <!-- Fonts: Inter, Noto Sans Devanagari & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Apply saved theme before first paint -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('venky-theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', saved);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
+    <style>
+        /* =====================================================================
+           DESIGN TOKENS (VenkySpace Signature Layout • Indigo/Blue Theme)
+           ===================================================================== */
+        :root {
+            --bg:            #F8FAFC;
+            --surface:       #FFFFFF;
+            --surface-2:     #F1F5F9;
+            --ink:           #0F172A;
+            --body:          #334155;
+            --muted:         #64748B;
+            --line:          #E2E8F0;
+            --line-strong:   #CBD5E1;
+
+            --accent:        #2563EB;
+            --accent-ink:    #1D4ED8;
+            --accent-soft:   #EFF6FF;
+            --accent-bright: #3B82F6;
+            --on-accent:     #FFFFFF;
+
+            --topbar:        #0B1120;
+
+            --arts-fg: #BF5E0B;  --arts-bg: #FFF2E3;
+            --com-fg:  #0F766E;  --com-bg:  #E2F5F2;
+            --sci-fg:  #1D4ED8;  --sci-bg:  #EFF6FF;
+
+            --green-fg: #047857; --green-bg: #ECFDF5; --green-bd: #A7F3D0;
+            --amber-fg: #B45309; --amber-bg: #FFFBEB; --amber-bd: #FDE68A;
+            --teal-fg:  #0D9488; --teal-bg:  #F0FDFA;
+
+            --dsc-fg: #1D4ED8; --dsc-bg: #EFF6FF;
+            --ge-fg:  #0F766E; --ge-bg:  #F0FDFA;
+            --sec-fg: #6D28D9; --sec-bg: #F5F3FF;
+            --vac-fg: #BE185D; --vac-bg: #FDF2F8;
+            --aec-fg: #C2410C; --aec-bg: #FFF7ED;
+
+            --shadow:        0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 16px rgba(15, 23, 42, 0.04);
+            --shadow-hover:  0 2px 4px rgba(15, 23, 42, 0.05), 0 12px 28px rgba(37, 99, 235, 0.10);
+
+            --font: 'Inter', 'Noto Sans Devanagari', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            --r-lg: 18px;
+            --r-md: 12px;
+            --r-sm: 9px;
+            --topbar-h: 62px;
+            color-scheme: light;
+        }
+
+        [data-theme="dark"] {
+            --bg:            #090D16;
+            --surface:       #111827;
+            --surface-2:     #1E293B;
+            --ink:           #F8FAFC;
+            --body:          #CBD5E1;
+            --muted:         #94A3B8;
+            --line:          #1E293B;
+            --line-strong:   #334155;
+
+            --accent:        #60A5FA;
+            --accent-ink:    #93C5FD;
+            --accent-soft:   rgba(59, 130, 246, 0.15);
+            --accent-bright: #3B82F6;
+            --on-accent:     #090D16;
+
+            --topbar:        #050811;
+
+            --arts-fg: #F2A862;  --arts-bg: rgba(242, 168, 98, 0.14);
+            --com-fg:  #5EDBCB;  --com-bg:  rgba(94, 219, 203, 0.13);
+            --sci-fg:  #93C5FD;  --sci-bg:  rgba(59, 130, 246, 0.15);
+
+            --green-fg: #34D399; --green-bg: rgba(16, 185, 129, 0.13); --green-bd: rgba(16, 185, 129, 0.28);
+            --amber-fg: #FBBF24; --amber-bg: rgba(245, 158, 11, 0.14); --amber-bd: rgba(245, 158, 11, 0.28);
+            --teal-fg:  #2DD4BF; --teal-bg:  rgba(45, 212, 191, 0.12);
+
+            --dsc-fg: #93C5FD; --dsc-bg: rgba(59, 130, 246, 0.15);
+            --ge-fg:  #5EEAD4; --ge-bg:  rgba(20, 184, 166, 0.15);
+            --sec-fg: #C4B5FD; --sec-bg: rgba(139, 92, 246, 0.15);
+            --vac-fg: #F9A8D4; --vac-bg: rgba(236, 72, 153, 0.15);
+            --aec-fg: #FDBA74; --aec-bg: rgba(249, 115, 22, 0.15);
+
+            --shadow:        0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-hover:  0 12px 30px rgba(0, 0, 0, 0.45);
+            color-scheme: dark;
+        }
+
+        /* =====================================================================
+           BASE
+           ===================================================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        [hidden] { display: none !important; }
+        html { scroll-padding-top: calc(var(--topbar-h) + 16px); }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--body);
+            line-height: 1.55;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        button, input, select { font: inherit; color: inherit; }
+        button { background: none; border: 0; cursor: pointer; }
+        svg.ic { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+        /* =====================================================================
+           SIGNATURE TOP BAR
+           ===================================================================== */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            height: var(--topbar-h);
+            padding: 0 clamp(18px, 2.4vw, 36px);
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            background: var(--topbar);
+            border-bottom: 3px solid var(--accent-bright);
+        }
+
+        .brand { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+        .brand-name { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.04em; color: #FFFFFF; line-height: 1; }
+        .brand-dot  { color: var(--accent-bright); }
+        .brand-sub  { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-bright); line-height: 1; }
+        .version-pill {
+            display: inline-flex; align-items: center; height: 22px; padding: 0 9px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.10); border: 1px solid rgba(255, 255, 255, 0.16);
+            font-size: 0.7rem; font-weight: 600; color: #CBD5E1; white-space: nowrap;
+        }
+
+        .topbar-right { display: flex; align-items: center; gap: 12px; }
+
+        .pinned-nav-btn {
+            display: inline-flex; align-items: center; gap: 7px;
+            height: 34px; padding: 0 12px; border-radius: 999px;
+            background: rgba(59, 130, 246, 0.18); border: 1px solid rgba(96, 165, 250, 0.35);
+            color: #E2E8F0; font-size: 0.78rem; font-weight: 600;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+        }
+        .pinned-nav-btn:hover,
+        .pinned-nav-btn[aria-pressed="true"] { background: rgba(59, 130, 246, 0.34); border-color: #60A5FA; color: #FFFFFF; }
+        .pinned-nav-btn .pin-count {
+            display: inline-flex; align-items: center; justify-content: center;
+            min-width: 19px; height: 19px; padding: 0 5px; border-radius: 999px;
+            background: var(--accent-bright); color: #FFFFFF; font-size: 0.7rem; font-weight: 700;
+        }
+
+        .theme-switch {
+            position: relative; width: 50px; height: 28px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            transition: background 0.2s ease; flex: none;
+        }
+        .theme-switch:hover { background: rgba(255, 255, 255, 0.16); }
+        .theme-switch .knob {
+            position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%;
+            background: #FFFFFF; color: #0B1120;
+            display: grid; place-items: center; font-size: 12px;
+            transition: transform 0.22s ease;
+        }
+        .theme-switch .knob .ic { grid-area: 1 / 1; }
+        .theme-switch .icon-moon { display: none; }
+        [data-theme="dark"] .theme-switch .knob { transform: translateX(22px); }
+        [data-theme="dark"] .theme-switch .icon-sun  { display: none; }
+        [data-theme="dark"] .theme-switch .icon-moon { display: block; }
+
+        /* =====================================================================
+           PAGE FRAME, NAV ROW & BREADCRUMBS
+           ===================================================================== */
+        .page { max-width: 1560px; margin: 0 auto; padding: 28px clamp(16px, 2.2vw, 32px) 72px; }
+        .nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            height: 40px; padding: 0 16px;
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm);
+            font-size: 0.875rem; font-weight: 500; color: var(--ink);
+            transition: border-color 0.15s ease, color 0.15s ease;
+        }
+        .back-btn .ic { font-size: 1.05em; transition: transform 0.15s ease; }
+        .back-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+        .back-btn:hover .ic { transform: translateX(-2px); }
+
+        .crumbs { list-style: none; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 2px; font-size: 0.875rem; }
+        .crumbs li { display: flex; align-items: center; }
+        .crumbs li + li::before {
+            content: ""; width: 6px; height: 6px; margin: 0 12px;
+            border-top: 1.5px solid var(--muted); border-right: 1.5px solid var(--muted);
+            transform: rotate(45deg); opacity: 0.7;
+        }
+        .crumb { color: var(--muted); font-weight: 500; padding: 4px 0; }
+        .crumb[data-state="done"] { color: var(--body); }
+        .crumb[data-state="done"]:hover { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 4px; }
+        .crumb[data-state="current"] { color: var(--ink); font-weight: 700; cursor: default; }
+        .crumb[data-state="todo"] { cursor: default; opacity: 0.65; }
+
+        /* =====================================================================
+           HEADER, SYNC PILL & DISCLAIMER
+           ===================================================================== */
+        .page-head { margin-bottom: 26px; }
+        .head-badges { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 7px;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+            color: var(--accent);
+        }
+        .eyebrow .ic { font-size: 1.1em; }
+
+        .sync-pill {
+            display: inline-flex; align-items: center; gap: 7px;
+            padding: 4px 12px; border-radius: 999px;
+            background: var(--green-bg); border: 1px solid var(--green-bd); color: var(--green-fg);
+            font-size: 0.75rem; font-weight: 600;
+        }
+        .sync-dot {
+            width: 7px; height: 7px; border-radius: 50%; background: currentColor;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.20);
+        }
+
+        .page-head h1 {
+            font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.15; font-weight: 800;
+            letter-spacing: -0.035em; color: var(--ink); text-wrap: balance;
+        }
+        .page-head h1:focus { outline: none; }
+        .lede { margin-top: 10px; max-width: 66ch; font-size: 0.95rem; color: var(--muted); }
+
+        .disclaimer {
+            margin-top: 14px;
+            display: inline-flex; align-items: center; gap: 9px;
+            padding: 9px 14px; border-radius: var(--r-md);
+            background: var(--surface); border: 1px solid var(--line);
+            font-size: 0.82rem; color: var(--body);
+            box-shadow: var(--shadow);
+        }
+        .disclaimer .ic { color: var(--accent); font-size: 1.05rem; }
+
+        /* =====================================================================
+           SEARCH & FILTER TOOLBARS
+           ===================================================================== */
+        .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+        .toolbar-panel {
+            padding: 14px 16px;
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+        }
+        .search { position: relative; flex: 1 1 280px; max-width: 440px; }
+        .search .ic { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 1.05rem; color: var(--muted); pointer-events: none; }
+        .search input {
+            width: 100%; height: 42px; padding: 0 16px 0 42px;
+            font-size: 0.88rem; color: var(--ink);
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        .toolbar-panel .search input { background: var(--bg); }
+        .search input::placeholder { color: var(--muted); }
+        .search input:hover { border-color: var(--line-strong); }
+        .search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+
+        .combo-select-wrap { position: relative; flex: 0 1 280px; min-width: 220px; }
+        .combo-select-wrap select {
+            width: 100%; height: 42px; padding: 0 34px 0 12px;
+            background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-md);
+            font-size: 0.84rem; font-weight: 600; color: var(--ink);
+            appearance: none; cursor: pointer;
+        }
+        .combo-select-wrap .ic { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+
+        .segmented { display: inline-flex; padding: 4px; gap: 2px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-md); flex-wrap: wrap; }
+        .segmented button {
+            height: 36px; padding: 0 15px; border-radius: 8px;
+            font-size: 0.84rem; font-weight: 500; color: var(--muted); white-space: nowrap;
+            transition: color 0.15s ease, background 0.15s ease;
+        }
+        .segmented button:hover { color: var(--ink); }
+        .segmented button[aria-pressed="true"] { background: var(--surface); color: var(--ink); font-weight: 700; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.10); }
+        [data-theme="dark"] .segmented button[aria-pressed="true"] { background: var(--line-strong); }
+
+        .quick-pills { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .quick-pill {
+            height: 34px; padding: 0 14px; border-radius: 999px;
+            border: 1px solid var(--line); background: var(--bg);
+            font-size: 0.8rem; font-weight: 600; color: var(--muted);
+            transition: all 0.15s ease;
+        }
+        .quick-pill:hover { border-color: var(--line-strong); color: var(--ink); }
+        .quick-pill[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+        /* =====================================================================
+           SIGNATURE BENTO CARD GRID (Steps 1, 2, 3)
+           ===================================================================== */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 18px; }
+
+        .card {
+            display: flex; flex-direction: column; text-align: left; width: 100%;
+            padding: 20px 22px 0;
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+            transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+        }
+        .card:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+        .card:focus-visible { outline-offset: 2px; border-radius: var(--r-lg); }
+
+        .card-top { display: flex; width: 100%; align-items: flex-start; justify-content: space-between; gap: 12px; }
+        .card-badges { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+        .tile {
+            width: 46px; height: 46px; border-radius: 12px; flex: none;
+            display: grid; place-items: center;
+            background: var(--accent-soft); color: var(--accent); font-size: 1.2rem;
+        }
+        .tile.numeral { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em; }
+
+        .pill {
+            display: inline-flex; align-items: center; height: 26px; padding: 0 11px; border-radius: 7px;
+            font-size: 0.75rem; font-weight: 600; white-space: nowrap;
+            background: var(--surface-2); color: var(--body);
+        }
+        .pill.num      { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+        .pill.arts     { background: var(--arts-bg); color: var(--arts-fg); }
+        .pill.commerce { background: var(--com-bg);  color: var(--com-fg); }
+        .pill.science  { background: var(--sci-bg);  color: var(--sci-fg); }
+
+        .card-body { display: block; width: 100%; margin-top: 20px; padding-bottom: 18px; flex: 1; }
+        .card .card-title { display: block; font-size: 1.05rem; line-height: 1.3; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; transition: color 0.18s ease; }
+        .card:hover .card-title { color: var(--accent-ink); }
+        .card .card-sub { display: block; margin-top: 4px; font-size: 0.85rem; color: var(--muted); }
+
+        .card-foot {
+            display: flex; width: 100%; align-items: center; justify-content: space-between;
+            padding: 11px 0 13px; border-top: 1px solid var(--line);
+        }
+        .card-foot-label { font-size: 0.82rem; font-weight: 600; color: var(--body); transition: color 0.18s ease; }
+        .card:hover .card-foot-label { color: var(--accent-ink); }
+        .card-foot .ic { font-size: 1rem; color: var(--muted); transition: transform 0.18s ease, color 0.18s ease; }
+        .card:hover .card-foot .ic { transform: translateX(3px); color: var(--accent); }
+
+        /* =====================================================================
+           STEP 4: TIMELINE EXAM CARDS
+           ===================================================================== */
+        .results-meta {
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+            margin-bottom: 14px; font-size: 0.82rem; color: var(--muted);
+        }
+        .results-meta strong { color: var(--ink); }
+
+        .clash-banner {
+            display: flex; align-items: center; gap: 10px;
+            padding: 11px 16px; margin-bottom: 14px; border-radius: var(--r-md);
+            background: var(--amber-bg); border: 1px solid var(--amber-bd); color: var(--amber-fg);
+            font-size: 0.84rem; font-weight: 600;
+        }
+        .clash-banner .ic { font-size: 1.15rem; flex: none; }
+
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+            height: 36px; padding: 0 14px; border-radius: var(--r-sm);
+            font-size: 0.82rem; font-weight: 600; white-space: nowrap;
+            border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink);
+            transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+        }
+        .btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+        .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+        .btn.primary:hover { background: var(--accent-ink); border-color: var(--accent-ink); color: var(--on-accent); }
+
+        .timeline { display: flex; flex-direction: column; gap: 12px; }
+
+        .exam-card {
+            display: grid;
+            grid-template-columns: 102px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 18px;
+            padding: 16px 20px;
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+            transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+        }
+        .exam-card:hover {
+            border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+        }
+        .exam-card.is-pinned { border-color: var(--accent); }
+        .exam-card.is-past { opacity: 0.65; }
+
+        .date-box {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 10px 8px; border-radius: var(--r-md);
+            background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+            text-align: center;
+            transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+        }
+        .exam-card:hover .date-box:not(.is-tba) {
+            border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+            transform: scale(1.02);
+        }
+        .date-box.is-tba { background: var(--surface-2); border-color: var(--line); }
+        .date-day-month { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); line-height: 1.15; }
+        .date-box.is-tba .date-day-month { color: var(--muted); font-size: 0.9rem; }
+        .date-weekday   { margin-top: 3px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--body); }
+
+        .exam-main { min-width: 0; }
+        .exam-title-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .exam-title { font-size: 1.02rem; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); line-height: 1.35; transition: color 0.18s ease; }
+        .exam-card:hover .exam-title { color: var(--accent-ink); }
+
+        .exam-sub-row {
+            margin-top: 6px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px;
+            font-size: 0.8rem; color: var(--muted);
+        }
+
+        .upc-badge {
+            display: inline-flex; align-items: center;
+            padding: 2px 8px; border-radius: 5px;
+            background: var(--surface-2); border: 1px solid var(--line);
+            font-family: var(--mono); font-size: 0.74rem; font-weight: 600; color: var(--body);
+        }
+
+        .shift-item { display: inline-flex; align-items: center; gap: 5px; }
+        .exam-course-note { margin-top: 5px; font-size: 0.76rem; color: var(--muted); }
+
+        .exam-right {
+            display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex: none;
+        }
+        .exam-pills { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+
+        .cat-badge {
+            display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 6px;
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em;
+        }
+        .cat-DSC { background: var(--dsc-bg); color: var(--dsc-fg); }
+        .cat-GE  { background: var(--ge-bg);  color: var(--ge-fg); }
+        .cat-SEC { background: var(--sec-bg); color: var(--sec-fg); }
+        .cat-VAC { background: var(--vac-bg); color: var(--vac-fg); }
+        .cat-AEC { background: var(--aec-bg); color: var(--aec-fg); }
+
+        .countdown-pill {
+            display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 6px;
+            font-size: 0.74rem; font-weight: 600;
+            background: var(--teal-bg); color: var(--teal-fg);
+        }
+        .countdown-pill.urgent { background: var(--amber-bg); color: var(--amber-fg); }
+        .countdown-pill.past,
+        .countdown-pill.tba    { background: var(--surface-2); color: var(--muted); }
+
+        .pin-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            height: 32px; padding: 0 12px; border-radius: var(--r-sm);
+            border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink);
+            font-size: 0.78rem; font-weight: 600;
+            transition: all 0.15s ease;
+        }
+        .pin-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+        .pin-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+        .soon-panel {
+            grid-column: 1 / -1;
+            padding: 46px 28px; text-align: center;
+            background: var(--surface); border: 1px dashed var(--line-strong); border-radius: var(--r-lg);
+        }
+        .soon-panel .tile { margin: 0 auto 16px; width: 52px; height: 52px; font-size: 1.35rem; }
+        .soon-panel h3 { font-size: 1.1rem; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+        .soon-panel p  { margin: 6px auto 20px; max-width: 46ch; font-size: 0.88rem; color: var(--muted); }
+
+        .pinned-actions-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+        /* Toast feedback */
+        .toast {
+            position: fixed; bottom: 24px; left: 50%; z-index: 200;
+            transform: translate(-50%, 16px);
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 16px; border-radius: 999px;
+            background: var(--topbar); color: #F8FAFC;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 14px 30px -10px rgba(15, 23, 42, 0.45);
+            font-size: 0.82rem; font-weight: 600;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+        /* =====================================================================
+           RESPONSIVE
+           ===================================================================== */
+        @media (max-width: 760px) {
+            :root { --topbar-h: 58px; }
+            .brand-sub, .version-pill { display: none; }
+            .grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+            .segmented { width: 100%; overflow-x: auto; }
+            .segmented button { flex: 1; padding: 0 12px; }
+            .combo-select-wrap { flex: 1 1 100%; }
+            .exam-card { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
+            .date-box { flex-direction: row; justify-content: space-between; padding: 8px 14px; }
+            .date-weekday { margin-top: 0; }
+            .exam-right {
+                flex-direction: row; align-items: center; justify-content: space-between;
+                padding-top: 12px; border-top: 1px solid var(--line); width: 100%;
+            }
+            .exam-pills { justify-content: flex-start; }
+        }
+
+        @media print {
+            body { background: #FFFFFF !important; color: #0F172A !important; }
+            .topbar, .nav-row, .toolbar, .pin-btn, .pinned-actions-row, .toast { display: none !important; }
+            .exam-card { box-shadow: none !important; break-inside: avoid; border: 1px solid #CBD5E1 !important; }
+        }
+
+        /* =====================================================================
+           PREMIUM THEME LAYER — refinements on top of the base tokens above
+           ===================================================================== */
+        :root {
+            --grad: linear-gradient(135deg, #3B82F6 0%, #4F46E5 100%);
+            --lift: 0 1px 1px rgba(15,23,42,.04), 0 2px 6px rgba(15,23,42,.05), 0 14px 32px -12px rgba(15,23,42,.12);
+        }
+        [data-theme="dark"] { --lift: 0 1px 0 rgba(255,255,255,.03) inset, 0 16px 36px -14px rgba(0,0,0,.6); }
+        ::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); }
+        html { scrollbar-color: var(--line-strong) transparent; }
+
+        body {
+            background:
+                radial-gradient(820px 380px at 90% -60px, color-mix(in srgb, #4F46E5 13%, transparent), transparent 70%),
+                radial-gradient(720px 340px at -6% 80px, color-mix(in srgb, #3B82F6 11%, transparent), transparent 70%),
+                var(--bg);
+            background-repeat: no-repeat;
+            font-feature-settings: "cv11", "ss01";
+        }
+
+        .topbar {
+            background: color-mix(in srgb, var(--topbar) 90%, transparent);
+            -webkit-backdrop-filter: saturate(150%) blur(14px); backdrop-filter: saturate(150%) blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,.07);
+        }
+        .topbar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, #3B82F6, #4F46E5 60%, #8B5CF6); }
+        .brand-name { font-size: 1.3rem; letter-spacing: -0.04em; }
+
+        .page-head h1 { font-size: clamp(1.85rem, 3.2vw, 2.7rem); letter-spacing: -0.045em; line-height: 1.08; }
+        .lede { font-size: 1rem; line-height: 1.6; }
+        .disclaimer { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 22%, var(--line)); box-shadow: none; }
+
+        .toolbar-panel, .disclaimer { backdrop-filter: blur(6px); }
+        .toolbar-panel { box-shadow: var(--lift); }
+        .search input, .combo-select-wrap select { transition: border-color .15s, box-shadow .15s, background .15s; }
+        .search input:focus, .combo-select-wrap select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+
+        .card { box-shadow: var(--lift); border-radius: 20px; }
+        .card:hover { box-shadow: var(--lift), 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); transform: translateY(-3px); }
+        .tile { border-radius: 14px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent); transition: background .2s, color .2s, transform .2s; }
+        .card:hover .tile { background: var(--grad); color: #fff; box-shadow: none; transform: scale(1.04); }
+        .card .card-title { font-size: 1.1rem; letter-spacing: -0.03em; }
+
+        .segmented button[aria-pressed="true"], .quick-pill[aria-pressed="true"] { box-shadow: 0 4px 12px -4px color-mix(in srgb, var(--accent) 60%, transparent); }
+        .quick-pill[aria-pressed="true"] { background: var(--grad); border-color: transparent; color: #fff; }
+
+        .btn { border-radius: 10px; height: 38px; box-shadow: 0 1px 2px rgba(15,23,42,.06); }
+        .btn.primary { background: var(--grad); border-color: transparent; color: #fff; box-shadow: 0 8px 18px -8px rgba(79,70,229,.75); }
+        .btn.primary:hover { background: var(--grad); filter: brightness(1.08); transform: translateY(-1px); color: #fff; }
+        .btn.primary:disabled { opacity: .7; cursor: progress; transform: none; }
+        #download-png-btn { height: 40px; padding: 0 18px; }
+
+        /* Exam cards: category colour stripe, clearer hierarchy & matching hover highlight */
+        .timeline { gap: 14px; }
+        .exam-card {
+            position: relative; overflow: hidden;
+            grid-template-columns: 108px minmax(0, 1fr) auto;
+            padding: 18px 22px 18px 26px; border-radius: 20px; box-shadow: var(--lift);
+        }
+        .exam-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--xc, var(--accent)); transition: width .18s ease; }
+        .x-DSC, .x-DSE { --xc: var(--dsc-fg); } .x-GE { --xc: var(--ge-fg); } .x-SEC { --xc: var(--sec-fg); }
+        .x-VAC { --xc: var(--vac-fg); } .x-AEC { --xc: var(--aec-fg); }
+        .exam-card:hover {
+            border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+            box-shadow: var(--lift), 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent);
+            transform: translateY(-3px);
+        }
+        .exam-card:hover::before { width: 7px; }
+        .exam-card.is-pinned { border-color: var(--accent); box-shadow: var(--lift), 0 0 0 3px var(--accent-soft); }
+        .exam-card.is-pinned:hover { box-shadow: var(--lift), 0 0 0 3px color-mix(in srgb, var(--accent) 32%, transparent); }
+        .exam-title { font-size: 1.08rem; letter-spacing: -0.025em; }
+
+        .date-box { padding: 12px 8px; border-radius: 14px; background: linear-gradient(170deg, var(--accent-soft), transparent 130%); }
+        .date-day-month { font-size: 1.2rem; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; }
+        .date-weekday { font-size: 0.64rem; letter-spacing: .08em; }
+
+        .shift-chip {
+            display: inline-flex; align-items: center; gap: 7px; height: 26px; padding: 0 11px 0 9px; border-radius: 999px;
+            font-size: 0.78rem; font-weight: 600; white-space: nowrap;
+        }
+        .shift-chip .ic { font-size: 15px; }
+        .shift-chip b { font-weight: 700; }
+        .shift-chip i { font-style: normal; font-variant-numeric: tabular-nums; opacity: .85; padding-left: 7px; border-left: 1px solid currentColor; border-left-color: color-mix(in srgb, currentColor 30%, transparent); }
+        .shift-chip.is-morn { background: var(--amber-bg); color: var(--amber-fg); }
+        .shift-chip.is-eve  { background: var(--sec-bg);   color: var(--sec-fg); }
+
+        .pin-btn { border-radius: 10px; height: 34px; }
+        .pin-btn[aria-pressed="true"] { background: var(--grad); border-color: transparent; color: #fff; }
+        .upc-badge { font-size: 0.72rem; letter-spacing: 0; }
+        .soon-panel { border-radius: 22px; }
+
+        @media (max-width: 760px) {
+            .exam-card { grid-template-columns: 1fr; padding: 16px 16px 16px 20px; }
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            @keyframes vs-rise { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+            #timeline > .exam-card { animation: vs-rise .4s cubic-bezier(.2,.7,.2,1) both; }
+            #timeline > .exam-card:nth-child(2) { animation-delay: .04s; } #timeline > .exam-card:nth-child(3) { animation-delay: .08s; }
+            #timeline > .exam-card:nth-child(4) { animation-delay: .12s; } #timeline > .exam-card:nth-child(n+5) { animation-delay: .16s; }
+        }
+        @media print { .exam-card { transform: none !important; animation: none !important; } }
+    </style>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "zaesi27ysh");
+    </script>
+</head>
+<body>
+
+    <!-- Signature Top Bar -->
+    <header class="topbar">
+        <a href="../index.html" class="brand" aria-label="VenkySpace home">
+            <span class="brand-name">VenkySpace<span class="brand-dot">.</span></span>
+            <span class="brand-sub">Datesheet</span>
+        </a>
+
+        <div class="topbar-right">
+            <button type="button" class="pinned-nav-btn" id="open-pinned-btn" aria-pressed="false" title="View My Personal Datesheet">
+                <svg class="ic" viewBox="0 0 24 24"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>
+                <span>My Datesheet</span>
+                <span class="pin-count" id="top-pin-count">0</span>
+            </button>
+
+            <button class="theme-switch" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode" title="Switch theme">
+                <span class="knob">
+                    <svg class="ic icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                    <svg class="ic icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <main class="page">
+
+        <!-- Back button & 4-Step Breadcrumb Progress Bar -->
+        <div class="nav-row">
+            <button class="back-btn" id="nav-back-btn" type="button">
+                <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+                <span id="back-label">Dashboard</span>
+            </button>
+
+            <nav aria-label="Datesheet selection steps">
+                <ol class="crumbs" id="crumbs"></ol>
+            </nav>
+        </div>
+
+        <!-- Context Header -->
+        <header class="page-head">
+            <div class="head-badges">
+                <p class="eyebrow">
+                    <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    <span>DU Official &bull; NEP UGCF 2022</span>
+                </p>
+                <span class="sync-pill">
+                    <span class="sync-dot" aria-hidden="true"></span>
+                    Last Synced with DU Exam Portal: Nov 24, 2026
+                </span>
+            </div>
+
+            <h1 id="view-title" tabindex="-1">End-Semester Exam Datesheet (Dec 2026 – Jan 2027)</h1>
+            <p class="lede" id="view-subtitle">Select your undergraduate department to view its examination schedule.</p>
+
+            <div class="disclaimer" role="note">
+                <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                <span>Always cross-verify timings with your official DU Admit Card.</span>
+            </div>
+        </header>
+
+        <!-- STEP 1: SELECT YOUR COURSE (With Search + Stream Filter) -->
+        <section id="screen-courses" aria-label="Select course">
+            <div class="toolbar">
+                <div class="search">
+                    <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                    <input type="search" id="course-search-input" placeholder="Search department (e.g. Economics, Physics, Life Sciences)" aria-label="Search courses" autocomplete="off">
+                </div>
+
+                <div class="segmented" id="stream-filter" role="group" aria-label="Filter by stream">
+                    <button type="button" data-stream="all" aria-pressed="true" id="chip-all">All Departments</button>
+                    <button type="button" data-stream="Science" aria-pressed="false">Science</button>
+                    <button type="button" data-stream="Commerce" aria-pressed="false">Commerce</button>
+                    <button type="button" data-stream="Arts" aria-pressed="false">Arts</button>
+                </div>
+            </div>
+
+            <div class="grid" id="courses-grid"></div>
+        </section>
+
+        <!-- STEP 2: SELECT YOUR SEMESTER -->
+        <section id="screen-semesters" aria-label="Select semester" hidden>
+            <div class="grid" id="semesters-grid"></div>
+        </section>
+
+        <!-- STEP 3: SELECT PAPER CATEGORY -->
+        <section id="screen-categories" aria-label="Select paper category" hidden>
+            <div class="grid" id="categories-grid"></div>
+        </section>
+
+        <!-- STEP 4: FILTERED DATESHEET VIEW (OR MY PERSONAL DATESHEET) -->
+        <section id="screen-datesheet" aria-label="Exam datesheet" hidden>
+            <div class="toolbar toolbar-panel" id="datesheet-toolbar">
+                <div class="search">
+                    <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                    <input type="search" id="search-input" placeholder="Search Subject Name or 10-digit Paper Code (UPC)..." aria-label="Search by subject name or UPC" autocomplete="off">
+                </div>
+
+                <div class="combo-select-wrap" id="ba-combo-filter-wrap" hidden>
+                    <select id="ba-combo-select" aria-label="Filter B.A. Programme Major-Minor combination">
+                        <option value="All">All Major-Minor Combinations</option>
+                    </select>
+                    <svg class="ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+
+                <div class="quick-pills" id="quick-category-pills" role="group" aria-label="Quick category filter">
+                    <button type="button" class="quick-pill" data-cat="All" aria-pressed="true">All</button>
+                    <button type="button" class="quick-pill" data-cat="DSC" aria-pressed="false">DSC</button>
+                    <button type="button" class="quick-pill" data-cat="GE" aria-pressed="false">GE</button>
+                    <button type="button" class="quick-pill" data-cat="SEC" aria-pressed="false">SEC</button>
+                    <button type="button" class="quick-pill" data-cat="VAC" aria-pressed="false">VAC</button>
+                    <button type="button" class="quick-pill" data-cat="AEC" aria-pressed="false">AEC</button>
+                </div>
+            </div>
+
+            <div class="results-meta">
+                <span id="results-count">Showing <strong>0</strong> exams</span>
+                <div class="pinned-actions-row" id="pinned-actions-row" hidden>
+                    <button type="button" class="btn primary" id="download-png-btn">
+                        <svg class="ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download Image (PNG)
+                    </button>
+                    <button type="button" class="btn" id="copy-schedule-btn">
+                        <svg class="ic" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        Copy Text
+                    </button>
+                    <button type="button" class="btn" id="print-btn">
+                        <svg class="ic" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+                        Print / PDF
+                    </button>
+                    <button type="button" class="btn" id="clear-pins-btn">Clear Pins</button>
+                </div>
+            </div>
+
+            <div class="clash-banner" id="clash-banner" role="alert" hidden>
+                <svg class="ic" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg>
+                <span id="clash-banner-text"></span>
+            </div>
+
+            <div class="timeline" id="timeline"></div>
+        </section>
+
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+    /* #########################################################################
+       =========================================================================
+       EASY EDIT ZONE — HOW TO CHANGE ANY EXAM DATE IN 10 SECONDS
+       =========================================================================
+       1. Press Ctrl + F and type the Subject Name or Department Name.
+       2. Every subject is on ONE line like:
+          { subject: "Algebra", date: "2026-12-08", shift: "M", upc: "2352011101", revised: false }
+       3. Change date:    type "YYYY-MM-DD" inside date: "" (or "" for Date TBA)
+       4. Change shift:   type "M" for Morning  (starts 9:30 AM)
+                            or "E" for Evening  (starts 2:30 PM)
+                            (upper or lower case both work: m / M / e / E)
+       5. Change code:    type 10-digit UPC inside upc: ""
+       ######################################################################### */
+
+        /* Only the START time is shown (SEC / VAC papers can be 1 or 2 hours long). Edit times here. */
+        const SHIFTS = {
+            M: { order: 0, name: "Morning", start: "9:30 AM",
+                 icon: "M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" },
+            E: { order: 1, name: "Evening", start: "2:30 PM",
+                 icon: "M12 10V2M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M16 6l-4 4-4-4M16 18a4 4 0 0 0-8 0" }
+        };
+
+        // Accepts m / M / e / E (also "A" or "Evening"); empty falls back to Morning.
+        function resolveShift(raw) {
+            const c = String(raw || '').trim().charAt(0).toUpperCase();
+            const key = (c === 'E' || c === 'A') ? 'E' : 'M';
+            const s = SHIFTS[key];
+            return { shiftKey: key, shiftName: s.name, shiftTime: s.start, shift: `${s.name} · ${s.start}` };
+        }
+
+        const COURSES_LIST = [
+            { name: "Sociology",                         key: "Sociology",            degree: "B.A. (Honours) Sociology",             stream: "Arts",     icon: "users" },
+            { name: "Economics",                         key: "Economics",            degree: "B.A. (Honours) Economics",             stream: "Arts",     icon: "trend" },
+            { name: "Political Science",                 key: "Political Science",    degree: "B.A. (Honours) Political Science",     stream: "Arts",     icon: "landmark" },
+            { name: "History",                           key: "History",              degree: "B.A. (Honours) History",               stream: "Arts",     icon: "clock" },
+            { name: "English",                           key: "English",              degree: "B.A. (Honours) English",               stream: "Arts",     icon: "book" },
+            { name: "Hindi",                             key: "Hindi",                degree: "B.A. (Honours) Hindi",                 stream: "Arts",     icon: "pen" },
+            { name: "Sanskrit",                          key: "Sanskrit",             degree: "B.A. (Honours) Sanskrit",              stream: "Arts",     icon: "flame" },
+            { name: "B.A. Programme",                    key: "B.A. Programme",       degree: "Bachelor of Arts (Programme)",         stream: "Arts",     icon: "cap" },
+            { name: "Bachelors of Commerce",             key: "Commerce (Honours)",   degree: "B.Com. (Honours)",                     stream: "Commerce", icon: "briefcase" },
+            { name: "Bachelors of Commerce (Programme)", key: "Commerce (Programme)", degree: "B.Com. (Programme)",                   stream: "Commerce", icon: "bars" },
+            { name: "Mathematics",                       key: "Mathematics",          degree: "B.Sc. (Honours) Mathematics",          stream: "Science",  icon: "sigma" },
+            { name: "Statistics",                        key: "Statistics",           degree: "B.Sc. (Honours) Statistics",           stream: "Science",  icon: "bars" },
+            { name: "Physics",                           key: "Physics",              degree: "B.Sc. (Honours) Physics",              stream: "Science",  icon: "atom" },
+            { name: "Chemistry",                         key: "Chemistry",            degree: "B.Sc. (Honours) Chemistry",            stream: "Science",  icon: "flask" },
+            { name: "Electronics",                       key: "Electronics",          degree: "B.Sc. (Honours) Electronics",          stream: "Science",  icon: "atom" },
+            { name: "Biochemistry",                      key: "Biochemistry",         degree: "B.Sc. (Honours) Biochemistry",         stream: "Science",  icon: "flask" },
+            { name: "Botany",                            key: "Botany",               degree: "B.Sc. (Honours) Botany",               stream: "Science",  icon: "leaf" },
+            { name: "Zoology",                           key: "Zoology",              degree: "B.Sc. (Honours) Zoology",              stream: "Science",  icon: "paw" },
+            { name: "Biological Sciences",               key: "Biological Sciences",  degree: "B.Sc. (Honours) Biological Sciences",  stream: "Science",  icon: "dna" },
+            { name: "Life Sciences",                     key: "Life Sciences",        degree: "B.Sc. (Programme) Life Sciences",      stream: "Science",  icon: "leaf" }
+        ];
+
+        const BA_PROGRAMME_COMBOS = [
+            { title: "Tamil + Political Science",     major: "Tamil",     minor: "Political Science" },
+            { title: "Tamil + History",               major: "Tamil",     minor: "History" },
+            { title: "Telugu + Political Science",    major: "Telugu",    minor: "Political Science" },
+            { title: "Telugu + History",              major: "Telugu",    minor: "History" },
+            { title: "Hindi + Sociology",             major: "Hindi",     minor: "Sociology" },
+            { title: "Sanskrit + History",            major: "Sanskrit",  minor: "History" },
+            { title: "English + Economics",           major: "English",   minor: "Economics" },
+            { title: "History + Political Science",   major: "History",   minor: "Political Science" },
+            { title: "Economics + Mathematics",       major: "Economics", minor: "Mathematics" },
+            { title: "Economics + Statistics",        major: "Economics", minor: "Statistics" }
+        ];
+
+        const SEMESTERS_LIST = [
+            { id: "Semester I",   roman: "I",   year: "Year 1", desc: "Odd Semester • Dec 2026 Examinations" },
+            { id: "Semester III", roman: "III", year: "Year 2", desc: "Odd Semester • Dec 2026 – Jan 2027" },
+            { id: "Semester V",   roman: "V",   year: "Year 3", desc: "Odd Semester • Dec 2026 – Jan 2027" },
+            { id: "Semester VII", roman: "VII", year: "Year 4", desc: "4th Year Honours • Research & Core" }
+        ];
+
+        const CATEGORIES_LIST = [
+            { id: "DSC", num: "01", badge: "Core",       badgeClass: "num", title: "DSC (Core)",                sub: "Department Core Papers",                foot: "View Core Exams",     icon: "layers" },
+            { id: "GE",  num: "02", badge: "Minor",      badgeClass: "num", title: "GE (Generic Elective)",     sub: "Common College-Wide Generic Electives", foot: "View GE Exams",       icon: "globe" },
+            { id: "SEC", num: "03", badge: "Skill",      badgeClass: "num", title: "SEC (Skill Enhancement)",   sub: "Applied Practical & Skill Papers",      foot: "View SEC Exams",      icon: "star" },
+            { id: "VAC", num: "04", badge: "Value",      badgeClass: "num", title: "VAC (Value Addition)",      sub: "Ethics, Culture & Wellness Papers",     foot: "View VAC Exams",      icon: "heart" },
+            { id: "AEC", num: "05", badge: "EVS / Lang", badgeClass: "num", title: "AEC (Ability Enhancement)", sub: "EVS & Indian Language Papers",          foot: "View AEC Exams",      icon: "shield" },
+            { id: "All", num: "06", badge: "Complete",   badgeClass: "num", title: "All Papers",                sub: "Complete Semester Exam Schedule",       foot: "View Full Datesheet", icon: "grid" }
+        ];
+
+        /* =====================================================================
+           SECTION A: HONOURS & PROGRAMME CORE PAPERS (COURSES 1–19)
+           ===================================================================== */
+        const COURSE_SUBJECTS = {
+
+            // 1. SOCIOLOGY (B.A. Honours)
+            "Sociology": {
+                "Semester I": [
+                    { subject: "Introduction to Sociology",        date: "2026-12-07", shift: "M", upc: "2302101101", revised: false },
+                    { subject: "Sociology of India-I",             date: "2026-12-11", shift: "M", upc: "2302101102", revised: false },
+                    { subject: "Sociological Research Methods",    date: "2026-12-14", shift: "M", upc: "2302101103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Sociology of India-II",            date: "2026-12-08", shift: "M", upc: "2302102301", revised: false },
+                    { subject: "Political Sociology",              date: "2026-12-10", shift: "M", upc: "2302102302", revised: false },
+                    { subject: "Sociology of Religion",            date: "2026-12-15", shift: "M", upc: "2302102303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Sociological Thinkers -II",        date: "2026-12-04", shift: "M", upc: "2302103501", revised: false },
+                    { subject: "Sociological Research Methods",    date: "2026-12-09", shift: "M", upc: "2302103502", revised: false },
+                    { subject: "Understanding Ethnographies",      date: "2026-12-12", shift: "M", upc: "2302103503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 2. ECONOMICS (B.A. Honours)
+            "Economics": {
+                "Semester I": [
+                    { subject: "Introductory Microeconomics",                     date: "2026-12-07", shift: "M", upc: "2272101101", revised: false },
+                    { subject: "Introductory Mathematical Methods for Economics", date: "2026-12-11", shift: "M", upc: "2272101102", revised: false },
+                    { subject: "Introductory Statistics for Economics",           date: "2026-12-14", shift: "M", upc: "2272101103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Intermediate Microeconomics I : Behavioral Foundations of Market Interactions",   date: "2026-12-08", shift: "M", upc: "2272102301", revised: false },
+                    { subject: "Intermediate Macroeconomics I : Foundations of Aggregate Income Determination", date: "2026-12-10", shift: "M", upc: "2272102302", revised: false },
+                    { subject: "Advanced Mathematical Methods for Economics",                                    date: "2026-12-15", shift: "M", upc: "2272102303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Game Theory and Strategic Interactions", date: "2026-12-04", shift: "M", upc: "2272103501", revised: false },
+                    { subject: "Economic Growth and Business Cycles",    date: "2026-12-09", shift: "M", upc: "2272103502", revised: false },
+                    { subject: "Introductory Development Economics",     date: "2026-12-12", shift: "M", upc: "2272103503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 3. POLITICAL SCIENCE (B.A. Honours)
+            "Political Science": {
+                "Semester I": [
+                    { subject: "Understanding Political Theory",             date: "2026-12-07", shift: "M", upc: "2322101101", revised: false },
+                    { subject: "Ideas and Institutions in Political Theory", date: "2026-12-11", shift: "M", upc: "2322101102", revised: false },
+                    { subject: "Colonialism and Nationalism in India",       date: "2026-12-14", shift: "M", upc: "2322101103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Political Theory: Concepts & Debates",             date: "2026-12-10", shift: "M", upc: "2322102302", revised: false },
+                    { subject: "Ancient and Medieval Indian Political Thought",   date: "2026-12-08", shift: "M", upc: "2322102301", revised: false },
+                    { subject: "Constitutional Government and Democracy in India", date: "2026-12-15", shift: "M", upc: "2322102303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Western Political Philosophy- I", date: "2026-12-04", shift: "M", upc: "2322103501", revised: false },
+                    { subject: "Modern Indian Political Thought", date: "2026-12-09", shift: "M", upc: "2322103502", revised: false },
+                    { subject: "Political Process in India",      date: "2026-12-12", shift: "M", upc: "2322103503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 4. HISTORY (B.A. Honours)
+            "History": {
+                "Semester I": [
+                    { subject: "History of India-I (From The Beginning to 4th Century BCE)",     date: "2026-12-07", shift: "M", upc: "2312101101", revised: false },
+                    { subject: "Social Formations and Cultural Patterns of the Ancient World-I", date: "2026-12-11", shift: "M", upc: "2312101102", revised: false },
+                    { subject: "History of USA : Independence To Civil War",                     date: "2026-12-14", shift: "M", upc: "2312101103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "History of India-III (750 CE to 1206 CE)", date: "2026-12-08", shift: "M", upc: "2312102301", revised: false },
+                    { subject: "Rise of the Modern West-I",                date: "2026-12-10", shift: "M", upc: "2312102302", revised: false },
+                    { subject: "History of Modern China (1840-1950s)",     date: "2026-12-15", shift: "M", upc: "2312102303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "History of India – V: c. 1500 – 1600",  date: "2026-12-04", shift: "M", upc: "2312103501", revised: false },
+                    { subject: "History of India – VI: c. 1750 - 1857", date: "2026-12-09", shift: "M", upc: "2312103502", revised: false },
+                    { subject: "History Of Modern Europe -I",           date: "2026-12-12", shift: "M", upc: "2312103503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 5. ENGLISH (B.A. Honours)
+            "English": {
+                "Semester I": [
+                    { subject: "Introduction to Literary Studies", date: "2026-12-07", shift: "M", upc: "2032101101", revised: false },
+                    { subject: "European Classical Literature",    date: "2026-12-11", shift: "M", upc: "2032101102", revised: false },
+                    { subject: "Indian Classical Literature",      date: "2026-12-14", shift: "M", upc: "2032101103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Romantic Literature",  date: "2026-12-08", shift: "M", upc: "2032102301", revised: false },
+                    { subject: "Victorian Literature", date: "2026-12-10", shift: "M", upc: "2032102302", revised: false },
+                    { subject: "Literary Criticism",   date: "2026-12-15", shift: "M", upc: "2032102303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Twentieth Century Poetry & Drama", date: "2026-12-04", shift: "M", upc: "2032103501", revised: false },
+                    { subject: "Twentieth Century Novel",          date: "2026-12-09", shift: "M", upc: "2032103502", revised: false },
+                    { subject: "Dalit Writings",                   date: "2026-12-12", shift: "M", upc: "2032103503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 6. HINDI (B.A. Honours)
+            "Hindi": {
+                "Semester I": [
+                    { subject: "हिंदी कविता : आदिकाल एवं निर्गुण भक्तिकाव्य",    date: "2026-12-07", shift: "M", upc: "2052101101", revised: false },
+                    { subject: "हिंदी साहित्य का इतिहास (आदिकाल एवं मध्यकाल)", date: "",           shift: "M", upc: "",           revised: false },
+                    { subject: "हिंदी कहानी",                               date: "2026-12-14", shift: "M", upc: "2052101103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "भारतीय साहित्य",       date: "2026-12-08", shift: "M", upc: "2052102301", revised: false },
+                    { subject: "हिंदी नाटक एवं एकांकी", date: "2026-12-10", shift: "M", upc: "2052102302", revised: false },
+                    { subject: "सामान्य भाषा विज्ञान",    date: "2026-12-15", shift: "M", upc: "2052102303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "पाश्चात्य काव्यशास्त्र",                date: "2026-12-04", shift: "M", upc: "2052103501", revised: false },
+                    { subject: "आधुनिक हिंदी कविता (छायावादोत्तर)", date: "2026-12-09", shift: "M", upc: "2052103502", revised: false },
+                    { subject: "हिंदी आलोचना",                   date: "2026-12-12", shift: "M", upc: "2052103503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 7. SANSKRIT (B.A. Honours)
+            "Sanskrit": {
+                "Semester I": [
+                    { subject: "Applied Sanskrit",                      date: "2026-12-07", shift: "M", upc: "2132101101", revised: false },
+                    { subject: "Classical Sanskrit Poetry",             date: "2026-12-11", shift: "M", upc: "2132101102", revised: false },
+                    { subject: "Indian Social Institutions and Polity", date: "2026-12-14", shift: "M", upc: "2132101103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Classical Sanskrit Literature: Drama", date: "2026-12-08", shift: "M", upc: "2132102301", revised: false },
+                    { subject: "Sanskrit Linguistics",                 date: "2026-12-10", shift: "M", upc: "2132102302", revised: false },
+                    { subject: "Indian Epigraphy I",                   date: "2026-12-15", shift: "M", upc: "2132102303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Veda and Upanishad",                            date: "2026-12-04", shift: "M", upc: "2132103501", revised: false },
+                    { subject: "Sanskrit Grammar: Laghusiddhāntkaumudī",        date: "2026-12-09", shift: "M", upc: "2132103502", revised: false },
+                    { subject: "Introduction to Nyaya- Vaisheshika Philosophy", date: "2026-12-12", shift: "M", upc: "2132103503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 8. COMMERCE (HONOURS)
+            "Commerce (Honours)": {
+                "Semester I": [
+                    { subject: "Management Principles and Applications", date: "2026-12-07", shift: "M", upc: "2412081101", revised: false },
+                    { subject: "Business Law",                           date: "2026-12-11", shift: "M", upc: "2412081102", revised: false },
+                    { subject: "Financial Accounting",                   date: "2026-12-14", shift: "M", upc: "2412081103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Business Mathematics",    date: "2026-12-08", shift: "M", upc: "2412082301", revised: false },
+                    { subject: "Financial Management",    date: "2026-12-10", shift: "M", upc: "2412082302", revised: false },
+                    { subject: "Principles of Marketing", date: "2026-12-15", shift: "M", upc: "2412082303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Income Tax Law and Practice", date: "2026-12-04", shift: "M", upc: "2412083501", revised: false },
+                    { subject: "Business Economics",          date: "2026-12-09", shift: "M", upc: "2412083502", revised: false },
+                    { subject: "Management Accounting",       date: "2026-12-12", shift: "M", upc: "2412083503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 9. COMMERCE (PROGRAMME)
+            "Commerce (Programme)": {
+                "Semester I": [
+                    { subject: "Business Organization & Management", date: "2026-12-07", shift: "", upc: "2412091101", revised: false },
+                    { subject: "Business Law",                       date: "2026-12-11", shift: "", upc: "2412091102", revised: false },
+                    { subject: "Financial Accounting",               date: "2026-12-14", shift: "", upc: "2412091103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Business Statistics",     date: "2026-12-08", shift: "", upc: "2412092301", revised: false },
+                    { subject: "Financial Management",    date: "2026-12-10", shift: "", upc: "2412092302", revised: false },
+                    { subject: "Principles of Marketing", date: "2026-12-15", shift: "", upc: "2412092303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Income Tax Law and Practice", date: "2026-12-04", shift: "", upc: "2412093501", revised: false },
+                    { subject: "Business Economics",          date: "2026-12-10", shift: "", upc: "2412093502", revised: false },
+                    { subject: "Management Accounting",       date: "2026-12-12", shift: "", upc: "2412093503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 10. MATHEMATICS (B.Sc. Honours)
+            "Mathematics": {
+                "Semester I": [
+                    { subject: "Algebra",                  date: "2026-12-07", shift: "M", upc: "2352011101", revised: false },
+                    { subject: "Elementary Real Analysis", date: "2026-12-11", shift: "M", upc: "2352011102", revised: false },
+                    { subject: "Probability & Statistics", date: "2026-12-14", shift: "M", upc: "2352011103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Group Theory",         date: "2026-12-08", shift: "M", upc: "2352012301", revised: false },
+                    { subject: "Riemann Integration",  date: "2026-12-10", shift: "M", upc: "2352012302", revised: false },
+                    { subject: "Discrete Mathematics", date: "2026-12-15", shift: "M", upc: "2352012303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Metric Spaces",                  date: "2026-12-04", shift: "M", upc: "2352013501", revised: false },
+                    { subject: "Ring Theory",                    date: "2026-12-09", shift: "M", upc: "2352013502", revised: false },
+                    { subject: "Partial Differential Equations", date: "2026-12-12", shift: "M", upc: "2352013503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 11. STATISTICS (B.Sc. Honours)
+            "Statistics": {
+                "Semester I": [
+                    { subject: "Descriptive Statistics",      date: "2026-12-07", shift: "M", upc: "2372011101", revised: false },
+                    { subject: "Introduction to Probability", date: "2026-12-11", shift: "M", upc: "2372011102", revised: false },
+                    { subject: "Calculus",                    date: "2026-12-14", shift: "M", upc: "2372011103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Sample Surveys",                    date: "2026-12-08", shift: "M", upc: "2372012301", revised: false },
+                    { subject: "Advanced Probability Distribution", date: "2026-12-10", shift: "M", upc: "2372012302", revised: false },
+                    { subject: "Mathematical Analysis",             date: "2026-12-15", shift: "M", upc: "2372012303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Theory of Estimation", date: "2026-12-04", shift: "M", upc: "2372013501", revised: false },
+                    { subject: "Linear Models",        date: "2026-12-09", shift: "M", upc: "2372013502", revised: false },
+                    { subject: "Stochastic Processes", date: "2026-12-12", shift: "M", upc: "2372013503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 12. PHYSICS (B.Sc. Honours)
+            "Physics": {
+                "Semester I": [
+                    { subject: "Mathematical Physics I", date: "2026-12-07", shift: "M", upc: "2222011101", revised: false },
+                    { subject: "Mechanics",              date: "2026-12-11", shift: "M", upc: "2222011102", revised: false },
+                    { subject: "Waves and Oscillations", date: "2026-12-14", shift: "M", upc: "2222011103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Mathematical Physics III", date: "2026-12-08", shift: "M", upc: "2222012301", revised: false },
+                    { subject: "Digital Electronics",      date: "2026-12-10", shift: "M", upc: "2222012304", revised: false },
+                    { subject: "Light and Matter",         date: "2026-12-15", shift: "M", upc: "2222012303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Electromagnetic Theory", date: "2026-12-04", shift: "M", upc: "2222013501", revised: false },
+                    { subject: "Quantum Mechanics I",    date: "2026-12-09", shift: "M", upc: "2222013502", revised: false },
+                    { subject: "Digital Electronics",    date: "2026-12-12", shift: "M", upc: "2222013503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 13. CHEMISTRY (B.Sc. Honours)
+            "Chemistry": {
+                "Semester I": [
+                    { subject: "Atomic Structure and Chemical Bonding (Inorganic Chemistry -I)",   date: "2026-12-07", shift: "M", upc: "2172011101", revised: false },
+                    { subject: "Basic concepts and Aliphatic Hydrocarbons (Organic Chemistry-I)", date: "2026-12-11", shift: "M", upc: "2172011102", revised: false },
+                    { subject: "GASEOUS AND LIQUID STATE (PHYSICAL CHEMISTRY-I)",                 date: "2026-12-14", shift: "M", upc: "2172011103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Chemistry of d- and f- Elements & Quantitative Inorganic Analysis (Inorganic)", date: "2026-12-08", shift: "M", upc: "2172012301", revised: false },
+                    { subject: "Nitro compounds, Nitriles, IsoNitriles and Diazonium salts (Organic)",          date: "2026-12-10", shift: "M", upc: "2172012302", revised: false },
+                    { subject: "Chemical equilibrium, ionic equilibrium, conductance and solid state",          date: "2026-12-15", shift: "M", upc: "2172012303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Basics of Organometallic Chemistry (Inorganic Chemistry-V)",         date: "2026-12-04", shift: "M", upc: "2172013501", revised: false },
+                    { subject: "Nucleic Acids,Amino Acids, Proteins and Enzymes (Organic Chemistry- V)", date: "2026-12-09", shift: "M", upc: "2172013502", revised: false },
+                    { subject: "Quantum Chemistry and Covalent bonding (Physical Chemistry V)",       date: "2026-12-12", shift: "M", upc: "2172013503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 14. ELECTRONICS (B.Sc. Honours)
+            "Electronics": {
+                "Semester I": [
+                    { subject: "Programming Fundamentals Using Python", date: "2026-12-07", shift: "M", upc: "2512011101", revised: false },
+                    { subject: "Circuit Theory and Network Analysis",   date: "2026-12-11", shift: "M", upc: "2512011102", revised: false },
+                    { subject: "Semiconductor Devices",                 date: "2026-12-14", shift: "M", upc: "2512011103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Engineering Mathematics", date: "2026-12-08", shift: "M", upc: "2512012301", revised: false },
+                    { subject: "Analog Electronics II",   date: "2026-12-10", shift: "M", upc: "2512012302", revised: false },
+                    { subject: "Signal and Systems",      date: "2026-12-18", shift: "M", upc: "2513042001", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Embedded System",   date: "2026-12-04", shift: "M", upc: "2512013501", revised: false },
+                    { subject: "Electromagnetics",  date: "2026-12-09", shift: "M", upc: "2512013502", revised: false },
+                    { subject: "Basic VLSI Design", date: "2026-12-12", shift: "M", upc: "2512013503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 15. BIOCHEMISTRY (B.Sc. Honours)
+            "Biochemistry": {
+                "Semester I": [
+                    { subject: "Biomolecules",           date: "2026-12-07", shift: "M", upc: "2492011101", revised: false },
+                    { subject: "Proteins",               date: "2026-12-11", shift: "M", upc: "2492011102", revised: false },
+                    { subject: "Biochemical Techniques", date: "2026-12-14", shift: "M", upc: "2492011103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Metabolism of Lipids", date: "2026-12-08", shift: "M", upc: "2492012301", revised: false },
+                    { subject: "Bioenergetics",        date: "2026-12-10", shift: "M", upc: "2492012302", revised: false },
+                    { subject: "Membrane Biology",     date: "2026-12-15", shift: "M", upc: "2492012303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Molecular Cell Biology",             date: "2026-12-04", shift: "M", upc: "2492013501", revised: false },
+                    { subject: "Concepts in Genetics and Evolution", date: "2026-12-09", shift: "M", upc: "2492013502", revised: false },
+                    { subject: "Gene Expression and Regulation",     date: "2026-12-12", shift: "M", upc: "2492013503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 16. BOTANY (B.Sc. Honours)
+            "Botany": {
+                "Semester I": [
+                    { subject: "Plant Diversity and Evolution",                      date: "2026-12-07", shift: "M", upc: "2162011101", revised: false },
+                    { subject: "CELL BIOLOGY: ORGANELLES AND BIOMOLECULE",           date: "2026-12-11", shift: "M", upc: "2162011102", revised: false },
+                    { subject: "Basic Laboratory and Field Skills in Plant Biology", date: "2026-12-14", shift: "M", upc: "2162011103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Bryophytes, Pteridophytes and Gymnosperms", date: "2026-12-10", shift: "M", upc: "2162012302", revised: false },
+                    { subject: "Phycology - The world of algae",            date: "2026-12-08", shift: "M", upc: "2162012301", revised: false },
+                    { subject: "Genetics and Plant Breeding",               date: "2026-12-15", shift: "M", upc: "2162012303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Molecular Biology of the Cell",       date: "2026-12-04", shift: "M", upc: "2162013501", revised: false },
+                    { subject: "Reproductive Biology of Angiosperms", date: "2026-12-09", shift: "M", upc: "2162013502", revised: false },
+                    { subject: "Plant Physiology",                    date: "2026-12-12", shift: "M", upc: "2162013503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 17. ZOOLOGY (B.Sc. Honours)
+            "Zoology": {
+                "Semester I": [
+                    { subject: "Non-Chordates I: Protists to Pseudocoelomates", date: "2026-12-07", shift: "M", upc: "2232011101", revised: false },
+                    { subject: "Biology of Cell: Structure and Function",       date: "2026-12-11", shift: "M", upc: "2232011102", revised: false },
+                    { subject: "Concepts of Ecology",                           date: "2026-12-14", shift: "M", upc: "2232011103", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Diversity of Chordata",                     date: "2026-12-08", shift: "M", upc: "2232012301", revised: false },
+                    { subject: "Biochemistry : Metabolic Processes",        date: "2026-12-10", shift: "M", upc: "2232012302", revised: false },
+                    { subject: "Human Physiology: Life Sustaining Systems", date: "2026-12-15", shift: "M", upc: "2232012303", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Principles of Immunology",   date: "2026-12-04", shift: "M", upc: "2232013501", revised: false },
+                    { subject: "Cell and Molecular Biology", date: "2026-12-09", shift: "M", upc: "2232013502", revised: false },
+                    { subject: "Fundamentals of Genetics",   date: "2026-12-12", shift: "M", upc: "2232013503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 18. BIOLOGICAL SCIENCES (B.Sc. Honours)
+            "Biological Sciences": {
+                "Semester I": [
+                    { subject: "Basic Concepts of Biomolecules", date: "2026-12-07", shift: "M", upc: "6792011101", revised: false },
+                    { subject: "Photobiology",                   date: "2026-12-11", shift: "M", upc: "6792011102", revised: false },
+                    { subject: "Diversity of Life Forms I",      date: "",           shift: "M", upc: "",           revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Physics for Biologists",           date: "2026-12-10", shift: "M", upc: "6792012302", revised: false },
+                    { subject: "Protein Structure and Enzymology", date: "2026-12-15", shift: "M", upc: "6792012303", revised: false },
+                    { subject: "Functional Ecology",               date: "2026-12-08", shift: "M", upc: "6792012301", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Molecular Biology I",                 date: "2026-12-04", shift: "M", upc: "6792013501", revised: false },
+                    { subject: "Transmission and Molecular Genetics", date: "2026-12-09", shift: "M", upc: "6792013502", revised: false },
+                    { subject: "Growth and Reproduction",             date: "2026-12-12", shift: "M", upc: "6792013503", revised: false }
+                ],
+                "Semester VII": []
+            },
+
+            // 19. LIFE SCIENCES (B.Sc. Programme)
+            "Life Sciences": {
+                "Semester I": [
+                    { subject: "Diversity of Animals",                date: "2026-12-14", shift: "M", upc: "2232521101", revised: false },
+                    { subject: "Basic Concepts of Organic Chemistry", date: "2026-12-07", shift: "M", upc: "2172511101", revised: false },
+                    { subject: "Plant Diversity and Systematics",     date: "2026-12-11", shift: "M", upc: "2162521101", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Chemical Energetics and Equilibria",          date: "2026-12-08", shift: "M", upc: "2172512302", revised: false },
+                    { subject: "Plant Cell and Developmental Biology",        date: "2026-12-10", shift: "M", upc: "2162522301", revised: false },
+                    { subject: "Biochemistry: Basic concepts of Metabolism",  date: "2026-12-15", shift: "M", upc: "2232522301", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Plant Physiology and Metabolism",                                  date: "2026-12-09", shift: "M", upc: "2162523502", revised: false },
+                    { subject: "Coordination Chemistry and its Application in Biological Systems", date: "2026-12-04", shift: "M", upc: "2172523501", revised: false },
+                    { subject: "Evolutionary Ecology",                                             date: "2026-12-12", shift: "M", upc: "2232523501", revised: false }
+                ],
+                "Semester VII": []
+            }
+        };
+
+        /* =====================================================================
+           SECTION B: B.A. PROGRAMME — MAJOR & MINOR DISCIPLINE DATES
+           - Each discipline is listed ONCE (works across all 10 combinations!)
+           - All Sem I, III & V B.A. (Prog) DSC exams are in Evening Shift ("E")
+           ===================================================================== */
+        const BA_PROG_DISCIPLINE_DATES = {
+            "Economics": {
+                "Semester I": [
+                    { subject: "Introductory Microeconomics",             date: "2026-12-07", shift: "E", upc: "2272201101", revised: false },
+                    { subject: "Basic Mathematics for Economic Analysis", date: "2026-12-14", shift: "E", upc: "2272201102", revised: false, majorOnly: true }
+                ],
+                "Semester III": [
+                    { subject: "Intermediate Microeconomics I: Behavioural Foundations of Market Interactions", date: "2026-12-08", shift: "E", upc: "2272202301", revised: false },
+                    { subject: "Optimization Methods for Economic Analysis",                                    date: "2026-12-15", shift: "E", upc: "2272202302", revised: false, majorOnly: true }
+                ],
+                "Semester V": [
+                    { subject: "Introductory Development Economics",                             date: "2026-12-04", shift: "E", upc: "2272203501", revised: false },
+                    { subject: "Intermediate Microeconomics II: Market, Government and Welfare", date: "2026-12-12", shift: "E", upc: "2272203502", revised: false, majorOnly: true }
+                ],
+                "Semester VII": []
+            },
+            "English": {
+                "Semester I": [
+                    { subject: "Introduction to Literary Studies", date: "2026-12-11", shift: "E", upc: "2032201101", revised: false },
+                    { subject: "Indian Classical Literature",      date: "2026-12-14", shift: "E", upc: "2032201102", revised: false, majorOnly: true }
+                ],
+                "Semester III": [
+                    { subject: "Romantic Literature",  date: "2026-12-10", shift: "E", upc: "2032102301", revised: false },
+                    { subject: "Victorian Literature", date: "2026-12-15", shift: "E", upc: "2032102302", revised: false, majorOnly: true }
+                ],
+                "Semester V": [
+                    { subject: "Twentieth Century Novel",            date: "2026-12-09", shift: "E", upc: "2032203501", revised: false },
+                    { subject: "Twentieth Century Poetry and Drama", date: "2026-12-12", shift: "E", upc: "2032203502", revised: false, majorOnly: true }
+                ],
+                "Semester VII": []
+            },
+            "Hindi": {
+                "Semester I": [
+                    { subject: "हिंदी भाषा और साहित्य का इतिहास", date: "2026-12-07", shift: "E", upc: "2052201101", revised: false },
+                    { subject: "हिंदी सिनेमा और उसका अध्ययन",    date: "2026-12-14", shift: "E", upc: "2052201102", revised: false, majorOnly: true }
+                ],
+                "Semester III": [
+                    { subject: "हिंदी कथा साहित्य",                date: "2026-12-08", shift: "E", upc: "2052202301", revised: false },
+                    { subject: "जनपदीय साहित्य (लोकनाट्य विशेष)", date: "2026-12-15", shift: "E", upc: "2052202302", revised: false, majorOnly: true }
+                ],
+                "Semester V": [
+                    { subject: "हिंदी भाषा का व्यावहारिक व्याकरण",    date: "2026-12-04", shift: "E", upc: "2052203501", revised: false },
+                    { subject: "राजभाषा और राष्ट्रभाषा के रूप में हिंदी", date: "2026-12-12", shift: "E", upc: "2052203502", revised: false, majorOnly: true }
+                ],
+                "Semester VII": []
+            },
+            "History": {
+                "Semester I": [
+                    { subject: "History of India from Earliest Times up to c. 300 CE", date: "2026-12-07", shift: "E", upc: "2312201101", revised: false },
+                    { subject: "Ancient Societies",                                    date: "2026-12-14", shift: "E", upc: "2312201102", revised: false, majorOnly: true }
+                ],
+                "Semester III": [
+                    { subject: "History of India, 1200 – 1550",                     date: "2026-12-08", shift: "E", upc: "2312202301", revised: false },
+                    { subject: "Cultural Transformations in Early Modern Europe - I", date: "2026-12-15", shift: "E", upc: "2312202302", revised: false, majorOnly: true }
+                ],
+                "Semester V": [
+                    { subject: "History of India 1700 – 1857",   date: "2026-12-04", shift: "E", upc: "2312203501", revised: false },
+                    { subject: "History of Europe: 1789 – 1870", date: "2026-12-12", shift: "E", upc: "2312203502", revised: false, majorOnly: true }
+                ],
+                "Semester VII": []
+            },
+            "Mathematics": {
+                "Semester I":   [{ subject: "Topics in Calculus",        date: "2026-12-11", shift: "E", upc: "2352571101", revised: false }],
+                "Semester III": [{ subject: "Differential Equations",    date: "2026-12-10", shift: "E", upc: "2352572301", revised: false }],
+                "Semester V":   [{ subject: "Elements of Real Analysis", date: "2026-12-09", shift: "E", upc: "2352203501", revised: false }],
+                "Semester VII": []
+            },
+            "Political Science": {
+                "Semester I": [
+                    { subject: "Introduction to Political Theory (Tamil / Telugu Combo)", date: "2026-12-07", shift: "E", upc: "2322201101", revised: false },
+                    { subject: "Introduction to Political Theory (History Combo)",        date: "2026-12-11", shift: "E", upc: "2322201101", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Ancient and Medieval Indian Political Thought (Tamil / Telugu Combo)", date: "2026-12-08", shift: "E", upc: "2322102301", revised: false },
+                    { subject: "Ancient and Medieval Indian Political Thought (History Combo)",        date: "2026-12-10", shift: "E", upc: "2322102301", revised: false }
+                ],
+                "Semester V": [
+                    { subject: "Introduction to International Relations (Tamil / Telugu Combo)", date: "2026-12-04", shift: "E", upc: "2322203501", revised: false },
+                    { subject: "Introduction to International Relations (History Combo)",        date: "2026-12-09", shift: "E", upc: "2322203501", revised: false }
+                ],
+                "Semester VII": []
+            },
+            "Sanskrit": {
+                "Semester I": [
+                    { subject: "Sanskrit Grammar", date: "2026-12-11", shift: "E", upc: "2132201101", revised: false },
+                    { subject: "Sanskrit Poetry",  date: "2026-12-14", shift: "E", upc: "2132201102", revised: false, majorOnly: true }
+                ],
+                "Semester III": [
+                    { subject: "Sanskrit Theatre",   date: "2026-12-10", shift: "E", upc: "2132202301", revised: false },
+                    { subject: "Gita and Upanishad", date: "2026-12-15", shift: "E", upc: "2132202302", revised: false, majorOnly: true }
+                ],
+                "Semester V": [
+                    { subject: "Indian Epigraphy & Paleography",      date: "2026-12-09", shift: "E", upc: "2132203501", revised: false },
+                    { subject: "Basic Elements of Indian Philosophy", date: "2026-12-12", shift: "E", upc: "2132203502", revised: false, majorOnly: true }
+                ],
+                "Semester VII": []
+            },
+            "Sociology": {
+                "Semester I":   [{ subject: "An Invitation to Sociology",      date: "2026-12-11", shift: "E", upc: "2302201101", revised: false }],
+                "Semester III": [{ subject: "Classical Sociological Thinkers", date: "2026-12-10", shift: "E", upc: "2302202301", revised: false }],
+                "Semester V":   [{ subject: "Sociological Research - I",       date: "2026-12-09", shift: "E", upc: "2302203501", revised: false }],
+                "Semester VII": []
+            },
+            "Statistics": {
+                "Semester I":   [{ subject: "Descriptive Statistics and Probability Theory", date: "2026-12-11", shift: "E", upc: "2372571103", revised: false }],
+                "Semester III": [{ subject: "Elements of Sampling Distributions",            date: "2026-12-10", shift: "E", upc: "2372572303", revised: false }],
+                "Semester V":   [{ subject: "Introduction to Design of Experiments",         date: "2026-12-09", shift: "E", upc: "2372573501", revised: false }],
+                "Semester VII": []
+            },
+            "Tamil": {
+                "Semester I": [
+                    { subject: "An Introduction of Tamil Language", date: "2026-12-11", shift: "E", upc: "2082661101", revised: false }
+                ],
+                "Semester III": [
+                    { subject: "Study of Tamil Novels",                                                       date: "2026-12-10", shift: "E", upc: "2082662301", revised: false },
+                    { subject: "History of Tamil Literature (Medieval - Later Epic, Puranas and Prabbandas)", date: "2026-12-15", shift: "E", upc: "2082662302", revised: false, majorOnly: true }
+                ],
+                "Semester V": [
+                    { subject: "Study of Selected Texts: Modern Tamil Poetry",    date: "2026-12-09", shift: "E", upc: "2082663501", revised: false },
+                    { subject: "Study of Selected Texts: Classical Tamil Poetry", date: "2026-12-12", shift: "E", upc: "2082663502", revised: false, majorOnly: true }
+                ],
+                "Semester VII": []
+            },
+            "Telugu": {
+                "Semester I": [
+                    { subject: "Study of Literary Texts: Telugu Short Stories", date: "2026-12-11", shift: "E", upc: "2082671101", revised: false },
+                    { subject: "A Progressive Grammar of the Telugu Language",  date: "2026-12-14", shift: "E", upc: "2082671102", revised: false, majorOnly: true }
+                ],
+                "Semester III": [
+                    { subject: "History of Telugu Literature (Up to 15th Century)", date: "2026-12-10", shift: "E", upc: "2082672301", revised: false },
+                    { subject: "Telugu Drama",                                      date: "2026-12-15", shift: "E", upc: "2082672302", revised: false, majorOnly: true }
+                ],
+                "Semester V": [
+                    { subject: "Literary Criticism in Telugu", date: "2026-12-09", shift: "E", upc: "2082673501", revised: false },
+                    { subject: "Study of Telugu Folklore",     date: "2026-12-12", shift: "E", upc: "2082673502", revised: false, majorOnly: true }
+                ],
+                "Semester VII": []
+            }
+        };
+
+        /* =====================================================================
+           SECTION C: COMMON COLLEGE-WIDE PAPERS (GE, SEC, VAC, AEC)
+           ===================================================================== */
+        const COMMON_EXAM_DATES = {
+            "GE": [
+                { subject: "Molecules of Life",                                                   date: "2026-12-23", shift: "E", upc: "2494001001", sems: ["Semester I"],   revised: false },
+                { subject: "Molecules of Life",                                                   date: "2026-12-24", shift: "E", upc: "2174001206", sems: ["Semester V"],   revised: false },
+                { subject: "Biofertilizer",                                                       date: "2026-12-23", shift: "E", upc: "2164001002", sems: ["Semester I"],   revised: false },
+                { subject: "Atomic Structure and Chemical Bonding",                               date: "2026-12-23", shift: "E", upc: "2174001001", sems: ["Semester I"],   revised: false },
+                { subject: "Atomic Structure and Chemical Bonding",                               date: "2026-12-22", shift: "E", upc: "2174001001", sems: ["Semester III"], revised: false },
+                { subject: "Atomic Structure and Chemical Bonding",                               date: "2026-12-24", shift: "E", upc: "2174001001", sems: ["Semester V"],   revised: false },
+                { subject: "Business Organisation",                                               date: "2026-12-23", shift: "M", upc: "2414001004", sems: ["Semester I"],   revised: false },
+                { subject: "Principles of Microeconomics - I",                                    date: "2026-12-23", shift: "M", upc: "2274001003", sems: ["Semester I"],   revised: false },
+                { subject: "Principles of Microeconomics - I",                                    date: "2026-12-22", shift: "M", upc: "2274002001", sems: ["Semester III"], revised: false },
+                { subject: "Principles of Microeconomics - I",                                    date: "2026-12-24", shift: "M", upc: "2274002001", sems: ["Semester V"],   revised: false },
+                { subject: "Data Engineering and Analytics",                                      date: "2026-12-23", shift: "E", upc: "2514001001", sems: ["Semester I"],   revised: false },
+                { subject: "Indian English Literature",                                           date: "2026-12-23", shift: "M", upc: "2034001013", sems: ["Semester I"],   revised: false },
+                { subject: "Indian English Literature",                                           date: "2026-12-22", shift: "M", upc: "2034002006", sems: ["Semester III"], revised: false },
+                { subject: "Indian English Literature",                                           date: "2026-12-24", shift: "M", upc: "2034002006", sems: ["Semester V"],   revised: false },
+                { subject: "Hindi Cinema or Uska Adhyan",                                         date: "2026-12-23", shift: "M", upc: "2054001003", sems: ["Semester I"],   revised: false },
+                { subject: "Hindi Cinema or Uska Adhyan",                                         date: "2026-12-22", shift: "M", upc: "2054001003", sems: ["Semester III"], revised: false },
+                { subject: "Delhi Through the Ages : The Making of its Early Modern History",     date: "2026-12-23", shift: "M", upc: "2314001002", sems: ["Semester I"],   revised: false },
+                { subject: "Fundamentals of Calculus",                                            date: "2026-12-23", shift: "E", upc: "2354001001", sems: ["Semester I"],   revised: false },
+                { subject: "Mechanics",                                                           date: "2026-12-23", shift: "E", upc: "2224001003", sems: ["Semester I"],   revised: false },
+                { subject: "Mechanics",                                                           date: "2026-12-22", shift: "E", upc: "2224001003", sems: ["Semester III"], revised: false },
+                { subject: "Mechanics",                                                           date: "2026-12-24", shift: "E", upc: "2224001003", sems: ["Semester V"],   revised: false },
+                { subject: "Nationalism in India",                                                date: "2026-12-23", shift: "M", upc: "2324001002", sems: ["Semester I"],   revised: false },
+                { subject: "Nationalism in India",                                                date: "2026-12-22", shift: "M", upc: "2324002003", sems: ["Semester III"], revised: false },
+                { subject: "Nationalism in India",                                                date: "2026-12-24", shift: "M", upc: "2324002003", sems: ["Semester V"],   revised: false },
+                { subject: "Ancient Indian Medicinal Science: Unveiling the Secrets of Ayurveda", date: "2026-12-23", shift: "E", upc: "2135000017", sems: ["Semester I"],   revised: false },
+                { subject: "Ancient Indian Medicinal Science: Unveiling the Secrets of Ayurveda", date: "2026-12-22", shift: "E", upc: "2135000017", sems: ["Semester III"], revised: false },
+                { subject: "Ancient Indian Medicinal Science: Unveiling the Secrets of Ayurveda", date: "2026-12-24", shift: "M", upc: "2135000017", sems: ["Semester V"],   revised: false },
+                { subject: "Sociology and Everyday Life",                                         date: "2026-12-23", shift: "M", upc: "2304001002", sems: ["Semester I"],   revised: false },
+                { subject: "Basic Statistics for Economics",                                      date: "2026-12-23", shift: "E", upc: "2374001001", sems: ["Semester I"],   revised: false },
+                { subject: "Economic Zoology",                                                    date: "2026-12-23", shift: "E", upc: "2234001205", sems: ["Semester I"],   revised: false },
+                { subject: "Fitness and Wellness",                                                date: "2026-12-23", shift: "E", upc: "2554001001", sems: ["Semester I"],   revised: false }
+            ],
+            "SEC": [
+                { subject: "Essential Food Nutrients",                  date: "2026-12-17", shift: "E", upc: "2176000001", sems: ["Semester I"],   revised: false },
+                { subject: "Essential Food Nutrients",                  date: "2026-12-19", shift: "E", upc: "2176000001", sems: ["Semester III"], revised: false },
+                { subject: "Essential Food Nutrients",                  date: "2026-12-05", shift: "E", upc: "2176000001", sems: ["Semester V"],   revised: false },
+                { subject: "Personality Development and Communication", date: "2026-12-17", shift: "E", upc: "2036000005", sems: ["Semester I"],   revised: false },
+                { subject: "Personality Development and Communication", date: "2026-12-19", shift: "E", upc: "2036000005", sems: ["Semester III"], revised: false },
+                { subject: "Personality Development and Communication", date: "2026-12-05", shift: "E", upc: "2036000005", sems: ["Semester V"],   revised: false },
+                { subject: "Museum and Museology",                      date: "2026-12-17", shift: "E", upc: "2316000001", sems: ["Semester I"],   revised: false },
+                { subject: "Museum and Museology",                      date: "2026-12-19", shift: "E", upc: "2316000001", sems: ["Semester III"], revised: false },
+                { subject: "Museum and Museology",                      date: "2026-12-05", shift: "E", upc: "2316000001", sems: ["Semester V"],   revised: false },
+                { subject: "Political Leadership and Communication",    date: "2026-12-17", shift: "E", upc: "3206000002", sems: ["Semester I"],   revised: false },
+                { subject: "Political Leadership and Communication",    date: "2026-12-19", shift: "E", upc: "3206000002", sems: ["Semester III"], revised: false },
+                { subject: "Political Leadership and Communication",    date: "2026-12-05", shift: "E", upc: "3206000002", sems: ["Semester V"],   revised: false }
+            ],
+            "VAC": [
+                { subject: "Ayurveda and Nutrition",                       date: "2026-12-21", shift: "M", upc: "6967000001",              sems: ["Semester I"],   revised: false },
+                { subject: "Ayurveda and Nutrition",                       date: "2026-12-21", shift: "E", upc: "6967000001",              sems: ["Semester III"], revised: false },
+                { subject: "भारतीय भक्ति परम्परा और मानव मूल्य",            date: "2026-12-21", shift: "M", upc: "6967000022 / 6967001022", sems: ["Semester I"],   revised: false },
+                { subject: "भारतीय भक्ति परम्परा और मानव मूल्य",            date: "2026-12-21", shift: "E", upc: "6967000022",              sems: ["Semester III"], revised: false },
+                { subject: "Constitutional Values and Fundamental Duties", date: "2026-12-21", shift: "M", upc: "6967000002 / 6967001002", sems: ["Semester I"],   revised: false },
+                { subject: "Constitutional Values and Fundamental Duties", date: "2026-12-21", shift: "E", upc: "6967000002",              sems: ["Semester III"], revised: false },
+                { subject: "Ethics and Culture",                           date: "2026-12-21", shift: "M", upc: "6967000006",              sems: ["Semester I"],   revised: false },
+                { subject: "Ethics and Culture",                           date: "2026-12-21", shift: "E", upc: "6967000006",              sems: ["Semester III"], revised: false },
+                { subject: "Financial Literacy",                           date: "2026-12-21", shift: "M", upc: "6967000008",              sems: ["Semester I"],   revised: false },
+                { subject: "Financial Literacy",                           date: "2026-12-21", shift: "E", upc: "6967000008",              sems: ["Semester III"], revised: false },
+                { subject: "National Cadet Corps - I",                     date: "2026-12-21", shift: "M", upc: "6967001012 / 6967001101", sems: ["Semester I"],   revised: false },
+                { subject: "National Cadet Corps - I",                     date: "2026-12-21", shift: "E", upc: "6967001012 / 6967001101", sems: ["Semester III"], revised: false },
+                { subject: "The Art of Being Happy",                       date: "2026-12-21", shift: "M", upc: "6967000019",              sems: ["Semester I"],   revised: false },
+                { subject: "The Art of Being Happy",                       date: "2026-12-21", shift: "E", upc: "6967000019",              sems: ["Semester III"], revised: false },
+                { subject: "Vedic Mathematics - I",                        date: "2026-12-21", shift: "M", upc: "6967000020",              sems: ["Semester I"],   revised: false },
+                { subject: "Vedic Mathematics - I",                        date: "2026-12-21", shift: "E", upc: "6967000020",              sems: ["Semester III"], revised: false },
+                { subject: "Yoga Philosophy and Practice",                 date: "2026-12-21", shift: "M", upc: "6967000021 / 6967001021", sems: ["Semester I"],   revised: false },
+                { subject: "Yoga Philosophy and Practice",                 date: "2026-12-21", shift: "E", upc: "6967000021",              sems: ["Semester III"], revised: false }
+            ],
+            "AEC": [
+                { subject: "Environmental Science: Theory into Practice - I",     date: "2026-12-26", shift: "",  upc: "2181001001", sems: ["Semester I"],   revised: false },
+                { subject: "Environmental Science: Theory into Practice - II",    date: "2026-12-28", shift: "",  upc: "2181002001", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC: हिंदी भाषा: सम्प्रेषण और संचार (हिंदी क)",              date: "2026-12-26", shift: "",  upc: "2051001001", sems: ["Semester I"],   revised: false },
+                { subject: "AEC: व्यवहारिक हिंदी (हिन्दी क)",                         date: "2026-12-28", shift: "",  upc: "2051002001", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC: हिंदी औपचारिक लेखन (हिंदी ख)",                     date: "2026-12-26", shift: "",  upc: "2051001002", sems: ["Semester I"],   revised: false },
+                { subject: "AEC: जनसंचार और रचनात्मक लेखन (हिन्दी ख)",                 date: "2026-12-28", shift: "",  upc: "2051002002", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC: सोशल मीडिया और ब्लॉग लेखन (हिंदी ग)",              date: "2026-12-26", shift: "",  upc: "2051001003", sems: ["Semester I"],   revised: false },
+                { subject: "AEC: हिंदी भाषा और तकनीकी (हिंदी ग)",                     date: "2026-12-28", shift: "",  upc: "2051002003 / 2051002006", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC: Hindi D (Special Course)",                       date: "2026-12-26", shift: "",  upc: "2051001004", sems: ["Semester I"],   revised: false },
+                { subject: "AEC: Hindi D (Special Course)",                       date: "2026-12-28", shift: "",  upc: "2051002004", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC: Hindi E अनिवार्य हिंदी पाठ्यक्रम",                       date: "2026-12-26", shift: "E", upc: "2051001006", sems: ["Semester I"],   revised: false },
+                { subject: "AEC: Hindi E अनिवार्य हिंदी पाठ्यक्रम - 2",                   date: "2026-12-28", shift: "",  upc: "2051002005", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC: Sanskrit A : Advance Neeti Literature in Sanskrit",  date: "2026-12-26", shift: "", upc: "2131001001", sems: ["Semester I"],   revised: false },
+                { subject: "AEC: Sanskrit A : Advance Neeti Literature in Sanskrit",  date: "2026-12-28", shift: "", upc: "2131002001", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC: Sanskrit B : Introductory Upanishad and Geeta",    date: "2026-12-26", shift: "", upc: "2131001002", sems: ["Semester I"],   revised: false },
+                { subject: "AEC: Sanskrit B : Introductory Upanishad and Geeta",    date: "2026-12-28", shift: "", upc: "2131002002", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC: Sanskrit C : Introduction to Sanskrit Language",   date: "2026-12-26", shift: "", upc: "2131001003", sems: ["Semester I"],   revised: false },
+                { subject: "AEC: Sanskrit C : Introduction to Sanskrit Language",   date: "2026-12-28", shift: "", upc: "2131002003", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC (A): Translation and Interpretation in Tamil",    date: "2026-12-26", shift: "E", upc: "2081001017", sems: ["Semester I"],   revised: false },
+                { subject: "AEC (A): Journalistic Writing in Tamil",              date: "2026-12-28", shift: "E", upc: "2081002017", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC (B): Basic Tamil",                                date: "2026-12-26", shift: "E", upc: "2081001035", sems: ["Semester I"],   revised: false },
+                { subject: "AEC (B): Intermediate Tamil",                         date: "2026-12-28", shift: "E", upc: "2081002047", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC (A): Translation and Interpretation in Telugu",   date: "2026-12-26", shift: "E", upc: "2081001018", sems: ["Semester I"],   revised: false },
+                { subject: "AEC (A): Journalistic Writing in Telugu",             date: "2026-12-28", shift: "E", upc: "2081002018", sems: ["Semester III"], revised: false },
+
+                { subject: "AEC (B): Basic Telugu",                               date: "2026-12-26", shift: "E", upc: "2081001036", sems: ["Semester I"],   revised: false },
+                { subject: "AEC (B): Intermediate Telugu",                        date: "2026-12-28", shift: "E", upc: "2081002048", sems: ["Semester III"], revised: false },
+
+                { subject: "Assamese (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001001 (A) / 2081001019 (B)", sems: ["Semester I"],   revised: false },
+                { subject: "Assamese (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002001 (A) / 2081002031 (B)", sems: ["Semester III"], revised: false },
+
+                { subject: "Bengali (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001002 (A) / 2081001020 (B)", sems: ["Semester I"],   revised: false },
+                { subject: "Bengali (Journalistic Writing / Intermediate / Basic - 2)", date: "2026-12-28", shift: "E", upc: "2081002002 (A) / 2081002032 (B) / 2081002049 (Basic - 2)", sems: ["Semester III"], revised: false },
+
+                { subject: "Bodo (Translation & Interpretation / Basic)",         date: "2026-12-26", shift: "E", upc: "2081001003 (T&I) / 2081001021 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Bodo (Journalistic Writing / Intermediate)",          date: "2026-12-28", shift: "E", upc: "2081002003 (JW) / 2081002033 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Dogri (Translation & Interpretation / Basic)",        date: "2026-12-26", shift: "E", upc: "2081001004 (T&I) / 2081001022 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Dogri (Journalistic Writing / Intermediate)",         date: "2026-12-28", shift: "E", upc: "2081002004 (JW) / 2081002034 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Gujarati (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001005 (T&I) / 2081001023 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Gujarati (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002005 (JW) / 2081002035 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Kannada (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001006 (T&I) / 2081001024 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Kannada (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002006 (JW) / 2081002036 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Kashmiri (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001007 (T&I) / 2081001025 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Kashmiri (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002007 (JW) / 2081002037 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Konkani (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001008 (T&I) / 2081001026 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Konkani (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002008 (JW) / 2081002038 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Malayalam (Translation & Interpretation / Basic)",    date: "2026-12-26", shift: "E", upc: "2081001009 (T&I) / 2081001027 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Malayalam (Journalistic Writing / Intermediate)",     date: "2026-12-28", shift: "E", upc: "2081002009 (JW) / 2081002039 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Manipuri (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001010 (T&I) / 2081001028 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Manipuri (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002010 (JW) / 2081002040 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Marathi (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001011 (T&I) / 2081001029 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Marathi (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002011 (JW) / 2081002041 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Maithili (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001012 (T&I) / 2081001030 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Maithili (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002012 (JW) / 2081002042 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Nepali (Translation & Interpretation / Basic)",       date: "2026-12-26", shift: "E", upc: "2081001013 (T&I) / 2081001031 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Nepali (Journalistic Writing / Intermediate)",        date: "2026-12-28", shift: "E", upc: "2081002013 (JW) / 2081002043 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Odia (Translation & Interpretation / Basic)",         date: "2026-12-26", shift: "E", upc: "2081001014 (T&I) / 2081001032 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Odia (Journalistic Writing / Intermediate)",          date: "2026-12-28", shift: "E", upc: "2081002014 (JW) / 2081002044 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Punjabi (Mudhla / Uchera / Uchtam Padhar)",           date: "2026-12-26", shift: "",  upc: "2121001001 (Mudhla) / 2121001002 (Uchera) / 2121001003 (Uchtam)", sems: ["Semester I"],   revised: false },
+                { subject: "Punjabi (Karji / Media / Computer / Anuvad)",         date: "2026-12-28", shift: "",  upc: "2121000007 (Karji) / 2121002001 (Media) / 2121002002 (Comp) / 2121002003 (Anuvad)", sems: ["Semester III"], revised: false },
+
+                { subject: "Santali (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001015 (T&I) / 2081001033 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Santali (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002015 (JW) / 2081002045 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Sindhi (Translation & Interpretation / Basic)",       date: "2026-12-26", shift: "E", upc: "2081001016 (T&I) / 2081001034 (Basic)", sems: ["Semester I"],   revised: false },
+                { subject: "Sindhi (Journalistic Writing / Intermediate)",        date: "2026-12-28", shift: "E", upc: "2081002016 (JW) / 2081002046 (Int)",    sems: ["Semester III"], revised: false },
+
+                { subject: "Urdu (Urdu A / Urdu B / Urdu C)",                     date: "2026-12-26", shift: "",  upc: "2141001001 (A) / 2141001002 (B) / 2141001003 (C)", sems: ["Semester I"],   revised: false },
+                { subject: "Urdu (Urdu A / Urdu B / Urdu C)",                     date: "2026-12-28", shift: "",  upc: "2141002001 (A) / 2141002002 (B) / 2141002003 (C)", sems: ["Semester III"], revised: false }
+            ]
+        };
+
+    /* #########################################################################
+       END OF EASY EDIT ZONE — DO NOT EDIT BELOW THIS LINE (APP ENGINE)
+       ######################################################################### */
+
+        const ICONS = {
+            users:     '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+            trend:     '<path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/>',
+            landmark:  '<path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="m12 2 8 5H4z"/>',
+            clock:     '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+            book:      '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+            pen:       '<path d="m12 19 7-7 3 3-7 7z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18z"/><path d="m2 2 7.6 7.6"/><circle cx="11" cy="11" r="2"/>',
+            flame:     '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4.1 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+            cap:       '<path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
+            briefcase: '<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+            bars:      '<path d="M12 20V10M18 20V4M6 20v-4"/>',
+            sigma:     '<path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2"/>',
+            atom:      '<circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2-2 .02-7.4-4.5-11.9C11.2 3.8 5.8 1.8 3.8 3.8s-.02 7.4 4.5 11.9c4.5 4.5 9.9 6.5 11.9 4.5Z"/><path d="M15.7 15.7c4.5-4.5 6.5-9.9 4.5-11.9s-7.4-.02-11.9 4.5c-4.5 4.5-6.5 9.9-4.5 11.9s7.4.02 11.9-4.5Z"/>',
+            flask:     '<path d="M10 2v7.5a2 2 0 0 1-.2.9L4.7 20.5a1 1 0 0 0 .9 1.5h12.8a1 1 0 0 0 .9-1.5l-5.1-10.1a2 2 0 0 1-.2-.9V2"/><path d="M8.5 2h7M7 16h10"/>',
+            leaf:      '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/>',
+            paw:       '<circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.8 1Q6.5 17.5 4.5 16.8A3.5 3.5 0 0 1 5.5 10Z"/>',
+            dna:       '<path d="M2 15c6.667-6 13.333 0 20-6"/><path d="M2 9c6.667 6 13.333 0 20 6"/><path d="M7 12h10"/>',
+            grid:      '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+            layers:    '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+            globe:     '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+            star:      '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+            heart:     '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+            shield:    '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>',
+            chevron:   '<path d="m9 18 6-6-6-6"/>',
+            hourglass: '<path d="M5 22h14M5 2h14"/><path d="M17 22v-4.2a2 2 0 0 0-.6-1.4L12 12l-4.4 4.4a2 2 0 0 0-.6 1.4V22M7 2v4.2a2 2 0 0 0 .6 1.4L12 12l4.4-4.4A2 2 0 0 0 17 6.2V2"/>'
+        };
+
+        const icon = (name) => `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ICONS.cap}</svg>`;
+        const esc  = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => (
+            { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+        ));
+
+        /* =====================================================================
+           BUILD UNIFIED DATESHEET LIST FROM SECTIONS A, B & C
+           ===================================================================== */
+        function buildAllExamEntries() {
+            const list = [];
+
+            // 1. Honours & Programme DSC/DSE papers
+            Object.keys(COURSE_SUBJECTS).forEach(courseKey => {
+                const sems = COURSE_SUBJECTS[courseKey];
+                Object.keys(sems).forEach(semId => {
+                    (sems[semId] || []).forEach(item => {
+                        list.push({
+                            id: `${courseKey}|${semId}|${item.subject}`,
+                            date: (item.date || '').trim(),
+                            ...resolveShift(item.shift),
+                            subject: item.subject,
+                            upc: (item.upc || '').trim(),
+                            semester: semId,
+                            category: item.cat || 'DSC',
+                            courseKey: courseKey,
+                            note: `${courseKey} • ${semId}`,
+                            isUpdated: item.revised === true
+                        });
+                    });
+                });
+            });
+
+            // 2. B.A. Programme papers (11 disciplines)
+            Object.keys(BA_PROG_DISCIPLINE_DATES).forEach(disc => {
+                const sems = BA_PROG_DISCIPLINE_DATES[disc];
+                Object.keys(sems).forEach(semId => {
+                    (sems[semId] || []).forEach(item => {
+                        list.push({
+                            id: `BA_PROG|${disc}|${semId}|${item.subject}`,
+                            date: (item.date || '').trim(),
+                            ...resolveShift(item.shift),
+                            subject: item.subject,
+                            upc: (item.upc || '').trim(),
+                            semester: semId,
+                            category: item.cat || 'DSC',
+                            courseKey: 'B.A. Programme',
+                            baDiscipline: disc,
+                            baMajorOnly: Boolean(item.majorOnly),
+                            note: `B.A. Programme (${disc}${item.majorOnly ? ' • Major' : ''}) • ${semId}`,
+                            isUpdated: item.revised === true
+                        });
+                    });
+                });
+            });
+
+            // 3. Common College-Wide papers (GE, SEC, VAC, AEC)
+            Object.keys(COMMON_EXAM_DATES).forEach(cat => {
+                (COMMON_EXAM_DATES[cat] || []).forEach(item => {
+                    (item.sems || ['Semester I', 'Semester III']).forEach(semId => {
+                        list.push({
+                            id: `COMMON|${cat}|${semId}|${item.subject}`,
+                            date: (item.date || '').trim(),
+                            ...resolveShift(item.shift),
+                            subject: item.subject,
+                            upc: (item.upc || '').trim(),
+                            semester: semId,
+                            category: cat,
+                            courseKey: 'ALL',
+                            note: `Common Paper (All Courses) • ${semId}`,
+                            isUpdated: item.revised === true
+                        });
+                    });
+                });
+            });
+
+            return list;
+        }
+
+        const allExamEntries = buildAllExamEntries();
+
+        /* =====================================================================
+           STORAGE FOR PINNED EXAMS
+           ===================================================================== */
+        const STORAGE_KEY_PINS = 'venky-personal-datesheet-v3';
+
+        function loadPins() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY_PINS);
+                const parsed = raw ? JSON.parse(raw) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function savePins() {
+            try {
+                localStorage.setItem(STORAGE_KEY_PINS, JSON.stringify(state.pinnedIds));
+            } catch (e) { /* storage unavailable */ }
+        }
+
+        /* =====================================================================
+           STATE & DOM HANDLERS
+           ===================================================================== */
+        let currentStep = 'courses'; // 'courses' | 'semesters' | 'categories' | 'datesheet' | 'pinned'
+        let activeStream = 'all';
+        const state = {
+            course: null,
+            semester: null,
+            category: 'All',
+            baCombo: 'All',
+            search: '',
+            pinnedIds: loadPins()
+        };
+
+        const $ = (id) => document.getElementById(id);
+        const screens = {
+            courses:    $('screen-courses'),
+            semesters:  $('screen-semesters'),
+            categories: $('screen-categories'),
+            datesheet:  $('screen-datesheet')
+        };
+
+        const coursesGrid       = $('courses-grid');
+        const semestersGrid     = $('semesters-grid');
+        const categoriesGrid    = $('categories-grid');
+        const timelineEl        = $('timeline');
+        const crumbsList        = $('crumbs');
+        const navBackBtn        = $('nav-back-btn');
+        const backLabel         = $('back-label');
+        const viewTitle         = $('view-title');
+        const viewSubtitle      = $('view-subtitle');
+        const courseSearchInput = $('course-search-input');
+        const streamButtons     = Array.from(document.querySelectorAll('#stream-filter button'));
+        const searchInput       = $('search-input');
+        const baComboWrap       = $('ba-combo-filter-wrap');
+        const baComboSelect     = $('ba-combo-select');
+        const quickPillsWrap    = $('quick-category-pills');
+        const quickPills        = Array.from(document.querySelectorAll('#quick-category-pills button'));
+        const pinnedActionsEl   = $('pinned-actions-row');
+        const resultsCountEl    = $('results-count');
+        const topPinCountEl     = $('top-pin-count');
+        const openPinnedBtn     = $('open-pinned-btn');
+        const clashBanner       = $('clash-banner');
+        const clashBannerText   = $('clash-banner-text');
+        const toastEl           = $('toast');
+        const reduceMotion      = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        let toastTimer = null;
+        function showToast(msg) {
+            toastEl.textContent = msg;
+            toastEl.classList.add('is-visible');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toastEl.classList.remove('is-visible'), 2300);
+        }
+
+        $('chip-all').textContent = `All Departments (${COURSES_LIST.length})`;
+
+        // Populate B.A. Programme Major-Minor combination selector
+        BA_PROGRAMME_COMBOS.forEach(c => {
+            const opt = document.createElement('option');
+            opt.value = c.title;
+            opt.textContent = c.title;
+            baComboSelect.appendChild(opt);
+        });
+
+        function updatePinCounter() {
+            topPinCountEl.textContent = state.pinnedIds.length;
+        }
+
+        function togglePin(examId) {
+            const idx = state.pinnedIds.indexOf(examId);
+            if (idx > -1) {
+                state.pinnedIds.splice(idx, 1);
+                showToast('Removed from My Datesheet');
+            } else {
+                state.pinnedIds.push(examId);
+                showToast('Pinned to My Datesheet');
+            }
+            savePins();
+            updatePinCounter();
+            renderDatesheet();
+        }
+
+        /* =====================================================================
+           AUTOMATIC MIDNIGHT-NORMALIZED COUNTDOWN LOGIC
+           ===================================================================== */
+        const MONTHS_SHORT = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+        const DAYS_LONG    = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+
+        function parseLocalMidnight(isoStr) {
+            const parts = isoStr.split('-').map(Number);
+            if (parts.length !== 3 || parts.some(isNaN)) return null;
+            return new Date(parts[0], parts[1] - 1, parts[2], 0, 0, 0, 0);
+        }
+
+        function formatDateParts(isoStr) {
+            if (!isoStr) return { dayMonth: 'TBA', weekday: 'DATE SOON', isTba: true };
+            const dt = parseLocalMidnight(isoStr);
+            if (!dt) return { dayMonth: 'TBA', weekday: 'DATE SOON', isTba: true };
+            const day = String(dt.getDate()).padStart(2, '0');
+            const mon = MONTHS_SHORT[dt.getMonth()];
+            const weekday = DAYS_LONG[dt.getDay()];
+            return { dayMonth: `${day} ${mon}`, weekday, isTba: false };
+        }
+
+        function getCountdown(isoStr) {
+            if (!isoStr) return { text: 'Date TBA', state: 'tba' };
+            const examMidnight = parseLocalMidnight(isoStr);
+            if (!examMidnight) return { text: 'Date TBA', state: 'tba' };
+
+            const now = new Date();
+            const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+            const diffDays = Math.round((examMidnight - todayMidnight) / 86400000);
+
+            if (diffDays < 0)   return { text: 'Completed', state: 'past' };
+            if (diffDays === 0) return { text: 'Today', state: 'urgent' };
+            if (diffDays === 1) return { text: 'Tomorrow', state: 'urgent' };
+            if (diffDays <= 7)  return { text: `In ${diffDays} days`, state: 'urgent' };
+            return { text: `In ${diffDays} days`, state: 'upcoming' };
+        }
+
+        /* =====================================================================
+           CARD BUILDER (Matches VenkySpace Signature Style)
+           ===================================================================== */
+        function makeCard({ tileHTML, tileClass = '', numBadge = '', pill, pillClass = '', title, sub, footLabel = 'Select' }, onClick) {
+            const card = document.createElement('button');
+            card.type = 'button';
+            card.className = 'card';
+            card.innerHTML = `
+                <span class="card-top">
+                    <span class="tile ${tileClass}">${tileHTML}</span>
+                    <span class="card-badges">
+                        ${numBadge ? `<span class="pill num">${esc(numBadge)}</span>` : ''}
+                        <span class="pill ${pillClass}">${esc(pill)}</span>
+                    </span>
+                </span>
+                <span class="card-body">
+                    <span class="card-title">${esc(title)}</span>
+                    ${sub ? `<span class="card-sub">${esc(sub)}</span>` : ''}
+                </span>
+                <span class="card-foot">
+                    <span class="card-foot-label">${esc(footLabel)}</span>
+                    ${icon('chevron')}
+                </span>
+            `;
+            card.addEventListener('click', onClick);
+            return card;
+        }
+
+        /* =====================================================================
+           STEP RENDERERS
+           ===================================================================== */
+        function renderCourses(list) {
+            coursesGrid.innerHTML = '';
+
+            if (!list.length) {
+                const q = courseSearchInput.value.trim();
+                const box = document.createElement('div');
+                box.className = 'soon-panel';
+                box.innerHTML = `
+                    <span class="tile">${icon('hourglass')}</span>
+                    <h3>${q ? `No department matches &ldquo;${esc(q)}&rdquo;` : 'No departments found'}</h3>
+                    <p>Try a shorter name or clear your search and stream filter.</p>
+                    <button type="button" class="btn primary" id="clear-course-filters">Clear Filters</button>
+                `;
+                coursesGrid.appendChild(box);
+                box.querySelector('#clear-course-filters').addEventListener('click', () => {
+                    courseSearchInput.value = '';
+                    setStream('all');
+                });
+                return;
+            }
+
+            list.forEach(c => {
+                coursesGrid.appendChild(makeCard({
+                    tileHTML: icon(c.icon),
+                    pill: c.stream,
+                    pillClass: c.stream.toLowerCase(),
+                    title: c.name,
+                    sub: c.degree,
+                    footLabel: 'Select Semester'
+                }, () => selectCourse(c)));
+            });
+        }
+
+        function applyCourseFilters() {
+            const query = courseSearchInput.value.toLowerCase().trim();
+            renderCourses(COURSES_LIST.filter(c => {
+                const inStream = activeStream === 'all' || c.stream === activeStream;
+                const inQuery  = c.name.toLowerCase().includes(query) || c.degree.toLowerCase().includes(query);
+                return inStream && inQuery;
+            }));
+        }
+
+        function setStream(stream) {
+            activeStream = stream;
+            streamButtons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.stream === stream)));
+            applyCourseFilters();
+        }
+
+        function renderSemesters() {
+            semestersGrid.innerHTML = '';
+            SEMESTERS_LIST.forEach(s => {
+                const count = allExamEntries.filter(item =>
+                    item.semester === s.id &&
+                    (item.courseKey === 'ALL' || item.courseKey === state.course.key)
+                ).length;
+
+                semestersGrid.appendChild(makeCard({
+                    tileHTML: s.roman,
+                    tileClass: 'numeral',
+                    pill: count ? s.year : 'Coming soon',
+                    pillClass: count ? 'num' : '',
+                    title: s.id,
+                    sub: s.desc,
+                    footLabel: 'Choose Category'
+                }, () => selectSemester(s.id)));
+            });
+        }
+
+        function renderCategories() {
+            categoriesGrid.innerHTML = '';
+            CATEGORIES_LIST.forEach(cat => {
+                categoriesGrid.appendChild(makeCard({
+                    tileHTML: icon(cat.icon),
+                    numBadge: cat.num,
+                    pill: cat.badge,
+                    pillClass: cat.badgeClass,
+                    title: cat.title,
+                    sub: cat.sub,
+                    footLabel: cat.foot
+                }, () => selectCategory(cat.id)));
+            });
+        }
+
+        function sortExamEntries(list) {
+            return [...list].sort((a, b) => {
+                if (a.date && !b.date) return -1;
+                if (!a.date && b.date) return 1;
+                if (a.date && b.date) {
+                    const cmp = a.date.localeCompare(b.date);
+                    if (cmp !== 0) return cmp;
+                }
+                const shiftCmp = SHIFTS[a.shiftKey].order - SHIFTS[b.shiftKey].order;
+                if (shiftCmp !== 0) return shiftCmp;
+                return a.subject.localeCompare(b.subject);
+            });
+        }
+
+        function getFilteredExams() {
+            const q = state.search.trim().toLowerCase();
+
+            if (currentStep === 'pinned') {
+                return sortExamEntries(allExamEntries.filter(item => {
+                    const isPin = state.pinnedIds.includes(item.id);
+                    const qOk = !q || item.subject.toLowerCase().includes(q) || item.upc.toLowerCase().includes(q);
+                    return isPin && qOk;
+                }));
+            }
+
+            const selectedCombo = (state.course && state.course.key === 'B.A. Programme' && state.baCombo !== 'All')
+                ? BA_PROGRAMME_COMBOS.find(c => c.title === state.baCombo)
+                : null;
+
+            return sortExamEntries(allExamEntries.filter(item => {
+                let courseOk = (item.courseKey === 'ALL') || (state.course && item.courseKey === state.course.key);
+
+                if (courseOk && selectedCombo && item.courseKey === 'B.A. Programme') {
+                    const isMajor = (item.baDiscipline === selectedCombo.major);
+                    const isMinor = (item.baDiscipline === selectedCombo.minor && !item.baMajorOnly);
+                    courseOk = isMajor || isMinor;
+                }
+
+                const semOk = !state.semester || item.semester === state.semester;
+
+                const catOk = state.category === 'All' ||
+                    (state.category === 'DSC' ? (item.category === 'DSC' || item.category === 'DSE') : item.category === state.category);
+
+                const qOk = !q ||
+                    item.subject.toLowerCase().includes(q) ||
+                    item.upc.toLowerCase().includes(q) ||
+                    (item.baDiscipline && item.baDiscipline.toLowerCase().includes(q));
+
+                return courseOk && semOk && catOk && qOk;
+            }));
+        }
+
+        function renderDatesheet() {
+            const isPinnedView = (currentStep === 'pinned');
+            const isBAProg     = (!isPinnedView && state.course && state.course.key === 'B.A. Programme');
+
+            quickPillsWrap.hidden  = isPinnedView;
+            baComboWrap.hidden     = !isBAProg;
+            pinnedActionsEl.hidden = !isPinnedView || state.pinnedIds.length === 0;
+
+            quickPills.forEach(btn => {
+                btn.setAttribute('aria-pressed', String(btn.dataset.cat === state.category));
+            });
+
+            const list = getFilteredExams();
+            resultsCountEl.innerHTML = isPinnedView
+                ? `Showing <strong>${list.length}</strong> pinned exam${list.length === 1 ? '' : 's'} in your personal datesheet`
+                : `Showing <strong>${list.length}</strong> exam${list.length === 1 ? '' : 's'}`;
+
+            // Check for same-date + same-shift clashes in My Personal Datesheet
+            if (isPinnedView && list.length > 1) {
+                const slotMap = {};
+                list.forEach(item => {
+                    if (!item.date) return;
+                    const key = `${item.date}|${item.shiftKey}`;
+                    slotMap[key] = (slotMap[key] || 0) + 1;
+                });
+                const clashCount = Object.values(slotMap).filter(n => n > 1).length;
+                if (clashCount > 0) {
+                    clashBanner.hidden = false;
+                    clashBannerText.textContent = `Heads up: ${clashCount} date & shift slot${clashCount > 1 ? 's have' : ' has'} multiple pinned exams overlapping. Double-check your paper selection.`;
+                } else {
+                    clashBanner.hidden = true;
+                }
+            } else {
+                clashBanner.hidden = true;
+            }
+
+            timelineEl.innerHTML = '';
+
+            if (!list.length) {
+                const box = document.createElement('div');
+                box.className = 'soon-panel';
+                if (isPinnedView) {
+                    box.innerHTML = `
+                        <span class="tile">${icon('hourglass')}</span>
+                        <h3>No pinned exams yet</h3>
+                        <p>Select your department and click <strong>+ Pin</strong> on your exam cards to save them to My Personal Datesheet.</p>
+                        <button type="button" class="btn primary" id="empty-action">Select Department</button>
+                    `;
+                    timelineEl.appendChild(box);
+                    box.querySelector('#empty-action').addEventListener('click', goToCourses);
+                } else {
+                    box.innerHTML = `
+                        <span class="tile">${icon('hourglass')}</span>
+                        <h3>No subjects added for this semester yet</h3>
+                        <p>No papers found for ${esc(state.course ? state.course.name : '')} (${esc(state.semester || '')}) under this filter. Try switching to <strong>All</strong> papers or clearing your search.</p>
+                        <button type="button" class="btn primary" id="empty-action">Show All Papers</button>
+                    `;
+                    timelineEl.appendChild(box);
+                    box.querySelector('#empty-action').addEventListener('click', () => {
+                        state.category = 'All';
+                        state.baCombo = 'All';
+                        baComboSelect.value = 'All';
+                        state.search = '';
+                        searchInput.value = '';
+                        renderDatesheet();
+                    });
+                }
+                return;
+            }
+
+            list.forEach(item => {
+                const { dayMonth, weekday, isTba } = formatDateParts(item.date);
+                const countdown = getCountdown(item.date);
+                const isPinned = state.pinnedIds.includes(item.id);
+                const catClass = (item.category === 'DSE') ? 'DSC' : item.category;
+
+                const card = document.createElement('article');
+                card.className = 'exam-card x-' + catClass + (isPinned ? ' is-pinned' : '') + (countdown.state === 'past' ? ' is-past' : '');
+
+                card.innerHTML = `
+                    <div class="date-box ${isTba ? 'is-tba' : ''}">
+                        <span class="date-day-month">${esc(dayMonth)}</span>
+                        <span class="date-weekday">${esc(weekday)}</span>
+                    </div>
+
+                    <div class="exam-main">
+                        <div class="exam-title-row">
+                            <h3 class="exam-title">${esc(item.subject)}</h3>
+                        </div>
+                        <div class="exam-sub-row">
+                            <span class="upc-badge">${item.upc ? `UPC ${esc(item.upc)}` : 'UPC TBA'}</span>
+                            <span class="shift-chip ${item.shiftKey === 'E' ? 'is-eve' : 'is-morn'}" title="Exam starts at ${esc(item.shiftTime)}">
+                                <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="${SHIFTS[item.shiftKey].icon}"/></svg>
+                                <b>${esc(item.shiftName)}</b><i>${esc(item.shiftTime)}</i>
+                            </span>
+                        </div>
+                        <p class="exam-course-note">${esc(item.note)}</p>
+                    </div>
+
+                    <div class="exam-right">
+                        <div class="exam-pills">
+                            <span class="cat-badge cat-${esc(catClass)}">${esc(item.category)}</span>
+                            <span class="countdown-pill ${esc(countdown.state)}">${esc(countdown.text)}</span>
+                        </div>
+                        <button type="button" class="pin-btn" aria-pressed="${isPinned}">
+                            ${isPinned
+                                ? `<svg class="ic" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Pinned`
+                                : `<svg class="ic" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Pin`
+                            }
+                        </button>
+                    </div>
+                `;
+
+                card.querySelector('.pin-btn').addEventListener('click', () => togglePin(item.id));
+                timelineEl.appendChild(card);
+            });
+        }
+
+        /* =====================================================================
+           NAVIGATION & BREADCRUMB BAR
+           ===================================================================== */
+        function renderCrumbs(step) {
+            if (step === 'pinned') {
+                crumbsList.innerHTML = `
+                    <li><button class="crumb" type="button" data-state="done" id="crumb-home">Course</button></li>
+                    <li><button class="crumb" type="button" data-state="current" aria-current="step">My Personal Datesheet</button></li>
+                `;
+                $('crumb-home').addEventListener('click', goToCourses);
+                return;
+            }
+
+            const steps = [
+                { id: 'courses',    label: 'Course' },
+                { id: 'semesters',  label: 'Semester' },
+                { id: 'categories', label: 'Category' },
+                { id: 'datesheet',  label: 'Datesheet' }
+            ];
+            const idx = steps.findIndex(s => s.id === step);
+            crumbsList.innerHTML = '';
+
+            steps.forEach((item, i) => {
+                const li = document.createElement('li');
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'crumb';
+                btn.textContent = item.label;
+                const st = i < idx ? 'done' : (i === idx ? 'current' : 'todo');
+                btn.dataset.state = st;
+                btn.disabled = st !== 'done';
+                if (st === 'current') btn.setAttribute('aria-current', 'step');
+
+                btn.addEventListener('click', () => {
+                    if (item.id === 'courses') goToCourses();
+                    else if (item.id === 'semesters' && state.course) selectCourse(state.course);
+                    else if (item.id === 'categories' && state.semester) selectSemester(state.semester);
+                });
+
+                li.appendChild(btn);
+                crumbsList.appendChild(li);
+            });
+        }
+
+        function showScreen(step) {
+            currentStep = step;
+            screens.courses.hidden    = (step !== 'courses');
+            screens.semesters.hidden  = (step !== 'semesters');
+            screens.categories.hidden = (step !== 'categories');
+            screens.datesheet.hidden  = (step !== 'datesheet' && step !== 'pinned');
+            openPinnedBtn.setAttribute('aria-pressed', String(step === 'pinned'));
+
+            const backLabels = {
+                courses: 'Dashboard',
+                semesters: 'Departments',
+                categories: 'Semesters',
+                datesheet: 'Categories',
+                pinned: 'Back to Courses'
+            };
+            backLabel.textContent = backLabels[step] || 'Back';
+            renderCrumbs(step);
+
+            window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+            viewTitle.focus({ preventScroll: true });
+        }
+
+        function goToCourses() {
+            state.course = null;
+            state.semester = null;
+            state.category = 'All';
+            state.baCombo = 'All';
+            baComboSelect.value = 'All';
+            state.search = '';
+            searchInput.value = '';
+            viewTitle.textContent = 'End-Semester Exam Datesheet (Dec 2026 – Jan 2027)';
+            viewSubtitle.textContent = 'Select your undergraduate department to view its examination schedule.';
+            applyCourseFilters();
+            showScreen('courses');
+        }
+
+        function selectCourse(course) {
+            state.course = course;
+            state.semester = null;
+            state.category = 'All';
+            state.baCombo = 'All';
+            baComboSelect.value = 'All';
+            viewTitle.textContent = `${course.name} — Select Semester`;
+            viewSubtitle.textContent = `Choose your semester for ${course.degree}.`;
+            renderSemesters();
+            showScreen('semesters');
+        }
+
+        function selectSemester(semId) {
+            state.semester = semId;
+            state.category = 'All';
+            viewTitle.textContent = `${state.course.name} • ${semId}`;
+            viewSubtitle.textContent = 'Select a paper category or view your complete datesheet.';
+            renderCategories();
+            showScreen('categories');
+        }
+
+        function selectCategory(catId) {
+            state.category = catId;
+            state.search = '';
+            searchInput.value = '';
+            const catLabel = catId === 'All' ? 'All Papers' : (catId === 'DSC' ? 'DSC (Core)' : catId);
+            viewTitle.textContent = `${state.course.name} • ${state.semester}`;
+            viewSubtitle.textContent = `Showing ${catLabel} exams sorted chronologically by date.`;
+            showScreen('datesheet');
+            renderDatesheet();
+        }
+
+        function openPinnedView() {
+            state.search = '';
+            searchInput.value = '';
+            viewTitle.textContent = 'My Personal Datesheet (Dec 2026 – Jan 2027)';
+            viewSubtitle.textContent = 'Your pinned exams saved locally in this browser, sorted chronologically.';
+            showScreen('pinned');
+            renderDatesheet();
+        }
+
+        navBackBtn.addEventListener('click', () => {
+            if (currentStep === 'datesheet') selectSemester(state.semester);
+            else if (currentStep === 'categories') selectCourse(state.course);
+            else if (currentStep === 'semesters' || currentStep === 'pinned') goToCourses();
+            else window.location.href = '../index.html';
+        });
+
+        openPinnedBtn.addEventListener('click', openPinnedView);
+        courseSearchInput.addEventListener('input', applyCourseFilters);
+        streamButtons.forEach(b => b.addEventListener('click', () => setStream(b.dataset.stream)));
+
+        baComboSelect.addEventListener('change', (e) => {
+            state.baCombo = e.target.value;
+            renderDatesheet();
+        });
+
+        quickPills.forEach(btn => {
+            btn.addEventListener('click', () => {
+                state.category = btn.dataset.cat;
+                renderDatesheet();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            state.search = e.target.value;
+            renderDatesheet();
+        });
+
+        /* =====================================================================
+           MINIMALIST AESTHETIC PNG SCHEDULE DOWNLOAD, COPY & PRINT
+           ===================================================================== */
+        function drawRoundRect(ctx, x, y, w, h, r) {
+            r = Math.min(r, w / 2, h / 2);
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.arcTo(x + w, y, x + w, y + h, r);
+            ctx.arcTo(x + w, y + h, x, y + h, r);
+            ctx.arcTo(x, y + h, x, y, r);
+            ctx.arcTo(x, y, x + w, y, r);
+            ctx.closePath();
+        }
+
+        function wrapLines(ctx, text, maxW) {
+            const words = text.split(' ');
+            const lines = [];
+            let curr = '';
+            words.forEach(w => {
+                const test = curr ? curr + ' ' + w : w;
+                if (ctx.measureText(test).width > maxW && curr) { lines.push(curr); curr = w; }
+                else curr = test;
+            });
+            if (curr) lines.push(curr);
+            return lines;
+        }
+
+        const PNG_FONT = '"Inter", "Noto Sans Devanagari", system-ui, sans-serif';
+        const pf = (w, s) => `${w} ${s}px ${PNG_FONT}`;
+        const PNG_CAT = { DSC: '#2563EB', DSE: '#2563EB', GE: '#0F9488', SEC: '#7C3AED', VAC: '#DB2777', AEC: '#EA580C' };
+       
+        async function renderDatesheetPNG(exams) {
+            const W = 1080, padX = 56, railX = 206, cardX = 236, cardW = W - padX - cardX;
+            const HDR = 340, FTR = 240, GAP = 12, GROUP_GAP = 30;
+
+            // ---- measure & group by date ----
+            const m = document.createElement('canvas').getContext('2d');
+            m.font = pf(700, 25);
+            const textW = cardW - 30 - 190;
+            const groups = [];
+            exams.forEach(item => {
+                const key = item.date || 'TBA';
+                let g = groups[groups.length - 1];
+                if (!g || g.key !== key) { g = { key, rows: [] }; groups.push(g); }
+                let lines = wrapLines(m, item.subject, textW);
+                if (lines.length > 2) { lines = lines.slice(0, 2); lines[1] += '…'; }
+                g.rows.push({ item, lines, h: lines.length > 1 ? 126 : 106 });
+            });
+            const groupH = g => g.rows.reduce((s, r) => s + r.h, 0) + GAP * (g.rows.length - 1);
+            const bodyH = 44 + groups.reduce((s, g) => s + groupH(g), 0) + GROUP_GAP * (groups.length - 1) + 48;
+            const H = HDR + bodyH + FTR;
+            const S = Math.min(2, 15000 / H);
+
+            const cv = document.createElement('canvas');
+            cv.width = Math.round(W * S); cv.height = Math.round(H * S);
+            const ctx = cv.getContext('2d');
+            ctx.scale(S, S);
+
+            // ---- helpers ----
+            const text = (s, x, y, font, color, align = 'left', spacing = 0) => {
+                ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align;
+                if ('letterSpacing' in ctx) ctx.letterSpacing = spacing + 'px';
+                ctx.fillText(s, x, y);
+                if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+            };
+            const pill = (x, cy, label, font, bg, fg, o = {}) => {
+                const px = o.px || 14, h = o.h || 32, ih = o.icon ? 24 : 0;
+                ctx.font = font;
+                const w = ctx.measureText(label).width + px * 2 + ih;
+                ctx.fillStyle = bg; drawRoundRect(ctx, x, cy - h / 2, w, h, o.r || h / 2); ctx.fill();
+                if (o.stroke) { ctx.strokeStyle = o.stroke; ctx.lineWidth = 1.5; ctx.stroke(); }
+                if (o.icon) {
+                    ctx.save(); ctx.translate(x + px, cy - 9); ctx.scale(18 / 24, 18 / 24);
+                    ctx.strokeStyle = fg; ctx.lineWidth = 2.3; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+                    ctx.stroke(new Path2D(o.icon)); ctx.restore();
+                }
+                ctx.fillStyle = fg; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+                ctx.fillText(label, x + px + ih, cy + 1);
+                ctx.textBaseline = 'alphabetic';
+                return w;
+            };
+            const logoMark = (x, y, s) => {
+                const g = ctx.createLinearGradient(x, y, x + s, y + s);
+                g.addColorStop(0, '#60A5FA'); g.addColorStop(1, '#4F46E5');
+                ctx.fillStyle = g; drawRoundRect(ctx, x, y, s, s, s * 0.3); ctx.fill();
+                ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = s * 0.115; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+                ctx.beginPath(); ctx.moveTo(x + s * 0.27, y + s * 0.3); ctx.lineTo(x + s * 0.5, y + s * 0.72); ctx.lineTo(x + s * 0.73, y + s * 0.3); ctx.stroke();
+            };
+            const wordmark = (x, y, size) => {
+                text('VenkySpace', x, y, pf(800, size), '#FFFFFF', 'left', -size * 0.03);
+                ctx.font = pf(800, size);
+                const w = ctx.measureText('VenkySpace').width - size * 0.03 * 10;
+                text('.', x + w, y, pf(800, size), '#60A5FA');
+            };
+            const instagram = (x, y, s) => {
+                const g = ctx.createLinearGradient(x, y + s, x + s, y);
+                [[0, '#FEDA75'], [0.25, '#FA7E1E'], [0.5, '#D62976'], [0.75, '#962FBF'], [1, '#4F5BD5']].forEach(([o, c]) => g.addColorStop(o, c));
+                ctx.fillStyle = g; drawRoundRect(ctx, x, y, s, s, s * 0.28); ctx.fill();
+                ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = s * 0.075;
+                drawRoundRect(ctx, x + s * 0.2, y + s * 0.2, s * 0.6, s * 0.6, s * 0.17); ctx.stroke();
+                ctx.beginPath(); ctx.arc(x + s / 2, y + s / 2, s * 0.15, 0, Math.PI * 2); ctx.stroke();
+                ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.arc(x + s * 0.69, y + s * 0.31, s * 0.045, 0, Math.PI * 2); ctx.fill();
+            };
+            const navy = (y0, y1) => {
+                const g = ctx.createLinearGradient(0, y0, W, y1);
+                g.addColorStop(0, '#080D1A'); g.addColorStop(0.55, '#111C44'); g.addColorStop(1, '#1E3A8A');
+                ctx.fillStyle = g; ctx.fillRect(0, y0, W, y1 - y0);
+            };
+
+            // ---- page background ----
+            ctx.fillStyle = '#F2F5FB'; ctx.fillRect(0, 0, W, H);
+
+            // ---- HEADER ----
+            navy(0, HDR);
+            const glow = ctx.createRadialGradient(W - 120, 40, 0, W - 120, 40, 480);
+            glow.addColorStop(0, 'rgba(99,102,241,.55)'); glow.addColorStop(1, 'rgba(99,102,241,0)');
+            ctx.fillStyle = glow; ctx.fillRect(0, 0, W, HDR);
+            ctx.fillStyle = 'rgba(255,255,255,.07)';
+            for (let gx = W - 400; gx < W; gx += 26) for (let gy = 112; gy < HDR - 20; gy += 26) { ctx.beginPath(); ctx.arc(gx, gy, 1.6, 0, 7); ctx.fill(); }
+
+            logoMark(padX, 46, 54);
+            wordmark(padX + 54 + 14, 46 + 38, 32);
+            ctx.font = pf(600, 16);
+            const rangeW = ctx.measureText('Dec 2026 – Jan 2027').width + 32;
+            pill(W - padX - rangeW, 73, 'Dec 2026 – Jan 2027', pf(600, 16), 'rgba(255,255,255,.10)', '#E2E8F0', { px: 16, h: 36, stroke: 'rgba(255,255,255,.22)' });
+            text('My exam datesheet', padX, 192, pf(800, 66), '#FFFFFF', 'left', -2.2);
+            text('Sri Venkateswara College, University of Delhi', padX, 238, pf(500, 22), 'rgba(226,232,240,.88)');
+
+            const dated = exams.filter(e => e.date);
+            const nextExam = dated.find(e => getCountdown(e.date).state !== 'past');
+            const chips = [`${exams.length} exam${exams.length === 1 ? '' : 's'}`];
+            if (dated.length) {
+                const a = formatDateParts(dated[0].date).dayMonth, b = formatDateParts(dated[dated.length - 1].date).dayMonth;
+                chips.push(a === b ? a : `${a} to ${b}`);
+            }
+            if (nextExam) chips.push(`Next exam: ${getCountdown(nextExam.date).text.toLowerCase()}`);
+            let cx = padX;
+            chips.forEach(c => { cx += pill(cx, 290, c, pf(700, 17), 'rgba(255,255,255,.10)', '#FFFFFF', { px: 18, h: 40, stroke: 'rgba(255,255,255,.2)' }) + 12; });
+            const bar = ctx.createLinearGradient(0, 0, W, 0);
+            bar.addColorStop(0, '#3B82F6'); bar.addColorStop(0.6, '#4F46E5'); bar.addColorStop(1, '#8B5CF6');
+            ctx.fillStyle = bar; ctx.fillRect(0, HDR - 4, W, 4);
+
+            // ---- BODY: date rail + exam cards ----
+            let y = HDR + 44;
+            const firstNodeY = y + 34;
+            let lastNodeY = firstNodeY;
+            const nodes = [];
+            groups.forEach(g => {
+                const first = g.rows[0].item;
+                const { dayMonth, weekday, isTba } = formatDateParts(first.date);
+                const [dd, mon] = dayMonth.split(' ');
+                if (isTba) {
+                    text('TBA', padX, y + 44, pf(800, 34), '#94A3B8', 'left', -1);
+                    text('DATE SOON', padX, y + 70, pf(700, 14), '#94A3B8', 'left', 1.4);
+                } else {
+                    text(dd, padX, y + 48, pf(800, 50), '#0F172A', 'left', -2);
+                    text(`${mon}  ${weekday.slice(0, 3)}`, padX, y + 74, pf(700, 15), '#64748B', 'left', 1.2);
+                }
+                nodes.push({ y: y + 34, tba: isTba });
+                lastNodeY = y + 34;
+
+                let ry = y;
+                g.rows.forEach(({ item, lines, h }) => {
+                    const col = PNG_CAT[item.category] || '#2563EB';
+                    ctx.save();
+                    ctx.shadowColor = 'rgba(15,23,42,.12)'; ctx.shadowBlur = 24 * S; ctx.shadowOffsetY = 8 * S;
+                    ctx.fillStyle = '#FFFFFF'; drawRoundRect(ctx, cardX, ry, cardW, h, 20); ctx.fill();
+                    ctx.restore();
+                    ctx.strokeStyle = '#E3E9F4'; ctx.lineWidth = 1.5; drawRoundRect(ctx, cardX, ry, cardW, h, 20); ctx.stroke();
+                    ctx.save(); drawRoundRect(ctx, cardX, ry, cardW, h, 20); ctx.clip();
+                    ctx.fillStyle = col; ctx.fillRect(cardX, ry, 7, h); ctx.restore();
+
+                    ctx.font = pf(700, 25);
+                    lines.forEach((ln, i) => text(ln, cardX + 32, ry + (lines.length > 1 ? 42 + i * 31 : 46), pf(700, 25), '#0F172A', 'left', -0.3));
+
+                    const my = ry + h - 28;
+                    let mx = cardX + 32;
+                    mx += pill(mx, my, item.upc ? `UPC ${item.upc}` : 'UPC TBA', pf(600, 15), '#F1F5F9', '#475569', { px: 12, h: 30, r: 8 }) + 10;
+                    const eve = item.shiftKey === 'E';
+                    pill(mx, my, `${item.shiftName}  ${item.shiftTime}`, pf(700, 15), eve ? '#EEF2FF' : '#FFF4D6', eve ? '#4338CA' : '#A15C07', { px: 12, h: 30, r: 15, icon: SHIFTS[item.shiftKey].icon });
+
+                    // right column
+                    const rx = cardX + cardW - 24;
+                    ctx.font = pf(800, 15);
+                    const bw = ctx.measureText(item.category).width + 26;
+                    pill(rx - bw, ry + 32, item.category, pf(800, 15), col + '1F', col, { px: 13, h: 30, r: 9 });
+                    text(item.semester.replace('Semester ', 'Sem '), rx, ry + 76, pf(600, 15), '#64748B', 'right');
+                    if (item.isUpdated) {
+                        ctx.font = pf(800, 12);
+                        const rw = ctx.measureText('REVISED').width + 20;
+                        pill(rx - rw, ry + h - 28, 'REVISED', pf(800, 12), '#FFF7E0', '#B45309', { px: 10, h: 24, r: 7, stroke: '#FDE68A' });
+                    }
+                    ry += h + GAP;
+                });
+                y += groupH(g) + GROUP_GAP;
+            });
+            // rail + nodes
+            ctx.strokeStyle = '#D5DDEC'; ctx.lineWidth = 3; ctx.setLineDash([2, 8]); ctx.lineCap = 'round';
+            ctx.beginPath(); ctx.moveTo(railX, firstNodeY); ctx.lineTo(railX, lastNodeY); ctx.stroke(); ctx.setLineDash([]);
+            nodes.forEach(n => {
+                ctx.fillStyle = '#F2F5FB'; ctx.beginPath(); ctx.arc(railX, n.y, 13, 0, 7); ctx.fill();
+                ctx.fillStyle = n.tba ? '#94A3B8' : '#2563EB'; ctx.beginPath(); ctx.arc(railX, n.y, 8, 0, 7); ctx.fill();
+            });
+
+            // ---- FOOTER ----
+            const fy = HDR + bodyH;
+            navy(fy, H);
+            const fg = ctx.createRadialGradient(120, fy, 0, 120, fy, 420);
+            fg.addColorStop(0, 'rgba(59,130,246,.35)'); fg.addColorStop(1, 'rgba(59,130,246,0)');
+            ctx.fillStyle = fg; ctx.fillRect(0, fy, W, FTR);
+            ctx.fillStyle = bar; ctx.fillRect(0, fy, W, 4);
+
+            logoMark(padX, fy + 44, 48);
+            wordmark(padX + 48 + 14, fy + 44 + 34, 30);
+            text('Your Sri Venkateswara College', padX, fy + 126, pf(600, 19), '#CBD5E1');
+            text('datesheet, sorted.', padX, fy + 154, pf(600, 19), '#CBD5E1');
+
+            const bx = W - padX - 440, by = fy + 36, bh = 116;
+            ctx.fillStyle = 'rgba(255,255,255,.08)'; drawRoundRect(ctx, bx, by, 440, bh, 22); ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,.2)'; ctx.lineWidth = 1.5; ctx.stroke();
+            instagram(bx + 22, by + (bh - 68) / 2, 68);
+            text('Follow us on Instagram', bx + 112, by + 38, pf(600, 16), '#94A3B8');
+            text('@venkyspace.svc', bx + 112, by + 72, pf(800, 30), '#FFFFFF', 'left', -0.6);
+            text('Follow Us for Faster Updates', bx + 112, by + 98, pf(500, 15), '#CBD5E1');
+
+            ctx.fillStyle = 'rgba(255,255,255,.14)'; ctx.fillRect(padX, fy + 188, W - padX * 2, 1);
+            const today = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            text('Cross-verify timings with your official DU Admit Card', padX, fy + 218, pf(500, 15), '#94A3B8');
+            text(`Generated on VenkySpace, ${today}`, W - padX, fy + 218, pf(500, 15), '#94A3B8', 'right');
+
+            await new Promise(res => cv.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.download = 'venkyspace-personal-datesheet.png';
+                link.href = url;
+                document.body.appendChild(link); link.click(); link.remove();
+                setTimeout(() => URL.revokeObjectURL(url), 4000);
+                res();
+            }, 'image/png'));
+        }
+
+        $('download-png-btn').addEventListener('click', async (ev) => {
+            const btn = ev.currentTarget;
+            const exams = getFilteredExams();
+            if (!exams.length || btn.disabled) return;
+            const label = btn.innerHTML;
+            btn.disabled = true; btn.textContent = 'Preparing image…';
+            try {
+                await Promise.race([
+                    Promise.all([
+                        document.fonts.load('800 40px Inter'), document.fonts.load('700 20px Inter'),
+                        document.fonts.load('500 20px Inter'), document.fonts.load('700 20px "Noto Sans Devanagari"', 'अ')
+                    ]),
+                    new Promise(r => setTimeout(r, 2500))
+                ]);
+            } catch (e) { /* draw with fallback fonts */ }
+            try {
+                await renderDatesheetPNG(exams);
+                showToast('Datesheet PNG downloaded');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = label;
+            }
+        });
+
+        $('copy-schedule-btn').addEventListener('click', async () => {
+            const exams = getFilteredExams();
+            if (!exams.length) return;
+            const lines = [
+                '*My Exam Datesheet — VenkySpace*',
+                'Sri Venkateswara College (Dec 2026 – Jan 2027)',
+                ''
+            ];
+            exams.forEach(item => {
+                const { dayMonth, weekday, isTba } = formatDateParts(item.date);
+                const dateStr = isTba ? 'Date TBA' : `${dayMonth} (${weekday.slice(0, 3)})`;
+                lines.push(`• ${dateStr} | ${item.shiftName} · ${item.shiftTime}`);
+                lines.push(`  ${item.subject} [${item.category} · ${item.semester.replace('Semester ', 'Sem ')}]${item.upc ? ` (UPC ${item.upc})` : ''}`);
+            });
+            lines.push('', 'Cross-verify timings with your official DU Admit Card.');
+            const text = lines.join('\n');
+
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast('Schedule copied to clipboard');
+            } catch (e) {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                ta.remove();
+                showToast('Schedule copied to clipboard');
+            }
+        });
+
+        $('print-btn').addEventListener('click', () => window.print());
+        $('clear-pins-btn').addEventListener('click', () => {
+            state.pinnedIds = [];
+            savePins();
+            updatePinCounter();
+            renderDatesheet();
+            showToast('Cleared all pinned exams');
+        });
+
+        /* =====================================================================
+           THEME & STARTUP
+           ===================================================================== */
+        const themeToggle = $('theme-toggle');
+        function syncThemeSwitch() {
+            themeToggle.setAttribute('aria-checked', String(document.documentElement.getAttribute('data-theme') === 'dark'));
+        }
+        themeToggle.addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('venky-theme', next); } catch (e) { /* ignore */ }
+            syncThemeSwitch();
+        });
+
+        syncThemeSwitch();
+        updatePinCounter();
+        goToCourses();
+    </script>
+</body>
+</html>
