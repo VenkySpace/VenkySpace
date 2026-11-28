@@ -2602,7 +2602,19 @@ function renderSemesters() {
             renderDatesheet();
         }
 
+        function preloadPngFonts() {
+            try {
+                if (document.fonts && document.fonts.load) {
+                    document.fonts.load('800 40px Inter');
+                    document.fonts.load('700 20px Inter');
+                    document.fonts.load('500 20px Inter');
+                    document.fonts.load('700 20px "Noto Sans Devanagari"', 'अ');
+                }
+            } catch (e) {}
+        }
+
         function openPinnedView() {
+            preloadPngFonts();
             state.search = '';
             searchInput.value = '';
             viewTitle.textContent = 'My Personal Datesheet (Dec 2026 – Jan 2027)';
@@ -2610,7 +2622,6 @@ function renderSemesters() {
             showScreen('pinned');
             renderDatesheet();
         }
-
         navBackBtn.addEventListener('click', () => {
             if (currentStep === 'datesheet') selectSemester(state.semester);
             else if (currentStep === 'categories') selectCourse(state.course);
@@ -2668,7 +2679,7 @@ function renderSemesters() {
         const pf = (w, s) => `${w} ${s}px ${PNG_FONT}`;
         const PNG_CAT = { DSC: '#2563EB', DSE: '#2563EB', GE: '#0F9488', SEC: '#7C3AED', VAC: '#DB2777', AEC: '#EA580C' };
 
-        async function renderDatesheetPNG(exams) {
+        function renderDatesheetPNG(exams) {
             const W = 1080, padX = 56, railX = 206, cardX = 236, cardW = W - padX - cardX;
             const HDR = 340, FTR = 240, GAP = 12, GROUP_GAP = 30;
 
@@ -2688,7 +2699,7 @@ function renderSemesters() {
             const groupH = g => g.rows.reduce((s, r) => s + r.h, 0) + GAP * (g.rows.length - 1);
             const bodyH = 44 + groups.reduce((s, g) => s + groupH(g), 0) + GROUP_GAP * (groups.length - 1) + 48;
             const H = HDR + bodyH + FTR;
-            const S = Math.min(2, 15000 / H);
+            const S = Math.min(2, 15000 / H, Math.sqrt(16000000 / (W * H)));
 
             const cv = document.createElement('canvas');
             cv.width = Math.round(W * S); cv.height = Math.round(H * S);
@@ -2868,18 +2879,14 @@ function renderSemesters() {
             text('Cross-verify timings with your official DU Admit Card', padX, fy + 218, pf(500, 15), '#94A3B8');
             text(`Generated on VenkySpace, ${today}`, W - padX, fy + 218, pf(500, 15), '#94A3B8', 'right');
 
-            const dataUrl = cv.toDataURL('image/png');
-            let blob = await new Promise(res => cv.toBlob(res, 'image/png'));
-            if (!blob) {
-                const bin = atob(dataUrl.split(',')[1]);
-                const arr = new Uint8Array(bin.length);
-                for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
-                blob = new Blob([arr], { type: 'image/png' });
-            }
-            return { blob, dataUrl };
-        }
-
-        function triggerDirectDownload(blob, dataUrl) {
+         const dataUrl = cv.toDataURL('image/png');
+         const bin = atob(dataUrl.split(',')[1]);
+         const arr = new Uint8Array(bin.length);
+         for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+         const blob = new Blob([arr], { type: 'image/png' });
+         return { blob, dataUrl };
+     }
+       function triggerDirectDownload(blob, dataUrl) {
             const link = document.createElement('a');
             link.download = 'venkyspace-personal-datesheet.png';
             let objectUrl = null;
@@ -2897,30 +2904,27 @@ function renderSemesters() {
             link.click();
             link.remove();
             if (objectUrl) {
-                setTimeout(() => URL.revokeObjectURL(objectUrl), 15000);
+                setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
             }
         }
 
-        $('download-png-btn').addEventListener('click', async (ev) => {
+        $('download-png-btn').addEventListener('click', (ev) => {
             const btn = ev.currentTarget;
             const exams = getFilteredExams();
             if (!exams.length || btn.disabled) return;
             const label = btn.innerHTML;
-            btn.disabled = true; btn.textContent = 'Downloading…';
-            try {
-                await Promise.race([
-                    Promise.all([
-                        document.fonts.load('800 40px Inter'), document.fonts.load('700 20px Inter'),
-                        document.fonts.load('500 20px Inter'), document.fonts.load('700 20px "Noto Sans Devanagari"', 'अ')
-                    ]),
-                    new Promise(r => setTimeout(r, 400))
-                ]);
-            } catch (e) { /* draw with fallback fonts */ }
+            btn.disabled = true;
+            btn.textContent = 'Downloading…';
 
             try {
-                const { blob, dataUrl } = await renderDatesheetPNG(exams);
+                const { blob, dataUrl } = renderDatesheetPNG(exams);
                 triggerDirectDownload(blob, dataUrl);
-                showToast('Datesheet PNG downloaded!');
+                const inApp = /WhatsApp|Instagram|FBAN|FBAV/i.test(navigator.userAgent);
+                showToast(inApp
+                    ? 'Open in Chrome/Safari (⋮) if download is blocked'
+                    : 'Datesheet PNG saved to Downloads!');
+            } catch (err) {
+                showToast('Could not generate image. Try Chrome or Safari.');
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = label;
