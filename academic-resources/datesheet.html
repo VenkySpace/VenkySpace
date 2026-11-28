@@ -454,6 +454,7 @@
             font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em;
         }
         .cat-DSC { background: var(--dsc-bg); color: var(--dsc-fg); }
+        .cat-DSE { background: var(--dsc-bg); color: var(--dsc-fg); }
         .cat-GE  { background: var(--ge-bg);  color: var(--ge-fg); }
         .cat-SEC { background: var(--sec-bg); color: var(--sec-fg); }
         .cat-VAC { background: var(--vac-bg); color: var(--vac-fg); }
@@ -503,32 +504,6 @@
             transition: opacity 0.2s ease, transform 0.2s ease;
         }
         .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
-
-        /* =====================================================================
-           RESPONSIVE
-           ===================================================================== */
-        @media (max-width: 760px) {
-            :root { --topbar-h: 58px; }
-            .brand-sub, .version-pill { display: none; }
-            .grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-            .segmented { width: 100%; overflow-x: auto; }
-            .segmented button { flex: 1; padding: 0 12px; }
-            .combo-select-wrap { flex: 1 1 100%; }
-            .exam-card { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
-            .date-box { flex-direction: row; justify-content: space-between; padding: 8px 14px; }
-            .date-weekday { margin-top: 0; }
-            .exam-right {
-                flex-direction: row; align-items: center; justify-content: space-between;
-                padding-top: 12px; border-top: 1px solid var(--line); width: 100%;
-            }
-            .exam-pills { justify-content: flex-start; }
-        }
-
-        @media print {
-            body { background: #FFFFFF !important; color: #0F172A !important; }
-            .topbar, .nav-row, .toolbar, .pin-btn, .pinned-actions-row, .toast { display: none !important; }
-            .exam-card { box-shadow: none !important; break-inside: avoid; border: 1px solid #CBD5E1 !important; }
-        }
 
         /* =====================================================================
            PREMIUM THEME LAYER — refinements on top of the base tokens above
@@ -621,73 +596,179 @@
         .upc-badge { font-size: 0.72rem; letter-spacing: 0; }
         .soon-panel { border-radius: 22px; }
 
+        /* =====================================================================
+           MOBILE RESPONSIVE — MEESHO / REDNOTE 2x2 COMPACT GRID (4 CARDS AT ONCE)
+           ===================================================================== */
         @media (max-width: 760px) {
-            .exam-card { grid-template-columns: 1fr; padding: 16px 16px 16px 20px; }
+            :root { --topbar-h: 54px; }
+            .brand-sub, .version-pill { display: none; }
+            .page { padding: 14px 12px 56px; }
+            .nav-row { margin-bottom: 12px; gap: 8px; }
+            .back-btn { height: 34px; padding: 0 12px; font-size: 0.8rem; }
+            .crumbs { font-size: 0.75rem; }
+            .crumbs li + li::before { margin: 0 7px; width: 5px; height: 5px; }
+
+            .page-head { margin-bottom: 14px; }
+            .head-badges { gap: 6px; margin-bottom: 8px; }
+            .eyebrow { font-size: 0.68rem; }
+            .sync-pill { font-size: 0.68rem; padding: 3px 9px; }
+            .page-head h1 { font-size: 1.32rem; line-height: 1.15; }
+            .lede { margin-top: 5px; font-size: 0.82rem; line-height: 1.4; }
+            .disclaimer { margin-top: 9px; padding: 7px 11px; font-size: 0.74rem; gap: 7px; border-radius: 10px; }
+
+            .toolbar { gap: 10px; margin-bottom: 14px; }
+            .toolbar-panel { padding: 10px; border-radius: 14px; }
+            .search { flex: 1 1 100%; max-width: none; }
+            .search input { height: 38px; padding: 0 12px 0 36px; font-size: 0.82rem; border-radius: 10px; }
+            .search .ic { left: 11px; font-size: 0.95rem; }
+            .combo-select-wrap { flex: 1 1 100%; }
+            .combo-select-wrap select { height: 38px; font-size: 0.8rem; }
+
+            .segmented { width: 100%; overflow-x: auto; padding: 3px; border-radius: 10px; }
+            .segmented button { flex: 1; height: 30px; padding: 0 8px; font-size: 0.72rem; }
+            .quick-pills { gap: 5px; }
+            .quick-pill { height: 28px; padding: 0 11px; font-size: 0.74rem; }
+
+            /* 2-column Meesho / Rednote style grid for Courses, Semesters & Categories (4 cards at a time) */
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+            .card {
+                padding: 12px 11px 0;
+                border-radius: 14px;
+                min-width: 0;
+            }
+            .card:hover { transform: none; }
+            .card-top { gap: 6px; align-items: center; }
+            .card-badges { gap: 4px; }
+            .tile {
+                width: 34px; height: 34px;
+                border-radius: 10px; font-size: 0.95rem;
+            }
+            .tile.numeral { font-size: 0.82rem; }
+            .pill {
+                height: 20px; padding: 0 7px;
+                font-size: 0.62rem; border-radius: 6px;
+            }
+            .card-body { margin-top: 10px; padding-bottom: 10px; }
+            .card .card-title {
+                font-size: 0.86rem; line-height: 1.24; letter-spacing: -0.02em;
+                display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+            }
+            .card .card-sub {
+                margin-top: 3px; font-size: 0.69rem; line-height: 1.28;
+                display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+            }
+            .card-foot { padding: 7px 0 9px; }
+            .card-foot-label { font-size: 0.7rem; }
+            .card-foot .ic { font-size: 0.85rem; }
+
+            /* 2-column Meesho / Rednote style grid for Subject Exam Cards (4 cards at a time) */
+            .timeline {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+            .exam-card {
+                display: flex; flex-direction: column; align-items: stretch; justify-content: space-between;
+                gap: 8px;
+                padding: 11px 10px 10px 13px;
+                border-radius: 14px;
+                min-width: 0;
+            }
+            .exam-card:hover { transform: none; }
+            .exam-card::before { width: 4px; }
+            .date-box {
+                flex-direction: row; justify-content: space-between; align-items: center;
+                padding: 5px 8px; border-radius: 8px;
+            }
+            .date-day-month { font-size: 0.8rem; }
+            .date-box.is-tba .date-day-month { font-size: 0.74rem; }
+            .date-weekday { margin-top: 0; font-size: 0.56rem; letter-spacing: 0.04em; }
+
+            .exam-title {
+                font-size: 0.82rem; line-height: 1.24;
+                display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+            }
+            .exam-sub-row { margin-top: 5px; gap: 4px 5px; }
+            .upc-badge {
+                font-size: 0.61rem; padding: 1px 5px;
+                max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+            }
+            .shift-chip { height: 20px; padding: 0 7px 0 5px; font-size: 0.62rem; gap: 4px; max-width: 100%; }
+            .shift-chip .ic { font-size: 11px; }
+            .shift-chip i { padding-left: 4px; }
+            .exam-course-note {
+                margin-top: 4px; font-size: 0.64rem;
+                white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            }
+
+            .exam-right {
+                flex-direction: column; align-items: stretch; gap: 6px;
+                padding-top: 8px; border-top: 1px solid var(--line); width: 100%;
+            }
+            .exam-pills { justify-content: space-between; gap: 4px; }
+            .cat-badge, .countdown-pill { height: 19px; padding: 0 6px; font-size: 0.6rem; border-radius: 5px; }
+            .pin-btn { height: 28px; width: 100%; justify-content: center; font-size: 0.72rem; border-radius: 8px; }
+
+            .pinned-actions-row { width: 100%; }
+            .pinned-actions-row .btn { flex: 1 1 auto; height: 36px; padding: 0 10px; font-size: 0.76rem; }
+            #download-png-btn { height: 38px; padding: 0 12px; width: 100%; }
         }
+
         @media (prefers-reduced-motion: no-preference) {
             @keyframes vs-rise { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
             #timeline > .exam-card { animation: vs-rise .4s cubic-bezier(.2,.7,.2,1) both; }
             #timeline > .exam-card:nth-child(2) { animation-delay: .04s; } #timeline > .exam-card:nth-child(3) { animation-delay: .08s; }
             #timeline > .exam-card:nth-child(4) { animation-delay: .12s; } #timeline > .exam-card:nth-child(n+5) { animation-delay: .16s; }
         }
-       @media print {
-            .exam-card { transform: none !important; animation: none !important; }
-            .png-modal { display: none !important; }
+        @media print {
+            body { background: #FFFFFF !important; color: #0F172A !important; }
+            .topbar, .nav-row, .toolbar, .pin-btn, .pinned-actions-row, .toast { display: none !important; }
+            .timeline { display: flex !important; flex-direction: column !important; }
+            .exam-card { box-shadow: none !important; break-inside: avoid; border: 1px solid #CBD5E1 !important; transform: none !important; animation: none !important; }
         }
-
-        /* =====================================================================
-           FULLSCREEN PNG PREVIEW MODAL (Mobile / WhatsApp Fallback)
-           ===================================================================== */
-        .png-modal {
+        /* Request Missing Subject Modal */
+        .req-modal {
             position: fixed; inset: 0; z-index: 300;
-            display: flex; flex-direction: column;
-            background: rgba(8, 13, 26, 0.92);
+            display: grid; place-items: center; padding: 16px;
+            background: rgba(8, 13, 26, 0.72);
             -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-            padding: env(safe-area-inset-top, 12px) 14px env(safe-area-inset-bottom, 14px);
         }
-        .png-modal-bar {
-            display: flex; align-items: center; justify-content: space-between; gap: 12px;
-            max-width: 720px; width: 100%; margin: 6px auto 10px;
+        .req-box {
+            width: 100%; max-width: 440px;
+            background: var(--surface); border: 1px solid var(--line);
+            border-radius: 20px; padding: 22px;
+            box-shadow: 0 24px 54px -12px rgba(15, 23, 42, 0.45);
         }
-        .png-modal-title { font-size: 0.95rem; font-weight: 700; color: #FFFFFF; }
-        .png-modal-close {
-            width: 38px; height: 38px; border-radius: 10px;
-            display: grid; place-items: center;
-            background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #FFFFFF; font-size: 1.2rem;
+        .req-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+        .req-head h2 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.025em; color: var(--ink); }
+        .req-context {
+            display: inline-block; margin-top: 4px; padding: 2px 9px; border-radius: 999px;
+            background: var(--accent-soft); color: var(--accent-ink);
+            font-size: 0.74rem; font-weight: 700;
         }
-        .png-modal-close:hover { background: rgba(255, 255, 255, 0.22); }
-
-        .png-modal-tip {
-            max-width: 720px; width: 100%; margin: 0 auto 12px;
-            padding: 11px 14px; border-radius: 12px;
-            background: #FFFBEB; border: 1px solid #FDE68A; color: #92400E;
-            font-size: 0.84rem; font-weight: 700; line-height: 1.4; text-align: center;
+        .req-close {
+            width: 34px; height: 34px; border-radius: 9px; flex: none;
+            display: grid; place-items: center; font-size: 1.25rem; color: var(--muted);
+            background: var(--surface-2); border: 1px solid var(--line);
         }
-
-        .png-modal-scroll {
-            flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;
-            max-width: 720px; width: 100%; margin: 0 auto;
-            border-radius: 14px;
+        .req-close:hover { color: var(--ink); border-color: var(--line-strong); }
+        .req-field { margin-bottom: 14px; }
+        .req-field label { display: block; margin-bottom: 6px; font-size: 0.8rem; font-weight: 700; color: var(--ink); }
+        .req-field input, .req-field select {
+            width: 100%; height: 42px; padding: 0 13px;
+            background: var(--bg); border: 1px solid var(--line-strong); border-radius: 10px;
+            font-size: 0.88rem; color: var(--ink);
+            transition: border-color 0.15s, box-shadow 0.15s;
         }
-        .png-modal-scroll img {
-            display: block; width: 100%; height: auto; border-radius: 14px;
-            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5);
-            -webkit-touch-callout: default !important;
-            pointer-events: auto;
+        .req-field input:focus, .req-field select:focus {
+            outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft);
         }
-
-        .png-modal-actions {
-            display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px;
-            max-width: 720px; width: 100%; margin: 12px auto 4px;
-        }
-        .png-modal-actions .btn { height: 42px; padding: 0 18px; }
-        .png-modal-actions .btn-ghost-dark {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.24);
-            color: #FFFFFF;
-        }
-        .png-modal-actions .btn-ghost-dark:hover { background: rgba(255, 255, 255, 0.2); color: #FFFFFF; }
+        .req-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+        .req-actions .btn { height: 40px; padding: 0 18px; }
+        .req-actions .btn.primary:disabled { opacity: 0.45; cursor: not-allowed; filter: none; transform: none; }
     </style>
 
     <script type="text/javascript">
@@ -803,9 +884,9 @@
                     <svg class="ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
                 </div>
 
-                <div class="quick-pills" id="quick-category-pills" role="group" aria-label="Quick category filter">
-                    <button type="button" class="quick-pill" data-cat="All" aria-pressed="true">All</button>
-                    <button type="button" class="quick-pill" data-cat="DSC" aria-pressed="false">DSC</button>
+                <div class="quick-pills" id="quick-category-pills" role="group" aria-label="Category filter">
+                    <button type="button" class="quick-pill" data-cat="DSC" aria-pressed="true">DSC</button>
+                    <button type="button" class="quick-pill" data-cat="DSE" aria-pressed="false">DSE</button>
                     <button type="button" class="quick-pill" data-cat="GE" aria-pressed="false">GE</button>
                     <button type="button" class="quick-pill" data-cat="SEC" aria-pressed="false">SEC</button>
                     <button type="button" class="quick-pill" data-cat="VAC" aria-pressed="false">VAC</button>
@@ -815,6 +896,8 @@
 
             <div class="results-meta">
                 <span id="results-count">Showing <strong>0</strong> exams</span>
+                <span id="results-count">Showing <strong>0</strong> exams</span>
+                <button type="button" class="btn" id="request-subject-btn" hidden>+ Request Missing Subject</button>
                 <div class="pinned-actions-row" id="pinned-actions-row" hidden>
                     <button type="button" class="btn primary" id="download-png-btn">
                         <svg class="ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -841,31 +924,38 @@
         </section>
 
     </main>
-    <!-- Fullscreen PNG Preview Modal (iOS Safari / WhatsApp In-App Browser Fallback) -->
-    <div class="png-modal" id="png-modal" role="dialog" aria-modal="true" aria-labelledby="png-modal-title" hidden>
-        <div class="png-modal-bar">
-            <span class="png-modal-title" id="png-modal-title">Your Personal Datesheet</span>
-            <button type="button" class="png-modal-close" id="png-modal-close" aria-label="Close preview">&times;</button>
-        </div>
+    <!-- Request Missing Subject Modal -->
+    <div class="req-modal" id="req-modal" role="dialog" aria-modal="true" aria-labelledby="req-modal-title" hidden>
+        <div class="req-box">
+            <div class="req-head">
+                <div>
+                    <h2 id="req-modal-title">Request Missing Subject</h2>
+                    <span class="req-context" id="req-context-badge"></span>
+                </div>
+                <button type="button" class="req-close" id="req-close-btn" aria-label="Close">&times;</button>
+            </div>
 
-        <div class="png-modal-tip">
-            📲 Using WhatsApp/iPhone? Long-press the image below and tap 'Save to Photos / Download Image'!
-        </div>
+            <form id="req-form" novalidate>
+                <div class="req-field">
+                    <label for="req-subject-input">Subject Name *</label>
+                    <input type="text" id="req-subject-input" placeholder="e.g. Money and Banking" required autocomplete="off">
+                </div>
 
-        <div class="png-modal-scroll">
-            <img id="png-preview-img" src="" alt="Generated VenkySpace Datesheet">
-        </div>
+                <div class="req-field">
+                    <label for="req-semester-select">Semester *</label>
+                    <select id="req-semester-select" required>
+                        <option value="" disabled selected>Select Semester...</option>
+                        <option value="Semester I">Semester I</option>
+                        <option value="Semester III">Semester III</option>
+                        <option value="Semester V">Semester V</option>
+                    </select>
+                </div>
 
-        <div class="png-modal-actions">
-            <button type="button" class="btn primary" id="png-native-share-btn" hidden>
-                Share / Save to Photos
-            </button>
-            <button type="button" class="btn btn-ghost-dark" id="png-direct-download-btn">
-                Try Direct Download
-            </button>
-            <button type="button" class="btn btn-ghost-dark" id="png-modal-done-btn">
-                Close
-            </button>
+                <div class="req-actions">
+                    <button type="button" class="btn" id="req-cancel-btn">Cancel</button>
+                    <button type="submit" class="btn primary" id="req-submit-btn" disabled>Submit Request</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -884,6 +974,7 @@
                             or "E" for Evening  (starts 2:30 PM)
                             (upper or lower case both work: m / M / e / E)
        5. Change code:    type 10-digit UPC inside upc: ""
+       6. For DSE papers in COURSE_SUBJECTS, add cat: "DSE"
        ######################################################################### */
 
         /* Only the START time is shown (SEC / VAC papers can be 1 or 2 hours long). Edit times here. */
@@ -947,15 +1038,15 @@
 
         const CATEGORIES_LIST = [
             { id: "DSC", num: "01", badge: "Core",       badgeClass: "num", title: "DSC (Core)",                sub: "Department Core Papers",                foot: "View Core Exams",     icon: "layers" },
-            { id: "GE",  num: "02", badge: "Minor",      badgeClass: "num", title: "GE (Generic Elective)",     sub: "Common College-Wide Generic Electives", foot: "View GE Exams",       icon: "globe" },
-            { id: "SEC", num: "03", badge: "Skill",      badgeClass: "num", title: "SEC (Skill Enhancement)",   sub: "Applied Practical & Skill Papers",      foot: "View SEC Exams",      icon: "star" },
-            { id: "VAC", num: "04", badge: "Value",      badgeClass: "num", title: "VAC (Value Addition)",      sub: "Ethics, Culture & Wellness Papers",     foot: "View VAC Exams",      icon: "heart" },
-            { id: "AEC", num: "05", badge: "EVS / Lang", badgeClass: "num", title: "AEC (Ability Enhancement)", sub: "EVS & Indian Language Papers",          foot: "View AEC Exams",      icon: "shield" },
-            { id: "All", num: "06", badge: "Complete",   badgeClass: "num", title: "All Papers",                sub: "Complete Semester Exam Schedule",       foot: "View Full Datesheet", icon: "grid" }
+            { id: "DSE", num: "02", badge: "Elective",   badgeClass: "num", title: "DSE (Elective)",            sub: "Department Elective Papers",            foot: "View Elective Exams", icon: "layers" },
+            { id: "GE",  num: "03", badge: "Minor",      badgeClass: "num", title: "GE (Generic Elective)",     sub: "Common College-Wide Generic Electives", foot: "View GE Exams",       icon: "globe" },
+            { id: "SEC", num: "04", badge: "Skill",      badgeClass: "num", title: "SEC (Skill Enhancement)",   sub: "Applied Practical & Skill Papers",      foot: "View SEC Exams",      icon: "star" },
+            { id: "VAC", num: "05", badge: "Value",      badgeClass: "num", title: "VAC (Value Addition)",      sub: "Ethics, Culture & Wellness Papers",     foot: "View VAC Exams",      icon: "heart" },
+            { id: "AEC", num: "06", badge: "EVS / Lang", badgeClass: "num", title: "AEC (Ability Enhancement)", sub: "EVS & Indian Language Papers",          foot: "View AEC Exams",      icon: "shield" }
         ];
 
         /* =====================================================================
-           SECTION A: HONOURS & PROGRAMME CORE PAPERS (COURSES 1–19)
+           SECTION A: HONOURS & PROGRAMME CORE + ELECTIVE PAPERS (DSC & DSE)
            ===================================================================== */
         const COURSE_SUBJECTS = {
 
@@ -974,7 +1065,8 @@
                 "Semester V": [
                     { subject: "Sociological Thinkers -II",        date: "2026-12-04", shift: "M", upc: "2302103501", revised: false },
                     { subject: "Sociological Research Methods",    date: "2026-12-09", shift: "M", upc: "2302103502", revised: false },
-                    { subject: "Understanding Ethnographies",      date: "2026-12-12", shift: "M", upc: "2302103503", revised: false }
+                    { subject: "Understanding Ethnographies",      date: "2026-12-12", shift: "M", upc: "2302103503", revised: false },
+                    { subject: "Sociology and Social Policy",      date: "2026-12-16", shift: "M", upc: "2303100009", revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -988,13 +1080,15 @@
                 ],
                 "Semester III": [
                     { subject: "Intermediate Microeconomics I : Behavioral Foundations of Market Interactions",   date: "2026-12-08", shift: "M", upc: "2272102301", revised: false },
-                    { subject: "Intermediate Macroeconomics I : Foundations of Aggregate Income Determination", date: "2026-12-10", shift: "M", upc: "2272102302", revised: false },
-                    { subject: "Advanced Mathematical Methods for Economics",                                    date: "2026-12-15", shift: "M", upc: "2272102303", revised: false }
+                    { subject: "Intermediate Macroeconomics I : Foundations of Aggregate Income Determination",   date: "2026-12-10", shift: "M", upc: "2272102302", revised: false },
+                    { subject: "Advanced Mathematical Methods for Economics",                                     date: "2026-12-15", shift: "M", upc: "2272102303", revised: false }
                 ],
                 "Semester V": [
                     { subject: "Game Theory and Strategic Interactions", date: "2026-12-04", shift: "M", upc: "2272103501", revised: false },
                     { subject: "Economic Growth and Business Cycles",    date: "2026-12-09", shift: "M", upc: "2272103502", revised: false },
-                    { subject: "Introductory Development Economics",     date: "2026-12-12", shift: "M", upc: "2272103503", revised: false }
+                    { subject: "Introductory Development Economics",     date: "2026-12-12", shift: "M", upc: "2272103503", revised: false },
+                    { subject: "Open Economy Macroeconomics",            date: "2026-12-16", shift: "M", upc: "2273100013", revised: false, cat: "DSE" },
+                    { subject: "Research Methodology",                   date: "2026-12-16", shift: "M", upc: "2273100019", revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1012,9 +1106,11 @@
                     { subject: "Constitutional Government and Democracy in India", date: "2026-12-15", shift: "M", upc: "2322102303", revised: false }
                 ],
                 "Semester V": [
-                    { subject: "Western Political Philosophy- I", date: "2026-12-04", shift: "M", upc: "2322103501", revised: false },
-                    { subject: "Modern Indian Political Thought", date: "2026-12-09", shift: "M", upc: "2322103502", revised: false },
-                    { subject: "Political Process in India",      date: "2026-12-12", shift: "M", upc: "2322103503", revised: false }
+                    { subject: "Western Political Philosophy- I",  date: "2026-12-04", shift: "M", upc: "2322103501", revised: false },
+                    { subject: "Modern Indian Political Thought",  date: "2026-12-09", shift: "M", upc: "2322103502", revised: false },
+                    { subject: "Political Process in India",       date: "2026-12-12", shift: "M", upc: "2322103503", revised: false },
+                    { subject: "Understanding Ambedkar",           date: "2026-12-16", shift: "M", upc: " 2323100007",revised: false, cat: "DSE" },
+                    { subject: "Research Methods in Politics",     date: "2026-12-16", shift: "M", upc: " 2323100010",revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1032,9 +1128,11 @@
                     { subject: "History of Modern China (1840-1950s)",     date: "2026-12-15", shift: "M", upc: "2312102303", revised: false }
                 ],
                 "Semester V": [
-                    { subject: "History of India – V: c. 1500 – 1600",  date: "2026-12-04", shift: "M", upc: "2312103501", revised: false },
-                    { subject: "History of India – VI: c. 1750 - 1857", date: "2026-12-09", shift: "M", upc: "2312103502", revised: false },
-                    { subject: "History Of Modern Europe -I",           date: "2026-12-12", shift: "M", upc: "2312103503", revised: false }
+                    { subject: "History of India – V: c. 1500 – 1600",              date: "2026-12-04", shift: "M", upc: "2312103501", revised: false },
+                    { subject: "History of India – VI: c. 1750 - 1857",             date: "2026-12-09", shift: "M", upc: "2312103502", revised: false },
+                    { subject: "History Of Modern Europe -I",                       date: "2026-12-12", shift: "M", upc: "2312103503", revised: false },
+                    { subject: "Fundamentals of Historical Research Methodology",   date: "2026-12-16", shift: "M", upc: " 2313100014",revised: false, cat: "DSE" },
+                    { subject: "History of Africa: c. 1500-1960s",                  date: "2026-12-16", shift: "M", upc: " 2313100011",revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1047,14 +1145,17 @@
                     { subject: "Indian Classical Literature",      date: "2026-12-14", shift: "M", upc: "2032101103", revised: false }
                 ],
                 "Semester III": [
-                    { subject: "Romantic Literature",  date: "2026-12-08", shift: "M", upc: "2032102301", revised: false },
-                    { subject: "Victorian Literature", date: "2026-12-10", shift: "M", upc: "2032102302", revised: false },
-                    { subject: "Literary Criticism",   date: "2026-12-15", shift: "M", upc: "2032102303", revised: false }
+                    { subject: "Romantic Literature",    date: "2026-12-08", shift: "M", upc: "2032102301", revised: false },
+                    { subject: "Victorian Literature",   date: "2026-12-10", shift: "M", upc: "2032102302", revised: false },
+                    { subject: "Literary Criticism",     date: "2026-12-15", shift: "M", upc: "2032102303", revised: false },
+                    { subject: "Literature and Cinema",  date: "2026-12-18", shift: "M", upc: "2033102001", revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
                     { subject: "Twentieth Century Poetry & Drama", date: "2026-12-04", shift: "M", upc: "2032103501", revised: false },
                     { subject: "Twentieth Century Novel",          date: "2026-12-09", shift: "M", upc: "2032103502", revised: false },
-                    { subject: "Dalit Writings",                   date: "2026-12-12", shift: "M", upc: "2032103503", revised: false }
+                    { subject: "Dalit Writings",                   date: "2026-12-12", shift: "M", upc: "2032103503", revised: false },
+                    { subject: "Research Methodology",             date: "2026-12-16", shift: "M", upc: "2033100019", revised: false, cat: "DSE" },
+                    { subject: "Literature and Human Rights",      date: "2026-12-16", shift: "M", upc: " 2033100016",revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1063,18 +1164,21 @@
             "Hindi": {
                 "Semester I": [
                     { subject: "हिंदी कविता : आदिकाल एवं निर्गुण भक्तिकाव्य",    date: "2026-12-07", shift: "M", upc: "2052101101", revised: false },
-                    { subject: "हिंदी साहित्य का इतिहास (आदिकाल एवं मध्यकाल)", date: "",           shift: "M", upc: "",           revised: false },
+                    { subject: "हिंदी साहित्य का इतिहास (आदिकाल एवं मध्यकाल)", date: "2026-12-11", shift: "M", upc: "2052101102", revised: false },
                     { subject: "हिंदी कहानी",                               date: "2026-12-14", shift: "M", upc: "2052101103", revised: false }
                 ],
                 "Semester III": [
-                    { subject: "भारतीय साहित्य",       date: "2026-12-08", shift: "M", upc: "2052102301", revised: false },
-                    { subject: "हिंदी नाटक एवं एकांकी", date: "2026-12-10", shift: "M", upc: "2052102302", revised: false },
-                    { subject: "सामान्य भाषा विज्ञान",    date: "2026-12-15", shift: "M", upc: "2052102303", revised: false }
+                    { subject: "भारतीय साहित्य",         date: "2026-12-08", shift: "M", upc: "2052102301", revised: false },
+                    { subject: "हिंदी नाटक एवं एकांकी",   date: "2026-12-10", shift: "M", upc: "2052102302", revised: false },
+                    { subject: "सामान्य भाषा विज्ञान",      date: "2026-12-15", shift: "M", upc: "2052102303", revised: false },
+                    { subject: "राष्ट्रीय सांस्कृतिक काव्य धारा", date: "2026-12-18",shift: "M", upc: "2053102002", revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
                     { subject: "पाश्चात्य काव्यशास्त्र",                date: "2026-12-04", shift: "M", upc: "2052103501", revised: false },
                     { subject: "आधुनिक हिंदी कविता (छायावादोत्तर)", date: "2026-12-09", shift: "M", upc: "2052103502", revised: false },
-                    { subject: "हिंदी आलोचना",                   date: "2026-12-12", shift: "M", upc: "2052103503", revised: false }
+                    { subject: "हिंदी आलोचना",                   date: "2026-12-12", shift: "M", upc: "2052103503", revised: false },
+                    { subject: "हिंदी यात्रा साहित्य",              date: "2026-12-16",   shift: "M", upc: " 2053100009", revised: false, cat: "DSE" },
+                    { subject: "शोध प्रविधि",                    date: "2026-12-16",  shift: "M", upc: "2053100014",  revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1094,7 +1198,9 @@
                 "Semester V": [
                     { subject: "Veda and Upanishad",                            date: "2026-12-04", shift: "M", upc: "2132103501", revised: false },
                     { subject: "Sanskrit Grammar: Laghusiddhāntkaumudī",        date: "2026-12-09", shift: "M", upc: "2132103502", revised: false },
-                    { subject: "Introduction to Nyaya- Vaisheshika Philosophy", date: "2026-12-12", shift: "M", upc: "2132103503", revised: false }
+                    { subject: "Introduction to Nyaya- Vaisheshika Philosophy", date: "2026-12-12", shift: "M", upc: "2132103503", revised: false },
+                    { subject: "Introduction to Sanskrit Poetics",              date: "2026-12-16",           shift: "M", upc: " 2133100010",           revised: false, cat: "DSE" },
+                    { subject: "Sanskrit Phonetics in Sanskrit Tradition",           date: "2026-12-16",      shift: "M", upc: "2133100011",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1109,32 +1215,43 @@
                 "Semester III": [
                     { subject: "Business Mathematics",    date: "2026-12-08", shift: "M", upc: "2412082301", revised: false },
                     { subject: "Financial Management",    date: "2026-12-10", shift: "M", upc: "2412082302", revised: false },
-                    { subject: "Principles of Marketing", date: "2026-12-15", shift: "M", upc: "2412082303", revised: false }
+                    { subject: "Principles of Marketing", date: "2026-12-15", shift: "M", upc: "2412082303", revised: false },
+                    { subject: "Organizational Behavior", date: "2026-12-18",           shift: "M", upc: "2413082001",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
-                    { subject: "Income Tax Law and Practice", date: "2026-12-04", shift: "M", upc: "2412083501", revised: false },
-                    { subject: "Business Economics",          date: "2026-12-09", shift: "M", upc: "2412083502", revised: false },
-                    { subject: "Management Accounting",       date: "2026-12-12", shift: "M", upc: "2412083503", revised: false }
+                    { subject: "Income Tax Law and Practice",         date: "2026-12-04", shift: "M", upc: "2412083501", revised: false },
+                    { subject: "Business Economics",                  date: "2026-12-09", shift: "M", upc: "2412083502", revised: false },
+                    { subject: "Management Accounting",               date: "2026-12-12", shift: "M", upc: "2412083503", revised: false },
+                    { subject: "Business Research Methodology",       date: "2026-12-16",           shift: "M", upc: "2413080026",           revised: false, cat: "DSE" },
+                    { subject: "Consumer Affairs and Sovereignty",    date: "2026-12-16",           shift: "M", upc: " 2413080013",           revised: false, cat: "DSE" },
+                    { subject: "Export Import Management",            date: "2026-12-16",           shift: "M", upc: " 2413080016",           revised: false, cat: "DSE" }
                 ],
-                "Semester VII": []
+                // "Semester VII": [
+                //     { subject: "Modelling for Financial Decisions (SBC)", date: "2026-12-18", shift: "E", upc: "241167740002", revised: false },
+                //     { subject: "Integrated Marketing Communications",     date: "",           shift: "M", upc: "",             revised: false, cat: "DSE" },
+                //     { subject: "Marketing Research",                      date: "",           shift: "M", upc: "",             revised: false, cat: "DSE" }
+                // ]
             },
 
             // 9. COMMERCE (PROGRAMME)
             "Commerce (Programme)": {
                 "Semester I": [
-                    { subject: "Business Organization & Management", date: "2026-12-07", shift: "", upc: "2412091101", revised: false },
-                    { subject: "Business Law",                       date: "2026-12-11", shift: "", upc: "2412091102", revised: false },
-                    { subject: "Financial Accounting",               date: "2026-12-14", shift: "", upc: "2412091103", revised: false }
+                    { subject: "Business Organization & Management", date: "2026-12-07", shift: "E", upc: "2412091101", revised: false },
+                    { subject: "Business Law",                       date: "2026-12-11", shift: "E", upc: "2412091102", revised: false },
+                    { subject: "Financial Accounting",               date: "2026-12-14", shift: "E", upc: "2412091103", revised: false }
                 ],
                 "Semester III": [
-                    { subject: "Business Statistics",     date: "2026-12-08", shift: "", upc: "2412092301", revised: false },
-                    { subject: "Financial Management",    date: "2026-12-10", shift: "", upc: "2412092302", revised: false },
-                    { subject: "Principles of Marketing", date: "2026-12-15", shift: "", upc: "2412092303", revised: false }
+                    { subject: "Business Statistics",     date: "2026-12-08", shift: "E", upc: "2412092301", revised: false },
+                    { subject: "Financial Management",    date: "2026-12-10", shift: "E", upc: "2412092302", revised: false },
+                    { subject: "Principles of Marketing", date: "2026-12-15", shift: "E", upc: "2412092303", revised: false }
                 ],
                 "Semester V": [
-                    { subject: "Income Tax Law and Practice", date: "2026-12-04", shift: "", upc: "2412093501", revised: false },
-                    { subject: "Business Economics",          date: "2026-12-10", shift: "", upc: "2412093502", revised: false },
-                    { subject: "Management Accounting",       date: "2026-12-12", shift: "", upc: "2412093503", revised: false }
+                    { subject: "Income Tax Law and Practice",   date: "2026-12-04", shift: "E", upc: "2412093501", revised: false },
+                    { subject: "Business Economics",            date: "2026-12-09", shift: "E",upc: "2412093502", revised: false },
+                    { subject: "Management Accounting",         date: "2026-12-12", shift: "E", upc: "2412093503", revised: false },
+                    { subject: "Organisational Behaviour",      date: "2026-12-16",   shift: "E", upc: "2413090001",           revised: false, cat: "DSE" },
+                    { subject: "Auditing",                      date: "2026-12-16",   shift: "E", upc: " 2413090006",           revised: false, cat: "DSE" },
+                    { subject: "Business Research Methodology", date: "2026-12-16",   shift: "E", upc: " 2413080026",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1149,12 +1266,17 @@
                 "Semester III": [
                     { subject: "Group Theory",         date: "2026-12-08", shift: "M", upc: "2352012301", revised: false },
                     { subject: "Riemann Integration",  date: "2026-12-10", shift: "M", upc: "2352012302", revised: false },
-                    { subject: "Discrete Mathematics", date: "2026-12-15", shift: "M", upc: "2352012303", revised: false }
+                    { subject: "Discrete Mathematics", date: "2026-12-15", shift: "M", upc: "2352012303", revised: false },
+                    { subject: "Mathematical Python",  date: "2026-12-18",           shift: "M", upc: " 2353012002",           revised: false, cat: "DSE" },
+                    { subject: "Number Theory",        date: "2026-12-18",           shift: "M", upc: " 2353012003",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
-                    { subject: "Metric Spaces",                  date: "2026-12-04", shift: "M", upc: "2352013501", revised: false },
-                    { subject: "Ring Theory",                    date: "2026-12-09", shift: "M", upc: "2352013502", revised: false },
-                    { subject: "Partial Differential Equations", date: "2026-12-12", shift: "M", upc: "2352013503", revised: false }
+                    { subject: "Metric Spaces",                         date: "2026-12-04", shift: "M", upc: "2352013501", revised: false },
+                    { subject: "Ring Theory",                           date: "2026-12-09", shift: "M", upc: "2352013502", revised: false },
+                    { subject: "Partial Differential Equations",        date: "2026-12-12", shift: "M", upc: "2352013503", revised: false },
+                    { subject: "Linear Programming and Applications",   date: "2026-12-16",           shift: "M", upc: " 2353010008",           revised: false, cat: "DSE" },
+                    { subject: "Mathematical Statistics",               date: "2026-12-16",           shift: "M", upc: "2353010009",           revised: false, cat: "DSE" },
+                    { subject: "Research Methodology",                  date: "2026-12-16",           shift: "M", upc: "2353010015",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1169,14 +1291,19 @@
                 "Semester III": [
                     { subject: "Sample Surveys",                    date: "2026-12-08", shift: "M", upc: "2372012301", revised: false },
                     { subject: "Advanced Probability Distribution", date: "2026-12-10", shift: "M", upc: "2372012302", revised: false },
-                    { subject: "Mathematical Analysis",             date: "2026-12-15", shift: "M", upc: "2372012303", revised: false }
+                    { subject: "Mathematical Analysis",             date: "2026-12-15", shift: "M", upc: "2372012303", revised: false },
+                    { subject: "Optimization Techniques",           date: "2026-12-18",           shift: "M", upc: "2373012001",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
                     { subject: "Theory of Estimation", date: "2026-12-04", shift: "M", upc: "2372013501", revised: false },
                     { subject: "Linear Models",        date: "2026-12-09", shift: "M", upc: "2372013502", revised: false },
-                    { subject: "Stochastic Processes", date: "2026-12-12", shift: "M", upc: "2372013503", revised: false }
+                    { subject: "Stochastic Processes", date: "2026-12-12", shift: "M", upc: "2372013503", revised: false },
+                    { subject: "Research Methodology", date: "2026-12-16",           shift: "M", upc: " 2373010014",           revised: false, cat: "DSE" }
                 ],
-                "Semester VII": []
+                // "Semester VII": [
+                //     { subject: "Multivariate Analysis",              date: "", shift: "M", upc: "", revised: false, cat: "DSE" },
+                //     { subject: "Advanced Theory of Bio-Statistics",  date: "", shift: "M", upc: "", revised: false, cat: "DSE" }
+                // ]
             },
 
             // 12. PHYSICS (B.Sc. Honours)
@@ -1189,12 +1316,15 @@
                 "Semester III": [
                     { subject: "Mathematical Physics III", date: "2026-12-08", shift: "M", upc: "2222012301", revised: false },
                     { subject: "Digital Electronics",      date: "2026-12-10", shift: "M", upc: "2222012304", revised: false },
-                    { subject: "Light and Matter",         date: "2026-12-15", shift: "M", upc: "2222012303", revised: false }
+                    { subject: "Light and Matter",         date: "2026-12-15", shift: "M", upc: "2222012303", revised: false },
+                    { subject: "Numerical Analysis",       date: "2026-12-18",           shift: "M", upc: " 2223012001",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
-                    { subject: "Electromagnetic Theory", date: "2026-12-04", shift: "M", upc: "2222013501", revised: false },
-                    { subject: "Quantum Mechanics I",    date: "2026-12-09", shift: "M", upc: "2222013502", revised: false },
-                    { subject: "Digital Electronics",    date: "2026-12-12", shift: "M", upc: "2222013503", revised: false }
+                    { subject: "Electromagnetic Theory",   date: "2026-12-04", shift: "M", upc: "2222013501", revised: false },
+                    { subject: "Quantum Mechanics I",      date: "2026-12-09", shift: "M", upc: "2222013502", revised: false },
+                    { subject: "Digital Electronics",      date: "2026-12-12", shift: "M", upc: "2222013503", revised: false },
+                    { subject: "Astronomy & Astrophysics", date: "2026-12-16",           shift: "M", upc: "2223010013",           revised: false, cat: "DSE" },
+                    { subject: "Research Methodology",     date: "2026-12-16",           shift: "M", upc: "2223010023",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1209,12 +1339,14 @@
                 "Semester III": [
                     { subject: "Chemistry of d- and f- Elements & Quantitative Inorganic Analysis (Inorganic)", date: "2026-12-08", shift: "M", upc: "2172012301", revised: false },
                     { subject: "Nitro compounds, Nitriles, IsoNitriles and Diazonium salts (Organic)",          date: "2026-12-10", shift: "M", upc: "2172012302", revised: false },
-                    { subject: "Chemical equilibrium, ionic equilibrium, conductance and solid state",          date: "2026-12-15", shift: "M", upc: "2172012303", revised: false }
+                    { subject: "Chemical equilibrium, ionic equilibrium, conductance and solid state",          date: "2026-12-15", shift: "M", upc: "2172012303", revised: false },
+                    { subject: "Analytical Methods in Chemistry",                                               date: "2026-12-18",           shift: "M", upc: "2173010010",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
                     { subject: "Basics of Organometallic Chemistry (Inorganic Chemistry-V)",         date: "2026-12-04", shift: "M", upc: "2172013501", revised: false },
                     { subject: "Nucleic Acids,Amino Acids, Proteins and Enzymes (Organic Chemistry- V)", date: "2026-12-09", shift: "M", upc: "2172013502", revised: false },
-                    { subject: "Quantum Chemistry and Covalent bonding (Physical Chemistry V)",       date: "2026-12-12", shift: "M", upc: "2172013503", revised: false }
+                    { subject: "Quantum Chemistry and Covalent bonding (Physical Chemistry V)",       date: "2026-12-12", shift: "M", upc: "2172013503", revised: false },
+                    { subject: "Reactions, Reagents , and Chemical Process",                                              date: "2026-12-16",           shift: "M", upc: "2173010004",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1227,14 +1359,16 @@
                     { subject: "Semiconductor Devices",                 date: "2026-12-14", shift: "M", upc: "2512011103", revised: false }
                 ],
                 "Semester III": [
-                    { subject: "Engineering Mathematics", date: "2026-12-08", shift: "M", upc: "2512012301", revised: false },
-                    { subject: "Analog Electronics II",   date: "2026-12-10", shift: "M", upc: "2512012302", revised: false },
-                    { subject: "Signal and Systems",      date: "2026-12-18", shift: "M", upc: "2513042001", revised: false }
+                    { subject: "Engineering Mathematics",                    date: "2026-12-08", shift: "M", upc: "2512012301", revised: false },
+                    { subject: "Analog Electronics II",                      date: "2026-12-10", shift: "M", upc: "2512012302", revised: false },
+                    { subject: "Signal and Systems",                         date: "2026-12-18", shift: "M", upc: "2513042001", revised: false },
+                    { subject: "Artificial Intelligence and Machine Learning", date: "2026-12-18",         shift: "M", upc: " 2513012001",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
                     { subject: "Embedded System",   date: "2026-12-04", shift: "M", upc: "2512013501", revised: false },
                     { subject: "Electromagnetics",  date: "2026-12-09", shift: "M", upc: "2512013502", revised: false },
-                    { subject: "Basic VLSI Design", date: "2026-12-12", shift: "M", upc: "2512013503", revised: false }
+                    { subject: "Basic VLSI Design", date: "2026-12-12", shift: "M", upc: "2512013503", revised: false },
+                    { subject: "Computer Networks", date: "2026-12-16",           shift: "M", upc: " 2513010007",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1247,14 +1381,16 @@
                     { subject: "Biochemical Techniques", date: "2026-12-14", shift: "M", upc: "2492011103", revised: false }
                 ],
                 "Semester III": [
-                    { subject: "Metabolism of Lipids", date: "2026-12-08", shift: "M", upc: "2492012301", revised: false },
-                    { subject: "Bioenergetics",        date: "2026-12-10", shift: "M", upc: "2492012302", revised: false },
-                    { subject: "Membrane Biology",     date: "2026-12-15", shift: "M", upc: "2492012303", revised: false }
+                    { subject: "Metabolism of Lipids",                             date: "2026-12-08", shift: "M", upc: "2492012301", revised: false },
+                    { subject: "Bioenergetics",                                    date: "2026-12-10", shift: "M", upc: "2492012302", revised: false },
+                    { subject: "Membrane Biology",                                 date: "2026-12-15", shift: "M", upc: "2492012303", revised: false },
+                    { subject: "Biochemical Application In Forensic Sciences",     date: "2026-12-18",           shift: "M", upc: " 2493012002",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
-                    { subject: "Molecular Cell Biology",             date: "2026-12-04", shift: "M", upc: "2492013501", revised: false },
-                    { subject: "Concepts in Genetics and Evolution", date: "2026-12-09", shift: "M", upc: "2492013502", revised: false },
-                    { subject: "Gene Expression and Regulation",     date: "2026-12-12", shift: "M", upc: "2492013503", revised: false }
+                    { subject: "Molecular Cell Biology",                      date: "2026-12-04", shift: "M", upc: "2492013501", revised: false },
+                    { subject: "Concepts in Genetics and Evolution",          date: "2026-12-09", shift: "M", upc: "2492013502", revised: false },
+                    { subject: "Gene Expression and Regulation",              date: "2026-12-12", shift: "M", upc: "2492013503", revised: false },
+                    { subject: "In silico Tools in Proteomics and Genomics",  date: "2026-12-16", shift: "M", upc: "2493010008",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1267,14 +1403,17 @@
                     { subject: "Basic Laboratory and Field Skills in Plant Biology", date: "2026-12-14", shift: "M", upc: "2162011103", revised: false }
                 ],
                 "Semester III": [
-                    { subject: "Bryophytes, Pteridophytes and Gymnosperms", date: "2026-12-10", shift: "M", upc: "2162012302", revised: false },
-                    { subject: "Phycology - The world of algae",            date: "2026-12-08", shift: "M", upc: "2162012301", revised: false },
-                    { subject: "Genetics and Plant Breeding",               date: "2026-12-15", shift: "M", upc: "2162012303", revised: false }
+                    { subject: "Bryophytes, Pteridophytes and Gymnosperms",         date: "2026-12-10", shift: "M", upc: "2162012302", revised: false },
+                    { subject: "Phycology - The world of algae",                    date: "2026-12-08", shift: "M", upc: "2162012301", revised: false },
+                    { subject: "Genetics and Plant Breeding",                       date: "2026-12-15", shift: "M", upc: "2162012303", revised: false },
+                    { subject: "Biostatistics and Bioinformatics for Plant Sciences", date: "2026-12-18",         shift: "M", upc: "2163012002",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
                     { subject: "Molecular Biology of the Cell",       date: "2026-12-04", shift: "M", upc: "2162013501", revised: false },
                     { subject: "Reproductive Biology of Angiosperms", date: "2026-12-09", shift: "M", upc: "2162013502", revised: false },
-                    { subject: "Plant Physiology",                    date: "2026-12-12", shift: "M", upc: "2162013503", revised: false }
+                    { subject: "Plant Physiology",                    date: "2026-12-12", shift: "M", upc: "2162013503", revised: false },
+                    { subject: "Natural Resource Management",         date: "2026-12-16", shift: "M", upc: "2163013006", revised: false, cat: "DSE" },
+                    { subject: "Research Methodology",                date: "2026-12-16", shift: "M", upc: "2163010009", revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1289,12 +1428,15 @@
                 "Semester III": [
                     { subject: "Diversity of Chordata",                     date: "2026-12-08", shift: "M", upc: "2232012301", revised: false },
                     { subject: "Biochemistry : Metabolic Processes",        date: "2026-12-10", shift: "M", upc: "2232012302", revised: false },
-                    { subject: "Human Physiology: Life Sustaining Systems", date: "2026-12-15", shift: "M", upc: "2232012303", revised: false }
+                    { subject: "Human Physiology: Life Sustaining Systems", date: "2026-12-15", shift: "M", upc: "2232012303", revised: false },
+                    { subject: "Wildlife Conservation & Management",        date: "2026-12-18",           shift: "M", upc: "2233012004",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
-                    { subject: "Principles of Immunology",   date: "2026-12-04", shift: "M", upc: "2232013501", revised: false },
-                    { subject: "Cell and Molecular Biology", date: "2026-12-09", shift: "M", upc: "2232013502", revised: false },
-                    { subject: "Fundamentals of Genetics",   date: "2026-12-12", shift: "M", upc: "2232013503", revised: false }
+                    { subject: "Principles of Immunology",          date: "2026-12-04", shift: "M", upc: "2232013501", revised: false },
+                    { subject: "Cell and Molecular Biology",        date: "2026-12-09", shift: "M", upc: "2232013502", revised: false },
+                    { subject: "Fundamentals of Genetics",          date: "2026-12-12", shift: "M", upc: "2232013503", revised: false },
+                    { subject: "Reproductive Biology and (ART)",    date: "2026-12-16",           shift: "M", upc: " 2233010013",           revised: false, cat: "DSE" },
+                    { subject: "Research Methodology",              date: "2026-12-16",           shift: "M", upc: " 2233010017",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1304,17 +1446,20 @@
                 "Semester I": [
                     { subject: "Basic Concepts of Biomolecules", date: "2026-12-07", shift: "M", upc: "6792011101", revised: false },
                     { subject: "Photobiology",                   date: "2026-12-11", shift: "M", upc: "6792011102", revised: false },
-                    { subject: "Diversity of Life Forms I",      date: "2026-12-14",           shift: "M", upc: "6792011103",           revised: false }
+                    { subject: "Diversity of Life Forms I",      date: "2026-12-14", shift: "M", upc: "6792011103", revised: false }
                 ],
                 "Semester III": [
                     { subject: "Physics for Biologists",           date: "2026-12-10", shift: "M", upc: "6792012302", revised: false },
                     { subject: "Protein Structure and Enzymology", date: "2026-12-15", shift: "M", upc: "6792012303", revised: false },
-                    { subject: "Functional Ecology",               date: "2026-12-08", shift: "M", upc: "6792012301", revised: false }
+                    { subject: "Functional Ecology",               date: "2026-12-08", shift: "M", upc: "6792012301", revised: false },
+                    { subject: "Hormone Biochemistry",             date: "2026-12-18", shift: "M", upc: "6793012002",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
                     { subject: "Molecular Biology I",                 date: "2026-12-04", shift: "M", upc: "6792013501", revised: false },
                     { subject: "Transmission and Molecular Genetics", date: "2026-12-09", shift: "M", upc: "6792013502", revised: false },
-                    { subject: "Growth and Reproduction",             date: "2026-12-12", shift: "M", upc: "6792013503", revised: false }
+                    { subject: "Growth and Reproduction",             date: "2026-12-12", shift: "M", upc: "6792013503", revised: false },
+                    // { subject: "Membrane Biology",                    date: "",           shift: "M", upc: "",           revised: false, cat: "DSE" },
+                    { subject: "Ethology",                            date: "2026-12-16",           shift: "M", upc: "6793010009",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             },
@@ -1329,12 +1474,19 @@
                 "Semester III": [
                     { subject: "Chemical Energetics and Equilibria",          date: "2026-12-08", shift: "M", upc: "2172512302", revised: false },
                     { subject: "Plant Cell and Developmental Biology",        date: "2026-12-10", shift: "M", upc: "2162522301", revised: false },
-                    { subject: "Biochemistry: Basic concepts of Metabolism",  date: "2026-12-15", shift: "M", upc: "2232522301", revised: false }
+                    { subject: "Biochemistry: Basic concepts of Metabolism",  date: "2026-12-15", shift: "M", upc: "2232522301", revised: false },
+                    { subject: "Wildlife Conservation and Management",        date: "2026-12-18",           shift: "M", upc: "2233012004",           revised: false, cat: "DSE" },
+                    { subject: "Evolutionary Biology of Plants",              date: "2026-12-18",           shift: "M", upc: " 2163012001",           revised: false, cat: "DSE" },
+                    // { subject: "Chemistry (SLS DSE III)",                     date: "",           shift: "M", upc: "",           revised: false, cat: "DSE" }
                 ],
                 "Semester V": [
                     { subject: "Plant Physiology and Metabolism",                                  date: "2026-12-09", shift: "M", upc: "2162523502", revised: false },
                     { subject: "Coordination Chemistry and its Application in Biological Systems", date: "2026-12-04", shift: "M", upc: "2172523501", revised: false },
-                    { subject: "Evolutionary Ecology",                                             date: "2026-12-12", shift: "M", upc: "2232523501", revised: false }
+                    { subject: "Evolutionary Ecology",                                             date: "2026-12-12", shift: "M", upc: "2232523501", revised: false },
+                    { subject: "Reproductive Biology and (ART)",                                   date: "2026-12-16",           shift: "M", upc: " 2233010013",           revised: false, cat: "DSE" },
+                    // { subject: "Research Methodology",                                             date: "",           shift: "M", upc: "",           revised: false, cat: "DSE" },
+                    { subject: "Natural Resource Management",                                      date: "2026-12-16",           shift: "M", upc: "2163013006",           revised: false, cat: "DSE" },
+                    // { subject: "Chemistry (SLS DSE V)",                                            date: "",           shift: "M", upc: "",           revised: false, cat: "DSE" }
                 ],
                 "Semester VII": []
             }
@@ -1451,7 +1603,10 @@
             "Statistics": {
                 "Semester I":   [{ subject: "Descriptive Statistics and Probability Theory", date: "2026-12-11", shift: "E", upc: "2372571103", revised: false }],
                 "Semester III": [{ subject: "Elements of Sampling Distributions",            date: "2026-12-10", shift: "E", upc: "2372572303", revised: false }],
-                "Semester V":   [{ subject: "Introduction to Design of Experiments",         date: "2026-12-09", shift: "E", upc: "2372573501", revised: false }],
+                "Semester V":   [
+                    { subject: "Introduction to Design of Experiments", date: "2026-12-09", shift: "E", upc: "2372573501", revised: false },
+                    { subject: "Regression Analysis",                   date: "2026-12-16",           shift: "E", upc: " 2373010008",           revised: false, cat: "DSE" }
+                ],
                 "Semester VII": []
             },
             "Tamil": {
@@ -1518,10 +1673,84 @@
                 { subject: "Ancient Indian Medicinal Science: Unveiling the Secrets of Ayurveda", date: "2026-12-22", shift: "E", upc: "2135000017", sems: ["Semester III"], revised: false },
                 { subject: "Ancient Indian Medicinal Science: Unveiling the Secrets of Ayurveda", date: "2026-12-24", shift: "M", upc: "2135000017", sems: ["Semester V"],   revised: false },
                 { subject: "Sociology and Everyday Life",                                         date: "2026-12-23", shift: "M", upc: "2304001002", sems: ["Semester I"],   revised: false },
-                { subject: "Basic Statistics for Economics",                                      date: "2026-12-23", shift: "E", upc: "2374001001", sems: ["Semester I"],   revised: false },
+                { subject: "Basic Statistics",                                                    date: "2026-12-23", shift: "E", upc: "2374001001", sems: ["Semester I"],   revised: false },
                 { subject: "Economic Zoology",                                                    date: "2026-12-23", shift: "E", upc: "2234001205", sems: ["Semester I"],   revised: false },
-                { subject: "Fitness and Wellness",                                                date: "2026-12-23", shift: "E", upc: "2554001001", sems: ["Semester I"],   revised: false }
+                { subject: "Fitness and Wellness",                                                date: "2026-12-23", shift: "E", upc: "2554001001", sems: ["Semester I"],   revised: false },
+                // { subject: "Introduction To Public Policy",                                       date: "2026-12-23", shift: "M", upc: "2324002008", sems: ["Semester I"],   revised: false },
+                { subject: "Introduction To Public Policy",                                       date: "2026-12-22", shift: "M", upc: "2324002008", sems: ["Semester III"], revised: false },
+                // { subject: "Introduction To Public Policy",                                       date: "2026-12-24", shift: "M", upc: "2324002008", sems: ["Semester V"],   revised: false },
+                { subject: "Sampling Distributions",                                              date: "2026-12-22", shift: "E", upc: "2374002001", sems: ["Semester III"], revised: false },
+
+                /* Newly added GE papers from College Timetables */
+                { subject: "Financial Statement Analysis",                                        date: "2026-12-22",           shift: "M", upc: " 2414002004",           sems: ["Semester III"], revised: false },
+                { subject: "Making of Post-Colonial India",                                       date: "2026-12-22",           shift: "M", upc: " 2314002002",           sems: ["Semester III"], revised: false },
+                { subject: "Contribution of Indian Knowledge System",                             date: "2026-12-22",           shift: "E", upc: "2135000016",           sems: ["Semester III"], revised: false },
+                { subject: "Sociology of Climate Change",                                         date: "2026-12-22",           shift: "M", upc: " 2304002003",           sems: ["Semester III"], revised: false },
+                { subject: "हिंदी का वैश्विक परिदृश्य",                                                  date: "2026-12-22",           shift: "E", upc: " 2054001001",           sems: ["Semester III"], revised: false },
+                { subject: "Human Physiology",                                                    date: "2026-12-22",           shift: "E", upc: " 2234001001",           sems: ["Semester III"], revised: false },
+                { subject: "Introductory Astronomy",                                              date: "2026-12-22",           shift: "E", upc: " 2224001001",           sems: ["Semester III"], revised: false },
+                { subject: "Differential Equations",                                              date: "2026-12-22",           shift: "E", upc: " 2354002001",           sems: ["Semester III"], revised: false },
+                { subject: "Artificial Intelligence and Machine Learning",                        date: "2026-12-22",           shift: "E", upc: "2514000012",           sems: ["Semester III"], revised: false },
+                { subject: "States of Matter",                                                    date: "2026-12-22",           shift: "E", upc: " 2174001011",           sems: ["Semester III"], revised: false },
+                // { subject: "Inheritance in Biology",                                              date: "2026-12-",           shift: "E", upc: "",           sems: ["Semester III"], revised: false },
+                { subject: "Physiology of Sports and Exercise",                                   date: "2026-12-22",           shift: "E", upc: "2494002003",           sems: ["Semester III"], revised: false },
+                // { subject: "Hormone Biochemistry and Function",                                   date: "2026-12-",           shift: "E", upc: "",           sems: ["Semester III"], revised: false },
+
+                { subject: "Introduction to Statistical Linear Model",                            date: "2026-12-24",           shift: "E", upc: " 2374000006",           sems: ["Semester V"],   revised: false },
+                { subject: "Statistical Techniques for Quality Control",                          date: "2026-12-24",           shift: "E", upc: "2374000007",           sems: ["Semester V"],   revised: false },
+                { subject: "Fundamentals of Human Resource Management",                           date: "2026-12-24",           shift: "M", upc: "2414000017",           sems: ["Semester V"],   revised: false },
+                { subject: "Women in Indian History",                                             date: "2026-12-24",           shift: "M", upc: " 2314000018",           sems: ["Semester V"],   revised: false },
+                { subject: "Governance: Issues and Challenges",                                   date: "2026-12-24",           shift: "M", upc: " 2324002005",           sems: ["Semester V"],   revised: false },
+                { subject: "Indian Legal System",                                                 date: "2026-12-24",           shift: "M", upc: " 2135000009",           sems: ["Semester V"],   revised: false },
+                { subject: "Understanding Development",                                           date: "2026-12-24",           shift: "M", upc: " 2304000007",           sems: ["Semester V"],   revised: false },
+                { subject: "कम्प्यूटर और हिंदी",                                                      date: "2026-12-24",             shift: "M", upc: "2054000006",                      sems: ["Semester V"],   revised: false },
+                { subject: "Introduction to Public Health and Epidemiology",                      date: "2026-12-24",           shift: "M", upc: " 2324002008",           sems: ["Semester V"],   revised: false },
+                { subject: "Solid State Physics",                                                 date: "2026-12-24",           shift: "E", upc: " 2224002002",           sems: ["Semester V"],   revised: false },
+                { subject: "Numerical Analysis and Computational Physics",                        date: "2026-12-24",           shift: "E", upc: " 2224002004",           sems: ["Semester V"],   revised: false },
+                { subject: "Mathematical Python",                                                 date: "2026-12-24",           shift: "E", upc: " 2354000007",           sems: ["Semester V"],   revised: false },
+                { subject: "Fundamentals of 8085 Microprocessor",                                 date: "2026-12-24",           shift: "E", upc: " 2514000011",           sems: ["Semester V"],   revised: false },
+                { subject: "Conductance and Electrochemistry",                                    date: "2026-12-24",           shift: "E", upc: "2174001008",           sems: ["Semester V"],   revised: false },
+                { subject: "Genetic Engineering: Technology and Applications",                    date: "2026-12-24",           shift: "E", upc: " 2164003008",           sems: ["Semester V"],   revised: false },
+                { subject: "Biochemical Correlations of Diseases",                                date: "2026-12-24",           shift: "E", upc: "2494002005",           sems: ["Semester V"],   revised: false },
+
+                /* Economics GEs (Sem III & Sem V) */
+                { subject: "Money and Banking",           date: "2026-12-22", shift: "M", upc: "2274002005", sems: ["Semester III"], revised: false },
+                { subject: "Theory of Public Finance",    date: "2026-12-22", shift: "M", upc: "2274002004", sems: ["Semester III"], revised: false },
+                { subject: "Basic Development Economics", date: "2026-12-24", shift: "M", upc: "2274002002", sems: ["Semester V"],   revised: false },
+                { subject: "Money and Banking",           date: "2026-12-24", shift: "M", upc: "2274002005", sems: ["Semester V"],   revised: false },
+                { subject: "Education and Development",   date: "2026-12-24", shift: "M", upc: "2274002008", sems: ["Semester V"],   revised: false },
+
+                // { subject: "Non-Parametric Methods",                                              date: "",           shift: "M", upc: "",           sems: ["Semester VII"], revised: false },
+                // { subject: "E-Commerce",                                                          date: "2026-12-19", shift: "M", upc: "2414090006", sems: ["Semester VII"], revised: false },
+
+                /* Missing Sem III & Sem V GEs (SVC 2026-27) */
+                { subject: "Readings on Indian Diversities and Literary Movements", date: "2026-12-22", shift: "M", upc: "2034000012", sems: ["Semester III"], revised: false },
+                { subject: "Olympic Education",                                     date: "2026-12-22", shift: "E", upc: "2554002001", sems: ["Semester III"], revised: false },
+                { subject: "Genre Fiction",                                         date: "2026-12-24", shift: "M", upc: "2034002002", sems: ["Semester V"],   revised: false },
+                { subject: "Elementary Mathematical Analysis",                      date: "2026-12-24", shift: "E", upc: "2354000008", sems: ["Semester V"],   revised: false },
+                { subject: "History and Foundation of Physical Education",          date: "2026-12-24", shift: "E", upc: "2554000004", sems: ["Semester V"],   revised: false },
+
+                // Missing Sem I GEL Courses (Prog Only)
+                { subject: "English Language Through Literature - I",        date: "2026-12-23", shift: "E", upc: "2035001004", sems: ["Semester I"],   revised: false },
+                { subject: "हिंदी भाषा और साहित्य का उद्भव और विकास (क)",    date: "2026-12-23", shift: "E", upc: "2055091001", sems: ["Semester I"],   revised: false },
+                { subject: "हिंदी भाषा और साहित्य का उद्भव और विकास (ख)",    date: "2026-12-23", shift: "E", upc: "2055091002", sems: ["Semester I"],   revised: false },
+                { subject: "हिंदी भाषा और साहित्य का उद्भव और विकास (ग)",    date: "2026-12-23", shift: "E", upc: "2055091003", sems: ["Semester I"],   revised: false },
+                { subject: "संस्कृत भाषा एवं साहित्य (Introductory)",          date: "2026-12-23", shift: "E", upc: "2135000021", sems: ["Semester I"],   revised: false },
+                { subject: "Introduction to Tamil Folk Literature",          date: "2026-12-23", shift: "E", upc: "2085001111", sems: ["Semester I"],   revised: false },
+                { subject: "Telugu Literature and History: An Introduction", date: "2026-12-23", shift: "E", upc: "2085001109", sems: ["Semester I"],   revised: false },
+
+                // Missing Sem III GEL Courses (Prog Only)
+                { subject: "English Language Through Literature - II",       date: "2026-12-22", shift: "E", upc: "2035002001", sems: ["Semester III"], revised: false },
+                { subject: "हिंदी गद्य विकास के विविध चरण (क)",              date: "2026-12-22", shift: "E", upc: "2055092001", sems: ["Semester III"], revised: false },
+                { subject: "हिंदी गद्य विकास के विविध चरण (ख)",              date: "2026-12-22", shift: "E", upc: "2055092002", sems: ["Semester III"], revised: false },
+                { subject: "हिंदी गद्य विकास के विविध चरण (ग)",              date: "2026-12-22", shift: "E", upc: "2055092003", sems: ["Semester III"], revised: false },
+                { subject: "Creative Writing (Tamil)",                       date: "2026-12-22", shift: "E", upc: "2084002002", sems: ["Semester III"], revised: false },
+                { subject: "Telugu Sathaka Sahityam",                        date: "2026-12-22", shift: "E", upc: "2084002004", sems: ["Semester III"], revised: false },
+
+                // Missing Sem V GE (B.A. Prog Only)
+                { subject: "प्रवासी हिंदी साहित्य (B.A. Prog Only)",          date: "2026-12-24",           shift: "M", upc: " 2054000009",           sems: ["Semester V"],   revised: false }
             ],
+            
             "SEC": [
                 { subject: "Essential Food Nutrients",                  date: "2026-12-17", shift: "E", upc: "2176000001", sems: ["Semester I"],   revised: false },
                 { subject: "Essential Food Nutrients",                  date: "2026-12-19", shift: "E", upc: "2176000001", sems: ["Semester III"], revised: false },
@@ -1534,7 +1763,36 @@
                 { subject: "Museum and Museology",                      date: "2026-12-05", shift: "E", upc: "2316000001", sems: ["Semester V"],   revised: false },
                 { subject: "Political Leadership and Communication",    date: "2026-12-17", shift: "E", upc: "3206000002", sems: ["Semester I"],   revised: false },
                 { subject: "Political Leadership and Communication",    date: "2026-12-19", shift: "E", upc: "3206000002", sems: ["Semester III"], revised: false },
-                { subject: "Political Leadership and Communication",    date: "2026-12-05", shift: "E", upc: "3206000002", sems: ["Semester V"],   revised: false }
+                { subject: "Political Leadership and Communication",    date: "2026-12-05", shift: "E", upc: "3206000002", sems: ["Semester V"],   revised: false },
+
+                /* Newly added SEC papers from College Timetables */
+                // { subject: "Advanced Spreadsheets Tools",               date: "", shift: "E", upc: "", sems: ["Semester I"],   revised: false },
+                // { subject: "Yoga in Practice",                          date: "", shift: "E", upc: "", sems: ["Semester I"],   revised: false },
+                // { subject: "Healthy & Sustainable Food Choices",        date: "", shift: "E", upc: "", sems: ["Semester I"],   revised: false },
+
+                // { subject: "IT Skills and Data Analytics I",            date: "", shift: "E", upc: "", sems: ["Semester III"], revised: false },
+                // { subject: "Basic IT Tools",                            date: "", shift: "E", upc: "", sems: ["Semester III"], revised: false },
+                { subject: "Reading the Archive",                       date: "2026-12-19", shift: "E", upc: "2316000002", sems: ["Semester III"], revised: false },
+                // { subject: "Negotiation and Leadership",                date: "", shift: "E", upc: "", sems: ["Semester III"], revised: false },
+                // { subject: "Yoga in Practice",                          date: "", shift: "E", upc: "", sems: ["Semester III"], revised: false },
+                { subject: "Life Skill Education",                      date: "2026-12-19", shift: "E", upc: "2336000002", sems: ["Semester III"], revised: false },
+                // { subject: "पटकथा लेखन",                               date: "", shift: "E", upc: "", sems: ["Semester III"], revised: false },
+                // { subject: "Document Preparation and Presentation",     date: "", shift: "E", upc: "", sems: ["Semester III"], revised: false },
+                // { subject: "Front-End Web Designing",                   date: "", shift: "E", upc: "", sems: ["Semester III"], revised: false },
+                // { subject: "Basics of Food Science and Nutrition",      date: "", shift: "E", upc: "", sems: ["Semester III"], revised: false },
+                // { subject: "Healthy & Sustainable Food Choices",        date: "", shift: "E", upc: "", sems: ["Semester III"], revised: false },
+
+                // { subject: "Financial Modeling with Excel",             date: "", shift: "E", upc: "", sems: ["Semester V"],   revised: false },
+                // { subject: "Innovation & Entrepreneurship",             date: "", shift: "E", upc: "", sems: ["Semester V"],   revised: false },
+                // { subject: "E-Waste Management and Sustainable Practices", date: "", shift: "E", upc: "", sems: ["Semester V"], revised: false },
+                // { subject: "Rangamanch (रंगमंच)",                       date: "", shift: "E", upc: "", sems: ["Semester V"],   revised: false },
+                // { subject: "Sustainable Ecotourism and Empowerment",    date: "", shift: "E", upc: "", sems: ["Semester V"],   revised: false },
+                // { subject: "Yoga in Practice",                          date: "", shift: "E", upc: "", sems: ["Semester V"],   revised: false },
+                // { subject: "Introduction to Blockchain",                date: "", shift: "E", upc: "", sems: ["Semester V"],   revised: false },
+                // { subject: "Introduction to Cloud Computing (AWS)",     date: "", shift: "E", upc: "", sems: ["Semester V"],   revised: false },
+                // { subject: "Chemistry of Cosmetics & Hygiene Products", date: "", shift: "E", upc: "", sems: ["Semester V"],   revised: false },
+                // { subject: "Organic Farming",                           date: "", shift: "E", upc: "", sems: ["Semester V"],   revised: false },
+                // { subject: "Isolation and Characterization of Genomic DNA", date: "", shift: "E", upc: "", sems: ["Semester V"], revised: false }
             ],
             "VAC": [
                 { subject: "Ayurveda and Nutrition",                       date: "2026-12-21", shift: "M", upc: "6967000001",              sems: ["Semester I"],   revised: false },
@@ -1554,11 +1812,19 @@
                 { subject: "Vedic Mathematics - I",                        date: "2026-12-21", shift: "M", upc: "6967000020",              sems: ["Semester I"],   revised: false },
                 { subject: "Vedic Mathematics - I",                        date: "2026-12-21", shift: "E", upc: "6967000020",              sems: ["Semester III"], revised: false },
                 { subject: "Yoga Philosophy and Practice",                 date: "2026-12-21", shift: "M", upc: "6967000021 / 6967001021", sems: ["Semester I"],   revised: false },
-                { subject: "Yoga Philosophy and Practice",                 date: "2026-12-21", shift: "E", upc: "6967000021",              sems: ["Semester III"], revised: false }
+                { subject: "Yoga Philosophy and Practice",                 date: "2026-12-21", shift: "E", upc: "6967000021",              sems: ["Semester III"], revised: false },
+                { subject: "Swachh Bharat",                                date: "2026-12-21", shift: "E", upc: "6967000018",              sems: ["Semester III"], revised: false },
+
+                /* Newly added VAC papers from College Timetables */
+                { subject: "Emotional Intelligence",                       date: "2026-12-21", shift: "E", upc: "6967000005",              sems: ["Semester III"], revised: false },
+                { subject: "Social and Emotional Learning",                date: "2026-12-21", shift: "E", upc: "6967000016",              sems: ["Semester III"], revised: false },
+                // { subject: "Digital Empowerment",                          date: "2026-12-21", shift: "E", upc: "",                        sems: ["Semester III"], revised: false }
             ],
             "AEC": [
-                { subject: "Environmental Science: Theory into Practice - I",     date: "2026-12-26", shift: "",  upc: "2181001001", sems: ["Semester I"],   revised: false },
-                { subject: "Environmental Science: Theory into Practice - II",    date: "2026-12-28", shift: "",  upc: "2181002001", sems: ["Semester III"], revised: false },
+                { subject: "Environmental Science: Theory into Practice - I",     date: "2026-12-26", shift: "M",  upc: "2181001001", sems: ["Semester I"],   revised: false },
+                { subject: "Environmental Science: Theory into Practice - I",     date: "2026-12-26", shift: "E",  upc: "2181001001", sems: ["Semester I"],   revised: false },
+                { subject: "Environmental Science: Theory into Practice - II",    date: "2026-12-28", shift: "M",  upc: "2181002001", sems: ["Semester III"], revised: false },
+                { subject: "Environmental Science: Theory into Practice - II",    date: "2026-12-28", shift: "E",  upc: "2181002001", sems: ["Semester III"], revised: false },
 
                 { subject: "AEC: हिंदी भाषा: सम्प्रेषण और संचार (हिंदी क)",              date: "2026-12-26", shift: "",  upc: "2051001001", sems: ["Semester I"],   revised: false },
                 { subject: "AEC: व्यवहारिक हिंदी (हिन्दी क)",                         date: "2026-12-28", shift: "",  upc: "2051002001", sems: ["Semester III"], revised: false },
@@ -1584,6 +1850,14 @@
                 { subject: "AEC: Sanskrit C : Introduction to Sanskrit Language",   date: "2026-12-26", shift: "", upc: "2131001003", sems: ["Semester I"],   revised: false },
                 { subject: "AEC: Sanskrit C : Introduction to Sanskrit Language",   date: "2026-12-28", shift: "", upc: "2131002003", sems: ["Semester III"], revised: false },
 
+                /* Newly added Sanskrit Sem III AEC papers from Sanskrit Timetable */
+                { subject: "AEC: Sanskrit A : Ancient Indian Economy",                               date: "2026-12-28", shift: "M", upc: "2131002001", sems: ["Semester III"], revised: false },
+                { subject: "AEC: Sanskrit A : Ancient Indian Economy",                               date: "2026-12-28", shift: "E", upc: "2131002001", sems: ["Semester III"], revised: false },
+                { subject: "AEC: Sanskrit B : Intermediate Administrative Structure in Kautilya's Arthashastra", date: "2026-12-28", shift: "M", upc: "2131002005", sems: ["Semester III"], revised: false },
+                  { subject: "AEC: Sanskrit B : Intermediate Administrative Structure in Kautilya's Arthashastra", date: "2026-12-28", shift: "E", upc: "2131002005", sems: ["Semester III"], revised: false },
+                { subject: "AEC: Sanskrit C : Introductory Cultural and Society",                    date: "2026-12-28", shift: "M", upc: "2131002006", sems: ["Semester III"], revised: false },
+                { subject: "AEC: Sanskrit C : Introductory Cultural and Society",                    date: "2026-12-28", shift: "E", upc: "2131002006", sems: ["Semester III"], revised: false },
+
                 { subject: "AEC (A): Translation and Interpretation in Tamil",    date: "2026-12-26", shift: "E", upc: "2081001017", sems: ["Semester I"],   revised: false },
                 { subject: "AEC (A): Journalistic Writing in Tamil",              date: "2026-12-28", shift: "E", upc: "2081002017", sems: ["Semester III"], revised: false },
 
@@ -1596,61 +1870,62 @@
                 { subject: "AEC (B): Basic Telugu",                               date: "2026-12-26", shift: "E", upc: "2081001036", sems: ["Semester I"],   revised: false },
                 { subject: "AEC (B): Intermediate Telugu",                        date: "2026-12-28", shift: "E", upc: "2081002048", sems: ["Semester III"], revised: false },
 
-                { subject: "Assamese (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001001 (A) / 2081001019 (B)", sems: ["Semester I"],   revised: false },
-                { subject: "Assamese (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002001 (A) / 2081002031 (B)", sems: ["Semester III"], revised: false },
+                // { subject: "Assamese (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001001 (A) / 2081001019 (B)", sems: ["Semester I"],   revised: false },
+                // { subject: "Assamese (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002001 (A) / 2081002031 (B)", sems: ["Semester III"], revised: false },
 
-                { subject: "Bengali (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001002 (A) / 2081001020 (B)", sems: ["Semester I"],   revised: false },
-                { subject: "Bengali (Journalistic Writing / Intermediate / Basic - 2)", date: "2026-12-28", shift: "E", upc: "2081002002 (A) / 2081002032 (B) / 2081002049 (Basic - 2)", sems: ["Semester III"], revised: false },
+                // { subject: "Bengali (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001002 (A) / 2081001020 (B)", sems: ["Semester I"],   revised: false },
+                // { subject: "Bengali (Journalistic Writing / Intermediate / Basic - 2)", date: "2026-12-28", shift: "E", upc: "2081002002 (A) / 2081002032 (B) / 2081002049 (Basic - 2)", sems: ["Semester III"], revised: false },
 
-                { subject: "Bodo (Translation & Interpretation / Basic)",         date: "2026-12-26", shift: "E", upc: "2081001003 (T&I) / 2081001021 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Bodo (Journalistic Writing / Intermediate)",          date: "2026-12-28", shift: "E", upc: "2081002003 (JW) / 2081002033 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Bodo (Translation & Interpretation / Basic)",         date: "2026-12-26", shift: "E", upc: "2081001003 (T&I) / 2081001021 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Bodo (Journalistic Writing / Intermediate)",          date: "2026-12-28", shift: "E", upc: "2081002003 (JW) / 2081002033 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Dogri (Translation & Interpretation / Basic)",        date: "2026-12-26", shift: "E", upc: "2081001004 (T&I) / 2081001022 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Dogri (Journalistic Writing / Intermediate)",         date: "2026-12-28", shift: "E", upc: "2081002004 (JW) / 2081002034 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Dogri (Translation & Interpretation / Basic)",        date: "2026-12-26", shift: "E", upc: "2081001004 (T&I) / 2081001022 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Dogri (Journalistic Writing / Intermediate)",         date: "2026-12-28", shift: "E", upc: "2081002004 (JW) / 2081002034 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Gujarati (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001005 (T&I) / 2081001023 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Gujarati (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002005 (JW) / 2081002035 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Gujarati (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001005 (T&I) / 2081001023 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Gujarati (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002005 (JW) / 2081002035 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Kannada (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001006 (T&I) / 2081001024 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Kannada (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002006 (JW) / 2081002036 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Kannada (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001006 (T&I) / 2081001024 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Kannada (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002006 (JW) / 2081002036 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Kashmiri (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001007 (T&I) / 2081001025 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Kashmiri (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002007 (JW) / 2081002037 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Kashmiri (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001007 (T&I) / 2081001025 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Kashmiri (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002007 (JW) / 2081002037 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Konkani (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001008 (T&I) / 2081001026 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Konkani (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002008 (JW) / 2081002038 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Konkani (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001008 (T&I) / 2081001026 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Konkani (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002008 (JW) / 2081002038 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Malayalam (Translation & Interpretation / Basic)",    date: "2026-12-26", shift: "E", upc: "2081001009 (T&I) / 2081001027 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Malayalam (Journalistic Writing / Intermediate)",     date: "2026-12-28", shift: "E", upc: "2081002009 (JW) / 2081002039 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Malayalam (Translation & Interpretation / Basic)",    date: "2026-12-26", shift: "E", upc: "2081001009 (T&I) / 2081001027 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Malayalam (Journalistic Writing / Intermediate)",     date: "2026-12-28", shift: "E", upc: "2081002009 (JW) / 2081002039 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Manipuri (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001010 (T&I) / 2081001028 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Manipuri (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002010 (JW) / 2081002040 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Manipuri (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001010 (T&I) / 2081001028 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Manipuri (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002010 (JW) / 2081002040 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Marathi (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001011 (T&I) / 2081001029 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Marathi (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002011 (JW) / 2081002041 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Marathi (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001011 (T&I) / 2081001029 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Marathi (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002011 (JW) / 2081002041 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Maithili (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001012 (T&I) / 2081001030 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Maithili (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002012 (JW) / 2081002042 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Maithili (Translation & Interpretation / Basic)",     date: "2026-12-26", shift: "E", upc: "2081001012 (T&I) / 2081001030 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Maithili (Journalistic Writing / Intermediate)",      date: "2026-12-28", shift: "E", upc: "2081002012 (JW) / 2081002042 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Nepali (Translation & Interpretation / Basic)",       date: "2026-12-26", shift: "E", upc: "2081001013 (T&I) / 2081001031 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Nepali (Journalistic Writing / Intermediate)",        date: "2026-12-28", shift: "E", upc: "2081002013 (JW) / 2081002043 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Nepali (Translation & Interpretation / Basic)",       date: "2026-12-26", shift: "E", upc: "2081001013 (T&I) / 2081001031 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Nepali (Journalistic Writing / Intermediate)",        date: "2026-12-28", shift: "E", upc: "2081002013 (JW) / 2081002043 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Odia (Translation & Interpretation / Basic)",         date: "2026-12-26", shift: "E", upc: "2081001014 (T&I) / 2081001032 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Odia (Journalistic Writing / Intermediate)",          date: "2026-12-28", shift: "E", upc: "2081002014 (JW) / 2081002044 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Odia (Translation & Interpretation / Basic)",         date: "2026-12-26", shift: "E", upc: "2081001014 (T&I) / 2081001032 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Odia (Journalistic Writing / Intermediate)",          date: "2026-12-28", shift: "E", upc: "2081002014 (JW) / 2081002044 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Punjabi (Mudhla / Uchera / Uchtam Padhar)",           date: "2026-12-26", shift: "",  upc: "2121001001 (Mudhla) / 2121001002 (Uchera) / 2121001003 (Uchtam)", sems: ["Semester I"],   revised: false },
-                { subject: "Punjabi (Karji / Media / Computer / Anuvad)",         date: "2026-12-28", shift: "",  upc: "2121000007 (Karji) / 2121002001 (Media) / 2121002002 (Comp) / 2121002003 (Anuvad)", sems: ["Semester III"], revised: false },
+                // { subject: "Punjabi (Mudhla / Uchera / Uchtam Padhar)",           date: "2026-12-26", shift: "",  upc: "2121001001 (Mudhla) / 2121001002 (Uchera) / 2121001003 (Uchtam)", sems: ["Semester I"],   revised: false },
+                // { subject: "Punjabi (Karji / Media / Computer / Anuvad)",         date: "2026-12-28", shift: "",  upc: "2121000007 (Karji) / 2121002001 (Media) / 2121002002 (Comp) / 2121002003 (Anuvad)", sems: ["Semester III"], revised: false },
 
-                { subject: "Santali (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001015 (T&I) / 2081001033 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Santali (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002015 (JW) / 2081002045 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Santali (Translation & Interpretation / Basic)",      date: "2026-12-26", shift: "E", upc: "2081001015 (T&I) / 2081001033 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Santali (Journalistic Writing / Intermediate)",       date: "2026-12-28", shift: "E", upc: "2081002015 (JW) / 2081002045 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Sindhi (Translation & Interpretation / Basic)",       date: "2026-12-26", shift: "E", upc: "2081001016 (T&I) / 2081001034 (Basic)", sems: ["Semester I"],   revised: false },
-                { subject: "Sindhi (Journalistic Writing / Intermediate)",        date: "2026-12-28", shift: "E", upc: "2081002016 (JW) / 2081002046 (Int)",    sems: ["Semester III"], revised: false },
+                // { subject: "Sindhi (Translation & Interpretation / Basic)",       date: "2026-12-26", shift: "E", upc: "2081001016 (T&I) / 2081001034 (Basic)", sems: ["Semester I"],   revised: false },
+                // { subject: "Sindhi (Journalistic Writing / Intermediate)",        date: "2026-12-28", shift: "E", upc: "2081002016 (JW) / 2081002046 (Int)",    sems: ["Semester III"], revised: false },
 
-                { subject: "Urdu (Urdu A / Urdu B / Urdu C)",                     date: "2026-12-26", shift: "",  upc: "2141001001 (A) / 2141001002 (B) / 2141001003 (C)", sems: ["Semester I"],   revised: false },
-                { subject: "Urdu (Urdu A / Urdu B / Urdu C)",                     date: "2026-12-28", shift: "",  upc: "2141002001 (A) / 2141002002 (B) / 2141002003 (C)", sems: ["Semester III"], revised: false }
+                // { subject: "Urdu (Urdu A / Urdu B / Urdu C)",                     date: "2026-12-26", shift: "",  upc: "2141001001 (A) / 2141001002 (B) / 2141001003 (C)", sems: ["Semester I"],   revised: false },
+                // { subject: "Urdu (Urdu A / Urdu B / Urdu C)",                     date: "2026-12-28", shift: "",  upc: "2141002001 (A) / 2141002002 (B) / 2141002003 (C)", sems: ["Semester III"], revised: false }
             ]
         };
+        
 
     /* #########################################################################
        END OF EASY EDIT ZONE — DO NOT EDIT BELOW THIS LINE (APP ENGINE)
@@ -1699,14 +1974,15 @@
                 const sems = COURSE_SUBJECTS[courseKey];
                 Object.keys(sems).forEach(semId => {
                     (sems[semId] || []).forEach(item => {
+                        const cat = item.cat || 'DSC';
                         list.push({
-                            id: `${courseKey}|${semId}|${item.subject}`,
+                            id: `${courseKey}|${semId}|${cat}|${item.subject}`,
                             date: (item.date || '').trim(),
                             ...resolveShift(item.shift),
                             subject: item.subject,
                             upc: (item.upc || '').trim(),
                             semester: semId,
-                            category: item.cat || 'DSC',
+                            category: cat,
                             courseKey: courseKey,
                             note: `${courseKey} • ${semId}`,
                             isUpdated: item.revised === true
@@ -1720,14 +1996,15 @@
                 const sems = BA_PROG_DISCIPLINE_DATES[disc];
                 Object.keys(sems).forEach(semId => {
                     (sems[semId] || []).forEach(item => {
+                        const cat = item.cat || 'DSC';
                         list.push({
-                            id: `BA_PROG|${disc}|${semId}|${item.subject}`,
+                            id: `BA_PROG|${disc}|${semId}|${cat}|${item.subject}`,
                             date: (item.date || '').trim(),
                             ...resolveShift(item.shift),
                             subject: item.subject,
                             upc: (item.upc || '').trim(),
                             semester: semId,
-                            category: item.cat || 'DSC',
+                            category: cat,
                             courseKey: 'B.A. Programme',
                             baDiscipline: disc,
                             baMajorOnly: Boolean(item.majorOnly),
@@ -1792,7 +2069,7 @@
         const state = {
             course: null,
             semester: null,
-            category: 'All',
+            category: 'DSC',
             baCombo: 'All',
             search: '',
             pinnedIds: loadPins()
@@ -1984,9 +2261,10 @@
             applyCourseFilters();
         }
 
-        function renderSemesters() {
+function renderSemesters() {
             semestersGrid.innerHTML = '';
             SEMESTERS_LIST.forEach(s => {
+                const isSem7 = (s.id === 'Semester VII');
                 const count = allExamEntries.filter(item =>
                     item.semester === s.id &&
                     (item.courseKey === 'ALL' || item.courseKey === state.course.key)
@@ -1995,31 +2273,48 @@
                 semestersGrid.appendChild(makeCard({
                     tileHTML: s.roman,
                     tileClass: 'numeral',
-                    pill: count ? s.year : 'Coming soon',
-                    pillClass: count ? 'num' : '',
+                    pill: (isSem7 || !count) ? 'Coming soon' : s.year,
+                    pillClass: (!isSem7 && count) ? 'num' : '',
                     title: s.id,
                     sub: s.desc,
-                    footLabel: 'Choose Category'
+                    footLabel: isSem7 ? 'Coming Soon' : 'Choose Category'
                 }, () => selectSemester(s.id)));
             });
         }
 
         function renderCategories() {
             categoriesGrid.innerHTML = '';
-            CATEGORIES_LIST.forEach(cat => {
-                categoriesGrid.appendChild(makeCard({
-                    tileHTML: icon(cat.icon),
-                    numBadge: cat.num,
-                    pill: cat.badge,
-                    pillClass: cat.badgeClass,
-                    title: cat.title,
-                    sub: cat.sub,
-                    footLabel: cat.foot
-                }, () => selectCategory(cat.id)));
-            });
+
+            if (state.semester === 'Semester VII') {
+                const box = document.createElement('div');
+                box.className = 'soon-panel';
+                box.innerHTML = `
+                    <span class="tile">${icon('hourglass')}</span>
+                    <h3>Semester VII Datesheet Coming Soon</h3>
+                    <p>The examination schedule for ${esc(state.course ? state.course.name : 'this course')} (Semester VII) has not been published yet. Please check back soon.</p>
+                    <button type="button" class="btn primary" id="sem7-back-btn">Choose Another Semester</button>
+                `;
+                categoriesGrid.appendChild(box);
+                box.querySelector('#sem7-back-btn').addEventListener('click', () => selectCourse(state.course));
+                return;
+            }
+
+            CATEGORIES_LIST
+                .filter(cat => !(state.semester === 'Semester I' && cat.id === 'DSE'))
+                .forEach(cat => {
+                    categoriesGrid.appendChild(makeCard({
+                        tileHTML: icon(cat.icon),
+                        numBadge: cat.num,
+                        pill: cat.badge,
+                        pillClass: cat.badgeClass,
+                        title: cat.title,
+                        sub: cat.sub,
+                        footLabel: cat.foot
+                    }, () => selectCategory(cat.id)));
+                });
         }
 
-        function sortExamEntries(list) {
+       function sortExamEntries(list) {
             return [...list].sort((a, b) => {
                 if (a.date && !b.date) return -1;
                 if (!a.date && b.date) return 1;
@@ -2058,9 +2353,7 @@
                 }
 
                 const semOk = !state.semester || item.semester === state.semester;
-
-                const catOk = state.category === 'All' ||
-                    (state.category === 'DSC' ? (item.category === 'DSC' || item.category === 'DSE') : item.category === state.category);
+                const catOk = item.category === state.category;
 
                 const qOk = !q ||
                     item.subject.toLowerCase().includes(q) ||
@@ -2078,6 +2371,8 @@
             quickPillsWrap.hidden  = isPinnedView;
             baComboWrap.hidden     = !isBAProg;
             pinnedActionsEl.hidden = !isPinnedView || state.pinnedIds.length === 0;
+            const reqBtn = $('request-subject-btn');
+            reqBtn.hidden = isPinnedView || !['DSE', 'GE', 'SEC', 'VAC', 'AEC'].includes(state.category);
 
             quickPills.forEach(btn => {
                 btn.setAttribute('aria-pressed', String(btn.dataset.cat === state.category));
@@ -2122,20 +2417,24 @@
                     timelineEl.appendChild(box);
                     box.querySelector('#empty-action').addEventListener('click', goToCourses);
                 } else {
+                    const hasSearch = Boolean(state.search.trim() || state.baCombo !== 'All');
                     box.innerHTML = `
                         <span class="tile">${icon('hourglass')}</span>
-                        <h3>No subjects added for this semester yet</h3>
-                        <p>No papers found for ${esc(state.course ? state.course.name : '')} (${esc(state.semester || '')}) under this filter. Try switching to <strong>All</strong> papers or clearing your search.</p>
-                        <button type="button" class="btn primary" id="empty-action">Show All Papers</button>
+                        <h3>No ${esc(state.category)} papers found</h3>
+                        <p>No ${esc(state.category)} papers found for ${esc(state.course ? state.course.name : '')} (${esc(state.semester || '')}). ${hasSearch ? 'Try clearing your search filter.' : 'Try selecting another paper category.'}</p>
+                        <button type="button" class="btn primary" id="empty-action">${hasSearch ? 'Reset Search' : 'Choose Another Category'}</button>
                     `;
                     timelineEl.appendChild(box);
                     box.querySelector('#empty-action').addEventListener('click', () => {
-                        state.category = 'All';
-                        state.baCombo = 'All';
-                        baComboSelect.value = 'All';
-                        state.search = '';
-                        searchInput.value = '';
-                        renderDatesheet();
+                        if (hasSearch) {
+                            state.baCombo = 'All';
+                            baComboSelect.value = 'All';
+                            state.search = '';
+                            searchInput.value = '';
+                            renderDatesheet();
+                        } else {
+                            selectSemester(state.semester);
+                        }
                     });
                 }
                 return;
@@ -2258,7 +2557,7 @@
         function goToCourses() {
             state.course = null;
             state.semester = null;
-            state.category = 'All';
+            state.category = 'DSC';
             state.baCombo = 'All';
             baComboSelect.value = 'All';
             state.search = '';
@@ -2272,7 +2571,7 @@
         function selectCourse(course) {
             state.course = course;
             state.semester = null;
-            state.category = 'All';
+            state.category = 'DSC';
             state.baCombo = 'All';
             baComboSelect.value = 'All';
             viewTitle.textContent = `${course.name} — Select Semester`;
@@ -2283,9 +2582,11 @@
 
         function selectSemester(semId) {
             state.semester = semId;
-            state.category = 'All';
+            state.category = 'DSC';
             viewTitle.textContent = `${state.course.name} • ${semId}`;
-            viewSubtitle.textContent = 'Select a paper category or view your complete datesheet.';
+            viewSubtitle.textContent = (semId === 'Semester VII')
+                ? '4th Year Honours (Semester VII) examination schedule is coming soon.'
+                : 'Select a paper category to view your datesheet.';
             renderCategories();
             showScreen('categories');
         }
@@ -2294,7 +2595,7 @@
             state.category = catId;
             state.search = '';
             searchInput.value = '';
-            const catLabel = catId === 'All' ? 'All Papers' : (catId === 'DSC' ? 'DSC (Core)' : catId);
+            const catLabel = catId === 'DSC' ? 'DSC (Core)' : (catId === 'DSE' ? 'DSE (Elective)' : catId);
             viewTitle.textContent = `${state.course.name} • ${state.semester}`;
             viewSubtitle.textContent = `Showing ${catLabel} exams sorted chronologically by date.`;
             showScreen('datesheet');
@@ -2327,11 +2628,9 @@
         });
 
         quickPills.forEach(btn => {
-            btn.addEventListener('click', () => {
-                state.category = btn.dataset.cat;
-                renderDatesheet();
+                btn.hidden = (state.semester === 'Semester I' && btn.dataset.cat === 'DSE');
+                btn.setAttribute('aria-pressed', String(btn.dataset.cat === state.category));
             });
-        });
 
         searchInput.addEventListener('input', (e) => {
             state.search = e.target.value;
@@ -2339,7 +2638,7 @@
         });
 
         /* =====================================================================
-           MINIMALIST AESTHETIC PNG SCHEDULE DOWNLOAD, COPY & PRINT
+           DIRECT PNG DOWNLOAD (NO SHARE SCREEN), COPY TEXT & PRINT
            ===================================================================== */
         function drawRoundRect(ctx, x, y, w, h, r) {
             r = Math.min(r, w / 2, h / 2);
@@ -2368,7 +2667,7 @@
         const PNG_FONT = '"Inter", "Noto Sans Devanagari", system-ui, sans-serif';
         const pf = (w, s) => `${w} ${s}px ${PNG_FONT}`;
         const PNG_CAT = { DSC: '#2563EB', DSE: '#2563EB', GE: '#0F9488', SEC: '#7C3AED', VAC: '#DB2777', AEC: '#EA580C' };
-       
+
         async function renderDatesheetPNG(exams) {
             const W = 1080, padX = 56, railX = 206, cardX = 236, cardW = W - padX - cardX;
             const HDR = 340, FTR = 240, GAP = 12, GROUP_GAP = 30;
@@ -2534,6 +2833,7 @@
                 });
                 y += groupH(g) + GROUP_GAP;
             });
+
             // rail + nodes
             ctx.strokeStyle = '#D5DDEC'; ctx.lineWidth = 3; ctx.setLineDash([2, 8]); ctx.lineCap = 'round';
             ctx.beginPath(); ctx.moveTo(railX, firstNodeY); ctx.lineTo(railX, lastNodeY); ctx.stroke(); ctx.setLineDash([]);
@@ -2579,100 +2879,34 @@
             return { blob, dataUrl };
         }
 
-       const pngModal          = $('png-modal');
-        const pngPreviewImg     = $('png-preview-img');
-        const pngNativeShareBtn = $('png-native-share-btn');
-        const pngDirectBtn      = $('png-direct-download-btn');
-        let currentPngBlob      = null;
-        let currentPngFile      = null;
-
-        function isMobileBrowser() {
-            return /Android|iPhone|iPad|iPod|Mobile|WhatsApp|Instagram|FBAN|FBAV/i.test(navigator.userAgent)
-                || (navigator.maxTouchPoints > 1 && window.innerWidth <= 1024);
-        }
-
-        function buildPngFile(blob) {
-            try {
-                return new File([blob], 'venkyspace-personal-datesheet.png', { type: 'image/png' });
-            } catch (e) {
-                return null;
-            }
-        }
-
-        function canSharePngFile(file) {
-            if (!file || typeof navigator.share !== 'function' || typeof navigator.canShare !== 'function') {
-                return false;
-            }
-            try {
-                return navigator.canShare({ files: [file] });
-            } catch (e) {
-                return false;
-            }
-        }
-
-        function triggerDirectDownload(blob) {
-            if (!blob) return;
-            const url = URL.createObjectURL(blob);
+        function triggerDirectDownload(blob, dataUrl) {
             const link = document.createElement('a');
             link.download = 'venkyspace-personal-datesheet.png';
-            link.href = url;
+            let objectUrl = null;
+            if (blob) {
+                objectUrl = URL.createObjectURL(blob);
+                link.href = objectUrl;
+            } else if (dataUrl) {
+                link.href = dataUrl;
+            } else {
+                return;
+            }
             link.rel = 'noopener';
+            link.style.display = 'none';
             document.body.appendChild(link);
             link.click();
             link.remove();
-            setTimeout(() => URL.revokeObjectURL(url), 10000);
-        }
-
-        function openPngModal(blob, dataUrl, file) {
-            currentPngBlob = blob;
-            currentPngFile = file;
-            pngPreviewImg.src = dataUrl;
-            pngNativeShareBtn.hidden = !canSharePngFile(file);
-            pngModal.hidden = false;
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePngModal() {
-            pngModal.hidden = true;
-            pngPreviewImg.removeAttribute('src');
-            currentPngBlob = null;
-            currentPngFile = null;
-            document.body.style.overflow = '';
-        }
-
-        $('png-modal-close').addEventListener('click', closePngModal);
-        $('png-modal-done-btn').addEventListener('click', closePngModal);
-        pngModal.addEventListener('click', (e) => {
-            if (e.target === pngModal) closePngModal();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !pngModal.hidden) closePngModal();
-        });
-
-        pngDirectBtn.addEventListener('click', () => {
-            if (!currentPngBlob) return;
-            triggerDirectDownload(currentPngBlob);
-            if (typeof showToast === 'function') showToast('Direct download started');
-        });
-
-        pngNativeShareBtn.addEventListener('click', async () => {
-            if (!canSharePngFile(currentPngFile)) return;
-            try {
-                await navigator.share({
-                    files: [currentPngFile],
-                    title: 'My VenkySpace Datesheet'
-                });
-            } catch (err) {
-                /* User cancelled or WebView blocked share; preview modal stays open */
+            if (objectUrl) {
+                setTimeout(() => URL.revokeObjectURL(objectUrl), 15000);
             }
-        });
+        }
 
         $('download-png-btn').addEventListener('click', async (ev) => {
             const btn = ev.currentTarget;
             const exams = getFilteredExams();
             if (!exams.length || btn.disabled) return;
             const label = btn.innerHTML;
-            btn.disabled = true; btn.textContent = 'Preparing image…';
+            btn.disabled = true; btn.textContent = 'Downloading…';
             try {
                 await Promise.race([
                     Promise.all([
@@ -2685,24 +2919,8 @@
 
             try {
                 const { blob, dataUrl } = await renderDatesheetPNG(exams);
-                const pngFile = buildPngFile(blob);
-
-                // Always open fullscreen preview modal immediately (guaranteed fallback for WhatsApp / iOS)
-                openPngModal(blob, dataUrl, pngFile);
-
-                if (isMobileBrowser() && canSharePngFile(pngFile)) {
-                    try {
-                        await navigator.share({
-                            files: [pngFile],
-                            title: 'My VenkySpace Datesheet'
-                        });
-                    } catch (err) {
-                        /* If cancelled or blocked in WhatsApp WebView, the modal with long-press image is already visible */
-                    }
-                } else if (!isMobileBrowser()) {
-                    triggerDirectDownload(blob);
-                    if (typeof showToast === 'function') showToast('Datesheet PNG downloaded');
-                }
+                triggerDirectDownload(blob, dataUrl);
+                showToast('Datesheet PNG downloaded!');
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = label;
@@ -2749,6 +2967,93 @@
             updatePinCounter();
             renderDatesheet();
             showToast('Cleared all pinned exams');
+        });
+        /* =====================================================================
+           REQUEST MISSING SUBJECT MODAL -> GOOGLE SHEETS
+           ===================================================================== */
+        const REQUEST_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzwzZebx3eWCFPU7tdUIbe8vRGvZiV-ZQHi8fxMyG3tLE0YucA0X0CNkveM756BuAry/exec';
+
+        const reqModal          = $('req-modal');
+        const reqForm           = $('req-form');
+        const reqContextBadge   = $('req-context-badge');
+        const reqSubjectInput   = $('req-subject-input');
+        const reqSemesterSelect = $('req-semester-select');
+        const reqSubmitBtn      = $('req-submit-btn');
+
+        function validateReqForm() {
+            const hasSubject  = reqSubjectInput.value.trim().length > 0;
+            const hasSemester = reqSemesterSelect.value !== '';
+            reqSubmitBtn.disabled = !(hasSubject && hasSemester);
+        }
+
+        function openReqModal() {
+            const courseName = state.course ? state.course.name : 'General';
+            reqContextBadge.textContent = `${courseName} • ${state.category}`;
+            reqForm.reset();
+            validateReqForm();
+            reqModal.hidden = false;
+            document.body.style.overflow = 'hidden';
+            reqSubjectInput.focus();
+        }
+
+        function closeReqModal() {
+            reqModal.hidden = true;
+            document.body.style.overflow = '';
+        }
+
+        $('request-subject-btn').addEventListener('click', openReqModal);
+        $('req-close-btn').addEventListener('click', closeReqModal);
+        $('req-cancel-btn').addEventListener('click', closeReqModal);
+        reqModal.addEventListener('click', (e) => {
+            if (e.target === reqModal) closeReqModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !reqModal.hidden) closeReqModal();
+        });
+
+        reqSubjectInput.addEventListener('input', validateReqForm);
+        reqSemesterSelect.addEventListener('change', validateReqForm);
+
+        reqForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const subject  = reqSubjectInput.value.trim();
+            const semester = reqSemesterSelect.value;
+            if (!subject || !semester) {
+                validateReqForm();
+                return;
+            }
+
+            if (REQUEST_SHEET_URL === 'INSERT THE URL HERE') {
+                showToast('Add your Google Apps Script URL first');
+                return;
+            }
+
+            const prevLabel = reqSubmitBtn.textContent;
+            reqSubmitBtn.disabled = true;
+            reqSubmitBtn.textContent = 'Submitting...';
+
+            try {
+                const payload = new URLSearchParams({
+                    course: state.course ? state.course.name : '',
+                    category: state.category || '',
+                    semester: semester,
+                    subject: subject
+                });
+
+                await fetch(REQUEST_SHEET_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: payload
+                });
+
+                closeReqModal();
+                showToast('Request sent! Thank you.');
+            } catch (err) {
+                showToast('Could not send request. Try again.');
+                validateReqForm();
+            } finally {
+                reqSubmitBtn.textContent = prevLabel;
+            }
         });
 
         /* =====================================================================

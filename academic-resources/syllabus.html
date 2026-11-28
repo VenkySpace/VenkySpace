@@ -706,17 +706,47 @@
         }
 
         @media (max-width: 768px) {
-            .vault-container { padding: 18px 14px 44px; }
-            .bento-grid { grid-template-columns: 1fr; gap: 12px; }
-            .bento-card { min-height: 140px; padding: 16px; }
-            .viewer-frame-body { height: 60vh; min-height: 420px; }
-            .filter-toolbar { flex-direction: column; align-items: stretch; }
-            .search-box-wrap { max-width: 100%; }
-            .category-filter-chips { overflow-x: auto; white-space: nowrap; }
-            .viewer-top-toolbar { flex-direction: column; align-items: stretch; }
-            .viewer-btn-group { justify-content: stretch; }
-            .btn-viewer-action { flex: 1; justify-content: center; }
-        }
+    .vault-container { padding: 14px 12px 44px; }
+
+    /* Meesho / Rednote 2x2 grid (4 cards at a time) */
+    .bento-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+    .bento-card {
+        min-height: 0;
+        min-width: 0;
+        padding: 12px;
+        border-radius: 14px;
+        gap: 8px;
+    }
+    .bento-card:hover { transform: none; }
+    .bento-card h2, .bento-card h3, .bento-card h4 {
+        font-size: 0.88rem;
+        line-height: 1.25;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .bento-card p {
+        font-size: 0.7rem;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Keep Syllabus PDF viewer & filters working cleanly */
+    .viewer-frame-body { height: 60vh; min-height: 420px; }
+    .filter-toolbar { flex-direction: column; align-items: stretch; gap: 10px; }
+    .search-box-wrap { max-width: 100%; }
+    .category-filter-chips { overflow-x: auto; white-space: nowrap; }
+    .viewer-top-toolbar { flex-direction: column; align-items: stretch; }
+    .viewer-btn-group { justify-content: stretch; }
+    .btn-viewer-action { flex: 1; justify-content: center; }
+}
     </style>
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -1204,20 +1234,20 @@
             /* -------------------------------------------------------------
                5. AEC: ENVIRONMENTAL SCIENCE (EVS) & INDIAN LANGUAGES
                ------------------------------------------------------------- */
-            "Environmental Science: Theory into Practice - I": "https://drive.google.com/file/d/1hBPlP8tbgJnL5EZ43gVa3Bzq_L54yVB6/view?usp=drive_link",
-            "Environmental Science: Theory into Practice - II": "https://drive.google.com/file/d/1ITHewlSq1B_dtblaWwNWuO4Ll1AJo4Ur/view?usp=drive_link",
+            "Environmental Science: Theory into Practice - I": "",
+            "Environmental Science: Theory into Practice - II": "",
             "Environmental Studies": "",
-            "AEC: हिंदी भाषा: सम्प्रेषण और संचार (हिंदी क)": "https://drive.google.com/file/d/11kVv7-_mWAkkyO3cHB32vLo_LfrIe_3n/view?usp=drive_link",
-            "AEC: हिंदी औपचारिक लेखन (हिंदी ख)": "https://drive.google.com/file/d/1dWhn2fWTR5A-fzP3kUe38KeG0wwtYrJI/view?usp=drive_link",
-            "AEC: सोशल मीडिया और ब्लॉग लेखन (हिंदी ग)": "https://drive.google.com/file/d/1LdmIfPaOQKAJ40cJdrMxpSJkOMW0X4Hq/view?usp=drive_link",
-            "AEC: Hindi D (Special Course)": "https://drive.google.com/file/d/10NuAzRSrC3sgsQ5JsSX0uzZlLGk-hjGQ/view?usp=drive_link",
-            "AEC: Hindi E अनिवार्य हिंदी पाठ्यक्रम": "https://drive.google.com/file/d/1NlZP119A5Y-2W4bnU1-x19NeDoRWDK5d/view?usp=drive_link",
-            "AEC: Sanskrit A : Advance Neeti Literature in Sanskrit": "https://drive.google.com/file/d/15kgu-4UIgwcSQV_aBfOjkbvl_RZ9FbKr/view?usp=drive_link",
-            "AEC: Sanskrit B : Introductory Upanishad and Geeta": "https://drive.google.com/file/d/1VwGSI36HHlkcdkEfYWpc88grlHzXBVrK/view?usp=drive_link",
-            "AEC: Sanskrit C : Introduction to Sanskrit Language": "https://drive.google.com/file/d/1Y93q1UyxBZFcQN_Tu5KBlSYkfKdzpw3a/view?usp=drive_link",
-            "AEC (A): Translation and Interpretation in Tamil": "https://drive.google.com/file/d/19NB1X3b-yh4tSgLue7MiIJvWHbPJBonX/view?usp=drive_link",
-            "AEC (B): Basic Tamil": "https://drive.google.com/file/d/12Eu5NJ8Ee4c67sxkUxOQEq5CHRIefUxW/view?usp=drive_link",
-            "AEC (A): Translation and Interpretation in Telugu": "https://drive.google.com/file/d/1mQ1hUFyCgZUVCAHD8IRsjFYPibo5GwzN/view?usp=drive_link",
+            "AEC: हिंदी भाषा: सम्प्रेषण और संचार (हिंदी क)": "",
+            "AEC: हिंदी औपचारिक लेखन (हिंदी ख)": "",
+            "AEC: सोशल मीडिया और ब्लॉग लेखन (हिंदी ग)": "",
+            "AEC: Hindi D (Special Course)": "",
+            "AEC: Hindi E अनिवार्य हिंदी पाठ्यक्रम": "",
+            "AEC: Sanskrit A : Advance Neeti Literature in Sanskrit": "",
+            "AEC: Sanskrit B : Introductory Upanishad and Geeta": "",
+            "AEC: Sanskrit C : Introduction to Sanskrit Language": "",
+            "AEC (A): Translation and Interpretation in Tamil": "",
+            "AEC (B): Basic Tamil": "",
+            "AEC (A): Translation and Interpretation in Telugu": "",
             "AEC (B): Basic Telugu": "",
             "Assamese (Translation & Interpretation / Basic)": "",
             "Bengali (Translation & Interpretation / Basic)": "",

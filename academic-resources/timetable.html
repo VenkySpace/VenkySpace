@@ -720,8 +720,42 @@
 
         @media (max-width: 768px) {
             .vault-container {
-                padding: 20px 14px 44px;
+                padding: 14px 12px 44px;
             }
+
+            /* Meesho / Rednote 2x2 grid (4 cards at a time) */
+            .bento-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+            .bento-card {
+                min-height: 0;
+                min-width: 0;
+                padding: 12px;
+                border-radius: 14px;
+                gap: 8px;
+            }
+            .bento-card:hover {
+                transform: none;
+            }
+            .bento-card h2, .bento-card h3, .bento-card h4 {
+                font-size: 0.88rem;
+                line-height: 1.25;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .bento-card p {
+                font-size: 0.7rem;
+                line-height: 1.3;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            /* Existing timetable viewer & filter mobile rules */
             .viewer-frame-body {
                 height: 60vh;
                 min-height: 420px;
@@ -729,6 +763,7 @@
             .filter-toolbar {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 10px;
             }
             .search-box-wrap {
                 max-width: 100%;
