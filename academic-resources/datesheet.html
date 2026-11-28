@@ -556,6 +556,11 @@
         .btn.primary:hover { background: var(--grad); filter: brightness(1.08); transform: translateY(-1px); color: #fff; }
         .btn.primary:disabled { opacity: .7; cursor: progress; transform: none; }
         #download-png-btn { height: 40px; padding: 0 18px; }
+        .btn-whatsapp {
+            background: #16A34A; border-color: #16A34A; color: #FFFFFF;
+            box-shadow: 0 8px 18px -8px rgba(22, 163, 74, 0.55);
+        }
+        .btn-whatsapp:hover { background: #15803D; border-color: #15803D; color: #FFFFFF; transform: translateY(-1px); }
 
         /* Exam cards: category colour stripe, clearer hierarchy & matching hover highlight */
         .timeline { gap: 14px; }
@@ -655,10 +660,12 @@
             .card .card-title {
                 font-size: 0.86rem; line-height: 1.24; letter-spacing: -0.02em;
                 display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+                -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
             }
             .card .card-sub {
                 margin-top: 3px; font-size: 0.69rem; line-height: 1.28;
                 display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+                -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
             }
             .card-foot { padding: 7px 0 9px; }
             .card-foot-label { font-size: 0.7rem; }
@@ -690,6 +697,7 @@
             .exam-title {
                 font-size: 0.82rem; line-height: 1.24;
                 display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+                -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
             }
             .exam-sub-row { margin-top: 5px; gap: 4px 5px; }
             .upc-badge {
@@ -911,9 +919,18 @@
                         <svg class="ic" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
                         Print / PDF
                     </button>
+                    <button type="button" class="btn primary" id="download-png-btn">
+                        <svg class="ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Save PNG
+                    </button>
+                    <button type="button" class="btn btn-whatsapp" id="share-whatsapp-btn">
+                        <svg class="ic" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                        Share on WhatsApp
+                    </button>
                     <button type="button" class="btn" id="clear-pins-btn">Clear Pins</button>
                 </div>
             </div>
+
 
             <div class="clash-banner" id="clash-banner" role="alert" hidden>
                 <svg class="ic" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg>
@@ -2908,32 +2925,7 @@ function renderSemesters() {
             }
         }
 
-        $('download-png-btn').addEventListener('click', (ev) => {
-            const btn = ev.currentTarget;
-            const exams = getFilteredExams();
-            if (!exams.length || btn.disabled) return;
-            const label = btn.innerHTML;
-            btn.disabled = true;
-            btn.textContent = 'Downloading…';
-
-            try {
-                const { blob, dataUrl } = renderDatesheetPNG(exams);
-                triggerDirectDownload(blob, dataUrl);
-                const inApp = /WhatsApp|Instagram|FBAN|FBAV/i.test(navigator.userAgent);
-                showToast(inApp
-                    ? 'Open in Chrome/Safari (⋮) if download is blocked'
-                    : 'Datesheet PNG saved to Downloads!');
-            } catch (err) {
-                showToast('Could not generate image. Try Chrome or Safari.');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = label;
-            }
-        });
-
-        $('copy-schedule-btn').addEventListener('click', async () => {
-            const exams = getFilteredExams();
-            if (!exams.length) return;
+       function buildScheduleText(exams) {
             const lines = [
                 '*My Exam Datesheet — VenkySpace*',
                 'Sri Venkateswara College (Dec 2026 – Jan 2027)',
@@ -2946,12 +2938,107 @@ function renderSemesters() {
                 lines.push(`  ${item.subject} [${item.category} · ${item.semester.replace('Semester ', 'Sem ')}]${item.upc ? ` (UPC ${item.upc})` : ''}`);
             });
             lines.push('', 'Cross-verify timings with your official DU Admit Card.');
-            const text = lines.join('\n');
+            return lines.join('\n');
+        }
+
+        function createPngFile(blob) {
+            try {
+                return new File([blob], 'venkyspace-personal-datesheet.png', { type: 'image/png' });
+            } catch {
+                return null;
+            }
+        }
+
+        function canNativeShareFile(file) {
+            if (!file || typeof navigator.share !== 'function' || typeof navigator.canShare !== 'function') return false;
+            try {
+                return navigator.canShare({ files: [file] });
+            } catch {
+                return false;
+            }
+        }
+
+        function isIOSDevice() {
+            return /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        }
+
+        $('download-png-btn').addEventListener('click', (ev) => {
+            const btn = ev.currentTarget;
+            const exams = getFilteredExams();
+            if (!exams.length || btn.disabled) return;
+            const label = btn.innerHTML;
+            btn.disabled = true;
+            btn.textContent = 'Preparing…';
+
+            try {
+                const { blob, dataUrl } = renderDatesheetPNG(exams);
+                const pngFile = createPngFile(blob);
+
+                // On iPhone/iPad, Apple only lets websites save directly into Photos via the native iOS sheet ("Save Image")
+                if (isIOSDevice() && canNativeShareFile(pngFile)) {
+                    navigator.share({
+                        files: [pngFile],
+                        title: 'My VenkySpace Datesheet'
+                    }).catch(() => {
+                        triggerDirectDownload(blob, dataUrl);
+                    });
+                    showToast('Tap "Save Image" to save to iPhone Photos');
+                } else {
+                    triggerDirectDownload(blob, dataUrl);
+                    showToast('Datesheet PNG saved to Downloads!');
+                }
+            } catch {
+                showToast('Could not generate image. Try Chrome or Safari.');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = label;
+            }
+        });
+
+        $('share-whatsapp-btn').addEventListener('click', (ev) => {
+            const btn = ev.currentTarget;
+            const exams = getFilteredExams();
+            if (!exams.length || btn.disabled) return;
+            const label = btn.innerHTML;
+            btn.disabled = true;
+            btn.textContent = 'Opening…';
+
+            try {
+                const { blob } = renderDatesheetPNG(exams);
+                const pngFile = createPngFile(blob);
+                const scheduleText = buildScheduleText(exams);
+
+                // Mobile (iPhone & Android): Share actual PNG image directly to WhatsApp
+                if (canNativeShareFile(pngFile)) {
+                    navigator.share({
+                        files: [pngFile],
+                        title: 'My VenkySpace Datesheet',
+                        text: 'My Exam Datesheet — VenkySpace'
+                    }).catch(() => {});
+                } else {
+                    // Desktop fallback: Open WhatsApp with formatted datesheet text
+                    const waUrl = `https://wa.me/?text=${encodeURIComponent(scheduleText)}`;
+                    window.open(waUrl, '_blank', 'noopener');
+                }
+            } catch {
+                const waUrl = `https://wa.me/?text=${encodeURIComponent(buildScheduleText(exams))}`;
+                window.open(waUrl, '_blank', 'noopener');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = label;
+            }
+        });
+
+        $('copy-schedule-btn').addEventListener('click', async () => {
+            const exams = getFilteredExams();
+            if (!exams.length) return;
+            const text = buildScheduleText(exams);
 
             try {
                 await navigator.clipboard.writeText(text);
                 showToast('Schedule copied to clipboard');
-            } catch (e) {
+            } catch {
                 const ta = document.createElement('textarea');
                 ta.value = text;
                 ta.style.position = 'fixed';
